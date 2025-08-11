@@ -6,10 +6,12 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/800.css';
+import './globals.css'
 
 import { ThemeProvider, useThemeContext } from '@/context/ThemeContext';
 import { ReactLenis } from 'lenis/react'
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import React from 'react';
 
 interface RootLayoutProps {
@@ -45,6 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <AddGrids />
             <Navbar />
             {children}
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
