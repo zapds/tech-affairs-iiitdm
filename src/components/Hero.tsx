@@ -4,11 +4,12 @@ import { useTheme } from '@mui/material/styles';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 import { TypeAnimation } from 'react-type-animation';
+import { Engine } from 'tsparticles-engine';
 
 const Hero = () => {
   const theme = useTheme();
 
-  const particlesInit = useCallback(async (engine) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
@@ -43,7 +44,7 @@ const Hero = () => {
       move: {
         enable: true,
         speed: 1,
-        direction: 'none',
+        direction: "none", 
         random: true,
         straight: false,
         outModes: {
@@ -85,7 +86,8 @@ const Hero = () => {
       <Particles
         id="tsparticles"
         init={particlesInit}
-        options={particlesOptions}
+        // @ts-ignore
+        options={particlesOptions} 
         style={{
           position: 'absolute',
           top: 0,

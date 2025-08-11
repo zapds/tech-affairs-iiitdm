@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import {
   Box,
@@ -49,7 +50,7 @@ const Achievements = () => {
   const maxIndex = Math.max(0, achievements.length - itemsPerPage);
 
   useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout | undefined;
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -68,7 +69,7 @@ const Achievements = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentIndex(index);
   };

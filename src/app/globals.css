@@ -94,7 +94,7 @@ code {
     monospace;
 }
 
-.grids-dark {
+/* .grids-dark {
   background-image: url("/public/grids-dark.svg");
   background-color: oklch(0.269 0 0);
   background-attachment: fixed;
@@ -104,4 +104,4 @@ code {
 background-image: url("/public/grids-light.svg");
 background-color: oklch(0.9 0 0);
 background-attachment: fixed;
-}
+} */
