@@ -3,7 +3,7 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
+  GridLegacy as Grid,
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';

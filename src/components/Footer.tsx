@@ -2,7 +2,7 @@ import React from "react";
 import {
   Box,
   Container,
-  Grid,
+  GridLegacy as Grid,
   Typography,
   Link,
   IconButton,

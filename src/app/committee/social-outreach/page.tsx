@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Container,
   Typography,
-  Grid,
+  GridLegacy as Grid,
   Box,
   Avatar,
   IconButton,
