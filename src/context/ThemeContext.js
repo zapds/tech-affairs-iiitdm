@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useState, useContext, useMemo, useEffect } from 'react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
