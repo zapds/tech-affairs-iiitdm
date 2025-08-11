@@ -15,7 +15,7 @@ import {
   YouTube,
   Email,
 } from "@mui/icons-material";
-import { useNavigate } from 'react-router-dom';
+import Link from "next/link";
 
 // Team member data
 const teamData = {
@@ -60,7 +60,6 @@ const facultyHeads = [
 ];
 
 function Committee() {
-  const navigate = useNavigate();
   const cardStyle = {
     height: "100%",
     display: "flex",
@@ -356,7 +355,7 @@ function Committee() {
                     {team.label}
                   </Typography>
                 </Box>
-                <button
+                <Link
                   className="team-view-btn"
                   style={{
                     alignSelf: 'center',
@@ -373,10 +372,10 @@ function Committee() {
                     marginTop: '0.3em',
                     marginBottom: '0.3em',
                   }}
-                  onClick={() => navigate(team.path)}
+                  href={team.path}
                 >
                   View Team
-                </button>
+                </Link>
               </Card>
             </Grid>
           ))}

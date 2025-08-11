@@ -1,5 +1,5 @@
 import React from 'react';
-import ClubPageTemplate from '../../components/ClubPageTemplate';
+import ClubPageTemplate from '@/components/ClubPageTemplate';
 
 const clubData = {
   name: 'Robotics Club',
