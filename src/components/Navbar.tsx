@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -13,18 +15,19 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useThemeContext } from '../context/ThemeContext';
-import { NavLink } from 'react-router-dom';
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useThemeContext } from "../context/ThemeContext";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'Achievements', path: '/achievements' },
-  { name: 'Council', path: '/council' },
-  { name: 'Committee', path: '/committee' },
+  { name: "Home", path: "/" },
+  { name: "Achievements", path: "/achievements" },
+  { name: "Council", path: "/council" },
+  { name: "Committee", path: "/committee" },
 ];
 
 const Navbar = () => {
@@ -32,52 +35,43 @@ const Navbar = () => {
   const { isDarkMode, toggleTheme } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   const getLogoSrc = () => {
-    return theme.palette.mode === 'light' ? '/nav_logo_inv.png' : '/nav_logo.png';
+    return theme.palette.mode === "light" ? "/nav_logo_inv.png" : "/nav_logo.png";
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Box
         component="img"
         src={getLogoSrc()}
         alt="Technical Affairs Logo"
-        sx={{
-          height: 40,
-          my: 2,
-        }}
+        sx={{ height: 40, my: 2 }}
       />
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item.name} disablePadding>
             <ListItemButton
-              component={NavLink}
-              to={item.path}
+              component={Link}
+              href={item.path}
               sx={{
-                textAlign: 'center',
-                color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-                '&:hover': {
-                  color: 'primary.main',
-                },
-                '&.active': {
-                  color: 'primary.main',
-                  fontWeight: 'bold',
-                },
+                textAlign: "center",
+                color: theme.palette.mode === "dark" ? "white" : "text.primary",
+                "&:hover": { color: "primary.main" },
+                ...(pathname === item.path && {
+                  color: "primary.main",
+                  fontWeight: "bold",
+                }),
               }}
             >
               <ListItemText primary={item.name} />
@@ -88,14 +82,12 @@ const Navbar = () => {
           <ListItemButton
             onClick={toggleTheme}
             sx={{
-              textAlign: 'center',
-              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-              '&:hover': {
-                color: 'primary.main',
-              },
+              textAlign: "center",
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
+              "&:hover": { color: "primary.main" },
             }}
           >
-            <ListItemText primary={isDarkMode ? 'Light Mode' : 'Dark Mode'} />
+            <ListItemText primary={isDarkMode ? "Light Mode" : "Dark Mode"} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -107,33 +99,28 @@ const Navbar = () => {
       <AppBar
         position="fixed"
         sx={{
-          bgcolor: 'transparent',
-          backdropFilter: scrolled ? 'blur(8px)' : 'none',
-          boxShadow: scrolled ? theme.shadows[4] : 'none',
-          transition: 'all 0.3s ease-in-out',
+          bgcolor: "transparent",
+          backdropFilter: scrolled ? "blur(8px)" : "none",
+          boxShadow: scrolled ? theme.shadows[4] : "none",
+          transition: "all 0.3s ease-in-out",
         }}
-        style={{
-          '--Paper-overlay': 'none !important', // Fix for material UI bug trying to set transparent background
-        }}
-        enableColorOnDark={true}
+        style={{ "--Paper-overlay": "none !important" } as React.CSSProperties} 
+        enableColorOnDark
       >
-        <Toolbar sx={{ px: { xs: 2, md: 3 }}}>
+        <Toolbar sx={{ px: { xs: 2, md: 3 } }}>
           <Box
             component="img"
             src={getLogoSrc()}
             alt="Technical Affairs Logo"
-            sx={{
-              height: 40,
-              mr: 2,
-            }}
+            sx={{ height: 40, mr: 2 }}
           />
           <Typography
             variant="h6"
             component="div"
             sx={{
-              display: { xs: 'none', md: 'block' },
+              display: { xs: "none", md: "block" },
               fontWeight: 700,
-              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
             }}
           >
             Technical Affairs
@@ -141,22 +128,20 @@ const Navbar = () => {
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2 }}>
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 2 }}>
             {navItems.map((item) => (
               <Button
                 key={item.name}
-                component={NavLink}
-                to={item.path}
+                component={Link}
+                href={item.path}
                 color="inherit"
                 sx={{
-                  color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-                  '&:hover': {
-                    color: 'primary.main',
-                  },
-                  '&.active': {
-                    color: 'primary.main',
-                    fontWeight: 'bold',
-                  },
+                  color: theme.palette.mode === "dark" ? "white" : "text.primary",
+                  "&:hover": { color: "primary.main" },
+                  ...(pathname === item.path && {
+                    color: "primary.main",
+                    fontWeight: "bold",
+                  }),
                 }}
               >
                 {item.name}
@@ -165,10 +150,8 @@ const Navbar = () => {
             <IconButton
               onClick={toggleTheme}
               sx={{
-                color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-                '&:hover': {
-                  color: 'primary.main',
-                },
+                color: theme.palette.mode === "dark" ? "white" : "text.primary",
+                "&:hover": { color: "primary.main" },
               }}
             >
               {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
@@ -181,28 +164,28 @@ const Navbar = () => {
             edge="end"
             onClick={handleDrawerToggle}
             sx={{
-              display: { md: 'none' },
-              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+              display: { md: "none" },
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
             }}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
+
       <Drawer
         variant="temporary"
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
+        ModalProps={{ keepMounted: true }}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
             width: 240,
-            bgcolor: theme.palette.mode === 'dark' ? 'background.paper' : 'background.paper',
+            bgcolor:
+              theme.palette.mode === "dark" ? "background.paper" : "background.paper",
           },
         }}
       >
