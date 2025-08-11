@@ -7,6 +7,7 @@ import '@fontsource/roboto/800.css';
 
 import { ThemeProvider } from '@/context/ThemeContext';
 import { ReactLenis } from 'lenis/react'
+import Navbar from '@/components/Navbar';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <body>
         <ReactLenis root />
           <ThemeProvider>
+            <Navbar />
             {children}
           </ThemeProvider>
         </body>
