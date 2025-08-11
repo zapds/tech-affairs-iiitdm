@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, Select, MenuItem, FormControl, Grid, Card, CardContent, Divider } from '@mui/material';
 import { styled } from '@mui/system';
 
-import { achievements, getUniqueClubs, getUniqueYears } from '../data/achievements';
+import { achievements, getUniqueClubs, getUniqueYears } from '../../data/achievements';
 
 const GradientTitle = styled(Typography)(({ theme }) => ({
   background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
