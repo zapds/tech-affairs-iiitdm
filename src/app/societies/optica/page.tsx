@@ -1,5 +1,5 @@
 import React from 'react';
-import SocietyPageTemplate from '../../../../components/SocietyPageTemplate';
+import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
 
 const clubData = {
   name: 'Optica Student Chapter',
@@ -60,4 +60,4 @@ function OpticaStudentChapter() {
   return <SocietyPageTemplate {...clubData} />;
 }
 
-export default OpticaStudentChapter; 
+export default OpticaStudentChapter;

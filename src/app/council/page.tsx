@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import {
   Box,
   Container,
@@ -12,21 +13,21 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const clubs = [
-  { name: "CS Club", image: "/clubs/csclub/logo.png", link: "/council/clubs/cs" },
-  { name: "Developer's Club", image: "/clubs/devclub/logo.jpg", link: "/council/clubs/dev" },
-  { name: "System Coding Club", image: "/clubs/SCC/logo.png", link: "/council/clubs/scc" },
-  { name: "E-Cell", image: "/clubs/ecell/logo.png", link: "/council/clubs/ecell" },
-  { name: "Robotics", image: "/clubs/robotics/logo.png", link: "/council/clubs/robotics" },
+  { name: "CS Club", image: "/clubs/csclub/logo.png", link: "/clubs/cs" },
+  { name: "Developer's Club", image: "/clubs/devclub/logo.jpg", link: "/clubs/dev" },
+  { name: "System Coding Club", image: "/clubs/SCC/logo.png", link: "/clubs/scc" },
+  { name: "E-Cell", image: "/clubs/ecell/logo.png", link: "/clubs/ecell" },
+  { name: "Robotics", image: "/clubs/robotics/logo.png", link: "/clubs/robotics" },
 ];
 
 const teams = [
   { name: "MaRS (Shunya)", image: "/teams/mars/logo.png", link: "/teams/shunya" },
   { name: "AUV (Nira)", image: "/teams/nira/logo.jpg", link: "/teams/nira" },
-  { name: "Revolt Racers ", image: "/teams/revolt/logo.png", link: "/teams/revolt" },
+  { name: "Revolt Racers", image: "/teams/revolt/logo.png", link: "/teams/revolt" },
   { name: "Astra", image: "/teams/astra/logo.png", link: "/teams/astra" },
   { name: "TAD", image: "/teams/tad/logo.png", link: "/teams/tad" },
 ];
@@ -38,7 +39,7 @@ const societies = [
 ];
 
 const communities = [
-  { name: "Cybersecurity", image: "/communities/CyberSecurity/logo.png", link: "/communities/cybersecurity" },
+  { name: "Cybersecurity", image: "/communities/Cybersecurity/logo.png", link: "/communities/cybersecurity" },
   { name: "Game Developers", image: "/communities/gamedevelopers/logo.png", link: "/communities/gamedevelopers" },
 ];
 
@@ -50,8 +51,8 @@ const tabOptions = [
 ];
 
 const TeamCard = styled(Card)(({ theme }) => ({
-  width: 160,
-  height: 200,
+  width: 140,
+  height: 180,
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
@@ -78,12 +79,11 @@ const TeamCard = styled(Card)(({ theme }) => ({
 
 export default function Council() {
   const pathname = usePathname();
-  const router = useRouter();
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.only("xs"));
 
   // Get tab index from current path
-  const getTabFromPath = () => {
+  const getTabFromPath = useCallback(() => {
     const parts = pathname.split("/");
     if (parts.length >= 3) {
       const idx = tabOptions.findIndex(
@@ -92,16 +92,16 @@ export default function Council() {
       return idx !== -1 ? idx : 0;
     }
     return 0;
-  };
+  }, [pathname]);
 
   const [tab, setTab] = useState(getTabFromPath());
 
   // Sync tab when pathname changes
   useEffect(() => {
     setTab(getTabFromPath());
-  }, [pathname]);
+  }, [getTabFromPath]);
 
-  const handleTabChange = (event: any, newValue: React.SetStateAction<number>) => {
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);
     // router.push(`/council/${tabOptions[newValue].route}`);
   };
@@ -109,18 +109,14 @@ export default function Council() {
   const currentList = tabOptions[tab].data;
 
   // Tabs responsive settings
-  let tabsVariant = "fullWidth";
-  let scrollButtons = false;
-  if (isXs) {
-    tabsVariant = "scrollable";
-    scrollButtons = "auto";
-  }
+  const tabsVariant: "fullWidth" | "scrollable" | "standard" = isXs ? "scrollable" : "fullWidth";
+  const scrollButtons = isXs;
 
   return (
     <Box
       sx={{
         mt: { xs: 7, md: 9 },
-        py: { xs: 2, md: 4 },
+        py: { xs: 1, md: 2 },
         bgcolor: "background.default",
         minHeight: "100vh",
       }}
@@ -188,10 +184,10 @@ export default function Council() {
         {/* Cards */}
         <Grid
           container
-          spacing={2}
+          spacing={1}
           justifyContent="center"
           sx={{
-            maxWidth: "1200px",
+            maxWidth: "1000px",
             mx: "auto",
           }}
         >
@@ -216,9 +212,9 @@ export default function Council() {
                 >
                   <Box
                     sx={{
-                      width: { xs: 80, sm: 100 },
-                      height: { xs: 80, sm: 100 },
-                      mb: 1.5,
+                      width: { xs: 70, sm: 85 },
+                      height: { xs: 70, sm: 85 },
+                      mb: 1,
                       bgcolor: (theme) => theme.palette.background.default,
                       borderRadius: 3,
                       display: "flex",
@@ -227,16 +223,15 @@ export default function Council() {
                       boxShadow: (theme) => theme.shadows[1],
                       overflow: "hidden",
                       p: 1,
+                      position: "relative",
                     }}
                   >
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.name}
+                      fill
                       style={{
-                        width: "100%",
-                        height: "100%",
                         objectFit: "contain",
-                        display: "block",
                       }}
                     />
                   </Box>

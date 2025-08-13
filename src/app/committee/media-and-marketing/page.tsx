@@ -117,7 +117,7 @@ function MemberGrid({ members }) {
   if (!members.length) return <Typography color="text.secondary" align="center">No data available.</Typography>;
   return (
     <Grid container spacing={1} justifyContent='center' sx={{ maxWidth: '1200px', mx: 'auto' }}>
-      {members.map((member, idx) => (
+      {members.map((member) => (
         <Grid item xs={6} sm={6} md={3} key={member.name} sx={{ display: 'flex', justifyContent: 'center', minWidth: 0 }}>
           <TeamMemberCard>
             <Avatar

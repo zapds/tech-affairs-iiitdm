@@ -6,6 +6,15 @@ import { styled } from '@mui/system';
 
 import { achievements, getUniqueClubs, getUniqueYears } from '@/data/achievements';
 
+interface Achievement {
+  id: number;
+  title: string;
+  description: string;
+  year: string;
+  club: string;
+  logo: string;
+}
+
 const GradientTitle = styled(Typography)(({ theme }) => ({
   background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
   WebkitBackgroundClip: 'text',
@@ -34,7 +43,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   display: 'flex',
   height: '100%',
   borderRadius: theme.spacing(2),
-  boxShadow: theme.shadows[3],
+  boxShadow: theme.shadows?.[3] || '0 4px 6px rgba(0, 0, 0, 0.1)',
   width: '100%',
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
@@ -46,7 +55,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
 const Achievements = () => {
   const [selectedClub, setSelectedClub] = useState('all');
   const [selectedYear, setSelectedYear] = useState('all');
-  const [groupedAchievements, setGroupedAchievements] = useState({});
+  const [groupedAchievements, setGroupedAchievements] = useState<Record<string, Achievement[]>>({});
 
   const clubs = ['all', ...getUniqueClubs()];
   const years = ['all', ...getUniqueYears()];
@@ -71,7 +80,7 @@ const Achievements = () => {
     });
 
     // Group achievements by year
-    const grouped = data.reduce((acc, achievement) => {
+    const grouped = data.reduce((acc: Record<string, Achievement[]>, achievement) => {
       const year = achievement.year;
       if (!acc[year]) {
         acc[year] = [];
@@ -86,8 +95,8 @@ const Achievements = () => {
   return (
     <Box sx={{ 
       padding: {
-        xs: '120px 16px 48px 16px',
-        sm: '96px 32px 48px 32px'
+        xs: '100px 16px 32px 16px',
+        sm: '80px 24px 32px 24px'
       },
       textAlign: 'center' 
     }}>
@@ -97,7 +106,7 @@ const Achievements = () => {
         display: 'flex', 
         justifyContent: 'center', 
         gap: 2, 
-        marginBottom: 6,
+        marginBottom: 4,
         flexDirection: {
           xs: 'column',
           sm: 'row'
@@ -136,18 +145,18 @@ const Achievements = () => {
         </FormControl>
       </Box>
 
-      <Box sx={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <Box sx={{ maxWidth: '1000px', margin: '0 auto' }}>
         {Object.entries(groupedAchievements)
           .sort(([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA))
           .map(([year, yearAchievements]) => (
-            <Box key={year} sx={{ mb: 8 }}>
+            <Box key={year} sx={{ mb: 5 }}>
               <YearHeading variant="h4">
                 {year}
               </YearHeading>
-              <Divider sx={{ mb: 5 }} />
+              <Divider sx={{ mb: 3 }} />
               <Grid 
                 container 
-                spacing={{ xs: 3, md: 4 }}
+                spacing={{ xs: 2, md: 3 }}
               >
                 {yearAchievements.map((achievement) => (
                   <Grid 

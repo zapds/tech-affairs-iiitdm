@@ -1,5 +1,5 @@
 import React from 'react';
-import SocietyPageTemplate from '../../../../components/SocietyPageTemplate';
+import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
 
 const clubData = {
   name: 'ASME Student Section',
@@ -60,4 +60,4 @@ function ASMEStudentSection() {
   return <SocietyPageTemplate {...clubData} />;
 }
 
-export default ASMEStudentSection; 
+export default ASMEStudentSection;

@@ -65,7 +65,7 @@ const Techfest = () => {
                   textAlign: 'left',
                 }}
               >
-                Vashisht is a much awaited three-day tech-fest that assessed participants in a variety of subjects, from robots to entrepreneurship, coding to designing. It inspired a love of technology, opening students' eyes to new avenues for creativity and drawing more than 3000+ pupils from all across the nation.
+                Vashisht is a much awaited three-day tech-fest that assessed participants in a variety of subjects, from robots to entrepreneurship, coding to designing. It inspired a love of technology, opening students&apos; eyes to new avenues for creativity and drawing more than 3000+ pupils from all across the nation.
               </Typography>
             </motion.div>
 

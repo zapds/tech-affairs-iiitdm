@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Container, Typography, Grid } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const stats = [
   { number: '13', label: 'Technical Clubs' },
@@ -53,7 +54,7 @@ const About = () => {
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
         >
           <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '9999px', padding: '1rem' }}>
-          <img alt="Institute Logo" src="/iiitdm_logo.png" height={150} width={150} />
+          <Image alt="Institute Logo" src="/iiitdm_logo.png" height={150} width={150} />
           </div>
           <Typography
             variant="body1"
@@ -74,9 +75,29 @@ const About = () => {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Box 
+          sx={{ 
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center'
+          }}
+        >
           {stats.map((stat, index) => (
-            <Grid item xs={12} sm={6} md={2.4} key={stat.label}>
+            <Box 
+              key={stat.label}
+              sx={{
+                flex: {
+                  xs: '1 1 100%',
+                  sm: '1 1 calc(50% - 8px)',
+                  md: '1 1 calc(20% - 8px)'
+                },
+                minWidth: {
+                  xs: '260px',
+                  md: '180px'
+                }
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -122,9 +143,9 @@ const About = () => {
                   </Typography>
                 </Box>
               </motion.div>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

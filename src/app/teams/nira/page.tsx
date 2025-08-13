@@ -1,11 +1,11 @@
 import React from 'react';
-import TeamPageTemplate from '../../../../components/TeamPageTemplate';
+import TeamPageTemplate from '../../../components/TeamPageTemplate';
 
 const teamInfo = {
   name: 'Team Nira',
   club: 'AUV Society',
   logo: '/teams/nira/logo.jpg',
-  description: `Team Nira is the official autonomous underwater vehicle (AUV) team of IIITDM Kancheepuram, representing the institute in premier national and international competitions. The team specializes in designing, engineering, and programming self-reliant underwater systems capable of executing complex tasks without human input. At the intersection of mechanical engineering, electronics, computer vision, and control systems, Team Nira brings together a multidisciplinary group of students passionate about pushing the boundaries of underwater robotics. The team’s work reflects a strong commitment to research-driven development, innovation, and technical excellence. Team Nira has proudly participated in esteemed competitions such as the Singapore Autonomous Underwater Vehicle Challenge (SAUVC) and NIOT-SAVe, consistently showcasing its capabilities on competitive global platforms.`,
+  description: `Team Nira is the official autonomous underwater vehicle (AUV) team of IIITDM Kancheepuram, representing the institute in premier national and international competitions. The team specializes in designing, engineering, and programming self-reliant underwater systems capable of executing complex tasks without human input. At the intersection of mechanical engineering, electronics, computer vision, and control systems, Team Nira brings together a multidisciplinary group of students passionate about pushing the boundaries of underwater robotics. The team's work reflects a strong commitment to research-driven development, innovation, and technical excellence. Team Nira has proudly participated in esteemed competitions such as the Singapore Autonomous Underwater Vehicle Challenge (SAUVC) and NIOT-SAVe, consistently showcasing its capabilities on competitive global platforms.`,
   achievements: [
       {
       title: 'Aqua Quest',
@@ -67,4 +67,4 @@ function AUV() {
   return <TeamPageTemplate {...teamInfo} />;
 }
 
-export default AUV; 
+export default AUV;

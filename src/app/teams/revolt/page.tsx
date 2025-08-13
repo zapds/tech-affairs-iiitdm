@@ -1,11 +1,11 @@
 import React from 'react';
-import TeamPageTemplate from '../../../../components/TeamPageTemplate';
+import TeamPageTemplate from '../../../components/TeamPageTemplate';
 
 const teamInfo = {
   name: 'Revolt Racers',
   club: 'SAE Club',
   logo: '/teams/revolt/logo.png',
-  description: `ReVolt Racers is the E-Baja team of IIITDM Kancheepuram, specializing in the design and construction of electric all-terrain vehicles for Baja SAE India’s E-Baja competition. The team integrates expertise in electric powertrains, battery management systems, and control systems to build sustainable, high-performance off-road vehicles.\nReVolt Racers emphasizes the practical application of electric vehicle technologies, promoting sustainable mobility while equipping members with critical skills in the growing field of electric automotive engineering.`,
+  description: `ReVolt Racers is the E-Baja team of IIITDM Kancheepuram, specializing in the design and construction of electric all-terrain vehicles for Baja SAE India's E-Baja competition. The team integrates expertise in electric powertrains, battery management systems, and control systems to build sustainable, high-performance off-road vehicles.\nReVolt Racers emphasizes the practical application of electric vehicle technologies, promoting sustainable mobility while equipping members with critical skills in the growing field of electric automotive engineering.`,
   achievements: [
     {
       title: 'Phase 1 of SAE eBaja',
@@ -28,35 +28,22 @@ const teamInfo = {
      {
       title: 'Phase 1 of SAE mBaja',
       description: `Achieved an overall rank AIR 9 and TamilNadu rank 2`,
-      year: '2024',
-      highlight: false
-    },
-     {
-      title: 'Phase 2 of SAE mBaja',
-      description: 'Secured ranks below AIR 10 for specific events in Phase 2 and got selected for the finals of the CAE,Design, and Cost events.',
-      year: '2024',
-      highlight: true
-    },
-     {
-      title: 'Phase 3 of SAE mBaja',
-      description: `Considering our performance across all three phases, Team Rebel Racers 3.0 secured an impressive overall All India Rank (AIR) of 18`,
       year: '2025',
       highlight: false
     },
-
   ],
   members: [
     {
-      name: 'Harish N',
+      name: 'Manav Agarwal',
       role: 'Captain',
       image: '/teams/revolt/captain.jpg',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/team-lead',
-      year: 'B.Tech 3rd Year',
+      year: 'B.Tech 4th Year',
       department: 'Mechanical Engineering',
-      roll: 'me22b1083'
+      roll: 'me21b1012'
     },
-    {
+      {
       name: 'Gurubaran V',
       role: 'Vice-Captain',
       image: '/teams/revolt/vice-captain.jpg',
@@ -90,8 +77,8 @@ const teamInfo = {
   website: 'https://revolt.iiitdm.ac.in'
 };
 
-function SAEEBaja() {
+function RevoltRacersPage() {
   return <TeamPageTemplate {...teamInfo} />;
 }
 
-export default SAEEBaja; 
+export default RevoltRacersPage;

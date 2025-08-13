@@ -3,7 +3,6 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Tabs,
   Tab,
   CardMedia,
@@ -11,11 +10,6 @@ import {
 import { motion } from 'framer-motion';
 
 const clubs = [
-  {
-    name: 'Mars Club',
-    image: '/clubs/mars/logo.png',
-    link: '/clubs/mars',
-  },
   {
     name: 'CS Club',
     image: '/clubs/csclub/logo.png',
@@ -27,50 +21,51 @@ const clubs = [
     link: '/clubs/dev',
   },
   {
-    name: 'AUV Society',
-    image: '/clubs/auv/logo.png',
-    link: '/clubs/auv',
-  },
-  {
-    name: 'TAD',
-    image: '/clubs/tad/logo.jpg',
-    link: '/clubs/tad',
-  },
-  {
     name: 'Robotics Club',
     image: '/clubs/robotics/logo.png',
     link: '/clubs/robotics',
   },
   {
-    name: 'SAE Collegiate Club',
-    image: '/clubs/sae-collegiate/logo.png',
-    link: '/clubs/sae',
+    name: 'E-Cell',
+    image: '/clubs/ecell/logo.png',
+    link: '/clubs/ecell',
+  },
+  {
+    name: 'System Coding Club',
+    image: '/clubs/scc/logo.png',
+    link: '/clubs/scc',
   },
 ];
 
 const teams = [
   {
-    name: 'Nira',
+    name: 'Team Nira',
     description: 'AUV Society',
-    image: '/teams/nira/logo.png',
+    image: '/teams/nira/logo.jpg',
     link: '/teams/nira',
   },
   {
     name: 'Team Astra',
-    description: 'SAE Club',
+    description: 'Space Technology',
     image: '/teams/astra/logo.png',
     link: '/teams/astra',
   },
   {
     name: 'Revolt Racers',
-    description: 'SAE Club',
+    description: 'SAE E-Baja',
     image: '/teams/revolt/logo.png',
     link: '/teams/revolt',
   },
   {
-    name: 'Team Shunya',
-    description: 'Mars Club',
-    image: '/teams/shunya/logo.png',
+    name: 'Team TAD',
+    description: 'Aero Design',
+    image: '/teams/tad/logo.png',
+    link: '/teams/tad',
+  },
+  {
+    name: 'Team Shunya (MaRS)',
+    description: 'Mars Rover',
+    image: '/teams/mars/logo.png',
     link: '/teams/shunya',
   },
 ];
@@ -78,7 +73,7 @@ const teams = [
 const OurFamily = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
   };
 
@@ -116,7 +111,7 @@ const OurFamily = () => {
           </Typography>
         </motion.div>
 
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: 3 }}>
           <Tabs
             value={activeTab}
             onChange={handleTabChange}
@@ -134,9 +129,29 @@ const OurFamily = () => {
           </Tabs>
         </Box>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Box 
+          sx={{ 
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: 'center'
+          }}
+        >
           {(activeTab === 0 ? clubs : teams).map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={item.name}>
+            <Box 
+              key={item.name}
+              sx={{
+                flex: {
+                  xs: '1 1 100%',
+                  sm: '1 1 calc(50% - 8px)',
+                  md: '1 1 calc(33.333% - 8px)'
+                },
+                minWidth: {
+                  xs: '260px',
+                  md: '220px'
+                }
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -185,9 +200,9 @@ const OurFamily = () => {
                   </Typography>
                 </Box>
               </motion.div>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

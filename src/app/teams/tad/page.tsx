@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamPageTemplate from '../../../../components/TeamPageTemplate';
+import TeamPageTemplate from '../../../components/TeamPageTemplate';
 
 const teamInfo = {
   name: 'Team Tad',
@@ -138,4 +138,4 @@ function TalpadeAeroDesign() {
   return <TeamPageTemplate {...teamInfo} />;
 }
 
-export default TalpadeAeroDesign; 
+export default TalpadeAeroDesign;

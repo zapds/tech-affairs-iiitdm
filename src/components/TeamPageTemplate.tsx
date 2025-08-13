@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Box,
@@ -48,7 +50,9 @@ const TimelineContainer = styled(Box)(({ theme }) => ({
   }
 }));
 
-const TimelineItem = styled(Box)(({ theme, side }) => ({
+const TimelineItem = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'side',
+})<{ side: 'left' | 'right' }>(({ theme, side }) => ({
   position: 'relative',
   width: '50%',
   marginBottom: theme.spacing(4),
@@ -73,7 +77,9 @@ const TimelineItem = styled(Box)(({ theme, side }) => ({
   }
 }));
 
-const EventCard = styled(Card)(({ theme, highlight }) => ({
+const EventCard = styled(Card, {
+  shouldForwardProp: (prop) => prop !== 'highlight',
+})<{ highlight?: boolean }>(({ theme, highlight }) => ({
   padding: theme.spacing(2.5),
   backgroundColor: highlight 
     ? theme.palette.mode === 'dark'
@@ -104,7 +110,35 @@ const EventYear = styled(Typography)(({ theme }) => ({
   opacity: 0.8
 }));
 
-function TeamPageTemplate({ name, club, logo, description, achievements, members, website }) {
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  email?: string;
+  linkedin?: string;
+  year?: string;
+  department?: string;
+  roll?: string;
+}
+
+interface Achievement {
+  title: string;
+  description: string;
+  year: string;
+  highlight?: boolean;
+}
+
+interface TeamPageTemplateProps {
+  name: string;
+  club: string;
+  logo: string;
+  description: string;
+  achievements: Achievement[];
+  members: TeamMember[];
+  website: string;
+}
+
+function TeamPageTemplate({ name, club, logo, description, achievements, members, website }: TeamPageTemplateProps) {
   const theme = useTheme();
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>

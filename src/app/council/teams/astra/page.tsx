@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamPageTemplate from '../../components/TeamPageTemplate';
+import TeamPageTemplate from '../../../../components/TeamPageTemplate';
 
 const teamInfo = {
   name: 'Team Astra',

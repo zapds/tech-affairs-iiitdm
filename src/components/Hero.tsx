@@ -86,7 +86,7 @@ const Hero = () => {
       <Particles
         id="tsparticles"
         init={particlesInit}
-        // @ts-ignore
+        // @ts-expect-error - particlesOptions has type incompatibility
         options={particlesOptions} 
         style={{
           position: 'absolute',

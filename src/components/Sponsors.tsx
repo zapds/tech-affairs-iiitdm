@@ -37,7 +37,7 @@ const Sponsors = () => {
   const maxIndex = Math.max(0, allSponsors.length - itemsPerPage);
 
   useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout;
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -56,7 +56,7 @@ const Sponsors = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentIndex(index);
   };

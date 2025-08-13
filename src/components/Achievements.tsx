@@ -117,7 +117,7 @@ const Achievements = () => {
               pb: 4, // Padding at the bottom
             }}
           >
-            {achievements.map((achievement, index) => (
+            {achievements.map((achievement) => (
               <Box
                 key={achievement.title}
                 sx={{

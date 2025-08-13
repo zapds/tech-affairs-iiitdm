@@ -33,7 +33,33 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
   }
 }));
 
-function ClubPageTemplate({ name, logo, description, core, links }) {
+interface ClubMember {
+  name: string;
+  role?: string;
+  position?: string;
+  image: string;
+  email?: string;
+  linkedin?: string;
+  year?: string;
+  department?: string;
+  roll?: string;
+}
+
+interface ClubLinks {
+  website?: string;
+  instagram?: string;
+  github?: string;
+}
+
+interface ClubPageTemplateProps {
+  name: string;
+  logo: string;
+  description: string;
+  core: ClubMember[];
+  links: ClubLinks;
+}
+
+function ClubPageTemplate({ name, logo, description, core, links }: ClubPageTemplateProps) {
   const theme = useTheme();
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>

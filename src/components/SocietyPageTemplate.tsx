@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import {
   Box,
@@ -28,7 +30,34 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
   }
 }));
 
-function SocietyPageTemplate({ name, logo, description, core, team, links }) {
+interface SocietyMember {
+  name: string;
+  role?: string;
+  position?: string;
+  image: string;
+  email?: string;
+  linkedin?: string;
+  year?: string;
+  department?: string;
+  roll?: string;
+}
+
+interface SocietyLinks {
+  website?: string;
+  instagram?: string;
+  github?: string;
+}
+
+interface SocietyPageTemplateProps {
+  name: string;
+  logo: string;
+  description: string;
+  core: SocietyMember[];
+  team: SocietyMember[];
+  links: SocietyLinks;
+}
+
+function SocietyPageTemplate({ name, logo, description, core, team, links }: SocietyPageTemplateProps) {
   const theme = useTheme();
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>
