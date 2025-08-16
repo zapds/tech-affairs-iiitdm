@@ -3,6 +3,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   AppBar,
   Toolbar,
@@ -26,7 +27,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useThemeContext } from "../context/ThemeContext";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Define the User and Session types based on your application's data structure
@@ -144,7 +144,7 @@ const Navbar = ({ user }: NavbarProps) => {
         enableColorOnDark
       >
         <Toolbar sx={{ px: { xs: 2, md: 3 } }}>
-          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <Box
             component="img"
             src={getLogoSrc()}
@@ -163,7 +163,7 @@ const Navbar = ({ user }: NavbarProps) => {
             Technical Affairs
           </Typography>
 
-          </a>
+          </Link>
 
           <Box sx={{ flexGrow: 1 }} />
 
