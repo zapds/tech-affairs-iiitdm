@@ -1,6 +1,4 @@
-
-"use client"
-
+// app/layout.tsx
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -8,49 +6,32 @@ import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/800.css';
 import './globals.css'
 
-import { ThemeProvider, useThemeContext } from '@/context/ThemeContext';
-import { ReactLenis } from 'lenis/react'
+import { ThemeProvider } from '@/context/ThemeContext';
+import { ReactLenis } from 'lenis/react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import React from 'react';
+import { getCurrentSession } from '@/lib/server/session';
+import { GridsBg } from '@/components/GridsBg'; // <-- client component
+import ScrollToTop from '@/components/ScrollToTop';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-
-export function AddGrids() {
-  const { isDarkMode } = useThemeContext();
-
-  React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      document.body.classList.remove('grids-dark', 'grids-light');
-      document.body.classList.add(isDarkMode === true ? 'grids-dark' : 'grids-light');
-    }
-  }, [isDarkMode]);
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { user } = await getCurrentSession(); // ✅ runs on server
 
   return (
-    <></>
-  )
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
-
-  
-  return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body>
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body>
         <ReactLenis root />
-          <ThemeProvider>
-            <AddGrids />
-            <Navbar />
-            {children}
-            <Footer />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
-  )
+        <ThemeProvider>
+          <GridsBg />
+          <ScrollToTop />
+          <ScrollToTopButton />
+          <Navbar user={user} />
+          {children}
+          <Footer />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }

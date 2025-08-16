@@ -1,3 +1,5 @@
+// app/components/Navbar/Navbar.tsx
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -15,6 +17,10 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
+  Avatar,
+  Menu,
+  MenuItem,
+  Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -23,18 +29,33 @@ import { useThemeContext } from "../context/ThemeContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// Define the User and Session types based on your application's data structure
+export interface User {
+  id: number;
+  email: string;
+  googleId: string;
+  name: string;
+  picture: string; // This will be used for the Avatar src
+  role: string;
+}
+
+// Define the props for the Navbar component
+interface NavbarProps {
+  user: User | null;
+}
+
 const navItems = [
-  { name: "Home", path: "/" },
   { name: "Achievements", path: "/achievements" },
   { name: "Council", path: "/council" },
   { name: "Committee", path: "/committee" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ user }: NavbarProps) => {
   const theme = useMuiTheme();
   const { isDarkMode, toggleTheme } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -44,11 +65,11 @@ const Navbar = () => {
   }, []);
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElUser(event.currentTarget);
+  const handleCloseUserMenu = () => setAnchorElUser(null);
+  const getLogoSrc = () => (theme.palette.mode === "light" ? "/nav_logo_inv.png" : "/nav_logo.png");
 
-  const getLogoSrc = () => {
-    return theme.palette.mode === "light" ? "/nav_logo_inv.png" : "/nav_logo.png";
-  };
-
+  // Drawer for mobile view
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Box
@@ -90,6 +111,21 @@ const Navbar = () => {
             <ListItemText primary={isDarkMode ? "Light Mode" : "Dark Mode"} />
           </ListItemButton>
         </ListItem>
+        <Divider />
+        {/* Authentication links in mobile drawer */}
+        {user ? (
+          <ListItem disablePadding>
+            <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
+              <ListItemText primary="Logout" />
+            </ListItemButton>
+          </ListItem>
+        ) : (
+          <ListItem disablePadding>
+            <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
+              <ListItemText primary="Sign In" />
+            </ListItemButton>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
@@ -108,6 +144,7 @@ const Navbar = () => {
         enableColorOnDark
       >
         <Toolbar sx={{ px: { xs: 2, md: 3 } }}>
+          <a href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <Box
             component="img"
             src={getLogoSrc()}
@@ -126,6 +163,8 @@ const Navbar = () => {
             Technical Affairs
           </Typography>
 
+          </a>
+
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 2 }}>
@@ -134,7 +173,6 @@ const Navbar = () => {
                 key={item.name}
                 component={Link}
                 href={item.path}
-                color="inherit"
                 sx={{
                   color: theme.palette.mode === "dark" ? "white" : "text.primary",
                   "&:hover": { color: "primary.main" },
@@ -156,6 +194,45 @@ const Navbar = () => {
             >
               {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
+
+            {/* User authentication section for desktop */}
+            {user ? (
+              <Box sx={{ flexGrow: 0, ml: 1 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt={user.name} src={user.picture} />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                  keepMounted
+                  transformOrigin={{ vertical: "top", horizontal: "right" }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem disabled>
+                    <Typography textAlign="center">{user.name}</Typography>
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem component="a" href="/logout" onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">Logout</Typography>
+                  </MenuItem>
+                </Menu>
+              </Box>
+            ) : (
+              <Button
+                component="a"
+                href="/login/google"
+                variant="contained"
+                color="primary"
+                sx={{ my: 1, ml: 1.5 }}
+              >
+                Sign In
+              </Button>
+            )}
           </Box>
 
           <IconButton

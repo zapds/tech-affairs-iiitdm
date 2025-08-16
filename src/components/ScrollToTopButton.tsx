@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react';
 import { Fab, Zoom, useScrollTrigger } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
+import { useLenis } from 'lenis/react';
 
 const ScrollToTopButton = () => {
   const theme = useTheme();
@@ -10,11 +13,10 @@ const ScrollToTopButton = () => {
     threshold: 100,
   });
 
+  const lenis = useLenis();
+
   const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    lenis?.scrollTo(0);
   };
 
   return (
