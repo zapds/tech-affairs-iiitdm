@@ -15,6 +15,13 @@
       "when": 1755281113931,
       "tag": "0001_slim_wilson_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1755538496262,
+      "tag": "0002_flowery_the_leader",
+      "breakpoints": true
     }
   ]
 }
