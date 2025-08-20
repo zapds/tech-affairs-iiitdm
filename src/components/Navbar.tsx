@@ -45,6 +45,7 @@ interface NavbarProps {
 }
 
 const navItems = [
+  { name: "Events", path: "/events" },
   { name: "Achievements", path: "/achievements" },
   { name: "I2R Lab", path: "/i2r" },
   { name: "Council", path: "/council" },
@@ -115,11 +116,20 @@ const Navbar = ({ user }: NavbarProps) => {
         <Divider />
         {/* Authentication links in mobile drawer */}
         {user ? (
+          <>
           <ListItem disablePadding>
             <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
               <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
+          {user.role === 'A' && (
+              <ListItem disablePadding>
+              <ListItemButton component="a" href="/admin" sx={{ textAlign: "center" }}>
+                <ListItemText primary="Admin" />
+              </ListItemButton>
+            </ListItem>
+          )}
+          </>
         ) : (
           <ListItem disablePadding>
             <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
@@ -218,6 +228,11 @@ const Navbar = ({ user }: NavbarProps) => {
                     <Typography textAlign="center">{user.name}</Typography>
                   </MenuItem>
                   <Divider />
+                  {user.role === 'A' && (
+                      <MenuItem component="a" href="/admin" onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">Admin</Typography>
+                    </MenuItem>
+                  )}
                   <MenuItem component="a" href="/logout" onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">Logout</Typography>
                   </MenuItem>

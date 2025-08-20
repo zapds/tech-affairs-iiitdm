@@ -172,18 +172,18 @@ const Hero = () => {
           <Button
             variant="contained"
             size="large"
-            href="/council"
+            href="/events"
             sx={{ px: { xs: 2, sm: 4 }, py: { xs: 0.7, sm: 1.5 }, fontSize: { xs: '0.95rem', sm: '1.1rem' } }}
           >
-            Explore Council
+            Upcoming Events
           </Button>
           <Button
             variant="outlined"
             size="large"
-            href="/committee"
+            href="/i2r"
             sx={{ px: { xs: 2, sm: 4 }, py: { xs: 0.7, sm: 1.5 }, fontSize: { xs: '0.95rem', sm: '1.1rem' } }}
           >
-            Explore Committee
+            About I2R Lab
           </Button>
         </Box>
       </Container>

@@ -1,5 +1,7 @@
 import { eq } from 'drizzle-orm';
 import { integer, varchar, char, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
+import { link } from 'fs';
+import { start } from 'repl';
 
 
 export const Users = pgTable('users', {
@@ -18,6 +20,26 @@ export const Sessions = pgTable('sessions', {
     expires_at: timestamp('expires_at').notNull(),
 
 });
+
+export const Clubs = pgTable('clubs', {
+    club_id: serial('club_id').primaryKey().notNull(),
+    name: varchar('name').notNull(),
+    iconUrl: text('iconUrl').notNull(),
+});
+
+export const Events = pgTable('events', {
+    event_id: serial('event_id').primaryKey().notNull(),
+    club_id: integer('club_id').notNull().references(() => Clubs.club_id),
+    name: varchar('name').notNull(),
+    description: text('description').notNull(),
+    start_time: timestamp('start_time').notNull(),
+    end_time: timestamp('end_time').notNull(),
+    location: varchar('location').notNull(),
+    link: text('link').notNull(),
+    requirements: text('requirements').notNull(),
+    imageUrl: text('imageUrl')
+});
+
 
 export const User_roles = pgTable('user_roles', {
     email: text('email').notNull().primaryKey(),
