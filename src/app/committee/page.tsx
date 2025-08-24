@@ -69,12 +69,12 @@ function Committee() {
       transform: "scale(1.02)",
     },
     width: "100%",
-    minWidth: "120px",
-    maxWidth: "120px",
+    minWidth: "140px",
+    maxWidth: "140px",
   };
 
   const imageStyle = {
-    height: 120,
+    height: 160,
     objectFit: "cover",
     width: "100%",
   };
@@ -106,13 +106,13 @@ function Committee() {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     fontWeight: "bold",
-    marginBottom: "0.5rem",
+    marginBottom: "1rem",
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
+    <Container maxWidth="lg" sx={{ py: 12 }}>
       {/* Faculty Heads Section */}
-      <Box sx={{ mb: 2 }}>
+      <Box sx={{ mb: 6 }}>
         <Typography
           variant="h4"
           component="h2"
@@ -123,16 +123,16 @@ function Committee() {
           Faculty Heads
         </Typography>
         {/* Dean DII at the top */}
-        <Grid container spacing={1} justifyContent="center" sx={{ mb: 1 }}>
+        <Grid container spacing={2} justifyContent="center" sx={{ mb: 1 }}>
           <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Card sx={{ ...cardStyle, height: 'auto', minWidth: '140px', maxWidth: '140px' }}>
+            <Card sx={{ ...cardStyle, height: 'auto', minWidth: '180px', maxWidth: '180px' }}>
               <CardMedia
                 component="img"
                 image={facultyHeads[0].image}
                 alt={facultyHeads[0].name}
                 sx={imageStyle}
               />
-              <CardContent sx={{ py: 0.5, px: 0.5 }}>
+              <CardContent sx={{ py: 1, px: 1 }}>
                 <Box>
                   <Typography variant="h6" component="h3" sx={nameStyle}>
                     {facultyHeads[0].name}
@@ -150,17 +150,17 @@ function Committee() {
           </Grid>
         </Grid>
         {/* PICs in the next row */}
-        <Grid container spacing={1} justifyContent="center" sx={{ maxWidth: '400px', margin: '0 auto' }}>
+        <Grid container spacing={2} justifyContent="center">
           {facultyHeads.slice(1).map((head) => (
-            <Grid item xs={6} sm={4} md={3} key={head.name} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Card sx={{ ...cardStyle, height: 'auto', minWidth: '140px', maxWidth: '140px' }}>
+            <Grid item xs={12} sm={6} md={4} key={head.name} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Card sx={{ ...cardStyle, height: 'auto', minWidth: '180px', maxWidth: '180px' }}>
                 <CardMedia
                   component="img"
                   image={head.image}
                   alt={head.name}
                   sx={imageStyle}
                 />
-                <CardContent sx={{ py: 0.5, px: 0.5 }}>
+                <CardContent sx={{ py: 1, px: 1 }}>
                   <Box>
                     <Typography variant="h6" component="h3" sx={nameStyle}>
                       {head.name}
@@ -190,7 +190,7 @@ function Committee() {
         >
           SAC Technical Affairs
         </Typography>
-        <Grid container spacing={1} justifyContent="center">
+        <Grid container spacing={2} justifyContent="center">
           {/* Secretary */}
           <Grid
             item
@@ -227,7 +227,6 @@ function Committee() {
                 >
                   <IconButton
                     size="small"
-                    component="a"
                     href={`mailto:${teamData.secretary.email}`}
                     color="primary"
                   >
@@ -235,7 +234,6 @@ function Committee() {
                   </IconButton>
                   <IconButton
                     size="small"
-                    component="a"
                     href={teamData.secretary.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -283,7 +281,6 @@ function Committee() {
                 >
                   <IconButton
                     size="small"
-                    component="a"
                     href={`mailto:${teamData.jointSecretary.email}`}
                     color="primary"
                   >
@@ -291,7 +288,6 @@ function Committee() {
                   </IconButton>
                   <IconButton
                     size="small"
-                    component="a"
                     href={teamData.jointSecretary.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -394,7 +390,6 @@ function Committee() {
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
           <IconButton
             color="primary"
-            component="a"
             href={socialMediaLinks.instagram}
             target="_blank"
             rel="noopener noreferrer"
@@ -403,7 +398,6 @@ function Committee() {
           </IconButton>
           <IconButton
             color="primary"
-            component="a"
             href={socialMediaLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
@@ -412,7 +406,6 @@ function Committee() {
           </IconButton>
           <IconButton
             color="primary"
-            component="a"
             href={socialMediaLinks.youtube}
             target="_blank"
             rel="noopener noreferrer"
