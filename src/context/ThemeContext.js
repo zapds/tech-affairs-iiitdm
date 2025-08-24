@@ -28,12 +28,12 @@ export const ThemeProvider = ({ children }) => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
       try {
-        return savedTheme ? JSON.parse(savedTheme) : false;
+        return savedTheme ? JSON.parse(savedTheme) : true;
       } catch {
-        return false;
+        return true;
       }
     }
-    return false;
+    return true;
   });
 
   // Update localStorage when theme changes

@@ -3,7 +3,7 @@ import ClubPageTemplate from '@/components/ClubPageTemplate';
 
 const clubData = {
   name: 'System Coding Club (SCC)',
-  logo: '/clubs/SCC/logo.png',
+  logo: '/clubs/Scc/logo.png',
   description: `The Systems Coding Club (SSC) at IIITDM Kancheepuram is dedicated to empowering students with practical skills in hardware-level programming and system design. The club focuses on teaching and applying Verilog, Embedded Systems, and MATLAB, preparing students to tackle real-world industrial challenges in electronics and automation.\nSSC encourages students to take on hands-on projects in these areas, fostering a deep understanding of how software interacts with hardware. The club also supports students in accessing and understanding research articles relevant to electronics, embedded design, and digital systems.`,
   core: [
     {

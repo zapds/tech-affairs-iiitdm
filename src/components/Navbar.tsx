@@ -48,8 +48,7 @@ const navItems = [
   { name: "Events", path: "/events" },
   { name: "Achievements", path: "/achievements" },
   { name: "I2R Lab", path: "/i2r" },
-  { name: "Council", path: "/council" },
-  { name: "Committee", path: "/committee" },
+  { name: "Our Team", path: "/team" },
 ];
 
 const Navbar = ({ user }: NavbarProps) => {

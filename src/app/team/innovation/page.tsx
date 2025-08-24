@@ -43,6 +43,14 @@ const cores = [
 
 const coordinators = [
   {
+    name: "AP. Hamesh",
+    image: '/technical-affairs-team/innovation/coordinators/EC24B1132.png',
+    email: "ec24b1132@iiitdm.ac.in",
+    linkedin: "https://www.linkedin.com/in/ap-hamesh",
+    roll: "EC24B1132",
+
+  },
+  {
     name: 'M. AKSHARA',
     image: '/technical-affairs-team/innovation/coordinators/EC24B1127.png',
     email: 'ec24b1127@iiitdm.ac.in',

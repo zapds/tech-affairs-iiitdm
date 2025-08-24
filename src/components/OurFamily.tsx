@@ -27,12 +27,12 @@ const clubs = [
   },
   {
     name: 'E-Cell',
-    image: '/clubs/ecell/logo.png',
-    link: '/clubs/ecell',
+    image: '/societies/Ecell/logo.png',
+    link: '/societies/Ecell',
   },
   {
     name: 'System Coding Club',
-    image: '/clubs/scc/logo.png',
+    image: '/clubs/Scc/logo.png',
     link: '/clubs/scc',
   },
 ];

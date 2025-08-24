@@ -67,7 +67,7 @@ const coordinators = [
     name: 'MONISH KUMAR R',
     image: '/technical-affairs-team/management/coordinators/EC24B1051.jpg',
     email: 'ec24b1051@iiitdm.ac.in',
-    linkedin: 'www.linkedin.com/in/monish-kumar-r01',
+    linkedin: 'https://www.linkedin.com/in/monish-kumar-r01',
     roll: 'EC24B1051',
   },
   {
