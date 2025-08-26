@@ -1,10 +1,12 @@
 "use client";
 
+import { Box } from "@mui/material";
+import { GridsBg } from "@/components/GridsBg";
+
 export default function LinuxMint() {
   return (
-    <div className="min-h-screen w-full bg-black text-white relative">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+    <Box sx={{ minHeight: '100vh', width: '100%', bgcolor: 'background.default', color: 'text.primary', position: 'relative' }}>
+      <GridsBg />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto p-8">
@@ -55,10 +57,6 @@ export default function LinuxMint() {
           </p>
         </section>
       </div>
-    </div>
+    </Box>
   );
 }
-
-
-
-

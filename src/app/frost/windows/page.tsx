@@ -7,14 +7,12 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import { Box } from "@mui/material";
 
 export default function WindowsPage() {
   return (
-    <div className="min-h-screen w-full bg-black text-white relative">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0" />
-
-      <Container className="relative z-10 py-20">
+    <Box sx={{ minHeight: '100vh', width: '100%', bgcolor: 'background.default', color: 'text.primary', position: 'relative', py: 8 }}>
+      <Container className="relative z-10">
         <h1 className="text-4xl font-bold text-blue-400 text-center mb-10">
           Windows Software & Services
         </h1>
@@ -93,6 +91,6 @@ export default function WindowsPage() {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 }

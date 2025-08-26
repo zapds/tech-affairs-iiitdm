@@ -1,13 +1,11 @@
 'use client';
 
 import React from 'react';
+import { Box } from "@mui/material";
 
 export default function AdobePage() {
   return (
-    <div className="min-h-screen w-full bg-black text-white relative">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0" />
-
+    <Box sx={{ minHeight: '100vh', width: '100%', bgcolor: 'background.default', color: 'text.primary', position: 'relative', py: 8 }}>
       <div className="relative z-10 max-w-4xl mx-auto p-8">
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-blue-400">
           Adobe Creative Cloud
@@ -43,6 +41,6 @@ export default function AdobePage() {
         
         </div>
       </div>
-    </div>
+    </Box>
   );
 }
