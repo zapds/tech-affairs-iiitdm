@@ -49,6 +49,7 @@ const navItems = [
   { name: "Achievements", path: "/achievements" },
   { name: "I2R Lab", path: "/i2r" },
   { name: "Our Team", path: "/team" },
+  {name:"Frost",path:"/frost"}
 ];
 
 const Navbar = ({ user }: NavbarProps) => {
