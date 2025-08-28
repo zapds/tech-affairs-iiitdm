@@ -1,13 +1,10 @@
 "use client";
 
 import { Box } from "@mui/material";
-import { GridsBg } from "@/components/GridsBg";
 
 export default function LinuxMint() {
   return (
-    <Box sx={{ minHeight: '100vh', width: '100%', bgcolor: 'background.default', color: 'text.primary', position: 'relative' }}>
-      <GridsBg />
-
+    <Box sx={{ minHeight: '100vh', width: '100%', bgcolor: 'background.default', color: 'text.primary', position: 'relative', py: 8 }}>
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto p-8">
         {/* Header */}
