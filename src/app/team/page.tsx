@@ -510,22 +510,23 @@ function Committee() {
                     mt: 1,
                   }}
                 >
-                  <IconButton
-                    size="small"
-                    href={`mailto:${teamData.secretary.email}`}
-                    color="primary"
-                  >
-                    <Email fontSize="small" />
-                  </IconButton>
-                  <IconButton
-                    size="small"
-                    href={teamData.secretary.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    color="primary"
-                  >
-                    <LinkedIn fontSize="small" />
-                  </IconButton>
+                <Typography
+                variant="body2"
+                color="text.secondary"
+                gutterBottom
+                sx={{
+                  fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                  mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                  wordBreak: 'break-word',
+                  overflowWrap: 'anywhere',
+                }}
+              >
+                {teamData.secretary.email ? (
+                  <a href={`mailto:${teamData.secretary.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                    {teamData.secretary.email}
+                  </a>
+                ) : (teamData.secretary.position)}
+              </Typography>
                 </Box>
               </CardContent>
             </Card>
@@ -564,22 +565,23 @@ function Committee() {
                     mt: 1,
                   }}
                 >
-                  <IconButton
-                    size="small"
-                    href={`mailto:${teamData.jointSecretary.email}`}
-                    color="primary"
-                  >
-                    <Email fontSize="small" />
-                  </IconButton>
-                  <IconButton
-                    size="small"
-                    href={teamData.jointSecretary.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    color="primary"
-                  >
-                    <LinkedIn fontSize="small" />
-                  </IconButton>
+                  <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  gutterBottom
+                  sx={{
+                    fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                    mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                    wordBreak: 'break-word',
+                    overflowWrap: 'anywhere',
+                  }}
+                >
+                  {teamData.jointSecretary.email ? (
+                    <a href={`mailto:${teamData.jointSecretary.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                      {teamData.jointSecretary.email}
+                    </a>
+                  ) : (teamData.jointSecretary.position)}
+                </Typography>
                 </Box>
               </CardContent>
             </Card>

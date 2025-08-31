@@ -140,16 +140,23 @@ function MemberGrid({ members }) {
             >
               {member.name}
             </Typography>
-            {member.roll && <Typography variant="body2" color="text.secondary" gutterBottom sx={{ fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' }, mb: { xs: 0.25, sm: 0.25, md: 0.5 }, wordBreak: 'break-word', overflowWrap: 'anywhere' }}>{member.roll}</Typography>}
-            <Box sx={{ mt: { xs: 0.75, sm: 1, md: 1.5 }, display: 'flex', gap: { xs: 0.4, sm: 0.6, md: 0.8 }, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <IconButton component="a" href={`mailto:${member.email}`} color="primary" size="small" sx={{ padding: { xs: '3px', sm: '6px', md: '10px' } }}>
-                <EmailIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-              </IconButton>
-              
-              <IconButton component="a" href={member.linkedin} target="_blank" color="primary" size="small" sx={{ padding: { xs: '3px', sm: '6px', md: '10px' } }}>
-                <LinkedInIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-              </IconButton>
-            </Box>
+            <Typography
+            variant="body2"
+            color="text.secondary"
+            gutterBottom
+            sx={{
+              fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+              mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+              wordBreak: 'break-word',
+              overflowWrap: 'anywhere',
+            }}
+          >
+            {member.email ? (
+              <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                {member.email}
+              </a>
+            ) : (member.role || member.position)}
+          </Typography>
           </TeamMemberCard>
         </Grid>
       ))}
