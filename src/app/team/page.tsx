@@ -33,7 +33,7 @@ const teamData = {
   secretary: {
     name: "P Kaarthick Natesh",
     position: "Technical Affairs Secretary",
-    image: "/technical-affairs-team/sac/PKaarthickNatesh.png",
+    image: "/technical-affairs-team/sac/PKaarthickNatesh.jpg",
     email: "ec22b1004@iiitdm.ac.in",
     linkedin: "",
   },
