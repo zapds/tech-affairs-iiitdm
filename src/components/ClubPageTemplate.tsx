@@ -237,14 +237,21 @@ function ClubPageTemplate({ name, logo, description, core, links }: ClubPageTemp
                 >
                   {member.role}
                 </Typography>
-                <Box sx={{ 
-                  mt: 'auto',
-                  pt: { xs: 0.75, sm: 1, md: 1.5 },
-                  display: 'flex',
-                  gap: { xs: 0.4, sm: 0.6, md: 0.8 },
-                  justifyContent: 'center'
-                }}>
-                  {member.email && (
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              gutterBottom
+              sx={{
+                fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                wordBreak: 'break-word',
+                overflowWrap: 'anywhere',
+              }}
+            >
+                <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                  {member.email}
+                </a>
+                  {/* {member.email && (
                     <IconButton
                       component="a"
                       href={`mailto:${member.email}`}
@@ -270,8 +277,8 @@ function ClubPageTemplate({ name, logo, description, core, links }: ClubPageTemp
                     >
                       <LinkedInIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
                     </IconButton>
-                  )}
-                </Box>
+                  )} */}
+                </Typography>
               </TeamMemberCard>
             </Grid>
           ))}
