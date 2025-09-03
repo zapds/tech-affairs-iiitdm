@@ -24,9 +24,7 @@ const clubData = {
     }
   ],
   links: {
-    website: '#',
-    instagram: 'https://www.instagram.com/systemcodingclub_iiitdm/',
-    github: '#'
+    instagram: 'https://www.instagram.com/systemcodingclub_iiitdm/'
   }
 };
 

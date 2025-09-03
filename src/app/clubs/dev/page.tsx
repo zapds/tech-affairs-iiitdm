@@ -44,7 +44,7 @@ const clubData = {
     }
   ],
   links: {
-    website: 'devclub.iiitdm.ac.in',
+    website: 'https://devclub.iiitdm.ac.in',
     instagram: 'https://www.instagram.com/dev.club.iiitdm/',
     github: 'https://github.com/dev-iiitdm'
   }

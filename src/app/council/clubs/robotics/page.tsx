@@ -23,11 +23,7 @@ const clubData = {
       roll: 'me23b2020',
     },
   ],
-  links: {
-    website: '#',
-    instagram: '#',
-    github: '#'
-  }
+  links: {}
 };
 
 function RoboticsClub() {
