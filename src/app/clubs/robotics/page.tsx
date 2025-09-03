@@ -24,9 +24,6 @@ const clubData = {
     },
   ],
   links: {
-    website: '#',
-    instagram: '#',
-    github: '#'
   }
 };
 
