@@ -54,17 +54,17 @@ const socialMediaLinks = {
 
 const facultyHeads = [
   {
-    name: 'Dr.M D Selvaraj',
+    name: 'Prof. M D Selvaraj',
     role: 'Dean DII',
     image: '/facultyheads/selvaraj.png',
   },
   {
-    name: 'Dr.Vikash Kumar',
-    role: 'PIC- Technical Affairs',
+    name: 'Dr. Vikash Kumar',
+    role: 'PIC - Technical Affairs',
     image: '/facultyheads/vikash.png',
   },
   {
-    name: 'Dr.Bhukya Krishna Priya',
+    name: 'Dr. Bhukya Krishna Priya',
     role: 'PIC - Technical Affairs',
     image: '/facultyheads/krishnapriya.png',
   },
