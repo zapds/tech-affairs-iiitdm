@@ -649,7 +649,6 @@ function Committee() {
                     minWidth: 0,
                     borderRadius: '0.5em',
                     color: '#3275AA',
-                    color: 'white',
                     fontWeight: 700,
                     border: 'none',
                     cursor: 'pointer',

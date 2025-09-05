@@ -107,9 +107,6 @@ const Sponsors = () => {
                 mb: 4,
                 textAlign: 'center',
                 color: '#3275AA',
-                
-                Webkit
-                
                 textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
               }}
             >

@@ -187,9 +187,6 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                   fontWeight: 'bold',
                   mb: 2,
                   color: '#3275AA',
-                  
-                  Webkit
-                  
                   textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                   width: '100%', 
                   textAlign: { xs: 'center', md: 'center' }
@@ -227,7 +224,6 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                   size="medium"
                   sx={{
                     mt: 3,
-                    color: '#3275AA',
                     color: 'white',
                     boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
                     '&:hover': {
@@ -253,9 +249,6 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                 textAlign: 'center',
                 fontWeight: 'bold',
                 color: '#3275AA',
-                
-                Webkit
-                
               }}
             >
               Our Journey
