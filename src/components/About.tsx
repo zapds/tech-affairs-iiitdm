@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -12,6 +13,8 @@ const stats = [
 ];
 
 const About = () => {
+  const theme = useTheme();
+  
   return (
     <Box
       id="about"
@@ -35,10 +38,7 @@ const About = () => {
               fontWeight: 'bold',
               mb: 4,
               textAlign: 'center',
-              background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: theme.palette.primary.main,
               textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
             }}
           >

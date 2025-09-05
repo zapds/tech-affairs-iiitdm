@@ -11,6 +11,7 @@ import {
   Box,
   IconButton,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import {
   Instagram,
   LinkedIn,
@@ -25,7 +26,7 @@ import {
   Tab,
   useMediaQuery,
 } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { usePathname } from "next/navigation";
 
 // Team member data
@@ -183,10 +184,7 @@ function Council() {
             fontWeight: "bold",
             mb: 2,
             textAlign: "center",
-            background: "linear-gradient(45deg, #1976d2, #9c27b0)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: theme.palette.primary.main,
             textShadow: "0px 2px 4px rgba(0,0,0,0.1)",
           }}
         >
@@ -209,7 +207,7 @@ function Council() {
             mx: "auto",
             width: "100%",
             "& .MuiTabs-indicator": {
-              background: "linear-gradient(45deg, #1976d2, #9c27b0)",
+              background: theme.palette.primary.main,
               height: 3,
               borderRadius: 2,
             },
@@ -317,6 +315,8 @@ function Council() {
 
 
 function Committee() {
+  const theme = useTheme();
+  
   const cardStyle = {
     height: "100%",
     display: "flex",
@@ -359,9 +359,7 @@ function Committee() {
   };
 
   const titleStyle = {
-    background: "linear-gradient(45deg, #1976d2, #9c27b0)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    color: theme.palette.primary.main,
     fontWeight: "bold",
     marginBottom: "1rem",
   };
@@ -650,7 +648,7 @@ function Committee() {
                     padding: '0.5em 1.2em',
                     minWidth: 0,
                     borderRadius: '0.5em',
-                    background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
+                    color: '#3275AA',
                     color: 'white',
                     fontWeight: 700,
                     border: 'none',

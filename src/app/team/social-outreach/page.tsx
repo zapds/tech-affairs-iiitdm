@@ -119,10 +119,10 @@ function MemberGrid({ members }) {
 const teamTitleStyle = {
   fontWeight: 'bold',
   fontSize: { xs: '2.2rem', sm: '2.7rem', md: '3.2rem' },
-  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: '#3275AA',
+  
+  Webkit
+  
   textAlign: 'center',
   mb: 2,
 };
@@ -132,10 +132,10 @@ const sectionTitleStyle = {
   textAlign: 'center',
   fontWeight: 'bold',
   fontSize: { xs: '1.4rem', sm: '1.7rem', md: '2rem' },
-  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: '#3275AA',
+  
+  Webkit
+  
   mb: 4,
 };
 

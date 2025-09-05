@@ -112,10 +112,10 @@ function CSClub() {
                   fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
                   fontWeight: 'bold',
                   mb: 3,
-                  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: '#3275AA',
+                  
+                  Webkit
+                  
                   textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                   width: '100%', 
                   textAlign: { xs: 'center', md: 'center' }
@@ -143,7 +143,7 @@ function CSClub() {
                 size="medium"
                 sx={{
                   mt: 3,
-                  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
+                  color: '#3275AA',
                   color: 'white',
                   boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
                   '&:hover': {

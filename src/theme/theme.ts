@@ -1,10 +1,13 @@
 import { createTheme } from '@mui/material/styles';
 
+const bookmanFont = '"Bookman Old Style", "serif"';
+const primaryColor = '#3275AA';
+
 export const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
+      main: primaryColor,
       light: '#42a5f5',
       dark: '#1565c0',
     },
@@ -23,15 +26,33 @@ export const lightTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: bookmanFont,
     h1: {
       fontWeight: 700,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
     },
     h2: {
       fontWeight: 600,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
     },
     h3: {
       fontWeight: 600,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
+    },
+    body1: {
+      fontFamily: bookmanFont,
+    },
+    body2: {
+      fontFamily: bookmanFont,
+    },
+    subtitle1: {
+      fontFamily: bookmanFont,
+    },
+    subtitle2: {
+      fontFamily: bookmanFont,
     },
   },
   components: {
@@ -41,6 +62,7 @@ export const lightTheme = createTheme({
           borderRadius: 8,
           textTransform: 'none',
           fontWeight: 600,
+          fontFamily: bookmanFont,
         },
       },
     },
@@ -48,6 +70,7 @@ export const lightTheme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          fontFamily: bookmanFont,
         },
       },
     },
@@ -58,7 +81,7 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#90caf9',
+      main: primaryColor,
       light: '#e3f2fd',
       dark: '#42a5f5',
     },
@@ -77,15 +100,33 @@ export const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: bookmanFont,
     h1: {
       fontWeight: 700,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
     },
     h2: {
       fontWeight: 600,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
     },
     h3: {
       fontWeight: 600,
+      fontFamily: bookmanFont,
+      color: primaryColor, // Add this line
+    },
+     body1: {
+      fontFamily: bookmanFont,
+    },
+    body2: {
+      fontFamily: bookmanFont,
+    },
+    subtitle1: {
+      fontFamily: bookmanFont,
+    },
+    subtitle2: {
+      fontFamily: bookmanFont,
     },
   },
   components: {
@@ -95,6 +136,7 @@ export const darkTheme = createTheme({
           borderRadius: 8,
           textTransform: 'none',
           fontWeight: 600,
+          fontFamily: bookmanFont,
         },
       },
     },
@@ -102,9 +144,9 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+           fontFamily: bookmanFont,
         },
       },
     },
-
   },
-}); 
+});

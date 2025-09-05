@@ -32,10 +32,7 @@ const Techfest = () => {
               fontWeight: 'bold',
               mb: 4,
               textAlign: 'center',
-              background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: '#3275AA',
               textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
             }}
           >

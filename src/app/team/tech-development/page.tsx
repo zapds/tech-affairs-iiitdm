@@ -10,7 +10,7 @@ import {
   IconButton,
   Card,
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -144,20 +144,14 @@ const sectionTitleStyle = {
   textAlign: 'center',
   fontWeight: 'bold',
   fontSize: { xs: '1.4rem', sm: '1.7rem', md: '2rem' },
-  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: '#3275AA',
   mb: 4,
 };
 
 const teamTitleStyle = {
   fontWeight: 'bold',
   fontSize: { xs: '2.2rem', sm: '2.7rem', md: '3.2rem' },
-  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-  backgroundClip: 'text',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: '#3275AA',
   textAlign: 'center',
   mb: 2,
 };
@@ -165,6 +159,8 @@ const teamTitleStyle = {
 const teamDescription = 'The Tech Development team focuses on building, maintaining, and innovating technical solutions for the institute. We drive software, hardware, and automation projects, and support all technical initiatives.';
 
 export default function TechDevelopmentCore() {
+  const theme = useTheme();
+  
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
       <Typography variant="h2" sx={teamTitleStyle} gutterBottom>Tech Development</Typography>

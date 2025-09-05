@@ -109,10 +109,7 @@ function ClubPageTemplate({ name, logo, description, core, links }: ClubPageTemp
                   fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
                   fontWeight: 'bold',
                   mb: 3,
-                  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-                  backgroundClip: 'text',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: theme.palette.primary.main,
                   textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                   width: '100%', 
                   textAlign: { xs: 'center', md: 'center' }
@@ -141,7 +138,7 @@ function ClubPageTemplate({ name, logo, description, core, links }: ClubPageTemp
                   size="medium"
                   sx={{
                     mt: 3,
-                    background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
+                    background: theme.palette.primary.main,
                     color: 'white',
                     boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
                     '&:hover': {

@@ -121,10 +121,7 @@ const Hero = () => {
                 letterSpacing: '-0.03em',
                 whiteSpace: 'pre-wrap',
                 lineHeight: 1,
-                background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: theme.palette.primary.main,
               }}
             >
               <TypeAnimation

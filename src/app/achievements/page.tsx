@@ -16,9 +16,7 @@ interface Achievement {
 }
 
 const GradientTitle = styled(Typography)(({ theme }) => ({
-  background: 'linear-gradient(45deg, #1976d2, #9c27b0)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
+  color: '#3275AA',
   marginBottom: theme.spacing(4),
   textAlign: 'center',
   [theme.breakpoints.down('sm')]: {
