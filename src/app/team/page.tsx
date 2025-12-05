@@ -206,6 +206,11 @@ function Committee() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
 
   const handleOpen = (image: string) => {
     setSelectedImage(image);
@@ -245,6 +250,49 @@ function Committee() {
 
   return (
     <Container maxWidth="lg" sx={{ py: 12 }}>
+      {/* Our Family Section */}
+      <Box sx={{ width: '100%', typography: 'body1', mb: 6 }}>
+        <Typography variant="h4" component="h2" align="center" gutterBottom sx={titleStyle}>
+          Our Family
+        </Typography>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="family tabs" centered>
+            {tabOptions.map((tab, index) => (
+              <Tab label={tab.label} key={tab.label} />
+            ))}
+          </Tabs>
+        </Box>
+        <Box sx={{ p: 3 }}>
+          <Grid container spacing={3} justifyContent="center">
+            {tabOptions[value].data.map((item) => (
+              <Grid item key={item.name} xs={6} sm={4} md={3} lg={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Link href={item.link} passHref style={{ textDecoration: 'none' }}>
+                  <Card sx={{ ...cardStyle, width: 160, height: 160 }}>
+                    <CardMedia
+                      component="img"
+                      image={item.image}
+                      alt={item.name}
+                      sx={{
+                        width: '70%',
+                        margin: 'auto',
+                        objectFit: 'contain',
+                        pt: 2,
+                        height: '65%',
+                      }}
+                    />
+                    <CardContent sx={{ display: 'flex', alignItems: 'center', height: '35%' }}>
+                      <Typography variant="body2" align="center" sx={{ width: '100%', fontWeight: 'medium' }}>
+                        {item.name}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Box>
+
       <Box sx={{ mb: 6 }}>
         <Typography
           variant="h4"
@@ -281,7 +329,7 @@ function Committee() {
           gutterBottom
           sx={titleStyle}
         >
-          Teams
+          Our Core Teams
         </Typography>
         <Grid container spacing={{ xs: 1, sm: 2 }} justifyContent="center">
           {[
