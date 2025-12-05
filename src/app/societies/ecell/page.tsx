@@ -47,4 +47,4 @@ function ECell() {
   return <ClubPageTemplate {...clubData} />;
 }
 
-export default ECell; 
+export default ECell;

@@ -10,13 +10,20 @@ import {
   Typography,
   Box,
   IconButton,
+  Avatar,
+  Modal,
+  Backdrop,
+  Fade,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import {
   Instagram,
   LinkedIn,
   YouTube,
   Email,
+  Download as DownloadIcon,
+  Close as CloseIcon,
 } from "@mui/icons-material";
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
@@ -26,7 +33,6 @@ import {
   Tab,
   useMediaQuery,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { usePathname } from "next/navigation";
 
 // Team member data
@@ -106,256 +112,118 @@ const tabOptions = [
   { label: "Communities", data: communities, route: "communities" },
 ];
 
-const TeamCard = styled(Card)(({ theme }) => ({
-  width: 140,
-  height: 180,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  textAlign: "center",
-  boxShadow: theme.shadows[2],
-  borderRadius: 12,
-  background: theme.palette.background.paper,
-  border: `1.5px solid ${theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.grey[200]
-    }`,
-  transition: "transform 0.18s, box-shadow 0.18s",
-  cursor: "pointer",
-  "&:hover": {
-    transform: "translateY(-4px) scale(1.03)",
-    boxShadow: theme.shadows[6],
-    borderColor: theme.palette.primary.main,
-  },
-  [theme.breakpoints.down("sm")]: {
-    width: 130,
-    height: 160,
-  },
+const TeamMemberCard = styled(Card)(({ theme }) => ({
+  height: '100%',
+  width: 220,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  padding: theme.spacing(1.5),
+  textAlign: 'center',
+  wordBreak: 'break-word',
+  cursor: 'pointer',
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(1),
+    width: 120,
+  }
 }));
 
-function Council() {
-  const pathname = usePathname();
+interface Member {
+  name: string;
+  role?: string;
+  position?: string;
+  image: string;
+  email?: string;
+  linkedin?: string;
+  roll?: string;
+}
+
+function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (image: string) => void }) {
   const theme = useTheme();
-  const isXs = useMediaQuery(theme.breakpoints.only("xs"));
-
-  // Get tab index from current path
-  const getTabFromPath = useCallback(() => {
-    const parts = pathname.split("/");
-    if (parts.length >= 3) {
-      const idx = tabOptions.findIndex(
-        (opt) => opt.route === parts[2].toLowerCase()
-      );
-      return idx !== -1 ? idx : 0;
-    }
-    return 0;
-  }, [pathname]);
-
-  const [tab, setTab] = useState(getTabFromPath());
-
-  // Sync tab when pathname changes
-  useEffect(() => {
-    setTab(getTabFromPath());
-  }, [getTabFromPath]);
-
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
-    setTab(newValue);
-    // router.push(`/council/${tabOptions[newValue].route}`);
-  };
-
-  const currentList = tabOptions[tab].data;
-
-  // Tabs responsive settings
-  const tabsVariant: "fullWidth" | "scrollable" | "standard" = isXs ? "scrollable" : "fullWidth";
-  const scrollButtons = isXs;
-
+  if (!members.length) return <Typography color="text.secondary" align="center">No data available.</Typography>;
   return (
-    <Box
-      sx={{
-        // mt: { xs: 7, md: 9 },
-        py: { xs: 7, md: 9 },
-        bgcolor: "background.default",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          component="h2"
-          sx={{
-            fontSize: { xs: "2rem", sm: "2.8rem", md: "3.5rem" },
-            fontWeight: "bold",
-            mb: 2,
-            textAlign: "center",
-            color: theme.palette.primary.main,
-            textShadow: "0px 2px 4px rgba(0,0,0,0.1)",
-          }}
-        >
-          Our Family
-        </Typography>
-
-        {/* Tabs */}
-        <Tabs
-          value={tab}
-          onChange={handleTabChange}
-          variant={tabsVariant}
-          scrollButtons={scrollButtons}
-          allowScrollButtonsMobile
-          sx={{
-            mb: 3,
-            borderRadius: 2,
-            bgcolor: "background.paper",
-            boxShadow: 2,
-            minHeight: 36,
-            mx: "auto",
-            width: "100%",
-            "& .MuiTabs-indicator": {
-              background: theme.palette.primary.main,
-              height: 3,
-              borderRadius: 2,
-            },
-          }}
-        >
-          {tabOptions.map((option) => (
-            <Tab
-              key={option.label}
-              label={option.label}
+    <Grid container spacing={1} justifyContent='center' sx={{ maxWidth: '1200px', mx: 'auto' }}>
+      {members.map((member) => (
+        <Grid item xs={6} sm={6} md={3} key={member.name} sx={{ display: 'flex', justifyContent: 'center', minWidth: 0 }}>
+          <TeamMemberCard onClick={() => handleOpen(member.image)}>
+            <Box
               sx={{
-                fontWeight: 600,
-                fontSize: { xs: "0.8rem", sm: "0.95rem" },
-                color: "text.secondary",
-                minHeight: 36,
-                px: { xs: 0.5, sm: 2 },
-                transition: "color 0.2s",
-                "&.Mui-selected": {
-                  color: "primary.main",
-                },
-              }}
-            />
-          ))}
-        </Tabs>
-
-        {/* Cards */}
-        <Grid
-          container
-          spacing={1}
-          justifyContent="center"
-          sx={{
-            maxWidth: "1000px",
-            mx: "auto",
-          }}
-        >
-          {currentList.map((item) => (
-            <Grid
-              item
-              key={item.name}
-              xs={6}
-              sm={4}
-              md={3}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                minWidth: 0,
+                borderRadius: '50%',
+                p: '4px',
+                background: theme.palette.mode === 'dark' ? `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})` : theme.palette.grey[200],
+                boxShadow: '0 0 12px rgba(0,0,0,0.1)',
+                mb: { xs: 0.75, sm: 1, md: 1.5 },
+                border: theme.palette.mode === 'light' ? `4px solid ${theme.palette.primary.main}` : 'none',
               }}
             >
-              <Link href={item.link} passHref>
-                <TeamCard
-                  tabIndex={0}
-                  role="button"
-                  aria-label={item.name}
-                >
-                  <Box
-                    sx={{
-                      width: { xs: 70, sm: 85 },
-                      height: { xs: 70, sm: 85 },
-                      mb: 1,
-                      bgcolor: (theme) => theme.palette.background.default,
-                      borderRadius: 3,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      boxShadow: (theme) => theme.shadows[1],
-                      overflow: "hidden",
-                      p: 1,
-                      position: "relative",
-                    }}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </Box>
-                  <Typography
-                    variant="h6"
-                    component="h3"
-                    gutterBottom
-                    sx={{
-                      fontSize: "1rem",
-                      mb: 0,
-                      wordBreak: "break-word",
-                      maxWidth: "100%",
-                      overflow: "hidden",
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                    }}
-                  >
-                    {item.name}
-                  </Typography>
-                </TeamCard>
-              </Link>
-            </Grid>
-          ))}
+              <Avatar
+                src={member.image}
+                alt={member.name}
+                sx={{ width: { xs: 70, sm: 90, md: 110 }, height: { xs: 70, sm: 90, md: 110 },
+                }}
+              />
+            </Box>
+            <Typography
+              variant="h6"
+              component="h3"
+              gutterBottom
+              sx={{
+                fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.1rem' },
+                mb: { xs: 0.5, sm: 0.75, md: 0.75 },
+                width: '100%',
+                textAlign: 'center',
+                overflowWrap: { xs: 'break-word', sm: 'break-word', md: 'break-word' },
+                wordBreak: { xs: 'break-word', sm: 'break-word', md: 'break-word' },
+              }}
+            >
+              {member.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              gutterBottom
+              sx={{
+                fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                wordBreak: 'break-word',
+                overflowWrap: 'anywhere',
+              }}
+            >
+              {member.email ? (
+                <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                  {member.email}
+                </a>
+              ) : (member.role || member.position)}
+            </Typography>
+          </TeamMemberCard>
         </Grid>
-      </Container>
-    </Box>
+      ))}
+    </Grid>
   );
 }
 
-
 function Committee() {
   const theme = useTheme();
-  
-  const cardStyle = {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    transition: "transform 0.2s",
-    "&:hover": {
-      transform: "scale(1.02)",
-    },
-    width: "100%",
-    minWidth: "140px",
-    maxWidth: "140px",
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const handleOpen = (image: string) => {
+    setSelectedImage(image);
+    setOpen(true);
   };
 
-  const imageStyle = {
-    height: 160,
-    objectFit: "cover",
-    width: "100%",
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedImage("");
   };
 
-  const nameStyle = {
-    fontSize: {
-      xs: "0.7rem",
-      sm: "0.8rem",
-      md: "0.8rem",
-    },
-    width: "100%",
-    textAlign: "center",
-    fontWeight: "bold",
-  };
-
-  const descriptionStyle = {
-    fontSize: {
-      xs: "0.6rem",
-      sm: "0.7rem",
-      md: "0.8rem",
-    },
-    width: "100%",
-    textAlign: "center",
-    padding: "0 4px",
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = selectedImage;
+    link.download = selectedImage.split('/').pop() || 'image';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const titleStyle = {
@@ -364,9 +232,19 @@ function Committee() {
     marginBottom: "1rem",
   };
 
+  const cardStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    p: 1.5,
+    boxShadow: 3,
+    transition: 'transform 0.2s',
+    '&:hover': { transform: 'scale(1.05)' }
+  };
+
   return (
     <Container maxWidth="lg" sx={{ py: 12 }}>
-      <Council />
       <Box sx={{ mb: 6 }}>
         <Typography
           variant="h4"
@@ -378,91 +256,9 @@ function Committee() {
           Faculty Heads
         </Typography>
 
-        {/* First head (Dean) */}
-        <Grid container spacing={2} justifyContent="center" sx={{ mb: 2 }}>
-          <Grid
-            item
-            xs="auto"
-            key={facultyHeads[0].name}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <Card
-              sx={{
-                ...cardStyle,
-                height: "auto",
-                minWidth: "180px",
-                maxWidth: "180px",
-              }}
-            >
-              <CardMedia
-                component="img"
-                image={facultyHeads[0].image}
-                alt={facultyHeads[0].name}
-                sx={imageStyle}
-              />
-              <CardContent sx={{ py: 1, px: 1 }}>
-                <Box>
-                  <Typography variant="h6" component="h3" sx={nameStyle}>
-                    {facultyHeads[0].name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={descriptionStyle}
-                  >
-                    {facultyHeads[0].role}
-                  </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-
-        {/* Remaining heads */}
-        <Grid container spacing={2} justifyContent="center">
-          {facultyHeads.slice(1).map((head) => (
-            <Grid
-              item
-              xs="auto"
-              key={head.name}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <Card
-                sx={{
-                  ...cardStyle,
-                  height: "auto",
-                  minWidth: "180px",
-                  maxWidth: "180px",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  image={head.image}
-                  alt={head.name}
-                  sx={imageStyle}
-                />
-                <CardContent sx={{ py: 1, px: 1 }}>
-                  <Box>
-                    <Typography variant="h6" component="h3" sx={nameStyle}>
-                      {head.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={descriptionStyle}
-                    >
-                      {head.role}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+        <MemberGrid members={facultyHeads} handleOpen={handleOpen}/>
       </Box>
 
-
-      {/* SAC Technical Affairs Section */}
       <Box sx={{ mb: 6 }}>
         <Typography
           variant="h4"
@@ -471,120 +267,9 @@ function Committee() {
           gutterBottom
           sx={titleStyle}
         >
-          SAC Technical Affairs
+          SAC
         </Typography>
-        <Grid container spacing={2} justifyContent="center">
-          {/* Secretary */}
-          <Grid
-            item
-            xs="auto"
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <Card sx={{ ...cardStyle, height: 'auto', minWidth: '180px', maxWidth: '180px' }}>
-              <CardMedia
-                component="img"
-                image={teamData.secretary.image}
-                alt={teamData.secretary.name}
-                sx={imageStyle}
-              />
-              <CardContent sx={{ py: 1, px: 1 }}>
-                <Box>
-                  <Typography variant="h6" component="h3" sx={nameStyle}>
-                    {teamData.secretary.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={descriptionStyle}
-                  >
-                    {teamData.secretary.position}
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 1,
-                    mt: 1,
-                  }}
-                >
-                <Typography
-                variant="body2"
-                color="text.secondary"
-                gutterBottom
-                sx={{
-                  fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
-                  mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                  wordBreak: 'break-word',
-                  overflowWrap: 'anywhere',
-                }}
-              >
-                {teamData.secretary.email ? (
-                  <a href={`mailto:${teamData.secretary.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
-                    {teamData.secretary.email}
-                  </a>
-                ) : (teamData.secretary.position)}
-              </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-          {/* Joint Secretary */}
-          <Grid
-            item
-            xs="auto"
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <Card sx={{ ...cardStyle, height: 'auto', minWidth: '180px', maxWidth: '180px' }}>
-              <CardMedia
-                component="img"
-                image={teamData.jointSecretary.image}
-                alt={teamData.jointSecretary.name}
-                sx={imageStyle}
-              />
-              <CardContent sx={{ py: 1, px: 1 }}>
-                <Box>
-                  <Typography variant="h6" component="h3" sx={nameStyle}>
-                    {teamData.jointSecretary.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={descriptionStyle}
-                  >
-                    {teamData.jointSecretary.position}
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 1,
-                    mt: 1,
-                  }}
-                >
-                  <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
-                    mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                    wordBreak: 'break-word',
-                    overflowWrap: 'anywhere',
-                  }}
-                >
-                  {teamData.jointSecretary.email ? (
-                    <a href={`mailto:${teamData.jointSecretary.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
-                      {teamData.jointSecretary.email}
-                    </a>
-                  ) : (teamData.jointSecretary.position)}
-                </Typography>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        <MemberGrid members={[teamData.secretary, teamData.jointSecretary]} handleOpen={handleOpen}/>
       </Box>
 
       {/* Core Team Navigation Section */}
@@ -700,8 +385,93 @@ function Committee() {
         </Box>
       </Box>
 
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="image-modal"
+        aria-describedby="image-modal-description"
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+            style: { backgroundColor: 'rgba(255, 255, 255, 0.5)' },
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: { xs: '60vw', sm: '50vw', md: '35vw', lg: '25vw' },
+            maxWidth: '300px',
+            maxHeight: '50vh',
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            p: 2,
+            borderRadius: 2,
+            outline: 'none',
+            border: `2px solid ${theme.palette.divider}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+            <IconButton
+              aria-label="close"
+              onClick={handleClose}
+              sx={{
+                position: 'absolute',
+                top: 8,
+                right: 8,
+                color: (theme) => theme.palette.grey[500],
+                zIndex: 1,
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+            <Box
+              sx={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <Box sx={{
+                backgroundColor: '#fff',
+                padding: '1rem',
+                borderRadius: '4px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '100%',
+              }}>
+                {selectedImage && <Image src={selectedImage} alt="Faculty Head" width={300} height={300} style={{ width: '100%', height: 'auto', maxHeight: '40vh', objectFit: 'contain' }} />}
+              </Box>
+              <IconButton
+                aria-label="download"
+                onClick={handleDownload}
+                className="download-icon"
+                sx={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  color: 'primary.main',
+                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                  transition: 'background-color 0.3s ease-in-out',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  },
+                }}
+              >
+                <DownloadIcon fontSize="large" />
+              </IconButton>
+            </Box>
+          </Box>
+        </Fade>
+      </Modal>
     </Container>
-
   );
 }
 

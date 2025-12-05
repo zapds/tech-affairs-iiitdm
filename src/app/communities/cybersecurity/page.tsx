@@ -36,7 +36,8 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
 const clubData = {
   name: 'Cybersecurity Community',
   logo: '/communities/CyberSecurity/logo.png',
-  description: `The Cybersecurity Community at IIITDM Kancheepuram is a student-driven initiative focused on learning and applying concepts in ethical hacking, network security, cryptography, and digital forensics. The community aims to build a foundational understanding of cybersecurity, encouraging students to explore how digital systems are protected and how vulnerabilities are addressed.\nThrough collaborative learning and practical exploration of cybersecurity tools and techniques, the community fosters an environment of curiosity, technical growth, and responsible digital practices.`,
+  description: `The Cybersecurity Community at IIITDM Kancheepuram is a student-driven initiative focused on learning and applying concepts in ethical hacking, network security, cryptography, and digital forensics. The community aims to build a foundational understanding of cybersecurity, encouraging students to explore how digital systems are protected and how vulnerabilities are addressed.
+Through collaborative learning and practical exploration of cybersecurity tools and techniques, the community fosters an environment of curiosity, technical growth, and responsible digital practices.`,
   core: [
     {
       name: 'A. Student',
@@ -61,7 +62,7 @@ const clubData = {
   }
 };
 
-function CSClub() {
+function Cybersecurity() {
   const theme = useTheme();
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>
@@ -140,7 +141,7 @@ function CSClub() {
                 size="medium"
                 sx={{
                   mt: 3,
-                  color: 'white',
+                  color: '#3275AA',
                   boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
                   '&:hover': {
                     bgcolor: 'primary.dark'
@@ -321,4 +322,4 @@ function CSClub() {
   );
 }
 
-export default CSClub; 
+export default Cybersecurity;
