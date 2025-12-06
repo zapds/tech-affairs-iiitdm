@@ -36,7 +36,8 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
 const clubData = {
   name: 'Game Developers Community',
   logo: '/communities/gamedevelopers/logo.png',
-  description: `The Game Development Community at IIITDM Kancheepuram is a group of students passionate about designing and developing interactive digital experiences. Focused on exploring the creative and technical aspects of game development, the community encourages students to learn about game mechanics, 2D/3D graphics, storytelling, and real-time interaction.\nWith an emphasis on collaborative learning and experimentation, the community serves as a platform for students to understand the process of game creation and express their creativity through technology.`,
+  description: `The Game Development Community at IIITDM Kancheepuram is a group of students passionate about designing and developing interactive digital experiences. Focused on exploring the creative and technical aspects of game development, the community encourages students to learn about game mechanics, 2D/3D graphics, storytelling, and real-time interaction.
+With an emphasis on collaborative learning and experimentation, the community serves as a platform for students to understand the process of game creation and express their creativity through technology.`,
   core: [
     {
       name: 'C. Dev',
@@ -61,7 +62,7 @@ const clubData = {
   }
 };
 
-function CSClub() {
+function GameDevelopers() {
   const theme = useTheme();
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>
@@ -321,4 +322,4 @@ function CSClub() {
   );
 }
 
-export default CSClub; 
+export default GameDevelopers;

@@ -5,7 +5,9 @@ const teamInfo = {
   name: 'Team Tad',
   club: 'TAD Club',
   logo: '/teams/tad/logo.png',
-  description: `The Talpade Aero Design (TAD) team at IIITDM Kancheepuram is a vibrant and fast-growing student organization dedicated to advancing the field of aeronautical design and engineering. Bringing together passionate and curious engineering minds, the club focuses on the design, construction, and optimization of high-performance RC planes.\nWith a strong emphasis on precision engineering and innovation, TAD Club builds aircraft that compete in national-level aeromodeling competitions, where students apply their skills in aerodynamics, structural design, propulsion, and control systems. The club serves as a collaborative platform for like-minded individuals who are driven to push the boundaries of RC plane design and aerial vehicle development.\nThrough hands-on projects, workshops, and competitions, TAD Club nurtures technical excellence, teamwork, and creativity, inspiring the next generation of aerospace innovators.`,
+  description: `The Talpade Aero Design (TAD) team at IIITDM Kancheepuram is a vibrant and fast-growing student organization dedicated to advancing the field of aeronautical design and engineering. Bringing together passionate and curious engineering minds, the club focuses on the design, construction, and optimization of high-performance RC planes.
+With a strong emphasis on precision engineering and innovation, TAD Club builds aircraft that compete in national-level aeromodeling competitions, where students apply their skills in aerodynamics, structural design, propulsion, and control systems. The club serves as a collaborative platform for like-minded individuals who are driven to push the boundaries of RC plane design and aerial vehicle development.
+Through hands-on projects, workshops, and competitions, TAD Club nurtures technical excellence, teamwork, and creativity, inspiring the next generation of aerospace innovators.`,
   achievements: [
     {
       title: 'IIT Bombay Competition',

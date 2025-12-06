@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Fab, Zoom, useScrollTrigger } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useTheme } from '@mui/material/styles';
@@ -14,10 +14,19 @@ const ScrollToTopButton = () => {
   });
 
   const lenis = useLenis();
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const handleClick = () => {
     lenis?.scrollTo(0);
   };
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <Zoom in={trigger}>
@@ -42,4 +51,4 @@ const ScrollToTopButton = () => {
   );
 };
 
-export default ScrollToTopButton; 
+export default ScrollToTopButton;

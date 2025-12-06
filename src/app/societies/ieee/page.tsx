@@ -4,7 +4,9 @@ import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
 const clubData = {
   name: 'IEEE Student Branch',
   logo: '/societies/IEEE/logo.png',
-  description: `The IEEE Student Branch at IIITDM Kancheepuram is the official chapter of the Institute of Electrical and Electronics Engineers (IEEE), dedicated to promoting learning, research, and innovation in electrical and electronics engineering, robotics, and emerging technologies.\nThe branch focuses on helping students build technical expertise in fields such as IoT, artificial intelligence, renewable energy systems, and embedded technologies. It encourages participation in IEEE conferences, exploration of research opportunities, and the development of innovative projects that solve real-world challenges.\nThrough its growing activities, the student branch aims to organize technical workshops, robotics challenges, and research symposiums, creating a platform for collaborative learning and technical growth.`,
+  description: `The IEEE Student Branch at IIITDM Kancheepuram is the official chapter of the Institute of Electrical and Electronics Engineers (IEEE), dedicated to promoting learning, research, and innovation in electrical and electronics engineering, robotics, and emerging technologies.
+The branch focuses on helping students build technical expertise in fields such as IoT, artificial intelligence, renewable energy systems, and embedded technologies. It encourages participation in IEEE conferences, exploration of research opportunities, and the development of innovative projects that solve real-world challenges.
+Through its growing activities, the student branch aims to organize technical workshops, robotics challenges, and research symposiums, creating a platform for collaborative learning and technical growth.`,
   core: [
     {
       name: 'Arjun Singh',
