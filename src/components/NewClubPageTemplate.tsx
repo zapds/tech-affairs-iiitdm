@@ -5,7 +5,7 @@ import {
   Box,
   Container,
   Typography,
-  GridLegacy as Grid,
+  Grid,
   Card,
   Avatar,
   IconButton,
@@ -13,6 +13,7 @@ import {
   Modal,
   Backdrop,
   Fade,
+  Chip,
 } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -24,10 +25,20 @@ import {
   Download as DownloadIcon,
   Close as CloseIcon,
 } from "@mui/icons-material";
-import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
-import ProjectCard from './ProjectCard';
+
+
+import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import Image from 'next/image';
+
+import { useThemeContext } from '../context/ThemeContext';
+import ProjectCard from './ProjectCard';
 
 // Styled components
 const TeamMemberCard = styled(Card)(({ theme }) => ({
@@ -63,41 +74,45 @@ interface ClubLinks {
   github?: string;
 }
 
-interface Project {
-  title: string;
+interface Achievement {
+  year: number;
+  event: string;
   description: string;
-  themeColor: string;
-  icons: React.ReactElement<any>[];
+  proof?: string;
 }
 
-interface ClubPageTemplateProps {
+interface Project {
+  name: string;
+  description: string;
+  image?: string;
+  members?: string[];
+  technologies?: string[];
+  themeColor?: string;
+}
+
+interface GalleryImage {
+  src: string;
+  caption: string;
+}
+
+interface NewClubPageTemplateProps {
   name: string;
   logo: string;
-  description: string;
+  introduction: string;
+  timeline: Achievement[];
+  projects: Project[];
+  gallery: GalleryImage[];
   core: ClubMember[];
   links: ClubLinks;
-  projects?: Project[];
 }
 
-const dummyProjects = [
-  {
-    title: 'Club Project 1',
-    description: 'A very cool project.',
-    themeColor: '#61DAFB',
-    icons: [<FaReact key="react" />],
-  },
-  {
-    title: 'Session on XYZ',
-    description: 'An interesting session.',
-    themeColor: '#339933',
-    icons: [<FaNodeJs key="node" />],
-  },
-];
-
-function ClubPageTemplate({ name, logo, description, core, links, projects = dummyProjects }: ClubPageTemplateProps) {
+function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gallery, core, links }: NewClubPageTemplateProps) {
   const theme = useTheme();
+  const { isDarkMode } = useThemeContext();
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [projectModalOpen, setProjectModalOpen] = useState(false);
 
   const handleOpen = (image: string) => {
     setSelectedImage(image);
@@ -109,13 +124,25 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
     setSelectedImage("");
   };
 
+  const handleProjectOpen = (project: Project) => {
+    setSelectedProject(project);
+    setProjectModalOpen(true);
+  };
+
+  const handleProjectClose = () => {
+    setProjectModalOpen(false);
+    setSelectedProject(null);
+  };
+
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = selectedImage;
-    link.download = selectedImage.split('/').pop() || 'faculty-image';
+    link.download = selectedImage.split('/').pop() || 'image';
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
+    setTimeout(() => {
+      document.body.removeChild(link);
+    }, 100);
   };
 
   return (
@@ -151,7 +178,7 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
             </Box>
           </Grid>
 
-          {/* Title and Description on the right */}
+          {/* Title and Introduction on the right */}
           <Grid item xs={12} md={8}>
             <Box sx={{ 
               display: 'flex', 
@@ -183,7 +210,7 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
                   textAlign: { xs: 'center', md: 'center' }
                 }}
               >
-                {description}
+                {introduction}
               </Typography>
               {links?.website && (
                 <Button
@@ -208,6 +235,86 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
             </Box>
           </Grid>
         </Grid>
+
+        {/* Timeline & Achievements Section */}
+        <Box sx={{ my: 8 }}>
+            <Typography variant="h4" component="h2" sx={{ mb: 4, textAlign: 'center', fontWeight: 'bold', color: theme.palette.primary.main }}>
+            Timeline & Achievements
+            </Typography>
+            <Box sx={{ position: 'relative', '&::before': { content: '""', position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', bgcolor: theme.palette.divider } }}>
+                {timeline.map((item, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Box sx={{ display: 'flex', justifyContent: index % 2 === 0 ? 'flex-start' : 'flex-end', mb: 4 }}>
+                            <Box sx={{ width: 'calc(50% - 20px)', bgcolor: 'background.paper', p: 2, borderRadius: 2, boxShadow: 1, position: 'relative', '&::after': { content: '""', position: 'absolute', top: '20px', right: index % 2 === 0 ? '-20px' : 'auto', left: index % 2 !== 0 ? '-20px' : 'auto', borderTop: '10px solid transparent', borderBottom: '10px solid transparent', borderLeft: index % 2 === 0 ? '10px solid' : 'none', borderRight: index % 2 !== 0 ? '10px solid' : 'none', borderColor: theme.palette.background.paper } }}>
+                                <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', color: theme.palette.primary.main }}>{item.year} - {item.event}</Typography>
+                                <Typography variant="body2" color="text.secondary">{item.description}</Typography>
+                            </Box>
+                        </Box>
+                    </motion.div>
+                ))}
+            </Box>
+        </Box>
+
+        {/* Current Projects / Recently Conducted Events Section */}
+        <Box sx={{ my: 8, py: 4, bgcolor: 'background.paper', borderRadius: 2 }}>
+            <Typography variant="h4" component="h2" sx={{ mb: 4, textAlign: 'center', fontWeight: 'bold', color: theme.palette.primary.main }}>
+            Current Projects / Recently Conducted Events
+            </Typography>
+            <Grid container spacing={5} justifyContent="center">
+                {projects.map((project, index) => (
+                    <Grid item xs={12} sm={6} md={3} key={index}>
+                        <ProjectCard
+                            name={project.name}
+                            image={project.image || ''}
+                            description={project.description}
+                            themeColor={project.themeColor}
+                            isDarkMode={isDarkMode}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
+
+        {/* Gallery Section */}
+        <Box sx={{ my: 8 }}>
+            <Typography variant="h4" component="h2" sx={{ mb: 4, textAlign: 'center', fontWeight: 'bold', color: theme.palette.primary.main }}>
+            Gallery
+            </Typography>
+            <Swiper
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={4}
+                coverflowEffect={{
+                    rotate: 40,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }}
+                pagination={{ clickable: true }}
+                navigation={true}
+                modules={[EffectCoverflow, Pagination, Navigation]}
+                className="mySwiper"
+            >
+                {gallery.map((image, index) => (
+                    <SwiperSlide key={index}>
+                        <Card sx={{ cursor: 'pointer' }} onClick={() => handleOpen(image.src)}>
+                            <Image src={image.src} alt={image.caption} width={1280} height={720} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                            <Box sx={{ p: 1 }}>
+                                <Typography variant="caption" color="text.secondary">{image.caption}</Typography>
+                            </Box>
+                        </Card>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </Box>
 
         {/* Core Team Section */}
         <Typography
@@ -263,7 +370,6 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
                     sx={{
                       width: { xs: 70, sm: 90, md: 110 },
                       height: { xs: 70, sm: 90, md: 110 },
-                      // border: `4px solid ${theme.palette.background.paper}`, // Removed this
                     }}
                   />
                 </Box>
@@ -315,63 +421,11 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
                 <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
                   {member.email}
                 </a>
-                  {/* {member.email && (
-                    <IconButton
-                      component="a"
-                      href={`mailto:${member.email}`}
-                      color="primary"
-                      size="small"
-                      sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
-                      }}
-                    >
-                      <EmailIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )}
-                  {member.linkedin && (
-                    <IconButton
-                      component="a"
-                      href={member.linkedin}
-                      target="_blank"
-                      color="primary"
-                      size="small"
-                      sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
-                      }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )} */}
                 </Typography>
               </TeamMemberCard>
             </Grid>
           ))}
         </Grid>
-        
-        {/* Projects & Sessions Section */}
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{
-            mb: 4,
-            textAlign: 'center',
-            fontWeight: 'bold',
-            color: theme.palette.primary.main,
-          }}
-        >
-          Projects & Sessions
-        </Typography>
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-8">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={i}
-              title={project.title}
-              description={project.description}
-              themeColor={project.themeColor}
-              icons={project.icons}
-            />
-          ))}
-        </div>
 
         {/* Links Section */}
         <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -509,8 +563,83 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
           </Box>
         </Fade>
       </Modal>
+
+      {/* Project Details Modal */}
+      <Modal
+        open={projectModalOpen}
+        onClose={handleProjectClose}
+        aria-labelledby="project-modal-title"
+        aria-describedby="project-modal-description"
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={projectModalOpen}>
+          <Box sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: { xs: '90vw', md: '60vw' },
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            bgcolor: 'background.paper',
+            boxShadow: 24,
+            p: 4,
+            borderRadius: 2,
+          }}>
+            {selectedProject && (
+              <>
+                <IconButton
+                  aria-label="close"
+                  onClick={handleProjectClose}
+                  sx={{
+                    position: 'absolute',
+                    top: 8,
+                    right: 8,
+                    color: (theme) => theme.palette.grey[500],
+                  }}
+                >
+                  <CloseIcon />
+                </IconButton>
+                <Typography id="project-modal-title" variant="h4" component="h2" sx={{ mb: 2, fontWeight: 'bold' }}>
+                  {selectedProject.name}
+                </Typography>
+                {selectedProject.image && <Image src={selectedProject.image} alt={selectedProject.name} width={1280} height={720} style={{ width: '100%', height: 'auto', borderRadius: 8, marginBottom: 16 }} />}
+                <Typography id="project-modal-description" sx={{ mb: 2 }}>
+                  {selectedProject.description}
+                </Typography>
+                {selectedProject.members && (
+                  <>
+                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>Team Members</Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
+                      {selectedProject.members.map((member, i) => (
+                        <Chip label={member} key={i} />
+                      ))}
+                    </Box>
+                  </>
+                )}
+                {selectedProject.technologies && (
+                  <>
+                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold' }}>Technologies Used</Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 1 }}>
+                      {selectedProject.technologies.map((tech, i) => (
+                        <Chip label={tech} key={i} color="primary" />
+                      ))}
+                    </Box>
+                  </>
+                )}
+              </>
+            )}
+          </Box>
+        </Fade>
+      </Modal>
     </Box>
   );
 }
 
-export default ClubPageTemplate;
+export default NewClubPageTemplate;

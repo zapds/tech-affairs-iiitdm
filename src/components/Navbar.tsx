@@ -57,10 +57,12 @@ const Navbar = ({ user }: NavbarProps) => {
   const { isDarkMode, toggleTheme } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -69,7 +71,7 @@ const Navbar = ({ user }: NavbarProps) => {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
-  const getLogoSrc = () => (theme.palette.mode === "light" ? "/nav_logo_inv.png" : "/nav_logo.png");
+  const getLogoSrc = () => "/nav_logo_inv.png";
 
   // Drawer for mobile view
   const drawer = (
@@ -145,14 +147,13 @@ const Navbar = ({ user }: NavbarProps) => {
     <>
       <AppBar
         position="fixed"
-        sx={{
-          bgcolor: "transparent",
-          backdropFilter: scrolled ? "blur(8px)" : "none",
-          boxShadow: scrolled ? theme.shadows[4] : "none",
-          transition: "all 0.3s ease-in-out",
-        }}
-        style={{ "--Paper-overlay": "none !important" } as React.CSSProperties} 
-        enableColorOnDark
+        className={
+          mounted && scrolled
+            ? isDarkMode
+              ? 'navbar-scrolled-dark'
+              : 'navbar-scrolled-light'
+            : 'navbar-transparent'
+        }
       >
         <Toolbar sx={{ px: { xs: 2, md: 3 } }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
@@ -196,15 +197,15 @@ const Navbar = ({ user }: NavbarProps) => {
                 {item.name}
               </Button>
             ))}
-            <IconButton
-              onClick={toggleTheme}
-              sx={{
-                color: theme.palette.mode === "dark" ? "white" : "text.primary",
-                "&:hover": { color: "primary.main" },
-              }}
-            >
-              {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
+              <IconButton
+                onClick={toggleTheme}
+                sx={{
+                  color: theme.palette.mode === "dark" ? "white" : "text.primary",
+                  "&:hover": { color: "primary.main" },
+                }}
+              >
+                {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+              </IconButton>
 
             {/* User authentication section for desktop */}
             {user ? (

@@ -23,29 +23,27 @@ export const useThemeContext = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  // Initialize theme from localStorage or default to false (light mode)
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check if we're in the browser environment
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme");
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [themeLoaded, setThemeLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme !== null) {
       try {
-        return savedTheme ? JSON.parse(savedTheme) : true;
+        setIsDarkMode(JSON.parse(savedTheme));
       } catch {
-        return true;
+        setIsDarkMode(true);
       }
     }
-    return true;
-  });
-
-  // Update localStorage when theme changes
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("theme", JSON.stringify(isDarkMode));
-    }
-  }, [isDarkMode]);
+    setThemeLoaded(true);
+  }, []);
 
   const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
+    setIsDarkMode((prev) => {
+      const newMode = !prev;
+      localStorage.setItem("theme", JSON.stringify(newMode));
+      return newMode;
+    });
   };
 
   const theme = useMemo(
@@ -58,8 +56,12 @@ export const ThemeProvider = ({ children }) => {
       isDarkMode,
       toggleTheme,
     }),
-    [isDarkMode]
+    [isDarkMode, toggleTheme]
   );
+
+  if (!themeLoaded) {
+    return null; // Or a loading spinner
+  }
 
   return (
     <ThemeContext.Provider value={value}>
