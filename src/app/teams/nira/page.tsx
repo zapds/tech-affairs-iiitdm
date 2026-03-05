@@ -1,52 +1,121 @@
 import React from 'react';
-import TeamPageTemplate from '../../../components/TeamPageTemplate';
+import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
-const teamInfo = {
+const clubData = {
   name: 'Team Nira',
-  club: 'AUV Society',
   logo: '/teams/nira/logo.jpg',
-  description: `Team Nira is the official autonomous underwater vehicle (AUV) team of IIITDM Kancheepuram, representing the institute in premier national and international competitions. The team specializes in designing, engineering, and programming self-reliant underwater systems capable of executing complex tasks without human input. At the intersection of mechanical engineering, electronics, computer vision, and control systems, Team Nira brings together a multidisciplinary group of students passionate about pushing the boundaries of underwater robotics. The team’s work reflects a strong commitment to research-driven development, innovation, and technical excellence. Team Nira has proudly participated in esteemed competitions such as the Singapore Autonomous Underwater Vehicle Challenge (SAUVC) and NIOT-SAVe, consistently showcasing its capabilities on competitive global platforms.`,
-  achievements: [
-      {
-      title: 'Aqua Quest',
-      description: 'Hosted a Nationwide ROV competition on Feb 2024',
-      year: '2024',
-      highlight: true
-    },
-      {
-      title: 'Research Paper-5',
-      description: 'Optimisation of Visual SLAM for Underwater Robotics using OAK-D Smart Camera OCEANS 2024 ',
-      year: '2024',
-      highlight: false
+
+  introduction: `AUV SOCIETY IIITDM -We are a team of interdisciplinary undergraduate engineers working to 
+build autonomous underwater vehicles for various underwater robotics competitions. The team 
+works in the robotic domains of mechanical, electronics, and software. We aim to culminate our 
+theoretical knowledge and use it to fabricate underwater vehicles that can traverse the depths of 
+the ocean and function autonomously. AUV is a club with the vision of fostering innovation and 
+research in underwater robotics. Our objective is to design and develop autonomous 
+underwater systems capable of performing complex tasks such as navigation, object detection, 
+and manipulation in underwater environments. 
+The club provides hands-on exposure in domains like robotics, computer vision, embedded 
+systems, control algorithms, and mechanical design. What makes AUV stand out is its strong 
+interdisciplinary collaboration and consistent participation in national-level and international 
+robotics competitions such as SAUVC (Singapore Autonomous Underwater Vehicle Challenge)`,
+
+  timeline: [
+    {
+      year: 2019,
+      event: '17th Place, Singapore AUV Challenge (SAUVC) ',
+      description: 'The team successfully participated in their first international competition with their debut vehicle, AUV V1.0. The challenge involved complex tasks in navigation, visual identification, and robotic manipulation. '
+
+
     },
     {
-      title: 'Singapore AUV Challenge (SAUVC)',
-      description: 'Secured 5th position globally in the on-site of the prestigious international competition, out of 41 teams from 13 countries.',
-      year: '2025',
-      highlight: true
+      year: 2020,
+      event: ' Participation, Singapore AUV Challenge (SAUVC) ',
+      description: 'The society returned to the competition with their improved AUV V2.0, demonstrating enhanced autonomous capabilities.'
     },
     {
-      title: 'AqUaVision-IIT Madras',
-      description: 'Secured 2nd place nationally in this competition hosted by IIT Madras, in collaboration with IEEE OES Madras Chapter and NIOT Chennai',
-      year: '2025',
-      highlight: false
+      year: 2021,
+      event: ' Research Paper Publication, Global OCEANS 2021 ',
+      description: ' Team members Mayank Navneet Mehta, Subash Mylraj, and Vishva Nilesh Bhate published a paper titled "Development of AUV for SAUVC During COVID-19," detailing their design and testing of control and vision algorithms.'
     },
     {
-      title: 'International AUV Challenge',
-      description: 'Secured 1st place in this nationwide AUV competition hosted by IIT Bombay',
-      year: '2025',
-      highlight: true
+      year: 2022,
+      event: 'Top 30, Singapore AUV Challenge (SAUVC)',
+      description: 'Team Shaurya competed with their vehicle "NEMO" (AUV V3.0), securing a spot among the top 30 teams globally. '
+    },
+    {
+      year: 2023,
+      event: '3rd Place (Worldwide), MATE ROV World Championship ',
+      description: ' Team Nira, as the sole representative from India, achieved a podium finish by securing 3rd place globally in the Ocean Exploration Video Challenge component of the championship held in Longmont, Colorado, USA.'
+    },
+    {
+      year: 2024,
+      event: 'Qualified for the onsite round in Singapore - SAUVC 2024  ',
+      description: ' Team members represented our college in an international level competition at Singapore in SAUVC 2024. Engineered the AUV Marty for this competition. '
+    },
+    {
+      year: 2025,
+      event: ' 5th Place, Singapore AUV Challenge (SAUVC)',
+      description: '  The team achieved its highest rank to date in this international competition, placing 5th out of 41 teams from 13 different countries.'
+    },
+     {
+      year: 2026,
+      event: '1st Place (Winners), 2nd Place (Runners-Up), Best Poster Presentation & Best Video Submission – AqUaVision 2026 ',
+      description: ' Team Nira and Samira achieved a major sweep at the national-level competition hosted by the IEEE OES Student Chapter at IIT Madras. The team secured four primary honors: 1st Place, 2nd Place, Best Poster Presentation, and Best Video Submission. As part of the top awards, the club received two XSENS sensors with a combined value of approximately ₹6 Lakhs. '
+    }
+
+  ],
+
+  projects: [
+    {
+      name: ' Custom Pub Sub architecture to remove ROS ',
+      description: 'Lock Free Ring Buffer architecture for single host robotic systems to speed up data transmission ,Development of ML Based PID Tuning for automating the tiring trial error process of PID tuning for an AUV ',
+      image: '/teams/nira/logo.jpg',
+      technologies: ['Computer Vision', 'Embedded Systems', 'Control Systems', 'Hydrodynamics'],
+      themeColor: '#1E88E5'
+    },
+    {
+      name: 'Magnetic Kill Switch (Development Done - Used in Nebula v2, Moses)',
+      description: 'Hydrophones (For acoustic localisation) Development of ADRC controller instead of PID controller for real world use cases for an AUV ',
+      image: '/teams/nira/logo.jpg',
+      technologies: ['Computer Vision', 'OpenCV', 'Deep Learning'],
+      themeColor: '#43A047'
+    },
+     {
+      name: ' Robotic Arm / Manipulator',
+      description: 'A Bio inspired gripping mechanism',
+      image: '/teams/nira/logo.jpg',
+      technologies: ['Computer Vision', 'OpenCV', 'Deep Learning'],
+      themeColor: '#43A047'
     }
   ],
-  members: [
+
+  gallery: [
+    {
+      src: '/teams/nira/auv1.jpg',
+      caption: 'Team Nira AUV prototype'
+    },
+    {
+      src: '/teams/nira/auv7.jpg',
+      caption: 'Team members working on AUV development'
+    },
+    {
+      src: '/teams/nira/auv5.jpg',
+      caption: ''
+    },
+    
+      {
+      src: '/teams/nira/auv10.jpg',
+      caption: ''
+    },
+
+
+  ],
+
+  core: [
     {
       name: 'Abinav Rajagopal',
       role: 'Team Lead',
       image: '/teams/nira/lead1.jpg',
       email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://www.linkedin.com/in/abinav-rajagopal-2ba65a286/',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
       roll: 'me23b1001'
     },
     {
@@ -54,17 +123,18 @@ const teamInfo = {
       role: 'Team Lead',
       image: '/teams/nira/lead2.jpg',
       email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://www.linkedin.com/in/shree-mithun-n-43ba49241/',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
       roll: 'me23b2024'
-    },
+    }
   ],
-  website: '#', // Add the actual website if available
+
+  links: {
+    website: '#',
+    instagram: '#'
+  }
 };
 
-function AUV() {
-  return <TeamPageTemplate {...teamInfo} />;
+function NiraPage() {
+  return <NewClubPageTemplate {...clubData} />;
 }
 
-export default AUV;
+export default NiraPage;
