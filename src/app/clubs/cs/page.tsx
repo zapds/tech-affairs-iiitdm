@@ -36,7 +36,7 @@ const clubData = {
       name: 'Nivedh Biju P',
       role: 'Technical Lead',
       image: '/clubs/csclub/headcores/nivedh.png',
-      email: 'cs22b1021@iiitdm.ac.in',
+      email: 'cs22b1021@iiitdm.ac.in',      
       linkedin: 'https://linkedin.com/in/nivedh-biju-b7b11b292',
       roll: 'cs22b1021',
     }

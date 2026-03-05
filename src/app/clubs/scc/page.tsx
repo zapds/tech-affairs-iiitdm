@@ -1,35 +1,71 @@
 import React from 'react';
-import ClubPageTemplate from '@/components/ClubPageTemplate';
+import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'System Coding Club (SCC)',
   logo: '/clubs/Scc/logo.png',
-  description: `The Systems Coding Club (SSC) at IIITDM Kancheepuram is dedicated to empowering students with practical skills in hardware-level programming and system design. The club focuses on teaching and applying Verilog, Embedded Systems, and MATLAB, preparing students to tackle real-world industrial challenges in electronics and automation.\nSSC encourages students to take on hands-on projects in these areas, fostering a deep understanding of how software interacts with hardware. The club also supports students in accessing and understanding research articles relevant to electronics, embedded design, and digital systems.`,
+  introduction: `The Systems Coding Club is a technical community at IIITDM Kancheepuram dedicated to building strong foundations in low-level programming, hardware-oriented design, and real-world system development. The club focuses on practical learning, hands-on sessions, and project-based exploration to bridge the gap between theory and implementation. Organized into three wings — Embedded Systems, MATLAB & Simulation, and Verilog & Digital Design — the club conducts technical sessions and workshops on core and advanced topics, mentors juniors by building strong conceptual and practical knowledge, and empowers students with skills in microcontrollers, FPGA-based systems, signal processing, firmware development, and RTL design.`,
+  timeline: [
+    { year: 2024, event: 'Club Foundation', description: 'The Systems Coding Club was established at IIITDM Kancheepuram to promote hardware-level programming and system design.' },
+    { year: 2025, event: 'Embedded Systems Workshop', description: 'Conducted a session on Communication Protocols covering UART, SPI, and I2C for embedded systems.' },
+    { year: 2025, event: 'MATLAB Onramp Session', description: 'Organized an introductory MATLAB session to help students get started with simulation and technical computing.' },
+    { year: 2025, event: 'FSM Design Workshop', description: 'Conducted the Finite State Machines Design Workshop with 30 participants, covering Moore and Mealy machines with hands-on Verilog HDL exercises.' },
+  ],
+  projects: [
+    {
+      name: 'FSM Design Workshop',
+      description: 'A workshop on Finite State Machines conducted on 30-12-2025, covering Moore and Mealy state machines, conversion methods, and practical implementation using Verilog HDL. 30 participants designed, simulated, and analyzed FSMs.',
+      image: '/clubs/Scc/logo.png',
+      technologies: ['Verilog HDL', 'Digital Design', 'FSM'],
+      themeColor: '#1976D2',
+    },
+    {
+      name: 'CROC SoC Accelerator Integration',
+      description: 'An ongoing project by the Verilog wing focusing on enhancing the CROC SoC by designing and integrating custom hardware accelerators and peripherals. Involves end-to-end development from RTL design and verification to full RTL-to-GDSII implementation.',
+      image: '/clubs/Scc/logo.png',
+      technologies: ['Verilog', 'ASIC Design', 'RTL', 'SoC'],
+      themeColor: '#388E3C',
+    },
+  ],
+  gallery: [
+    { src: '/clubs/Scc/IMG-20250717-WA0001.jpg', caption: 'Embedded systems hardware setup with microcontroller boards.' },
+    { src: '/clubs/Scc/IMG-20250717-WA0002.jpg', caption: 'SCC team group photo after a workshop session.' },
+    { src: '/clubs/Scc/IMG-20250717-WA0003.jpg', caption: 'Presentation on Core Security – RFID Entry systems.' },
+    { src: '/clubs/Scc/IMG-20250717-WA0004.jpg', caption: 'Hands-on hardware debugging session.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-02 234403.png', caption: 'Embedded Systems – Communication Protocols session (UART).' },
+    { src: '/clubs/Scc/Screenshot 2026-03-02 235900.png', caption: 'Attendees at the Communication Protocols workshop.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 001530.png', caption: 'UART session presentation in the lecture hall.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 001634.png', caption: 'Students attending the Embedded Systems session.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 001735.png', caption: 'MATLAB Onramp – Introduction to MATLAB.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 001802.png', caption: 'MATLAB Onramp session speaker.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 002146.png', caption: 'Workshop session in the computer lab.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 002211.png', caption: 'Hands-on coding session in the lab.' },
+    { src: '/clubs/Scc/Screenshot 2026-03-03 002247.png', caption: 'Technical session on digital system design.' },
+  ],
   core: [
     {
       name: 'A.Nikhileswar',
       role: 'Core',
-      image: '/clubs/scc/headcores/nikhileswar.jpg',
+      image: '/clubs/Scc/headcores/nikhileswar.jpg',
       email: 'ec23b1021@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/johndoe',
-      roll: 'ec23b1021'
+      roll: 'ec23b1021',
     },
     {
       name: 'Tarun Vignesh',
       role: 'Project Lead',
-      image: '/clubs/scc/headcores/vignesh.jpg',
+      image: '/clubs/Scc/headcores/vignesh.jpg',
       email: 'ec23b1047@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/janesmith',
-      roll: 'ec23b1047'
+      roll: 'ec23b1047',
     }
   ],
   links: {
-    instagram: 'https://www.instagram.com/systemcodingclub_iiitdm/'
+    instagram: 'https://www.instagram.com/systemcodingclub_iiitdm/',
+    github: 'https://github.com/SCC-IIITDM',
   }
 };
 
 function SCC() {
-  return <ClubPageTemplate {...clubData} />;
+  return <NewClubPageTemplate {...clubData} />;
 }
 
-export default SCC; 
+export default SCC;
