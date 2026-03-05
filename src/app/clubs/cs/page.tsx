@@ -122,7 +122,6 @@ Starting with LED control fundamentals and progressing to PIR sensor-based proje
       role: 'Head Core',
       image: '/clubs/csclub/headcores/avinaash.jpeg',
       email: 'cs22b1064@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/avinaash-a-7955a1289',
       roll: 'cs22b1064',
     },
     {
@@ -130,7 +129,6 @@ Starting with LED control fundamentals and progressing to PIR sensor-based proje
       role: 'Technical Lead',
       image: '/clubs/csclub/headcores/nivedh.png',
       email: 'cs22b1021@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/nivedh-biju-b7b11b292',
       roll: 'cs22b1021',
     }
   ],

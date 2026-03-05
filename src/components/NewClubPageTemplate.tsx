@@ -305,8 +305,10 @@ function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gal
             >
                 {gallery.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <Card sx={{ cursor: 'pointer' }} onClick={() => handleOpen(image.src)}>
-                            <Image src={image.src} alt={image.caption} width={1280} height={720} style={{ width: '100%', height: 'auto', display: 'block' }} />
+                        <Card sx={{ cursor: 'pointer', overflow: 'hidden' }} onClick={() => handleOpen(image.src)}>
+                            <Box sx={{ width: '100%', height: { xs: 180, sm: 220, md: 260 }, position: 'relative', overflow: 'hidden' }}>
+                              <Image src={image.src} alt={image.caption} fill style={{ objectFit: 'cover' }} />
+                            </Box>
                             <Box sx={{ p: 1 }}>
                                 <Typography variant="caption" color="text.secondary">{image.caption}</Typography>
                             </Box>
@@ -407,21 +409,23 @@ function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gal
                 >
                   {member.role}
                 </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              gutterBottom
-              sx={{
-                fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
-                mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                wordBreak: 'break-word',
-                overflowWrap: 'anywhere',
-              }}
-            >
-                <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
-                  {member.email}
-                </a>
-                </Typography>
+                {member.email && (
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    gutterBottom
+                    sx={{
+                      fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                      mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                      wordBreak: 'break-word',
+                      overflowWrap: 'anywhere',
+                    }}
+                  >
+                    <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                      {member.email}
+                    </a>
+                  </Typography>
+                )}
               </TeamMemberCard>
             </Grid>
           ))}

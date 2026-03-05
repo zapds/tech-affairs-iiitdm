@@ -44,6 +44,9 @@ What makes Developers Club stand out is its strong hands-on culture and implemen
         "Backend development session covering REST APIs, middleware, and server architecture.",
       image: "/clubs/devclub/events/nodejs.png"
     },
+    
+    
+events:[
     {
       name: "Gemini API Session",
       description:
