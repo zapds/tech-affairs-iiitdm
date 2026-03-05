@@ -29,15 +29,13 @@ const clubData = {
       role: 'Head Core',
       image: '/clubs/csclub/headcores/avinaash.jpeg',
       email: 'cs22b1064@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/avinaash-a-7955a1289',
       roll: 'cs22b1064',
     },
     {
       name: 'Nivedh Biju P',
       role: 'Technical Lead',
       image: '/clubs/csclub/headcores/nivedh.png',
-      email: 'cs22b1021@iiitdm.ac.in',      
-      linkedin: 'https://linkedin.com/in/nivedh-biju-b7b11b292',
+      email: 'cs22b1021@iiitdm.ac.in',
       roll: 'cs22b1021',
     }
   ],

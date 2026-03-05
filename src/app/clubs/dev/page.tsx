@@ -8,10 +8,9 @@ const clubData = {
   core: [
     {
       name: 'Sai Pranav',
-      role: ' Head Core',
+      role: 'Head Core',
       image: '/clubs/devclub/headcores/Sai Pranav.jpg',
       email: 'cs22b1027@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/sai-pranav-m-3340a0251',
       roll: 'cs22b1027',
     },
     {
@@ -19,29 +18,8 @@ const clubData = {
       role: 'Vice Head Core',
       image: '/clubs/devclub/headcores/sainath.jpg',
       email: 'cs22b1005@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/janesmith'
+      roll: 'cs22b1005',
     },
-  ],
-  team: [
-    {
-      name: 'Alice Johnson',
-      role: 'Team Member',
-      image: '/images/team/alice-johnson.jpg',
-      email: 'alice.johnson@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/alicejohnson',
-      year: 'B.Tech 2nd Year',
-      department: 'Computer Science Engineering',
-      roll: 'cs23b1003'
-    },
-    {
-      name: 'Bob Wilson',
-      role: 'Team Member',
-      image: '/images/team/bob-wilson.jpg',
-      email: 'bob.wilson@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/bobwilson',
-      year: 'B.Tech 2nd Year',
-      department: 'Computer Science Engineering'
-    }
   ],
   links: {
     website: 'https://devclub.iiitdm.ac.in',
