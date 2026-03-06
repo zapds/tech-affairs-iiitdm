@@ -5,14 +5,25 @@ import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
-  name: string;
-  image: string;
-  description: string;
+  name?: string;
+  title?: string;
+  image?: string;
+  description?: string;
   themeColor?: string;
-  isDarkMode: boolean;
+  isDarkMode?: boolean;
+  icons?: React.ReactElement[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, description, themeColor = '#4A90E2', isDarkMode }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  name,
+  title,
+  image,
+  description,
+  themeColor = '#4A90E2',
+  isDarkMode = false,
+  icons = [],
+}) => {
+  const displayTitle = title ?? name ?? 'Project';
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,14 +44,34 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, description, the
           style={{ '--theme-color': themeColor } as React.CSSProperties}
           whileHover="hover"
         >
-          <img src={image} alt={name} className="w-full h-full object-cover rounded-xl" />
+          {image ? (
+            <img src={image} alt={displayTitle} className="w-full h-full object-cover rounded-xl" />
+          ) : (
+            <div
+              className="w-full h-full rounded-xl"
+              style={{
+                background: `radial-gradient(120% 120% at 10% 20%, ${themeColor}33 0%, transparent 55%), radial-gradient(120% 120% at 90% 80%, ${themeColor}55 0%, transparent 60%)`
+              }}
+            />
+          )}
           
           {/* Always visible title */}
           <div className={
             `absolute inset-0 flex items-center justify-center rounded-xl p-4 ` +
             (isDarkMode ? 'bg-black/40' : 'bg-white/40')
           }>
-            <h2 className={isDarkMode ? "text-white text-2xl font-bold text-center" : "text-black text-2xl font-bold text-center"}>{name}</h2>
+            <div className="flex flex-col items-center justify-center">
+              <h2 className={isDarkMode ? "text-white text-2xl font-bold text-center" : "text-black text-2xl font-bold text-center"}>{displayTitle}</h2>
+              {icons.length > 0 && (
+                <div className="mt-3 flex items-center justify-center gap-3 text-lg" style={{ color: themeColor }}>
+                  {icons.map((icon, index) => (
+                    <span key={index} className="flex items-center justify-center">
+                      {icon}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Hover-to-reveal description */}
@@ -53,8 +84,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, description, the
             variants={{ hover: { opacity: 1 } }}
             transition={{ duration: 0.3 }}
           >
-            <h2 className={isDarkMode ? "text-white text-2xl font-bold text-center" : "text-black text-2xl font-bold text-center"}>{name}</h2>
-            <p className={isDarkMode ? "text-white text-center mt-2 text-xs line-clamp-3" : "text-black text-center mt-2 text-xs line-clamp-3"}>{description}</p>
+            <h2 className={isDarkMode ? "text-white text-2xl font-bold text-center" : "text-black text-2xl font-bold text-center"}>{displayTitle}</h2>
+            {description && (
+              <p className={isDarkMode ? "text-white text-center mt-2 text-xs line-clamp-3" : "text-black text-center mt-2 text-xs line-clamp-3"}>{description}</p>
+            )}
           </motion.div>
 
           <div className="absolute top-0 left-0 right-0 bottom-0 rounded-xl border-2 border-transparent transition-all duration-300 group-hover:border-[var(--theme-color)] group-hover:shadow-[0_0_20px_var(--theme-color)]" />
