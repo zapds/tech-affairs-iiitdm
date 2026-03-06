@@ -1,40 +1,91 @@
 import React from 'react';
-import TeamPageTemplate from '../../../components/TeamPageTemplate';
+import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
-const teamInfo = {
+const clubData = {
   name: 'Team Astra',
-  club: 'SAE Club',
   logo: '/teams/astra/logo.png',
-  description: `Team Astra is the official Aero Design team of IIITDM Kancheepuram, operating under the SAE Club. The team represents the institute at esteemed platforms such as the SAE Aero Design Competition and the SAE Collegiate Design Series, where student engineers from across the globe showcase their skills in aerospace innovation. Specializing in the design, construction, and flight of radio-controlled aircraft, Team Astra develops systems capable of executing mission-specific tasks such as payload delivery and performance-based challenges. The team blends core knowledge in aerodynamics, structural engineering, and flight control to create efficient, high-performing aircraft. With a strong emphasis on practical learning and technical excellence, Team Astra continues to push the boundaries of aerial mobility, proudly reflecting the institute’s commitment to innovation in aerospace engineering.`,
-  achievements: [
+
+  introduction: `We are a multidisciplinary team of students from across all branches of the campus, united by a shared passion for designing and developing drones and other unmanned aerial vehicles (UAVs) to accomplish mission-driven objectives. Our club fosters innovation, technical excellence, and collaborative problem-solving to build efficient, intelligent, and reliable aerial systems.`,
+  timeline: [
     {
-      title: 'IIT Roorkee Autonomous Drone Challenge',
-      description: 'Top 4 position nationally among top institutions across India.The team successfully completed the assigned autonomous mission, showcasing real-time drone decision-making and navigation',
-      year: '2024',
-      highlight: true
+      year: 2023,
+      event: 'SAE AeroTHON 2023',
+      description: 'Achieved 1st place (Best Challenger Award) out of 25 competing teams at SJCIT Bangalore'
     },
     {
-      title: 'SAE Aerothon',
-      description: `Qualified in Phase I among Top 20 teams out of 81+ participants and successfully executed both autonomous and manual operations in Phase II`,
-      year: '2024',
-      highlight: false
+      year: 2024,
+      event: 'Boeing Aeromodelling 2024 (IITM Shaastra 2023)',
+      description: 'We fabricated our RC plane and competed against other IITs and NITs.'
     },
     {
-      title: 'ISRO IROC-U',
-      description: 'Successfully qualified for Round 2 of ISRO robotics Challenge, competition, showcasing our capability in drone-based autonomous missions',
-      year: '2025',
-      highlight: true
+      year: 2025,
+      event: 'SAE AeroTHON 2025',
+      description: 'Successfully completed ,manual and Autonomous operation in SAE Aerothon phase'
+    },
+     {
+      year: 2025,
+      event: 'ISRO IRoC U 2025',
+      description: 'The onsite Final Round was held on 5th August 2025 at ISRO, Bengaluru, where the top 16 teams showcased their performance. From these, the best teams were invited to the National Space Day 2025 Award Ceremony on 23rd August. We were one of the teams selected for this honor.'
+    },
+    {
+      year: 2025,
+      event: 'National Space Day 2025',
+      description: 'We have been officially invited to attend the National Space Day 2025 celebrations at New Delhi.During National Space Day 2025 and ISRO events, our team had the privilege of interaction'
+    },
+    {
+      year: 2026,
+      event: 'IISRO IRoC U 2026',
+      description: 'Preliminary Round: We submitted a detailed design proposal.Out of 1340 registrations, we successfully ranked within the top 247 teams.'
     }
   ],
-  members: [
+
+  projects: [
+    {
+      name: 'Self-Aligned docking system with mechanical actuators.',
+      description: 'Currently we are working on ISRO IRoC U 2026 Qualification Round. For this round, we need to submit a detailed proposal report and video demonstration. The deadline for this challenge is 02.04.2026.',
+      image: '/teams/astra/logo.png',
+      technologies: ['Drone Systems', 'Embedded Systems', 'Computer Vision'],
+      themeColor: '#1976D2'
+    }
+  ],
+
+  gallery: [
+    {
+      src: '/teams/astra/a2.jpg',
+      caption: 'Autonomous drone prototype developed by Team Astra'
+    },
+    {
+      src: '/teams/astra/a1.png',
+      caption: 'Team Astra members preparing the drone for testing'
+    },
+    {
+      src: '/teams/astra/a3.jpg',
+      caption: 'Drone flight testing session'
+    },
+      {
+      src: '/teams/astra/a5.jpg',
+      caption: 'Team Astra members preparing the drone for testing'
+    },
+      {
+      src: '/teams/astra/a6.jpg',
+      caption: 'Team Astra members preparing the drone for testing'
+    },
+      {
+      src: '/teams/astra/a4.jpg',
+      caption: 'Team Astra members preparing the drone for testing'
+    },
+      {
+      src: '/teams/astra/a8.jpg',
+      caption: 'Team Astra members preparing the drone for testing'
+    }
+  ],
+
+  core: [
     {
       name: 'Abhishek Sen',
       role: 'Captain',
       image: '/teams/astra/members/lead.jpg',
       email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://www.linkedin.com/in/abhishek-sen-aab105259/',
-      year: 'B.Tech 3rd Year',
-      department: 'Aerospace Engineering',
       roll: 'ec22b1098'
     },
     {
@@ -42,17 +93,18 @@ const teamInfo = {
       role: 'Vice-Captain',
       image: '/teams/astra/members/tech-lead.jpg',
       email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
       roll: 'me22b2030'
-    },
+    }
   ],
-  website: '#', // Add the actual website if available
+
+  links: {
+    website: '#',
+    instagram: '#'
+  }
 };
 
-function SAEAerothon() {
-  return <TeamPageTemplate {...teamInfo} />;
+function AstraPage() {
+  return <NewClubPageTemplate {...clubData} />;
 }
 
-export default SAEAerothon;
+export default AstraPage;
