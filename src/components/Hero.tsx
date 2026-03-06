@@ -4,7 +4,6 @@ import { useTheme } from '@mui/material/styles';
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 import { TypeAnimation } from 'react-type-animation';
-import ProjectsSessionsCarousel from './ProjectsSessionsCarousel';
 import { Engine } from 'tsparticles-engine';
 
 const Hero = () => {
@@ -84,7 +83,6 @@ const Hero = () => {
         overflow: 'hidden',
       }}
     >
-      <ProjectsSessionsCarousel />
       <Particles
         id="tsparticles"
         init={particlesInit}
