@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import './open-house.css';
@@ -171,7 +171,10 @@ export default function OpenHousePage() {
     const activeTheme = THEMES[theme];
     const nextTheme = theme === 'dark' ? 'light' : 'dark';
     const pad = (n: number) => String(n).padStart(2, '0');
-    const filtered = activeCat === 'All' ? bodies : bodies.filter(b => b.cat === activeCat);
+    const filtered = useMemo(
+        () => (activeCat === 'All' ? bodies : bodies.filter(b => b.cat === activeCat)),
+        [activeCat]
+    );
 
     useEffect(() => {
         document.documentElement.style.setProperty('--oh-page-bg', activeTheme['--oh-page-bg']);
@@ -181,7 +184,15 @@ export default function OpenHousePage() {
     }, [activeTheme]);
 
     useEffect(() => {
-        const fn = () => setNavScrolled(window.scrollY > 60);
+        let ticking = false;
+        const fn = () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                setNavScrolled(window.scrollY > 60);
+                ticking = false;
+            });
+        };
         window.addEventListener('scroll', fn, { passive: true });
         return () => window.removeEventListener('scroll', fn);
     }, []);
@@ -194,6 +205,14 @@ export default function OpenHousePage() {
     /* Scroll-reveal */
     useEffect(() => {
         const els = document.querySelectorAll('[data-reveal]');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) {
+            els.forEach(el => {
+                (el as HTMLElement).style.opacity = '1';
+                (el as HTMLElement).style.transform = 'translateY(0)';
+            });
+            return;
+        }
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
@@ -210,11 +229,20 @@ export default function OpenHousePage() {
     /* Count-up */
     useEffect(() => {
         const els = document.querySelectorAll<HTMLElement>('[data-count]');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion) {
+            els.forEach(el => {
+                const target = parseInt(el.dataset.count || '0', 10);
+                const suffix = el.dataset.suffix || '';
+                el.textContent = `${target}${suffix}`;
+            });
+            return;
+        }
         const obs = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
                 const el = entry.target as HTMLElement;
-                const target = parseInt(el.dataset.count || '0');
+                const target = parseInt(el.dataset.count || '0', 10);
                 const suffix = el.dataset.suffix || '';
                 const dur = 2200;
                 const t0 = performance.now();
@@ -233,7 +261,7 @@ export default function OpenHousePage() {
 
     /* ══════════ RENDER ══════════ */
     return (
-        <div style={{
+        <div className="oh-page" style={{
             ...activeTheme,
             background: C.bg,
             backgroundImage: C.bgGradient,
@@ -246,7 +274,7 @@ export default function OpenHousePage() {
         } as React.CSSProperties}>
 
             {/* ════════ NAV ════════ */}
-            <nav style={{
+            <nav className="oh-nav" style={{
                 position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
                 padding: navScrolled ? '10px 0' : '18px 0',
                 background: navScrolled ? C.navBg : 'transparent',
@@ -254,13 +282,15 @@ export default function OpenHousePage() {
                 borderBottom: navScrolled ? `1px solid ${C.border}` : '1px solid transparent',
                 transition: 'all 0.35s ease',
             }}>
-                <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div className="oh-nav-inner" style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div className="oh-brand" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                         <Image
                             src={theme === 'light' ? '/nav_logo_inv.png' : '/nav_logo.png'}
                             alt="Technical Affairs"
                             width={32}
                             height={32}
+                            sizes="32px"
+                            priority
                             style={{ borderRadius: 8 }}
                         />
                         <span style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '-0.02em', color: C.text }}>
@@ -281,7 +311,7 @@ export default function OpenHousePage() {
                     </div>
                     <button
                         type="button"
-                        className="oh-btn-ghost"
+                        className="oh-btn-ghost oh-theme-toggle"
                         onClick={() => setTheme(nextTheme)}
                         aria-label={`Switch to ${nextTheme} mode`}
                         style={{
@@ -303,8 +333,8 @@ export default function OpenHousePage() {
             </nav>
 
             {/* ════════ HERO ════════ */}
-            <section style={{
-                position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column',
+            <section className="oh-hero" style={{
+                position: 'relative', minHeight: '100svh', display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center', textAlign: 'center',
                 padding: '120px 24px 80px', overflow: 'hidden',
             }}>
@@ -316,9 +346,9 @@ export default function OpenHousePage() {
                     backgroundSize: '72px 72px',
                 }} />
 
-                <div style={{ position: 'relative', zIndex: 1, maxWidth: 840 }}>
+                <div className="oh-hero-inner" style={{ position: 'relative', zIndex: 1, maxWidth: 840 }}>
                     {/* Badge */}
-                    <div style={{
+                    <div className="oh-hero-badge" style={{
                         display: 'inline-flex', alignItems: 'center', gap: 8,
                         background: `linear-gradient(135deg, ${C.orange}18, ${C.pink}12)`,
                         border: `1px solid ${C.orange}30`,
@@ -363,8 +393,8 @@ export default function OpenHousePage() {
                             { v: cd.m, l: 'Min', c: C.violet },
                             { v: cd.s, l: 'Sec', c: C.cyan },
                         ]).map(u => (
-                            <div key={u.l} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-                                <div style={{
+                            <div key={u.l} className="oh-cd-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                                <div className="oh-cd-box" style={{
                                     background: `${u.c}10`, border: `1px solid ${u.c}25`,
                                     borderRadius: 14, padding: '14px 20px', minWidth: 66,
                                     backdropFilter: 'blur(8px)',
@@ -380,7 +410,7 @@ export default function OpenHousePage() {
                     </div>
 
                     {/* CTA */}
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+                    <div className="oh-hero-cta" style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
                         <a href="#about" onClick={e => scrollTo(e, '#about')} className="oh-btn-ghost" style={{
                             display: 'inline-flex', alignItems: 'center', gap: 8,
                             background: 'transparent', color: C.muted,
@@ -395,7 +425,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ MARQUEE ════════ */}
-            <div style={{
+            <div className="oh-marquee" style={{
                 overflow: 'hidden', borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`,
                 padding: '14px 0', position: 'relative',
             }}>
@@ -404,7 +434,7 @@ export default function OpenHousePage() {
                 <div className="oh-marquee-track" style={{ display: 'flex', gap: 50, width: 'max-content' }}>
                     {[...bodies, ...bodies].map((b, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-                            <Image src={b.logo} alt="" width={18} height={18} style={{ borderRadius: 4, opacity: 0.45, objectFit: 'contain', width: 18, height: 18 }} />
+                            <Image src={b.logo} alt="" width={18} height={18} sizes="18px" style={{ borderRadius: 4, opacity: 0.45, objectFit: 'contain', width: 18, height: 18 }} />
                             <span style={{ fontSize: '0.78rem', fontWeight: 500, color: C.dim, whiteSpace: 'nowrap' }}>{b.name}</span>
                         </div>
                     ))}
@@ -412,7 +442,7 @@ export default function OpenHousePage() {
             </div>
 
             {/* ════════ ABOUT ════════ */}
-            <section id="about" style={{ padding: '110px 24px 80px', maxWidth: 1200, margin: '0 auto' }}>
+            <section id="about" className="oh-section oh-about" style={{ padding: '110px 24px 80px', maxWidth: 1200, margin: '0 auto' }}>
                 <div data-reveal style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
                     <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.orange, marginBottom: 12 }}>
                         About the Event
@@ -463,7 +493,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ STATS ════════ */}
-            <section style={{ padding: '56px 24px', borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
+            <section className="oh-section oh-stats" style={{ padding: '56px 24px', borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
                 <div data-reveal className="oh-stats-row" style={{
                     maxWidth: 1000, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24,
                     opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease',
@@ -486,7 +516,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ SCHEDULE ════════ */}
-            <section id="schedule" style={{ padding: '110px 24px', maxWidth: 1200, margin: '0 auto' }}>
+            <section id="schedule" className="oh-section oh-schedule" style={{ padding: '110px 24px', maxWidth: 1200, margin: '0 auto' }}>
                 <div data-reveal style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
                     <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.green, marginBottom: 12 }}>Schedule</span>
                     <h2 style={{ fontSize: 'clamp(1.9rem, 4.5vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.035em', lineHeight: 1.12, color: C.text, margin: '0 0 52px' }}>
@@ -516,7 +546,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ BODIES ════════ */}
-            <section id="bodies" style={{ padding: '110px 24px', borderTop: `1px solid ${C.border}`, background: C.sectionBg }}>
+            <section id="bodies" className="oh-section oh-bodies-section" style={{ padding: '110px 24px', borderTop: `1px solid ${C.border}`, background: C.sectionBg }}>
                 <div style={{ maxWidth: 1200, margin: '0 auto' }}>
                     <div data-reveal style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
                         <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.pink, marginBottom: 12 }}>Participating</span>
@@ -526,7 +556,7 @@ export default function OpenHousePage() {
                         <p style={{ fontSize: '1rem', color: C.muted, lineHeight: 1.65, margin: '0 0 32px', maxWidth: 500 }}>
                             Every club, team, society and community — all in one place.
                         </p>
-                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 36 }}>
+                        <div className="oh-filter-row" style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 36 }}>
                             {filters.map(f => {
                                 const active = activeCat === f;
                                 const fc = f === 'All' ? C.orange : (catColors[f] || C.orange);
@@ -556,7 +586,7 @@ export default function OpenHousePage() {
                                         background: `${cc}10`, border: `1px solid ${cc}20`,
                                         display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                                     }}>
-                                        <Image src={b.logo} alt={b.name} width={30} height={30} style={{ objectFit: 'contain', width: 30, height: 30 }} />
+                                        <Image src={b.logo} alt={b.name} width={30} height={30} sizes="30px" style={{ objectFit: 'contain', width: 30, height: 30 }} />
                                     </div>
                                     <div style={{ flex: 1, minWidth: 0 }}>
                                         <div style={{ fontSize: '0.95rem', fontWeight: 700, color: C.text, marginBottom: 3 }}>{b.name}</div>
@@ -578,7 +608,7 @@ export default function OpenHousePage() {
                             if (hasLinkedPage) {
                                 return (
                                     <Link href={b.route} key={b.name}
-                                        className="oh-card-hover" data-cat={b.cat}
+                                        className="oh-card-hover oh-body-card" data-cat={b.cat}
                                         style={{
                                             textDecoration: 'none', color: 'inherit',
                                             background: C.surface, borderRadius: 18,
@@ -592,6 +622,7 @@ export default function OpenHousePage() {
 
                             return (
                                 <div key={b.name}
+                                    className="oh-body-card"
                                     data-cat={b.cat}
                                     style={{
                                         background: C.surface, borderRadius: 18,
@@ -607,7 +638,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ WHY ATTEND ════════ */}
-            <section id="why" style={{ padding: '110px 24px', maxWidth: 1200, margin: '0 auto' }}>
+            <section id="why" className="oh-section oh-why-section" style={{ padding: '110px 24px', maxWidth: 1200, margin: '0 auto' }}>
                 <div data-reveal style={{ textAlign: 'center', marginBottom: 56, opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
                     <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.violet, marginBottom: 12 }}>Why Attend</span>
                     <h2 style={{ fontSize: 'clamp(1.9rem, 4.5vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.035em', lineHeight: 1.15, color: C.text, margin: '0 0 14px' }}>
@@ -645,7 +676,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ FOOTER ════════ */}
-            <footer className="oh-local-footer" style={{ padding: '44px 24px 32px', borderTop: `1px solid ${C.border}`, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
+            <footer className="oh-local-footer oh-section" style={{ padding: '44px 24px 32px', borderTop: `1px solid ${C.border}`, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
                 <p style={{ fontSize: '1rem', fontWeight: 700, color: C.text, margin: '0 0 8px', letterSpacing: '-0.01em' }}>
                     Open House 2026
                 </p>

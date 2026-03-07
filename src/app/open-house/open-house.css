@@ -22,6 +22,18 @@ html.oh-standalone body {
     padding: 0 !important;
 }
 
+.oh-section {
+    scroll-margin-top: 86px;
+}
+
+.oh-body-card {
+    min-width: 0;
+}
+
+.oh-filter-row {
+    align-items: center;
+}
+
 /* ══════════ KEYFRAMES ══════════ */
 @keyframes oh-marquee {
     from { transform: translateX(0); }
@@ -129,20 +141,142 @@ html.oh-standalone body {
 
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width: 900px) {
+    .oh-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .oh-nav-inner {
+        padding: 0 20px !important;
+    }
     .oh-hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem) !important; }
     .oh-why-grid { grid-template-columns: 1fr !important; }
     .oh-bento { grid-template-columns: 1fr !important; }
     .oh-stats-row { grid-template-columns: repeat(2, 1fr) !important; }
 }
 @media (max-width: 768px) {
+    .oh-nav-inner {
+        padding: 0 16px !important;
+    }
+    .oh-brand > span {
+        font-size: 0.92rem !important;
+    }
+    .oh-theme-toggle {
+        padding: 8px 12px !important;
+        font-size: 0.74rem !important;
+    }
+    .oh-hero {
+        min-height: auto !important;
+        padding: 108px 16px 56px !important;
+    }
+    .oh-hero-inner {
+        max-width: 100% !important;
+    }
+    .oh-hero-badge {
+        margin-bottom: 24px !important;
+        padding: 6px 12px !important;
+    }
     .oh-nav-links { display: none !important; }
+    .oh-section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .oh-marquee {
+        display: none !important;
+    }
+    .oh-hero-subtitle {
+        font-size: 0.98rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 28px !important;
+    }
+    .oh-cd-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px !important;
+        max-width: 260px;
+        margin: 0 auto 30px !important;
+    }
+    .oh-cd-item {
+        width: 100%;
+    }
+    .oh-cd-box {
+        width: 100%;
+        min-width: 0 !important;
+        padding: 12px 8px !important;
+    }
+    .oh-cd-box > span {
+        font-size: 1.45rem !important;
+    }
+    .oh-hero-cta {
+        width: 100%;
+    }
+    .oh-hero-cta > a {
+        width: 100%;
+        justify-content: center;
+        max-width: 260px;
+    }
+    .oh-sched-grid {
+        grid-template-columns: minmax(64px, auto) 16px 1fr !important;
+        max-width: 100% !important;
+    }
     .oh-bodies-grid { grid-template-columns: 1fr !important; }
-    .oh-sched-grid { grid-template-columns: auto 1fr !important; }
-    .oh-footer-row { flex-direction: column !important; text-align: center !important; }
-    .oh-footer-right { align-items: center !important; }
-    .oh-hero-subtitle { font-size: 1rem !important; }
+    .oh-filter-row {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .oh-filter-row::-webkit-scrollbar {
+        display: none;
+    }
+    .oh-filter-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+    .oh-body-card {
+        padding: 16px !important;
+        gap: 12px !important;
+    }
 }
 @media (max-width: 480px) {
+    .oh-brand > span {
+        font-size: 0.84rem !important;
+    }
+    .oh-theme-toggle {
+        padding: 7px 10px !important;
+        font-size: 0.7rem !important;
+    }
+    .oh-about,
+    .oh-schedule,
+    .oh-bodies-section,
+    .oh-why-section {
+        padding-top: 72px !important;
+        padding-bottom: 56px !important;
+    }
+    .oh-stats {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .oh-local-footer {
+        padding: 30px 16px 24px !important;
+    }
     .oh-stats-row { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
     .oh-cd-row { gap: 8px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .oh-marquee-track {
+        animation: none !important;
+        transform: translateX(0) !important;
+    }
+    .oh-card-hover,
+    .oh-btn-primary,
+    .oh-btn-ghost,
+    .oh-social,
+    .oh-filter-btn,
+    .oh-why-card,
+    .oh-sched-item,
+    .oh-nav-link::after {
+        transition: none !important;
+    }
 }
