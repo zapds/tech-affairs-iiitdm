@@ -1,71 +1,14 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import Particles from 'react-tsparticles';
-import { loadSlim } from 'tsparticles-slim';
-import { TypeAnimation } from 'react-type-animation';
-import { Engine } from 'tsparticles-engine';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const theme = useTheme();
-
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
+  const isDark = theme.palette.mode === 'dark';
 
   const getLogoSrc = () => {
-    return theme.palette.mode === 'light' ? '/nav_logo_inv.png' : '/nav_logo.png';
-  };
-
-  const particlesOptions = {
-    fullScreen: false,
-    particles: {
-      number: {
-        value: 50,
-        density: {
-          enable: true,
-          value_area: 800,
-        },
-      },
-      color: {
-        value: theme.palette.primary.main,
-      },
-      shape: {
-        type: 'circle',
-      },
-      opacity: {
-        value: 0.5,
-        random: true,
-      },
-      size: {
-        value: 3,
-        random: true,
-      },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none", 
-        random: true,
-        straight: false,
-        outModes: {
-          default: 'out',
-        },
-      },
-    },
-    interactivity: {
-      events: {
-        onHover: {
-          enable: true,
-          mode: 'repulse',
-        },
-      },
-      modes: {
-        repulse: {
-          distance: 100,
-          duration: 0.4,
-        },
-      },
-    },
+    return isDark ? '/nav_logo.png' : '/nav_logo_inv.png';
   };
 
   return (
@@ -73,116 +16,160 @@ const Hero = () => {
       id="hero"
       sx={{
         mt: 0.5,
-        height: '100vh',
+        minHeight: '100vh',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        pt: 2,
+        alignItems: 'center',
+        textAlign: 'center',
+        pt: { xs: 12, md: 2 },
         pb: { xs: 4, md: 6 },
         overflow: 'hidden',
       }}
     >
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        // @ts-expect-error - particlesOptions has type incompatibility
-        options={particlesOptions} 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-        }}
-      />
-
-      <Container maxWidth="lg" sx={{ zIndex: 1 }}>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column-reverse', md: 'row' },
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            maxWidth: '64rem',
-            mx: 'auto',
-            textAlign: { xs: 'center', md: 'left' },
-            gap: 4,
-          }}
+      <Container maxWidth="md" sx={{ zIndex: 1 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
         >
-
-          <Box>
-            <Typography
-              component="h1"
+          {/* Badge */}
+          <Box
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 1,
+              background: 'linear-gradient(135deg, rgba(251,146,60,0.12), rgba(244,114,182,0.08))',
+              border: '1px solid rgba(251,146,60,0.2)',
+              borderRadius: 100,
+              px: 2.5,
+              py: 0.8,
+              mb: 4,
+            }}
+          >
+            <Box
               sx={{
-                fontSize: { xs: '2.1rem', md: '7rem' },
-                fontWeight: 800,
-                letterSpacing: '-0.03em',
-                whiteSpace: 'pre-wrap',
-                lineHeight: 1,
-                color: theme.palette.primary.main,
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: '#fb923c',
+              }}
+            />
+            <Typography
+              sx={{
+                fontSize: '0.8rem',
+                fontWeight: 550,
+                color: '#fb923c',
+                letterSpacing: '0.01em',
               }}
             >
-              <TypeAnimation
-                speed={50}
-                sequence={['Discover\nTechnical\nExcellence.', () => console.log('done')]}
-                wrapper="span"
-                cursor={true}
-              />
+              IIITDM Kancheepuram
             </Typography>
           </Box>
 
-
-          <Box sx={{ minWidth: 300, display: 'flex', justifyContent: 'center' }}>
+          {/* Logo */}
+          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
             <Box
               component="img"
               src={getLogoSrc()}
               alt="Logo"
-              sx={{ width: { xs: 180, md: 300 }, height: { xs: 180, md: 300 } }}
+              sx={{ width: { xs: 100, md: 140 }, height: { xs: 100, md: 140 } }}
             />
           </Box>
-        </Box>
 
-
-        <Typography
-          variant="h5"
-          sx={{
-            pt: 7,
-            textAlign: 'center',
-            color: theme.palette.text.secondary,
-          }}
-        >
-          Welcome to Technical Affairs of Student Affairs Council of IIITDM Kancheepuram
-        </Typography>
-
-        {/* Buttons */}
-        <Box
-          sx={{
-            mt: 2,
-            display: 'flex',
-            flexDirection: { xs: 'column', sm: 'row' },
-            gap: 2,
-            justifyContent: 'center',
-          }}
-        >
-          <Button
-            variant="contained"
-            size="large"
-            href="/events"
-            sx={{ px: { xs: 2, sm: 4 }, py: { xs: 0.7, sm: 1.5 }, fontSize: { xs: '0.95rem', sm: '1.1rem' } }}
+          {/* Title */}
+          <Typography
+            component="h1"
+            sx={{
+              fontSize: { xs: 'clamp(2.4rem, 9vw, 3.5rem)', md: 'clamp(3rem, 6vw, 5rem)' },
+              fontWeight: 800,
+              letterSpacing: '-0.045em',
+              lineHeight: 1.0,
+              color: 'text.primary',
+              mb: 0.5,
+            }}
           >
-            Upcoming Events
-          </Button>
-          <Button
-            variant="outlined"
-            size="large"
-            href="/i2r"
-            sx={{ px: { xs: 2, sm: 4 }, py: { xs: 0.7, sm: 1.5 }, fontSize: { xs: '0.95rem', sm: '1.1rem' } }}
+            Technical Affairs
+          </Typography>
+          <Typography
+            component="h1"
+            sx={{
+              fontSize: { xs: 'clamp(2.4rem, 9vw, 3.5rem)', md: 'clamp(3rem, 6vw, 5rem)' },
+              fontWeight: 800,
+              letterSpacing: '-0.045em',
+              lineHeight: 1.05,
+              mb: 3.5,
+              background: 'linear-gradient(135deg, #fb923c, #f472b6, #a78bfa, #38bdf8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
-            About I2R Lab
-          </Button>
-        </Box>
+            Student Council
+          </Typography>
+
+          {/* Subtitle */}
+          <Typography
+            sx={{
+              fontSize: { xs: '1rem', md: 'clamp(1rem, 2.2vw, 1.25rem)' },
+              lineHeight: 1.75,
+              color: 'text.secondary',
+              maxWidth: 580,
+              mx: 'auto',
+              mb: 5,
+            }}
+          >
+            Driving technical innovation and excellence. Explore our clubs, teams,
+            societies, and communities shaping the future of technology.
+          </Typography>
+
+          {/* CTA Buttons */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 1.5,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Button
+              variant="contained"
+              size="large"
+              href="/events"
+              sx={{
+                px: { xs: 3, sm: 4 },
+                py: { xs: 1.2, sm: 1.5 },
+                fontSize: { xs: '0.95rem', sm: '1rem' },
+                borderRadius: 3.5,
+                minWidth: { xs: 220, sm: 'auto' },
+              }}
+            >
+              Upcoming Events
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              href="/council"
+              sx={{
+                px: { xs: 3, sm: 4 },
+                py: { xs: 1.2, sm: 1.5 },
+                fontSize: { xs: '0.95rem', sm: '1rem' },
+                borderRadius: 3.5,
+                minWidth: { xs: 220, sm: 'auto' },
+                borderColor: isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)',
+                color: 'text.secondary',
+                '&:hover': {
+                  borderColor: '#fb923c',
+                  background: 'rgba(251,146,60,0.06)',
+                },
+              }}
+            >
+              Explore Council
+            </Button>
+          </Box>
+        </motion.div>
       </Container>
     </Box>
   );

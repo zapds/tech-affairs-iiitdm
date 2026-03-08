@@ -52,9 +52,8 @@ function FrostPage() {
             variant="h2"
             sx={{
               fontWeight: "bold",
-              fontFamily: '"Bookman Old Style", "serif"',
               mb: 2,
-              color: "#3275AA",
+              color: "primary.main",
             }}
           >
             FROST

@@ -47,9 +47,10 @@ interface NavbarProps {
 const navItems = [
   { name: "Events", path: "/events" },
   { name: "Achievements", path: "/achievements" },
+  { name: "Open House", path: "/open-house" },
   { name: "I2R Lab", path: "/i2r" },
   { name: "Our Team", path: "/team" },
-  {name:"Frost",path:"/frost"}
+  { name: "Frost", path: "/frost" },
 ];
 
 const Navbar = ({ user }: NavbarProps) => {
@@ -71,7 +72,7 @@ const Navbar = ({ user }: NavbarProps) => {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
-  const getLogoSrc = () => "/nav_logo_inv.png";
+  const getLogoSrc = () => isDarkMode ? "/nav_logo.png" : "/nav_logo_inv.png";
 
   // Drawer for mobile view
   const drawer = (

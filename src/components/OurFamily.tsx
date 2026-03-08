@@ -100,7 +100,7 @@ const OurFamily = () => {
               fontWeight: 'bold',
               mb: 4,
               textAlign: 'center',
-              color: '#3275AA',
+              color: 'primary.main',
               textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
             }}
           >

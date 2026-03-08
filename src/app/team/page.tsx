@@ -381,7 +381,7 @@ function Committee() {
                     padding: '0.5em 1.2em',
                     minWidth: 0,
                     borderRadius: '0.5em',
-                    color: '#3275AA',
+                    color: '#fb923c',
                     fontWeight: 700,
                     border: 'none',
                     cursor: 'pointer',

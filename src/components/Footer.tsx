@@ -22,6 +22,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 const Footer = () => {
   const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
 
   const downloads = [
     {
@@ -55,14 +56,17 @@ const Footer = () => {
     {
       icon: <LinkedInIcon />,
       href: "https://www.linkedin.com/company/technical-affairs-iiitdm/",
+      color: '#38bdf8',
     },
     {
       icon: <InstagramIcon />,
       href: "https://www.instagram.com/iiitdm.technical/",
+      color: '#f472b6',
     },
     {
       icon: <YouTubeIcon />,
       href: "https://www.youtube.com/@iiitdm.technical",
+      color: '#fb7185',
     },
   ];
 
@@ -91,10 +95,9 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        bgcolor: "background.paper",
         pt: 8,
         pb: 4,
-        borderTop: `1px solid ${theme.palette.divider}`,
+        borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)'}`,
       }}
     >
       <Container maxWidth="lg">
@@ -111,9 +114,10 @@ const Footer = () => {
                   variant="h6"
                   component="h2"
                   sx={{
-                    fontWeight: 600,
+                    fontWeight: 720,
                     mb: 2,
                     color: "text.primary",
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   Contact Us
@@ -135,7 +139,7 @@ const Footer = () => {
                       gap: 1,
                     }}
                   >
-                    <EmailIcon color="primary" />
+                    <EmailIcon sx={{ color: '#fb923c', fontSize: '1.2rem', mt: 0.3 }} />
                     <Typography variant="body2" color="text.secondary">
                       technical.affairs@iiitdm.ac.in
                     </Typography>
@@ -149,7 +153,7 @@ const Footer = () => {
                       gap: 1,
                     }}
                   >
-                    <PhoneIcon color="primary" />
+                    <PhoneIcon sx={{ color: '#34d399', fontSize: '1.2rem', mt: 0.3 }} />
                     <Typography variant="body2" color="text.secondary">
                       +91 44 2747 6335
                     </Typography>
@@ -163,7 +167,7 @@ const Footer = () => {
                       gap: 1,
                     }}
                   >
-                    <LocationOnIcon color="primary" />
+                    <LocationOnIcon sx={{ color: '#f472b6', fontSize: '1.2rem', mt: 0.3 }} />
                     <Typography variant="body2" color="text.secondary">
                       IIITDM Kancheepuram,
                       <br />
@@ -184,9 +188,10 @@ const Footer = () => {
                   variant="h6"
                   component="h2"
                   sx={{
-                    fontWeight: 600,
+                    fontWeight: 720,
                     mb: 2,
                     color: "text.primary",
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   Connect With Us
@@ -201,8 +206,14 @@ const Footer = () => {
                       rel="noopener noreferrer"
                       sx={{
                         color: "text.secondary",
+                        background: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(15,23,42,0.04)',
+                        border: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.08)'}`,
+                        borderRadius: 2.5,
+                        transition: 'all 0.2s ease',
                         "&:hover": {
-                          color: "primary.main",
+                          color: social.color,
+                          background: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(15,23,42,0.06)',
+                          transform: 'translateY(-2px)',
                         },
                       }}
                     >
@@ -213,7 +224,7 @@ const Footer = () => {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ lineHeight: 1.6 }}
+                  sx={{ lineHeight: 1.65 }}
                 >
                   Follow us on social media to stay updated with our latest
                   events, achievements, and opportunities.
@@ -227,9 +238,10 @@ const Footer = () => {
                   variant="h6"
                   component="h2"
                   sx={{
-                    fontWeight: 600,
+                    fontWeight: 720,
                     mb: 2,
                     color: "text.primary",
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   Downloads
@@ -256,15 +268,17 @@ const Footer = () => {
                         color="text.secondary"
                         sx={{
                           textDecoration: "none",
+                          transition: 'color 0.2s ease',
                           "&:hover": {
-                            color: "primary.main",
+                            color: "#fb923c",
                           },
                           display: "inline-flex",
                           alignItems: "center",
                           gap: 1,
+                          fontSize: '0.875rem',
                         }}
                       >
-                        <DownloadIcon color="primary" fontSize="small" />
+                        <DownloadIcon sx={{ color: '#fb923c', fontSize: '1rem' }} />
                         {download.name}
                       </Link>
                     </Box>
@@ -274,7 +288,7 @@ const Footer = () => {
             </Grid>
           </Grid>
 
-          <Divider sx={{ my: 4 }} />
+          <Divider sx={{ my: 4, borderColor: isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)' }} />
 
           <Box
             sx={{
@@ -286,20 +300,24 @@ const Footer = () => {
           >
             <Typography
               variant="body2"
-              color="text.secondary"
-              sx={{ mb: { xs: 2, sm: 0 } }}
+              sx={{
+                mb: { xs: 2, sm: 0 },
+                fontSize: '0.72rem',
+                color: isDark ? 'rgba(241,240,245,0.28)' : 'rgba(15,23,42,0.46)',
+              }}
             >
-              © 2025 Technical Affairs, IIITDM Kancheepuram. All rights
+              &copy; 2025 Technical Affairs, IIITDM Kancheepuram. All rights
               reserved.
             </Typography>
             <Box>
               <Link
                 href="#"
-                color="text.secondary"
-                variant="body2"
                 sx={{
                   textDecoration: "none",
-                  "&:hover": { color: "primary.main" },
+                  color: isDark ? 'rgba(241,240,245,0.28)' : 'rgba(15,23,42,0.46)',
+                  fontSize: '0.72rem',
+                  transition: 'color 0.2s ease',
+                  "&:hover": { color: "#fb923c" },
                   mr: 2,
                 }}
               >
@@ -307,11 +325,12 @@ const Footer = () => {
               </Link>
               <Link
                 href="#"
-                color="text.secondary"
-                variant="body2"
                 sx={{
                   textDecoration: "none",
-                  "&:hover": { color: "primary.main" },
+                  color: isDark ? 'rgba(241,240,245,0.28)' : 'rgba(15,23,42,0.46)',
+                  fontSize: '0.72rem',
+                  transition: 'color 0.2s ease',
+                  "&:hover": { color: "#fb923c" },
                 }}
               >
                 Terms of Use

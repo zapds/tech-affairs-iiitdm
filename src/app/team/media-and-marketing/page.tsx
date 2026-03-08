@@ -78,14 +78,14 @@ const sectionTitleStyle = {
   textAlign: 'center',
   fontWeight: 'bold',
   fontSize: { xs: '1.4rem', sm: '1.7rem', md: '2rem' },
-  color: '#3275AA',
+  color: 'primary.main',
   mb: 4,
 };
 
 const teamTitleStyle = {
   fontWeight: 'bold',
   fontSize: { xs: '2.2rem', sm: '2.7rem', md: '3.2rem' },
-  color: '#3275AA',
+  color: 'primary.main',
   textAlign: 'center',
   mb: 2,
 };

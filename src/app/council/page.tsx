@@ -44,10 +44,10 @@ const communities = [
 ];
 
 const tabOptions = [
-  { label: "Clubs", data: clubs, route: "clubs" },
-  { label: "Teams", data: teams, route: "teams" },
-  { label: "Societies", data: societies, route: "societies" },
-  { label: "Communities", data: communities, route: "communities" },
+  { label: "Clubs", data: clubs, route: "clubs", color: "#f472b6" },
+  { label: "Teams", data: teams, route: "teams", color: "#34d399" },
+  { label: "Societies", data: societies, route: "societies", color: "#a78bfa" },
+  { label: "Communities", data: communities, route: "communities", color: "#38bdf8" },
 ];
 
 const TeamCard = styled(Card)(({ theme }) => ({
@@ -58,18 +58,18 @@ const TeamCard = styled(Card)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   textAlign: "center",
-  boxShadow: theme.shadows[2],
-  borderRadius: 12,
-  background: theme.palette.background.paper,
-  border: `1.5px solid ${
-    theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.grey[200]
-  }`,
-  transition: "transform 0.18s, box-shadow 0.18s",
+  borderRadius: 18,
+  background: theme.palette.mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.82)",
+  border: `1px solid ${theme.palette.mode === "dark" ? "rgba(255,255,255,0.07)" : "rgba(15,23,42,0.14)"}`,
+  boxShadow: "none",
+  transition: "transform 0.35s cubic-bezier(.22,.61,.36,1), box-shadow 0.35s ease, border-color 0.35s ease",
   cursor: "pointer",
   "&:hover": {
-    transform: "translateY(-4px) scale(1.03)",
-    boxShadow: theme.shadows[6],
-    borderColor: theme.palette.primary.main,
+    transform: "translateY(-6px) scale(1.02)",
+    boxShadow: theme.palette.mode === "dark"
+      ? "0 24px 48px -12px rgba(0,0,0,0.4)"
+      : "0 24px 48px -12px rgba(15,23,42,0.18)",
+    borderColor: "#fb923c",
   },
   [theme.breakpoints.down("sm")]: {
     width: 130,
@@ -80,9 +80,9 @@ const TeamCard = styled(Card)(({ theme }) => ({
 export default function Council() {
   const pathname = usePathname();
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const isXs = useMediaQuery(theme.breakpoints.only("xs"));
 
-  // Get tab index from current path
   const getTabFromPath = useCallback(() => {
     const parts = pathname.split("/");
     if (parts.length >= 3) {
@@ -96,19 +96,17 @@ export default function Council() {
 
   const [tab, setTab] = useState(getTabFromPath());
 
-  // Sync tab when pathname changes
   useEffect(() => {
     setTab(getTabFromPath());
   }, [getTabFromPath]);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTab(newValue);
-    // router.push(`/council/${tabOptions[newValue].route}`);
   };
 
   const currentList = tabOptions[tab].data;
+  const currentColor = tabOptions[tab].color;
 
-  // Tabs responsive settings
   const tabsVariant: "fullWidth" | "scrollable" | "standard" = isXs ? "scrollable" : "fullWidth";
   const scrollButtons = isXs;
 
@@ -117,27 +115,48 @@ export default function Council() {
       sx={{
         mt: { xs: 7, md: 9 },
         py: { xs: 1, md: 2 },
-        bgcolor: "background.default",
         minHeight: "100vh",
       }}
     >
       <Container maxWidth="lg">
         <Typography
+          sx={{
+            fontSize: '0.72rem',
+            fontWeight: 650,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: '#fb923c',
+            mb: 1.5,
+            textAlign: 'center',
+          }}
+        >
+          Our Bodies
+        </Typography>
+        <Typography
           variant="h2"
           component="h2"
           sx={{
             fontSize: { xs: "2rem", sm: "2.8rem", md: "3.5rem" },
-            fontWeight: "bold",
-            mb: 2,
+            fontWeight: 800,
+            mb: 3,
             textAlign: "center",
-            background: "linear-gradient(45deg, #1976d2, #9c27b0)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textShadow: "0px 2px 4px rgba(0,0,0,0.1)",
+            letterSpacing: '-0.035em',
+            lineHeight: 1.12,
+            color: 'text.primary',
           }}
         >
-          Technical Council
+          Technical{' '}
+          <Box
+            component="span"
+            sx={{
+              background: 'linear-gradient(135deg, #fb923c, #f472b6, #a78bfa)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Council
+          </Box>
         </Typography>
 
         {/* Tabs */}
@@ -149,14 +168,15 @@ export default function Council() {
           allowScrollButtonsMobile
           sx={{
             mb: 3,
-            borderRadius: 2,
-            bgcolor: "background.paper",
-            boxShadow: 2,
+            borderRadius: 3,
+            bgcolor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.82)',
+            border: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)'}`,
+            boxShadow: 'none',
             minHeight: 36,
             mx: "auto",
             width: "100%",
             "& .MuiTabs-indicator": {
-              background: "linear-gradient(45deg, #1976d2, #9c27b0)",
+              background: `linear-gradient(90deg, ${currentColor}, #fb923c)`,
               height: 3,
               borderRadius: 2,
             },
@@ -172,9 +192,10 @@ export default function Council() {
                 color: "text.secondary",
                 minHeight: 36,
                 px: { xs: 0.5, sm: 2 },
+                letterSpacing: '-0.01em',
                 transition: "color 0.2s",
                 "&.Mui-selected": {
-                  color: "primary.main",
+                  color: option.color,
                 },
               }}
             />
@@ -215,12 +236,12 @@ export default function Council() {
                       width: { xs: 70, sm: 85 },
                       height: { xs: 70, sm: 85 },
                       mb: 1,
-                      bgcolor: (theme) => theme.palette.background.default,
-                      borderRadius: 3,
+                      bgcolor: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.02)',
+                      borderRadius: 3.5,
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: (theme) => theme.shadows[1],
+                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(15,23,42,0.08)'}`,
                       overflow: "hidden",
                       p: 1,
                       position: "relative",
@@ -240,8 +261,10 @@ export default function Council() {
                     component="h3"
                     gutterBottom
                     sx={{
-                      fontSize: "1rem",
+                      fontSize: "0.95rem",
+                      fontWeight: 700,
                       mb: 0,
+                      letterSpacing: '-0.01em',
                       wordBreak: "break-word",
                       maxWidth: "100%",
                       overflow: "hidden",

@@ -139,7 +139,7 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
                   fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
                   fontWeight: 'bold',
                   mb: 3,
-                  color: '#3275AA',
+                  color: 'primary.main',
                   textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                   width: '100%', 
                   textAlign: { xs: 'center', md: 'center' }

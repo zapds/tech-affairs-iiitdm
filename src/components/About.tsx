@@ -5,22 +5,22 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const stats = [
-  { number: '13', label: 'Technical Clubs' },
-  { number: '6', label: 'Competitive Teams' },
-  { number: '10+', label: 'Esteemed Awards' },
-  { number: '50+', label: 'Events Annually' },
-  { number: '20+', label: 'Sponsors' },
+  { number: '13', label: 'Technical Clubs', color: '#fb923c' },
+  { number: '6', label: 'Competitive Teams', color: '#34d399' },
+  { number: '10+', label: 'Esteemed Awards', color: '#f472b6' },
+  { number: '50+', label: 'Events Annually', color: '#a78bfa' },
+  { number: '20+', label: 'Sponsors', color: '#38bdf8' },
 ];
 
 const About = () => {
   const theme = useTheme();
-  
+  const isDark = theme.palette.mode === 'dark';
+
   return (
     <Box
       id="about"
       sx={{
         py: { xs: 8, md: 12 },
-        bgcolor: 'background.default',
       }}
     >
       <Container maxWidth="lg">
@@ -31,18 +31,32 @@ const About = () => {
           transition={{ duration: 0.5 }}
         >
           <Typography
-            variant="h2"
-            component="h2"
             sx={{
-              fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
-              fontWeight: 'bold',
-              mb: 4,
+              fontSize: '0.72rem',
+              fontWeight: 650,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              color: '#fb923c',
+              mb: 1.5,
               textAlign: 'center',
-              color: theme.palette.primary.main,
-              textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
             }}
           >
             About Us
+          </Typography>
+          <Typography
+            variant="h2"
+            component="h2"
+            sx={{
+              fontSize: { xs: '1.9rem', sm: '2.5rem', md: '3rem' },
+              fontWeight: 800,
+              letterSpacing: '-0.035em',
+              lineHeight: 1.12,
+              mb: 2,
+              textAlign: 'center',
+              color: 'text.primary',
+            }}
+          >
+            Who We Are
           </Typography>
         </motion.div>
 
@@ -53,49 +67,59 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
         >
-          <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '9999px', padding: '1rem' }}>
-          <Image alt="Institute Logo" src="/iiitdm_logo.png" height={150} width={150} />
-          </div>
+          <Box sx={{
+            mb: 3,
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'white',
+            borderRadius: '9999px',
+            p: 1.5,
+            border: '1px solid rgba(251,146,60,0.2)',
+          }}>
+            <Image alt="Institute Logo" src="/iiitdm_logo.png" height={120} width={120} />
+          </Box>
           <Typography
             variant="body1"
             sx={{
               mb: 8,
               textAlign: 'center',
-              maxWidth: '800px',
+              maxWidth: '680px',
               mx: 'auto',
               color: 'text.secondary',
-              fontSize: '1.1rem',
+              fontSize: '1.05rem',
               lineHeight: 1.8,
             }}
           >
-            Technical Affairs at IIITDM Kancheepuram is the driving force behind technical innovation and excellence. 
-            We foster a culture of learning, innovation, and collaboration through our diverse range of technical clubs 
-            and competitive teams. Our mission is to empower students with practical skills, industry exposure, and 
+            Technical Affairs at IIITDM Kancheepuram is the driving force behind technical innovation and excellence.
+            We foster a culture of learning, innovation, and collaboration through our diverse range of technical clubs
+            and competitive teams. Our mission is to empower students with practical skills, industry exposure, and
             opportunities to showcase their talents on national and international platforms.
           </Typography>
         </motion.div>
 
-        <Box 
-          sx={{ 
+        {/* Stats row */}
+        <Box
+          sx={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: 2,
-            justifyContent: 'center'
+            justifyContent: 'center',
+            maxWidth: 1000,
+            mx: 'auto',
+            py: 5,
+            borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)'}`,
+            borderBottom: `1px solid ${isDark ? 'rgba(255,255,255,0.07)' : 'rgba(15,23,42,0.14)'}`,
           }}
         >
           {stats.map((stat, index) => (
-            <Box 
+            <Box
               key={stat.label}
               sx={{
                 flex: {
-                  xs: '1 1 100%',
-                  sm: '1 1 calc(50% - 8px)',
-                  md: '1 1 calc(20% - 8px)'
+                  xs: '1 1 calc(50% - 8px)',
+                  md: '1 1 calc(20% - 8px)',
                 },
-                minWidth: {
-                  xs: '260px',
-                  md: '180px'
-                }
+                minWidth: { xs: '120px', md: '150px' },
               }}
             >
               <motion.div
@@ -106,37 +130,32 @@ const About = () => {
               >
                 <Box
                   sx={{
-                    p: 3,
-                    borderRadius: 2,
-                    bgcolor: 'background.default',
                     textAlign: 'center',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    transition: 'transform 0.2s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-5px)',
-                    },
-                    mx: 'auto',
+                    py: 2,
                   }}
                 >
                   <Typography
                     variant="h3"
                     component="div"
                     sx={{
-                      fontWeight: 700,
-                      color: 'primary.main',
+                      fontWeight: 800,
+                      color: stat.color,
                       mb: 1,
+                      fontSize: { xs: '2rem', md: '3.2rem' },
+                      letterSpacing: '-0.04em',
+                      fontVariantNumeric: 'tabular-nums',
+                      lineHeight: 1.1,
                     }}
                   >
                     {stat.number}
                   </Typography>
                   <Typography
-                    variant="body1"
                     sx={{
-                      color: 'text.secondary',
-                      fontWeight: 500,
+                      fontSize: '0.72rem',
+                      fontWeight: 550,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      color: isDark ? 'rgba(241,240,245,0.28)' : 'rgba(15,23,42,0.46)',
                     }}
                   >
                     {stat.label}
@@ -151,4 +170,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

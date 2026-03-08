@@ -216,7 +216,7 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                   fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
                   fontWeight: 'bold',
                   mb: 2,
-                  color: '#3275AA',
+                  color: 'primary.main',
                   textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
                   width: '100%', 
                   textAlign: { xs: 'center', md: 'center' }
@@ -278,7 +278,7 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                 mb: 5,
                 textAlign: 'center',
                 fontWeight: 'bold',
-                color: '#3275AA',
+                color: 'primary.main',
               }}
             >
               Our Journey

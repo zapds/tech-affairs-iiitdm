@@ -16,7 +16,7 @@ interface Achievement {
 }
 
 const GradientTitle = styled(Typography)(({ theme }) => ({
-  color: '#3275AA',
+  color: theme.palette.primary.main,
   marginBottom: theme.spacing(4),
   textAlign: 'center',
   [theme.breakpoints.down('sm')]: {
