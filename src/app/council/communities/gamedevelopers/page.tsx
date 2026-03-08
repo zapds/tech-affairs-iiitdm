@@ -27,6 +27,7 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
   padding: theme.spacing(1.5),
   textAlign: 'center',
   width: '180px',
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : 'inherit',
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(1),
     width: '140px',

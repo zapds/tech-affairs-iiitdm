@@ -33,6 +33,7 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
   textAlign: 'center',
   width: '180px',
   cursor: 'pointer',
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : 'inherit',
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(1),
     width: '140px',
@@ -367,10 +368,9 @@ function TeamPageTemplate({ name, club, logo, description, achievements, members
                   sx={{
                     borderRadius: '50%',
                     p: '4px',
-                    background: theme.palette.mode === 'dark' ? `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})` : theme.palette.grey[200],
+                    background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                     boxShadow: '0 0 12px rgba(0,0,0,0.1)',
-                    mb: { xs: 0.75, sm: 1, md: 1.5 },
-                    border: theme.palette.mode === 'light' ? `4px solid ${theme.palette.primary.main}` : 'none', // Added border for light theme
+                    mb: { xs: 0.75, sm: 1, md: 1.5 }, // Added border for light theme
                   }}
                 >
                   <Avatar

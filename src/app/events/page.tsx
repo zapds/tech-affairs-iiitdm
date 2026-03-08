@@ -58,7 +58,7 @@ export default async function EventsPage() {
 
     return (
         <Box sx={{ minHeight: '100vh', pt: { xs: 10, md: 12 }, px: { xs: 2, sm: 4 } }}>
-            <Typography variant="h3" component="h1" fontWeight="bold" textAlign="center" gutterBottom>
+            <Typography variant="h3" component="h1" fontWeight="bold" textAlign="center" gutterBottom sx={{ color: 'primary.main' }}>
                 Upcoming Events
             </Typography>
             {events.length > 0 ? (

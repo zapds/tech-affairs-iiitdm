@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Bricolage_Grotesque } from 'next/font/google';
 
 const bricolage = Bricolage_Grotesque({
@@ -11,14 +9,5 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export default function OpenHouseLayout({ children }: { children: React.ReactNode }) {
-    useEffect(() => {
-        document.documentElement.classList.add('oh-standalone');
-        document.body.style.margin = '0';
-        return () => {
-            document.documentElement.classList.remove('oh-standalone');
-            document.body.style.margin = '';
-        };
-    }, []);
-
     return <div className={bricolage.variable}>{children}</div>;
 }

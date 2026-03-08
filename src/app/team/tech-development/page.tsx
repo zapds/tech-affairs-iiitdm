@@ -32,6 +32,7 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
   textAlign: 'center',
   wordBreak: 'break-word',
   cursor: 'pointer',
+  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : 'inherit',
   [theme.breakpoints.down('sm')]: {
     padding: theme.spacing(1),
     width: 120,
@@ -40,12 +41,12 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
 
 const cores = [
   {
-    name: 'R Darshan Karthikeya',
+    name: 'Adithya Bharadwaj',
     role: 'Tech Development Core',
-    image: '/technical-affairs-team/tech-development/cores/RDarshanKarthikeya.jpg',
-    email: 'cs22b1022@iiitdm.ac.in',
-    linkedin: 'https://www.linkedin.com/in/darshan-karthikeya',
-    roll: 'CS22B1022',
+    image: '/technical-affairs-team/tech-development/cores/adithya.png',
+    email: 'adithya@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/adithya-bharadwaj',
+    roll: 'CS22B1040',
   },
   {
     name: 'Avula Varshini',
@@ -110,10 +111,9 @@ function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (i
               sx={{
                 borderRadius: '50%',
                 p: '4px',
-                background: theme.palette.mode === 'dark' ? `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})` : theme.palette.grey[200],
+                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                 boxShadow: '0 0 12px rgba(0,0,0,0.1)',
                 mb: { xs: 0.75, sm: 1, md: 1.5 },
-                border: theme.palette.mode === 'light' ? `4px solid ${theme.palette.primary.main}` : 'none', // Added border for light theme
               }}
             >
               <Avatar

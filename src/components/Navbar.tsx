@@ -45,7 +45,6 @@ interface NavbarProps {
 }
 
 const navItems = [
-  { name: "Events", path: "/events" },
   { name: "Achievements", path: "/achievements" },
   { name: "Open House", path: "/open-house" },
   { name: "I2R Lab", path: "/i2r" },

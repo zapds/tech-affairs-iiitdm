@@ -1,30 +1,9 @@
 /* ═══════════════════════════════════════════════
    OPEN HOUSE 2026 — Colorful Bricolage Grotesque
-   Minimal CSS: keyframes, hovers, pseudos only.
+   Animation, hovers, responsive-only CSS.
+   All grids are defined in globals.css
    All visual styles are inline in page.tsx.
    ═══════════════════════════════════════════════ */
-
-/* ── Hide root layout chrome ── */
-html.oh-standalone .gridBg,
-html.oh-standalone .grid-bg,
-html.oh-standalone > body > div > nav,
-html.oh-standalone header,
-html.oh-standalone [class*="MuiAppBar"],
-html.oh-standalone [class*="MuiDrawer"] {
-    display: none !important;
-}
-html.oh-standalone footer:not(.oh-local-footer) {
-    display: none !important;
-}
-html.oh-standalone body {
-    background: var(--oh-page-bg, #05051a) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.oh-section {
-    scroll-margin-top: 86px;
-}
 
 .oh-body-card {
     min-width: 0;
@@ -82,35 +61,6 @@ html.oh-standalone body {
     border-color: var(--oh-ghost-hover-border, rgba(255,255,255,0.25)) !important;
 }
 
-/* Nav link */
-.oh-nav-link {
-    transition: color 0.2s ease !important;
-    position: relative;
-}
-.oh-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #fb923c, #f472b6);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-}
-.oh-nav-link:hover { color: var(--oh-nav-link-hover, #fff) !important; }
-.oh-nav-link:hover::after { width: 100%; }
-
-/* Social icon */
-.oh-social {
-    transition: all 0.2s ease !important;
-}
-.oh-social:hover {
-    background: var(--oh-social-hover-bg, rgba(255,255,255,0.1)) !important;
-    color: #fb923c !important;
-    transform: translateY(-2px) !important;
-}
-
 /* Filter btn */
 .oh-filter-btn {
     transition: all 0.2s ease !important;
@@ -145,25 +95,12 @@ html.oh-standalone body {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
-    .oh-nav-inner {
-        padding: 0 20px !important;
-    }
     .oh-hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem) !important; }
     .oh-why-grid { grid-template-columns: 1fr !important; }
     .oh-bento { grid-template-columns: 1fr !important; }
     .oh-stats-row { grid-template-columns: repeat(2, 1fr) !important; }
 }
 @media (max-width: 768px) {
-    .oh-nav-inner {
-        padding: 0 16px !important;
-    }
-    .oh-brand > span {
-        font-size: 0.92rem !important;
-    }
-    .oh-theme-toggle {
-        padding: 8px 12px !important;
-        font-size: 0.74rem !important;
-    }
     .oh-hero {
         min-height: auto !important;
         padding: 108px 16px 56px !important;
@@ -175,7 +112,6 @@ html.oh-standalone body {
         margin-bottom: 24px !important;
         padding: 6px 12px !important;
     }
-    .oh-nav-links { display: none !important; }
     .oh-section {
         padding-left: 16px !important;
         padding-right: 16px !important;
@@ -239,13 +175,6 @@ html.oh-standalone body {
     }
 }
 @media (max-width: 480px) {
-    .oh-brand > span {
-        font-size: 0.84rem !important;
-    }
-    .oh-theme-toggle {
-        padding: 7px 10px !important;
-        font-size: 0.7rem !important;
-    }
     .oh-about,
     .oh-schedule,
     .oh-bodies-section,
@@ -256,9 +185,6 @@ html.oh-standalone body {
     .oh-stats {
         padding-top: 40px !important;
         padding-bottom: 40px !important;
-    }
-    .oh-local-footer {
-        padding: 30px 16px 24px !important;
     }
     .oh-stats-row { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
     .oh-cd-row { gap: 8px !important; }
@@ -272,11 +198,9 @@ html.oh-standalone body {
     .oh-card-hover,
     .oh-btn-primary,
     .oh-btn-ghost,
-    .oh-social,
     .oh-filter-btn,
     .oh-why-card,
-    .oh-sched-item,
-    .oh-nav-link::after {
+    .oh-sched-item {
         transition: none !important;
     }
 }

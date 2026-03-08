@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import './open-house.css';
+import { useThemeContext } from '@/context/ThemeContext';
 
 /* ═══════ PALETTE ═══════ */
 type ThemeName = 'dark' | 'light';
@@ -32,17 +32,17 @@ const C = {
 
 const THEMES: Record<ThemeName, Record<string, string>> = {
     dark: {
-        '--oh-bg': '#05051a',
-        '--oh-page-bg': '#05051a',
-        '--oh-surface': 'rgba(255,255,255,0.03)',
-        '--oh-section-bg': 'rgba(255,255,255,0.008)',
-        '--oh-border': 'rgba(255,255,255,0.07)',
+        '--oh-bg': '#0a0a1a',
+        '--oh-page-bg': '#0a0a1a',
+        '--oh-surface': 'rgba(255,255,255,0.08)',
+        '--oh-section-bg': 'rgba(255,255,255,0.015)',
+        '--oh-border': 'rgba(255,255,255,0.12)',
         '--oh-text': '#f1f0f5',
         '--oh-muted': 'rgba(241,240,245,0.5)',
         '--oh-dim': 'rgba(241,240,245,0.28)',
         '--oh-bg-gradient': 'radial-gradient(1000px 560px at -10% -10%, rgba(251,146,60,0.12), transparent 60%), radial-gradient(960px 520px at 110% 100%, rgba(56,189,248,0.10), transparent 62%)',
         '--oh-nav-bg': 'rgba(5,5,26,0.92)',
-        '--oh-grid-line': 'rgba(255,255,255,0.015)',
+        '--oh-grid-line': 'rgba(255,255,255,0.04)',
         '--oh-social-bg': 'rgba(255,255,255,0.04)',
         '--oh-ghost-hover-bg': 'rgba(255,255,255,0.08)',
         '--oh-ghost-hover-border': 'rgba(255,255,255,0.25)',
@@ -54,7 +54,7 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
         '--oh-why-hover-bg': 'rgba(255,255,255,0.05)',
         '--oh-sched-hover-bg': 'rgba(255,255,255,0.04)',
         '--oh-card-hover-shadow': '0 24px 48px -12px rgba(0,0,0,0.4)',
-        '--oh-card-hover-outline': 'rgba(255,255,255,0.08)',
+        '--oh-card-hover-outline': 'rgba(255,255,255,0.12)',
     },
     light: {
         '--oh-bg': '#f6f7fb',
@@ -67,7 +67,7 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
         '--oh-dim': 'rgba(15,23,42,0.46)',
         '--oh-bg-gradient': 'radial-gradient(860px 460px at -10% -10%, rgba(251,146,60,0.18), transparent 62%), radial-gradient(920px 500px at 110% 100%, rgba(56,189,248,0.14), transparent 64%)',
         '--oh-nav-bg': 'rgba(246,247,251,0.92)',
-        '--oh-grid-line': 'rgba(15,23,42,0.06)',
+        '--oh-grid-line': 'rgba(15,23,42,0.035)',
         '--oh-social-bg': 'rgba(15,23,42,0.04)',
         '--oh-ghost-hover-bg': 'rgba(15,23,42,0.08)',
         '--oh-ghost-hover-border': 'rgba(15,23,42,0.22)',
@@ -84,7 +84,7 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
 };
 
 /* ═══════ DATA ═══════ */
-const EVENT_DATE = new Date('2026-04-05T09:00:00');
+const EVENT_DATE = new Date('2026-03-13T09:00:00');
 
 const bodies = [
     { name: 'Team Nira', desc: 'Autonomous Underwater Vehicle', logo: '/teams/nira/logo.jpg', route: '/teams/nira', cat: 'Teams' },
@@ -164,12 +164,12 @@ function useCountdown(target: Date) {
 /*               MAIN COMPONENT               */
 /* ═══════════════════════════════════════════ */
 export default function OpenHousePage() {
+    const { isDarkMode } = useThemeContext();
+    const theme = isDarkMode ? 'dark' : 'light';
     const [activeCat, setActiveCat] = useState('All');
     const [navScrolled, setNavScrolled] = useState(false);
-    const [theme, setTheme] = useState<ThemeName>('light');
     const cd = useCountdown(EVENT_DATE);
     const activeTheme = THEMES[theme];
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
     const pad = (n: number) => String(n).padStart(2, '0');
     const filtered = useMemo(
         () => (activeCat === 'All' ? bodies : bodies.filter(b => b.cat === activeCat)),
@@ -263,165 +263,79 @@ export default function OpenHousePage() {
     return (
         <div className="oh-page" style={{
             ...activeTheme,
-            background: C.bg,
+            background: 'transparent',
             backgroundImage: C.bgGradient,
             backgroundRepeat: 'no-repeat',
             color: C.text,
             fontFamily: FONT,
             minHeight: '100vh',
-            overflowX: 'hidden',
             WebkitFontSmoothing: 'antialiased',
         } as React.CSSProperties}>
 
-            {/* ════════ NAV ════════ */}
-            <nav className="oh-nav" style={{
-                position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-                padding: navScrolled ? '10px 0' : '18px 0',
-                background: navScrolled ? C.navBg : 'transparent',
-                backdropFilter: navScrolled ? 'blur(24px) saturate(1.4)' : 'none',
-                borderBottom: navScrolled ? `1px solid ${C.border}` : '1px solid transparent',
-                transition: 'all 0.35s ease',
-            }}>
-                <div className="oh-nav-inner" style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div className="oh-brand" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <Image
-                            src={theme === 'light' ? '/nav_logo_inv.png' : '/nav_logo.png'}
-                            alt="Technical Affairs"
-                            width={32}
-                            height={32}
-                            sizes="32px"
-                            priority
-                            style={{ borderRadius: 8 }}
-                        />
-                        <span style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '-0.02em', color: C.text }}>
-                            Open House{' '}
-                            <span style={{ background: `linear-gradient(135deg, ${C.orange}, ${C.pink})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } as React.CSSProperties}>
-                                &apos;26
-                            </span>
-                        </span>
-                    </div>
-                    <div className="oh-nav-links" style={{ display: 'flex', gap: 28 }}>
-                        {navLinks.map(l => (
-                            <a key={l.href} href={l.href} className="oh-nav-link"
-                               onClick={e => scrollTo(e, l.href)}
-                               style={{ color: C.muted, textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500 }}>
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                    <button
-                        type="button"
-                        className="oh-btn-ghost oh-theme-toggle"
-                        onClick={() => setTheme(nextTheme)}
-                        aria-label={`Switch to ${nextTheme} mode`}
-                        style={{
-                            fontFamily: FONT,
-                            background: C.surface,
-                            color: C.text,
-                            border: `1px solid ${C.border}`,
-                            padding: '9px 18px',
-                            borderRadius: 10,
-                            fontSize: '0.82rem',
-                            fontWeight: 650,
-                            cursor: 'pointer',
-                            letterSpacing: '-0.01em',
-                        }}
-                    >
-                        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-                    </button>
-                </div>
-            </nav>
-
-            {/* ════════ HERO ════════ */}
+            {/* ════════ HERO (MINIMIZED) ════════ */}
             <section className="oh-hero" style={{
-                position: 'relative', minHeight: '100svh', display: 'flex', flexDirection: 'column',
+                position: 'relative', minHeight: 'auto', display: 'flex', flexDirection: 'column',
                 alignItems: 'center', justifyContent: 'center', textAlign: 'center',
-                padding: '120px 24px 80px', overflow: 'hidden',
+                padding: '50px 24px 56px', marginTop: '64px',
             }}>
-                {/* Grid overlay */}
-                <div style={{
-                    position: 'absolute', inset: 0, pointerEvents: 'none',
-                    backgroundImage: `linear-gradient(${C.gridLine} 1px, transparent 1px),
-                                      linear-gradient(90deg, ${C.gridLine} 1px, transparent 1px)`,
-                    backgroundSize: '72px 72px',
-                }} />
-
-                <div className="oh-hero-inner" style={{ position: 'relative', zIndex: 1, maxWidth: 840 }}>
+                <div className="oh-hero-inner" style={{ position: 'relative', zIndex: 1, maxWidth: 900 }}>
                     {/* Badge */}
                     <div className="oh-hero-badge" style={{
                         display: 'inline-flex', alignItems: 'center', gap: 8,
                         background: `linear-gradient(135deg, ${C.orange}18, ${C.pink}12)`,
                         border: `1px solid ${C.orange}30`,
-                        borderRadius: 100, padding: '7px 18px', marginBottom: 36,
+                        borderRadius: 100, padding: '8px 20px', marginBottom: 28,
                     }}>
                         <span style={{ width: 7, height: 7, borderRadius: '50%', background: C.orange, display: 'inline-block' }} />
-                        <span style={{ fontSize: '0.8rem', fontWeight: 550, color: C.orange, letterSpacing: '0.01em' }}>
-                            April 5, 2026 &middot; IIITDM Kancheepuram
+                        <span style={{ fontSize: '0.75rem', fontWeight: 600, color: C.orange, letterSpacing: '0.02em' }}>
+                            March 13, 2026 &middot; 9:00 AM
                         </span>
                     </div>
 
-                    {/* Title */}
-                    <h1 className="oh-hero-title" style={{
-                        fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', fontWeight: 800,
-                        letterSpacing: '-0.045em', lineHeight: 1.0, margin: '0 0 6px', color: C.text,
+                    {/* Main Title */}
+                    <h2 className="oh-hero-title" style={{
+                        fontSize: 'clamp(1.8rem, 5vw, 2.4rem)', fontWeight: 800,
+                        letterSpacing: '-0.035em', lineHeight: 1.1, margin: '0 0 12px',
+                        color: C.text,
                     }}>
-                        Technical Affairs
-                    </h1>
-                    <h1 className="oh-hero-title" style={{
-                        fontSize: 'clamp(2.8rem, 8vw, 5.5rem)', fontWeight: 800,
-                        letterSpacing: '-0.045em', lineHeight: 1.05, margin: '0 0 28px',
-                        background: `linear-gradient(135deg, ${C.orange}, ${C.pink}, ${C.violet}, ${C.cyan})`,
-                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                    } as React.CSSProperties}>
-                        Open House
-                    </h1>
+                        Open House 2026
+                    </h2>
 
                     {/* Subtitle */}
                     <p className="oh-hero-subtitle" style={{
-                        fontSize: 'clamp(1rem, 2.2vw, 1.25rem)', lineHeight: 1.75,
-                        color: C.muted, maxWidth: 580, margin: '0 auto 44px',
+                        fontSize: 'clamp(0.95rem, 2vw, 1.08rem)', lineHeight: 1.7,
+                        color: C.muted, maxWidth: 620, margin: '0 auto 32px',
+                        fontWeight: 500,
                     }}>
-                        Discover your technical journey. 16+ bodies showcase live demonstrations,
-                        real projects, running machines — all in a single day.
+                        Discover 16+ technical bodies in one day. Live demos, real machines, meet the builders.
                     </p>
 
-                    {/* Countdown */}
-                    <div className="oh-cd-row" style={{ display: 'flex', justifyContent: 'center', gap: 14, marginBottom: 44 }}>
+                    {/* Countdown with better styling */}
+                    <div className="oh-cd-row" style={{ display: 'flex', justifyContent: 'center', gap: 10, marginBottom: 0, flexWrap: 'wrap' }}>
                         {([
                             { v: cd.d, l: 'Days', c: C.orange },
                             { v: cd.h, l: 'Hours', c: C.pink },
                             { v: cd.m, l: 'Min', c: C.violet },
                             { v: cd.s, l: 'Sec', c: C.cyan },
                         ]).map(u => (
-                            <div key={u.l} className="oh-cd-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+                            <div key={u.l} className="oh-cd-item" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 5 }}>
                                 <div className="oh-cd-box" style={{
-                                    background: `${u.c}10`, border: `1px solid ${u.c}25`,
-                                    borderRadius: 14, padding: '14px 20px', minWidth: 66,
-                                    backdropFilter: 'blur(8px)',
+                                    background: `linear-gradient(135deg, ${u.c}15, ${u.c}08)`,
+                                    border: `1.5px solid ${u.c}30`,
+                                    borderRadius: 12, padding: '12px 16px', minWidth: 60,
+                                    backdropFilter: 'blur(10px)',
+                                    boxShadow: `0 0 20px ${u.c}15`,
                                 }}>
                                     <span style={{
-                                        fontSize: '1.7rem', fontWeight: 750, fontVariantNumeric: 'tabular-nums',
-                                        color: u.c, display: 'block', textAlign: 'center',
+                                        fontSize: '1.35rem', fontWeight: 800, fontVariantNumeric: 'tabular-nums',
+                                        color: u.c, display: 'block', textAlign: 'center', letterSpacing: '-0.02em',
                                     }}>{pad(u.v)}</span>
                                 </div>
-                                <span style={{ fontSize: '0.62rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em', color: C.dim }}>{u.l}</span>
+                                <span style={{ fontSize: '0.58rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: C.dim }}>{u.l}</span>
                             </div>
                         ))}
                     </div>
-
-                    {/* CTA */}
-                    <div className="oh-hero-cta" style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-                        <a href="#about" onClick={e => scrollTo(e, '#about')} className="oh-btn-ghost" style={{
-                            display: 'inline-flex', alignItems: 'center', gap: 8,
-                            background: 'transparent', color: C.muted,
-                            border: `1px solid ${C.border}`, padding: '15px 30px', borderRadius: 14, fontFamily: FONT,
-                            fontSize: '0.95rem', fontWeight: 500, cursor: 'pointer', textDecoration: 'none',
-                        }}>
-                            Explore
-                        </a>
-                    </div>
                 </div>
-
             </section>
 
             {/* ════════ MARQUEE ════════ */}
@@ -546,7 +460,7 @@ export default function OpenHousePage() {
             </section>
 
             {/* ════════ BODIES ════════ */}
-            <section id="bodies" className="oh-section oh-bodies-section" style={{ padding: '110px 24px', borderTop: `1px solid ${C.border}`, background: C.sectionBg }}>
+            <section id="bodies" className="oh-section oh-bodies-section" style={{ padding: '110px 24px', borderTop: `1px solid ${C.border}` }}>
                 <div style={{ maxWidth: 1200, margin: '0 auto' }}>
                     <div data-reveal style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
                         <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.pink, marginBottom: 12 }}>Participating</span>
@@ -675,18 +589,6 @@ export default function OpenHousePage() {
                 </div>
             </section>
 
-            {/* ════════ FOOTER ════════ */}
-            <footer className="oh-local-footer oh-section" style={{ padding: '44px 24px 32px', borderTop: `1px solid ${C.border}`, maxWidth: 1200, margin: '0 auto', textAlign: 'center' }}>
-                <p style={{ fontSize: '1rem', fontWeight: 700, color: C.text, margin: '0 0 8px', letterSpacing: '-0.01em' }}>
-                    Open House 2026
-                </p>
-                <p style={{ fontSize: '0.8rem', color: C.dim, margin: '0 0 14px' }}>
-                    IIITDM Kancheepuram
-                </p>
-                <p style={{ fontSize: '0.72rem', color: C.dim, margin: 0 }}>
-                    &copy; 2026 Open House. All Rights Reserved.
-                </p>
-            </footer>
         </div>
     );
 }

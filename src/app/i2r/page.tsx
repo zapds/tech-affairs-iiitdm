@@ -10,8 +10,7 @@ import {
   Box,
   Paper,
   Card, 
-  CardContent, 
-  CardMedia
+  CardContent
 } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
@@ -19,13 +18,43 @@ import { useRouter } from 'next/navigation';
 function I2RIntro() {
   return (
     <Container maxWidth="md" sx={{ my: 6 }}>
-      <Card sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, boxShadow: 3, borderRadius: 3 }}>
-        <CardMedia
-          component="img"
-          sx={{ width: { xs: "100%", md: 300 }, objectFit: "cover" }}
-          image="https://via.placeholder.com/300x200.png?text=I2R+Makerspace"
-          alt="I2R Makerspace"
-        />
+      <Card sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, boxShadow: 3, borderRadius: 3, overflow: "hidden" }}>
+        <Box
+          sx={{
+            width: { xs: "100%", md: 300 },
+            background: "linear-gradient(135deg, #fb923c 0%, #fb7a3c 50%, #f472b6 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: 250,
+            position: "relative",
+            overflow: "hidden",
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              width: "150%",
+              height: "150%",
+              background: "radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+              animation: "float 20s linear infinite",
+            }
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              color: "white",
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              position: "relative",
+              zIndex: 1,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            I²R
+          </Typography>
+        </Box>
         <CardContent sx={{ flex: 1 }}>
           <Typography variant="h4" component="h1" gutterBottom fontWeight="bold">
             I²R Makerspace
