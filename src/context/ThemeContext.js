@@ -23,7 +23,7 @@ export const useThemeContext = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [themeLoaded, setThemeLoaded] = useState(false);
 
   useEffect(() => {
