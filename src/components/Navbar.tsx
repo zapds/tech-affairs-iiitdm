@@ -24,6 +24,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useThemeContext } from "../context/ThemeContext";
@@ -73,73 +74,197 @@ const Navbar = ({ user }: NavbarProps) => {
   const handleCloseUserMenu = () => setAnchorElUser(null);
   const getLogoSrc = () => isDarkMode ? "/nav_logo.png" : "/nav_logo_inv.png";
 
+  const isActive = (path: string) => pathname === path;
+
   // Drawer for mobile view
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
+      {/* Header with logo and close button */}
       <Box
-        component="img"
-        src={getLogoSrc()}
-        alt="Technical Affairs Logo"
-        sx={{ height: 40, my: 2 }}
-      />
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          px: 2,
+          py: 2,
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+          <Box
+            component="img"
+            src={getLogoSrc()}
+            alt="Technical Affairs Logo"
+            sx={{ height: 36 }}
+          />
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 700,
+              color: "text.primary",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Tech Affairs
+          </Typography>
+        </Box>
+        <IconButton
+          onClick={handleDrawerToggle}
+          sx={{
+            color: "text.secondary",
+            "&:hover": { color: "primary.main" },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Box>
+
       <Divider />
-      <List>
+
+      {/* Navigation links */}
+      <List sx={{ px: 1, py: 1.5, flexGrow: 1 }}>
         {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
+          <ListItem key={item.name} disablePadding sx={{ mb: 0.5 }}>
             <ListItemButton
               component={Link}
               href={item.path}
+              onClick={handleDrawerToggle}
               sx={{
-                textAlign: "center",
-                color: theme.palette.mode === "dark" ? "white" : "text.primary",
-                "&:hover": { color: "primary.main" },
-                ...(pathname === item.path && {
+                borderRadius: 2,
+                py: 1.2,
+                px: 2,
+                color: isActive(item.path) ? "primary.main" : "text.primary",
+                fontWeight: isActive(item.path) ? 700 : 500,
+                bgcolor: isActive(item.path)
+                  ? theme.palette.mode === "dark"
+                    ? "rgba(251,146,60,0.1)"
+                    : "rgba(251,146,60,0.08)"
+                  : "transparent",
+                borderLeft: isActive(item.path)
+                  ? "3px solid"
+                  : "3px solid transparent",
+                borderColor: isActive(item.path) ? "primary.main" : "transparent",
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  bgcolor:
+                    theme.palette.mode === "dark"
+                      ? "rgba(251,146,60,0.08)"
+                      : "rgba(251,146,60,0.05)",
                   color: "primary.main",
-                  fontWeight: "bold",
-                }),
+                },
               }}
             >
-              <ListItemText primary={item.name} />
+              <ListItemText
+                primary={item.name}
+                primaryTypographyProps={{
+                  fontSize: "0.95rem",
+                  fontWeight: isActive(item.path) ? 700 : 500,
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItem disablePadding>
-          <ListItemButton
-            onClick={toggleTheme}
-            sx={{
-              textAlign: "center",
-              color: theme.palette.mode === "dark" ? "white" : "text.primary",
-              "&:hover": { color: "primary.main" },
-            }}
-          >
-            <ListItemText primary={isDarkMode ? "Light Mode" : "Dark Mode"} />
-          </ListItemButton>
-        </ListItem>
-        <Divider />
-        {/* Authentication links in mobile drawer */}
+      </List>
+
+      <Divider />
+
+      {/* Bottom section: theme toggle + auth */}
+      <Box sx={{ px: 1, py: 1.5 }}>
+        <ListItemButton
+          onClick={toggleTheme}
+          sx={{
+            borderRadius: 2,
+            py: 1.2,
+            px: 2,
+            mb: 1,
+            color: "text.primary",
+            "&:hover": {
+              bgcolor:
+                theme.palette.mode === "dark"
+                  ? "rgba(255,255,255,0.05)"
+                  : "rgba(0,0,0,0.04)",
+            },
+          }}
+        >
+          {isDarkMode ? (
+            <Brightness7Icon sx={{ mr: 1.5, fontSize: 20 }} />
+          ) : (
+            <Brightness4Icon sx={{ mr: 1.5, fontSize: 20 }} />
+          )}
+          <ListItemText
+            primary={isDarkMode ? "Light Mode" : "Dark Mode"}
+            primaryTypographyProps={{ fontSize: "0.9rem", fontWeight: 500 }}
+          />
+        </ListItemButton>
+
         {user ? (
           <>
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
-              <ListItemText primary="Logout" />
+            <ListItemButton
+              component="a"
+              href="/logout"
+              onClick={handleDrawerToggle}
+              sx={{
+                borderRadius: 2,
+                py: 1.2,
+                px: 2,
+                mb: 0.5,
+                color: "text.primary",
+                "&:hover": {
+                  bgcolor:
+                    theme.palette.mode === "dark"
+                      ? "rgba(255,255,255,0.05)"
+                      : "rgba(0,0,0,0.04)",
+                },
+              }}
+            >
+              <ListItemText
+                primary="Logout"
+                primaryTypographyProps={{ fontSize: "0.9rem", fontWeight: 500 }}
+              />
             </ListItemButton>
-          </ListItem>
-          {user.role === 'A' && (
-              <ListItem disablePadding>
-              <ListItemButton component="a" href="/admin" sx={{ textAlign: "center" }}>
-                <ListItemText primary="Admin" />
+            {user.role === "A" && (
+              <ListItemButton
+                component="a"
+                href="/admin"
+                onClick={handleDrawerToggle}
+                sx={{
+                  borderRadius: 2,
+                  py: 1.2,
+                  px: 2,
+                  color: "text.primary",
+                  "&:hover": {
+                    bgcolor:
+                      theme.palette.mode === "dark"
+                        ? "rgba(255,255,255,0.05)"
+                        : "rgba(0,0,0,0.04)",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="Admin"
+                  primaryTypographyProps={{ fontSize: "0.9rem", fontWeight: 500 }}
+                />
               </ListItemButton>
-            </ListItem>
-          )}
+            )}
           </>
         ) : (
-          <ListItem disablePadding>
-            <ListItemButton component="a" href="/login/google" sx={{ textAlign: "center" }}>
-              <ListItemText primary="Sign In" />
-            </ListItemButton>
-          </ListItem>
+          <Button
+            component="a"
+            href="/login/google"
+            onClick={handleDrawerToggle}
+            variant="contained"
+            fullWidth
+            sx={{
+              mt: 0.5,
+              py: 1.2,
+              borderRadius: 2,
+              fontWeight: 650,
+              fontSize: "0.9rem",
+            }}
+          >
+            Sign In
+          </Button>
         )}
-      </List>
+      </Box>
     </Box>
   );
 
@@ -277,9 +402,16 @@ const Navbar = ({ user }: NavbarProps) => {
           display: { xs: "block", md: "none" },
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
-            width: 240,
+            width: 280,
             bgcolor:
-              theme.palette.mode === "dark" ? "background.paper" : "background.paper",
+              theme.palette.mode === "dark"
+                ? "rgba(10, 10, 30, 0.95)"
+                : "rgba(255, 255, 255, 0.97)",
+            backdropFilter: "blur(20px) saturate(1.4)",
+            borderLeft:
+              theme.palette.mode === "dark"
+                ? "1px solid rgba(255,255,255,0.07)"
+                : "1px solid rgba(15,23,42,0.1)",
           },
         }}
       >
