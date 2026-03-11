@@ -22,7 +22,7 @@ const cores = [
   {
     name: 'Omkar Anand Iyer',
     role: 'Social Outreach Core',
-    image: '/technical-affairs-team/social-outreach/cores/OmkarAnandIyer.jpg',
+    image: '/technical-affairs-team/social-outreach/cores/OmkarAnandIyer.webp',
     email: '',
     linkedin: '',
     roll: '',
@@ -32,21 +32,21 @@ const cores = [
 const coordinators = [
   {
     name: 'EC24B1003',
-    image: '/technical-affairs-team/social-outreach/coordinators/EC24B1003.jpg',
+    image: '/technical-affairs-team/social-outreach/coordinators/EC24B1003.webp',
     email: '',
     linkedin: '',
     roll: 'EC24B1003',
   },
   {
     name: 'ME24B2055',
-    image: '/technical-affairs-team/social-outreach/coordinators/ME24B2055.png',
+    image: '/technical-affairs-team/social-outreach/coordinators/ME24B2055.webp',
     email: '',
     linkedin: '',
     roll: 'ME24B2055',
   },
     {
     name: 'ME24I1015',
-    image: '/technical-affairs-team/social-outreach/coordinators/ME24I1015.jpg',
+    image: '/technical-affairs-team/social-outreach/coordinators/ME24I1015.webp',
     email: '',
     linkedin: '',
     roll: 'ME24I1015',

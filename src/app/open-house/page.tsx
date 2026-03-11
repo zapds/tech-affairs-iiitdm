@@ -87,22 +87,22 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
 const EVENT_DATE = new Date('2026-03-13T09:00:00');
 
 const bodies = [
-    { name: 'Team Nira', desc: 'Autonomous Underwater Vehicle', logo: '/teams/nira/logo.jpg', route: '/teams/nira', cat: 'Teams' },
-    { name: 'Team Shunya', desc: 'Mars Rover Systems', logo: '/teams/mars/logo.png', route: '/teams/shunya', cat: 'Teams' },
-    { name: 'CS Club', desc: 'Algorithms, CP & Dev Culture', logo: '/clubs/csclub/logo.png', route: '/clubs/cs', cat: 'Clubs' },
-    { name: 'E-Cell', desc: 'Startups & Entrepreneurship', logo: '/societies/Ecell/logo.png', route: '/societies/ecell', cat: 'Societies' },
-    { name: 'Cybersecurity Community', desc: 'CTFs, Security & Red Teaming', logo: '/communities/Cybersecurity/logo.png', route: '/communities/cybersecurity', cat: 'Communities' },
-    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.jpg', route: '/clubs/dev', cat: 'Clubs' },
-    { name: 'Robotics Club', desc: 'Bots, Arms & Automation', logo: '/clubs/robotics/logo.png', route: '/clubs/robotics', cat: 'Clubs' },
-    { name: 'System Coding Club', desc: 'Low-level Systems & OS Hacking', logo: '/clubs/Scc/logo.png', route: '/clubs/scc', cat: 'Clubs' },
-    { name: 'Team Astra', desc: 'Rocketry & Propulsion', logo: '/teams/astra/logo.png', route: '/teams/astra', cat: 'Teams' },
-    { name: 'Revolt Racing', desc: 'Formula-style Electric Racing', logo: '/teams/revolt/logo.png', route: '/teams/revolt', cat: 'Teams' },
-    { name: 'Team TAD', desc: 'Aero Design & Unmanned Systems', logo: '/teams/tad/logo.png', route: '/teams/tad', cat: 'Teams' },
-    { name: 'SAE E-Baja', desc: 'Electric All-terrain Vehicle', logo: '/logo.png', route: '/clubs/sae-ebaja', cat: 'Teams' },
-    { name: 'ASME Section', desc: 'Mechanical Engineering Society', logo: '/societies/ASMEStudentSection/logo.png', route: '/societies/asme', cat: 'Societies' },
-    { name: 'IEEE Branch', desc: 'Electrical & Electronics', logo: '/societies/IEEE/logo.png', route: '/societies/ieee', cat: 'Societies' },
-    { name: 'Optica Chapter', desc: 'Photonics & Optical Engineering', logo: '/societies/OpticaStudentChapter/logo.jpg', route: '/societies/optica', cat: 'Societies' },
-    { name: 'Game Dev', desc: 'Unity, Unreal & Game Jams', logo: '/logo.png', route: '/communities/gamedevelopers', cat: 'Communities' },
+    { name: 'Team Nira', desc: 'Autonomous Underwater Vehicle', logo: '/teams/nira/logo.webp', route: '/teams/nira', cat: 'Teams' },
+    { name: 'Team Shunya', desc: 'Mars Rover Systems', logo: '/teams/mars/logo.webp', route: '/teams/shunya', cat: 'Teams' },
+    { name: 'CS Club', desc: 'Algorithms, CP & Dev Culture', logo: '/clubs/csclub/logo.webp', route: '/clubs/cs', cat: 'Clubs' },
+    { name: 'E-Cell', desc: 'Startups & Entrepreneurship', logo: '/societies/Ecell/logo.webp', route: '/societies/ecell', cat: 'Societies' },
+    { name: 'Cybersecurity Community', desc: 'CTFs, Security & Red Teaming', logo: '/communities/Cybersecurity/logo.webp', route: '/communities/cybersecurity', cat: 'Communities' },
+    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.webp', route: '/clubs/dev', cat: 'Clubs' },
+    { name: 'Robotics Club', desc: 'Bots, Arms & Automation', logo: '/clubs/robotics/logo.webp', route: '/clubs/robotics', cat: 'Clubs' },
+    { name: 'System Coding Club', desc: 'Low-level Systems & OS Hacking', logo: '/clubs/Scc/logo.webp', route: '/clubs/scc', cat: 'Clubs' },
+    { name: 'Team Astra', desc: 'Rocketry & Propulsion', logo: '/teams/astra/logo.webp', route: '/teams/astra', cat: 'Teams' },
+    { name: 'Revolt Racing', desc: 'Formula-style Electric Racing', logo: '/teams/revolt/logo.webp', route: '/teams/revolt', cat: 'Teams' },
+    { name: 'Team TAD', desc: 'Aero Design & Unmanned Systems', logo: '/teams/tad/logo.webp', route: '/teams/tad', cat: 'Teams' },
+    { name: 'SAE E-Baja', desc: 'Electric All-terrain Vehicle', logo: '/logo.webp', route: '/clubs/sae-ebaja', cat: 'Teams' },
+    { name: 'ASME Section', desc: 'Mechanical Engineering Society', logo: '/societies/ASMEStudentSection/logo.webp', route: '/societies/asme', cat: 'Societies' },
+    { name: 'IEEE Branch', desc: 'Electrical & Electronics', logo: '/societies/IEEE/logo.webp', route: '/societies/ieee', cat: 'Societies' },
+    { name: 'Optica Chapter', desc: 'Photonics & Optical Engineering', logo: '/societies/OpticaStudentChapter/logo.webp', route: '/societies/optica', cat: 'Societies' },
+    { name: 'Game Dev', desc: 'Unity, Unreal & Game Jams', logo: '/logo.webp', route: '/communities/gamedevelopers', cat: 'Communities' },
 ];
 
 const schedule = [

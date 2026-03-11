@@ -3,7 +3,7 @@ import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
 
 const clubData = {
   name: 'Optica Student Chapter',
-  logo: '/societies/OpticaStudentChapter/logo.jpg',
+  logo: '/societies/OpticaStudentChapter/logo.webp',
   description: `The OPTICA Student Chapter at IIITDM Kancheepuram is a student-led community affiliated with OPTICA (formerly OSA - Optical Society of America), dedicated to promoting interest and research in the fields of optics, photonics, and optical communication technologies.
 The chapter aims to cultivate technical knowledge and practical skills in areas such as laser systems, optical sensing, fiber optics, imaging, and photonic devices. By encouraging students to explore both fundamental and applied aspects of light-based technologies, the chapter provides a platform for collaborative learning and research discussions.
 The chapter aspires to contribute to the growing global optics community by engaging students in cutting-edge research topics and encouraging innovation in light-driven technologies.`,
@@ -11,7 +11,7 @@ The chapter aspires to contribute to the growing global optics community by enga
     {
       name: 'Riya Gupta',
       role: 'Chapter President',
-      image: '/images/team/riya-gupta.jpg',
+      image: '/images/team/riya-gupta.webp',
       email: 'riya.gupta@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/riyagupta',
       year: 'B.Tech 3rd Year',
@@ -21,7 +21,7 @@ The chapter aspires to contribute to the growing global optics community by enga
     {
       name: 'Aditya Verma',
       role: 'Vice President',
-      image: '/images/team/aditya-verma.jpg',
+      image: '/images/team/aditya-verma.webp',
       email: 'aditya.verma@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/adityaverma',
       year: 'B.Tech 3rd Year',
@@ -33,7 +33,7 @@ The chapter aspires to contribute to the growing global optics community by enga
     {
       name: 'Zara Khan',
       role: 'Technical Lead',
-      image: '/images/team/zara-khan.jpg',
+      image: '/images/team/zara-khan.webp',
       email: 'zara.khan@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/zarakhan',
       year: 'B.Tech 2nd Year',
@@ -43,7 +43,7 @@ The chapter aspires to contribute to the growing global optics community by enga
     {
       name: 'Rohan Mehta',
       role: 'Research Coordinator',
-      image: '/images/team/rohan-mehta.jpg',
+      image: '/images/team/rohan-mehta.webp',
       email: 'rohan.mehta@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/rohanmehta',
       year: 'B.Tech 2nd Year',

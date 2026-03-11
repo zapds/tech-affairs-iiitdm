@@ -43,7 +43,7 @@ const cores = [
   {
     name: 'Adithya Bharadwaj',
     role: 'Tech Development Core',
-    image: '/technical-affairs-team/tech-development/cores/adithya.png',
+    image: '/technical-affairs-team/tech-development/cores/adithya.webp',
     email: 'adithya@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/adithya-bharadwaj',
     roll: 'CS22B1040',
@@ -51,7 +51,7 @@ const cores = [
   {
     name: 'Avula Varshini',
     role: 'Tech Development Core',
-    image: '/technical-affairs-team/tech-development/cores/AVarshini.jpg',
+    image: '/technical-affairs-team/tech-development/cores/AVarshini.webp',
     email: 'cs23b1015@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/varshini-avula',
     roll: 'CS23B1015',
@@ -61,28 +61,28 @@ const cores = [
 const coordinators = [
   {
     name: 'Thatipalli Santhoshini',
-    image: '/technical-affairs-team/tech-development/coordinators/CS24I1013.jpg',
+    image: '/technical-affairs-team/tech-development/coordinators/CS24I1013.webp',
     email: 'cs24i1013@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/santhoshini-thatipalli-265497306',
     roll: 'CS24I1013',
   },
   {
     name: 'Yashvanth S',
-    image: '/technical-affairs-team/tech-development/coordinators/CS24I1029.png',
+    image: '/technical-affairs-team/tech-development/coordinators/CS24I1029.webp',
     email: 'cs24i1029@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/yashvanths/',
     roll: 'CS24I1029',
   },
   {
     name: 'D Pritika',
-    image: '/technical-affairs-team/tech-development/coordinators/CS24I1040.jpg',
+    image: '/technical-affairs-team/tech-development/coordinators/CS24I1040.webp',
     email: 'cs24i1040@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/pritika-desinghu-aaa9a9363/',
     roll: 'CS24I1040',
   },
   {
     name: 'Narendhar T S',
-    image: '/technical-affairs-team/tech-development/coordinators/EC24B1053.jpg',
+    image: '/technical-affairs-team/tech-development/coordinators/EC24B1053.webp',
     email: 'ec24b1053@iiitdm.ac.in',
     linkedin: 'https://linkedin.com/in/narendharts',
     roll: 'EC24B1053',

@@ -8,7 +8,7 @@ const Hero = () => {
   const isDark = theme.palette.mode === 'dark';
 
   const getLogoSrc = () => {
-    return isDark ? '/nav_logo.png' : '/nav_logo_inv.png';
+    return isDark ? '/nav_logo.webp' : '/nav_logo_inv.webp';
   };
 
   return (

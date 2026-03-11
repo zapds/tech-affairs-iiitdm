@@ -4,7 +4,7 @@ import TeamPageTemplate from '../../../components/TeamPageTemplate';
 const teamInfo = {
   name: 'Team Shunya',
   club: 'MARS Club',
-  logo: '/teams/mars/logo.png',
+  logo: '/teams/mars/logo.webp',
   description: `Team Shunya is the official competitive team of the MARS Club at IIITDM Kancheepuram, specializing in the development of autonomous planetary rovers and robotic systems. The team represents the institute in prestigious competitions such as the Indian Rover Challenge (IRC) and ISRO Rover Challenge (IRoC), where student teams design and demonstrate rovers capable of performing complex tasks in simulated extraterrestrial environments.
 Team Shunya focuses on end-to-end rover development, covering areas such as:
 Mechanical design of rugged, all-terrain unmanned ground vehicles (UGVs)
@@ -77,7 +77,7 @@ Combining innovation, technical rigor, and collaborative problem-solving, Team S
     {
       name: 'R Sarang',
       role: 'Co-Lead',
-      image: '/teams/mars/co-lead.jpg',
+      image: '/teams/mars/co-lead.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://www.linkedin.com/in/sarang-raghavan-a04a2b308/',
       year: 'B.Tech 3rd Year',

@@ -22,7 +22,34 @@ const cores = [
   {
     name: 'Satyam Kumar Pandey',
     role: 'Media and Marketing Core',
-    image: '/technical-affairs-team/media-and-marketing/cores/SatyamKumarPandey.jpg',
+    image: '/technical-affairs-team/media-and-marketing/cores/SatyamKumarPandey.webp',
+    email: '',
+    linkedin: '',
+    roll: '',
+  },
+];
+
+const jtcores = [
+  {
+    name: 'Akash Patel',
+    role: 'Joint Core',
+    image: '/technical-affairs-team/media-and-marketing/jtcores/AkashPatel.webp',
+    email: '',
+    linkedin: '',
+    roll: '',
+  },
+  {
+    name: 'P Swaminatha',
+    role: 'Joint Core',
+    image: '/technical-affairs-team/media-and-marketing/jtcores/PSwaminatha.webp',
+    email: '',
+    linkedin: '',
+    roll: '',
+  },
+  {
+    name: 'Parth Pandey',
+    role: 'Joint Core',
+    image: '/technical-affairs-team/media-and-marketing/jtcores/ParthPandey.webp',
     email: '',
     linkedin: '',
     roll: '',
@@ -32,42 +59,42 @@ const cores = [
 const coordinators = [
   {
     name: 'CS24B1023',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/CS24B1023.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/CS24B1023.webp',
     email: '',
     linkedin: '',
     roll: 'CS24B1023',
   },
   {
     name: 'CS24I1028',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/CS24I1028.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/CS24I1028.webp',
     email: '',
     linkedin: '',
     roll: 'CS24I1028',
   },
     {
     name: 'EC23B1091',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/EC23B1091.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/EC23B1091.webp',
     email: '',
     linkedin: '',
     roll: 'EC23B1091',
   },
   {
     name: 'ME23B1036',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/ME23B1036.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/ME23B1036.webp',
     email: '',
     linkedin: '',
     roll: 'ME23B1036',
   },
     {
     name: 'ME24B1052',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/ME24B1052.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/ME24B1052.webp',
     email: '',
     linkedin: '',
     roll: 'ME24B1052',
   },
   {
     name: 'ME24B1071',
-    image: '/technical-affairs-team/media-and-marketing/coordinators/ME24B1071.jpg',
+    image: '/technical-affairs-team/media-and-marketing/coordinators/ME24B1071.webp',
     email: '',
     linkedin: '',
     roll: 'ME24B1071',
@@ -123,6 +150,10 @@ export default function MediaAndMarketingCore() {
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Cores</Typography>
         <MemberGrid members={cores} handleOpen={handleOpen}/>
+      </Box>
+      <Box sx={{ mt: 4 }}>
+        <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Joint Cores</Typography>
+        <MemberGrid members={jtcores} handleOpen={handleOpen}/>
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Coordinators</Typography>

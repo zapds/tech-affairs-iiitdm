@@ -3,7 +3,7 @@ import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'Team Astra',
-  logo: '/teams/astra/logo.png',
+  logo: '/teams/astra/logo.webp',
 
   introduction: `We are a multidisciplinary team of students from across all branches of the campus, united by a shared passion for designing and developing drones and other unmanned aerial vehicles (UAVs) to accomplish mission-driven objectives. Our club fosters innovation, technical excellence, and collaborative problem-solving to build efficient, intelligent, and reliable aerial systems.`,
   timeline: [
@@ -43,7 +43,7 @@ const clubData = {
     {
       name: 'Self-Aligned docking system with mechanical actuators.',
       description: 'Currently we are working on ISRO IRoC U 2026 Qualification Round. For this round, we need to submit a detailed proposal report and video demonstration. The deadline for this challenge is 02.04.2026.',
-      image: '/teams/astra/logo.png',
+      image: '/teams/astra/logo.webp',
       technologies: ['Drone Systems', 'Embedded Systems', 'Computer Vision'],
       themeColor: '#1976D2'
     }
@@ -51,31 +51,31 @@ const clubData = {
 
   gallery: [
     {
-      src: '/teams/astra/a2.jpg',
+      src: '/teams/astra/a2.webp',
       caption: 'Autonomous drone prototype developed by Team Astra'
     },
     {
-      src: '/teams/astra/a1.png',
+      src: '/teams/astra/a1.webp',
       caption: 'Team Astra members preparing the drone for testing'
     },
     {
-      src: '/teams/astra/a3.jpg',
+      src: '/teams/astra/a3.webp',
       caption: 'Drone flight testing session'
     },
       {
-      src: '/teams/astra/a5.jpg',
+      src: '/teams/astra/a5.webp',
       caption: 'Team Astra members preparing the drone for testing'
     },
       {
-      src: '/teams/astra/a6.jpg',
+      src: '/teams/astra/a6.webp',
       caption: 'Team Astra members preparing the drone for testing'
     },
       {
-      src: '/teams/astra/a4.jpg',
+      src: '/teams/astra/a4.webp',
       caption: 'Team Astra members preparing the drone for testing'
     },
       {
-      src: '/teams/astra/a8.jpg',
+      src: '/teams/astra/a8.webp',
       caption: 'Team Astra members preparing the drone for testing'
     }
   ],
@@ -84,14 +84,14 @@ const clubData = {
     {
       name: 'Abhishek Sen',
       role: 'Captain',
-      image: '/teams/astra/members/lead.jpg',
+      image: '/teams/astra/members/lead.webp',
       email: 'team.lead@iiitdm.ac.in',
       roll: 'ec22b1098'
     },
     {
       name: 'Neshanth R',
       role: 'Vice-Captain',
-      image: '/teams/astra/members/tech-lead.jpg',
+      image: '/teams/astra/members/tech-lead.webp',
       email: 'tech.lead@iiitdm.ac.in',
       roll: 'me22b2030'
     }

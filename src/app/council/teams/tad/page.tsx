@@ -4,7 +4,7 @@ import TeamPageTemplate from '../../../../components/TeamPageTemplate';
 const teamInfo = {
   name: 'Team Tad',
   club: 'TAD Club',
-  logo: '/teams/tad/logo.png',
+  logo: '/teams/tad/logo.webp',
   description: `The Talpade Aero Design (TAD) team at IIITDM Kancheepuram is a vibrant and fast-growing student organization dedicated to advancing the field of aeronautical design and engineering. Bringing together passionate and curious engineering minds, the club focuses on the design, construction, and optimization of high-performance RC planes.\nWith a strong emphasis on precision engineering and innovation, TAD Club builds aircraft that compete in national-level aeromodeling competitions, where students apply their skills in aerodynamics, structural design, propulsion, and control systems. The club serves as a collaborative platform for like-minded individuals who are driven to push the boundaries of RC plane design and aerial vehicle development.\nThrough hands-on projects, workshops, and competitions, TAD Club nurtures technical excellence, teamwork, and creativity, inspiring the next generation of aerospace innovators.`,
   achievements: [
     {
@@ -30,7 +30,7 @@ const teamInfo = {
     {
       name: 'Vamsi J S',
       role: 'Team Lead',
-      image: '/teams/tad/lead.jpg',
+      image: '/teams/tad/lead.webp',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/team-lead',
       year: 'B.Tech 3rd Year',
@@ -40,7 +40,7 @@ const teamInfo = {
     {
       name: 'S Deerajprasanth',
       role: 'Manager',
-      image: '/teams/tad/manager1.jpg',
+      image: '/teams/tad/manager1.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -50,7 +50,7 @@ const teamInfo = {
       {
       name: 'Sannala Mithil Reddy',
       role: 'Manager',
-      image: '/teams/tad/manager2.jpg',
+      image: '/teams/tad/manager2.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -60,7 +60,7 @@ const teamInfo = {
       {
       name: 'Madhamshetty Sathvika',
       role: 'PR&O Lead',
-      image: '/teams/tad/pr&o-lead.jpg',
+      image: '/teams/tad/pr&o-lead.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -70,7 +70,7 @@ const teamInfo = {
      {
       name: 'Sanjay D G',
       role: 'DSA Lead',
-      image: '/teams/tad/SANJAY_D_G_DSA_LEAD.jpg',
+      image: '/teams/tad/SANJAY_D_G_DSA_LEAD.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -80,7 +80,7 @@ const teamInfo = {
     {
       name: 'Goriparthi Thanmaya',
       role: 'DSA Lead',
-      image: '/teams/tad/GORIPARTHI_THANMAYA_DSA_LEAD.jpg',
+      image: '/teams/tad/GORIPARTHI_THANMAYA_DSA_LEAD.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -90,7 +90,7 @@ const teamInfo = {
     {
       name: 'Jagadeesh B',
       role: 'Control Systems Lead',
-      image: '/teams/tad/JAGADEESH_B_CONTROLS_LEAD.jpg',
+      image: '/teams/tad/JAGADEESH_B_CONTROLS_LEAD.webp',
       email: 'ec23b1062@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -100,7 +100,7 @@ const teamInfo = {
      {
       name: 'Lingamsetty Sai Ram',
       role: 'Control Systems Lead',
-      image: '/teams/tad/leadcontrols.jpg',
+      image: '/teams/tad/leadcontrols.webp',
       email: 'ec23b1106@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -111,7 +111,7 @@ const teamInfo = {
      {
       name: 'Dinesh Kumaran K',
       role: 'Software Lead',
-      image: '/teams/tad/software-lead.jpg',
+      image: '/teams/tad/software-lead.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -121,7 +121,7 @@ const teamInfo = {
      {
       name: 'Tirumala Sai Raghava Sreekar',
       role: 'Software Lead',
-      image: '/teams/tad/software-lead2.jpg',
+      image: '/teams/tad/software-lead2.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',

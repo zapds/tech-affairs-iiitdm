@@ -40,14 +40,14 @@ const teamData = {
   secretary: {
     name: "P Kaarthick Natesh",
     position: "Technical Affairs Secretary",
-    image: "/technical-affairs-team/sac/PKaarthickNatesh.jpg",
+    image: "/technical-affairs-team/sac/PKaarthickNatesh.webp",
     email: "ec22b1004@iiitdm.ac.in",
     linkedin: "",
   },
   jointSecretary: {
     name: "Ranveer Gautam",
     position: "Technical Affairs Joint Secretary",
-    image: "/technical-affairs-team/sac/RanveerGautam.jpg",
+    image: "/technical-affairs-team/sac/RanveerGautam.webp",
     email: "me23b2031@iiitdm.ac.in",
     linkedin: "",
   },
@@ -63,46 +63,46 @@ const facultyHeads = [
   {
     name: 'Prof. M D Selvaraj',
     role: 'Dean DII',
-    image: '/facultyheads/selvaraj.png',
+    image: '/facultyheads/selvaraj.webp',
   },
   {
     name: 'Dr. Vikash Kumar',
     role: 'PIC - Technical Affairs',
-    image: '/facultyheads/vikash.png',
+    image: '/facultyheads/vikash.webp',
   },
   {
     name: 'Dr. Bhukya Krishna Priya',
     role: 'PIC - Technical Affairs',
-    image: '/facultyheads/krishnapriya.png',
+    image: '/facultyheads/krishnapriya.webp',
   },
 ];
 
 
 const clubs = [
-  { name: "CS Club", image: "/clubs/csclub/logo.png", link: "/clubs/cs" },
-  { name: "Developer's Club", image: "/clubs/devclub/logo.jpg", link: "/clubs/dev" },
-  { name: "System Coding Club", image: "/clubs/Scc/logo.png", link: "/clubs/scc" },
-  { name: "Robotics", image: "/clubs/robotics/logo.png", link: "/clubs/robotics" },
+  { name: "CS Club", image: "/clubs/csclub/logo.webp", link: "/clubs/cs" },
+  { name: "Developer's Club", image: "/clubs/devclub/logo.webp", link: "/clubs/dev" },
+  { name: "System Coding Club", image: "/clubs/Scc/logo.webp", link: "/clubs/scc" },
+  { name: "Robotics", image: "/clubs/robotics/logo.webp", link: "/clubs/robotics" },
 ];
 
 const teams = [
-  { name: "MaRS (Shunya)", image: "/teams/mars/logo.png", link: "/teams/shunya" },
-  { name: "AUV (Nira)", image: "/teams/nira/logo.jpg", link: "/teams/nira" },
-  { name: "Revolt Racers", image: "/teams/revolt/logo.png", link: "/teams/revolt" },
-  { name: "Astra", image: "/teams/astra/logo.png", link: "/teams/astra" },
-  { name: "TAD", image: "/teams/tad/logo.png", link: "/teams/tad" },
+  { name: "MaRS (Shunya)", image: "/teams/mars/logo.webp", link: "/teams/shunya" },
+  { name: "AUV (Nira)", image: "/teams/nira/logo.webp", link: "/teams/nira" },
+  { name: "Revolt Racers", image: "/teams/revolt/logo.webp", link: "/teams/revolt" },
+  { name: "Astra", image: "/teams/astra/logo.webp", link: "/teams/astra" },
+  { name: "TAD", image: "/teams/tad/logo.webp", link: "/teams/tad" },
 ];
 
 const societies = [
-  { name: "E-Cell", image: "/societies/Ecell/logo.png", link: "/societies/ecell" },
-  { name: "IEEE", image: "/societies/IEEE/logo.png", link: "/societies/ieee" },
-  { name: "Optica Student Chapter", image: "/societies/OpticaStudentChapter/logo.jpg", link: "/societies/optica" },
-  { name: "ASME Student Section", image: "/societies/ASMEStudentSection/logo.png", link: "/societies/asme" },
+  { name: "E-Cell", image: "/societies/Ecell/logo.webp", link: "/societies/ecell" },
+  { name: "IEEE", image: "/societies/IEEE/logo.webp", link: "/societies/ieee" },
+  { name: "Optica Student Chapter", image: "/societies/OpticaStudentChapter/logo.webp", link: "/societies/optica" },
+  { name: "ASME Student Section", image: "/societies/ASMEStudentSection/logo.webp", link: "/societies/asme" },
 ];
 
 const communities = [
-  { name: "Cybersecurity", image: "/communities/Cybersecurity/logo.png", link: "/communities/cybersecurity" },
-  { name: "Game Developers", image: "/communities/gamedevelopers/logo.png", link: "/communities/gamedevelopers" },
+  { name: "Cybersecurity", image: "/communities/Cybersecurity/logo.webp", link: "/communities/cybersecurity" },
+  { name: "Game Developers", image: "/communities/gamedevelopers/logo.webp", link: "/communities/gamedevelopers" },
 ];
 
 const tabOptions = [
@@ -262,26 +262,38 @@ function Committee() {
             ))}
           </Tabs>
         </Box>
-        <Box sx={{ p: 3 }}>
-          <Grid container spacing={3} justifyContent="center">
+        <Box sx={{ p: { xs: 1.5, sm: 3 } }}>
+          <Grid container spacing={{ xs: 1.5, sm: 2.5, md: 3 }} justifyContent="center">
             {tabOptions[value].data.map((item) => (
               <Grid item key={item.name} xs={6} sm={4} md={3} lg={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Link href={item.link} passHref style={{ textDecoration: 'none' }}>
-                  <Card sx={{ ...cardStyle, width: 160, height: 160 }}>
+                <Link href={item.link} passHref style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <Card
+                    sx={{
+                      ...cardStyle,
+                      width: { xs: '100%', sm: 160 },
+                      maxWidth: { xs: 150, sm: 160 },
+                      minHeight: { xs: 150, sm: 160 },
+                      p: { xs: 1, sm: 1.5 },
+                    }}
+                  >
                     <CardMedia
                       component="img"
                       image={item.image}
                       alt={item.name}
                       sx={{
-                        width: '70%',
+                        width: { xs: '66%', sm: '70%' },
                         margin: 'auto',
                         objectFit: 'contain',
-                        pt: 2,
-                        height: '65%',
+                        pt: { xs: 1.25, sm: 2 },
+                        height: { xs: '62%', sm: '65%' },
                       }}
                     />
-                    <CardContent sx={{ display: 'flex', alignItems: 'center', height: '35%' }}>
-                      <Typography variant="body2" align="center" sx={{ width: '100%', fontWeight: 'medium' }}>
+                    <CardContent sx={{ display: 'flex', alignItems: 'center', height: '35%', px: { xs: 0.5, sm: 1 } }}>
+                      <Typography
+                        variant="body2"
+                        align="center"
+                        sx={{ width: '100%', fontWeight: 'medium', fontSize: { xs: '0.78rem', sm: '0.875rem' }, lineHeight: 1.25 }}
+                      >
                         {item.name}
                       </Typography>
                     </CardContent>

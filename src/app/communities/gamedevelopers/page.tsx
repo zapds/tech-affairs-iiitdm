@@ -3,7 +3,7 @@ import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'Game Developers Community',
-  logo: '/communities/gamedevelopers/logo.png',
+  logo: '/communities/gamedevelopers/logo.webp',
 
   introduction: `Founded in July 2025, our Game Development Community aims to bring the game dev 
 ecosystem to our college and support students passionate about creating games. 
@@ -31,14 +31,14 @@ development`,
     {
       name: 'Unreal Engine Workshop',
       description: 'Our first session introduced students to the Unreal Engine interface, one of the most powerful tools for 3D game development. Participants learned how to implement character movement and sword attack mechanics, gaining hands-on experience in creating interactive gameplay. ',
-      image: '/communities/g11.jpg',
+      image: '/communities/g11.webp',
       technologies: ['Unity', 'C#', 'Game Design'],
       themeColor: '#6A1B9A'
     },
     {
       name: 'Godot Workshop ',
       description: 'In our second session, students were introduced to the Godot Engine, exploring its core interface, scene system, and scripting basics. The workshop concluded with participants creating a simple 2D platformer game from scratch, helping them understand the fundamentals of game development.',
-      image: '/communities/g12.jpg',
+      image: '/communities/g12.webp',
       technologies: ['Unreal Engine', 'C++', '3D Graphics'],
       themeColor: '#00897B'
     }
@@ -46,15 +46,15 @@ development`,
 
   gallery: [
     {
-      src: '/communities/g1.jpg',
+      src: '/communities/g1.webp',
       caption: 'Students working on game prototypes'
     },
     {
-      src: '/communities/g4.jpg',
+      src: '/communities/g4.webp',
       caption: 'Game development workshop session'
     },
     {
-      src: '/communities/g6.jpg',
+      src: '/communities/g6.webp',
       caption: 'Testing multiplayer gameplay mechanics'
     }
   ],
@@ -63,14 +63,14 @@ development`,
     {
       name: 'C. Dev',
       role: 'Community Lead',
-      image: '/communities/l1.png',
+      image: '/communities/l1.webp',
       email: 'dev@iiitdm.ac.in',
       roll: '—'
     },
     {
       name: 'D. Designer',
       role: 'Art & Design Lead',
-      image: '/communities/l2.png',
+      image: '/communities/l2.webp',
       email: 'designer@iiitdm.ac.in',
       roll: '—'
     }

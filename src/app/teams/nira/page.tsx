@@ -3,7 +3,7 @@ import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'Team Nira',
-  logo: '/teams/nira/logo.jpg',
+  logo: '/teams/nira/logo.webp',
 
   introduction: `AUV SOCIETY IIITDM -We are a team of interdisciplinary undergraduate engineers working to 
 build autonomous underwater vehicles for various underwater robotics competitions. The team 
@@ -68,21 +68,21 @@ robotics competitions such as SAUVC (Singapore Autonomous Underwater Vehicle Cha
     {
       name: ' Custom Pub Sub architecture to remove ROS ',
       description: 'Lock Free Ring Buffer architecture for single host robotic systems to speed up data transmission ,Development of ML Based PID Tuning for automating the tiring trial error process of PID tuning for an AUV ',
-      image: '/teams/nira/logo.jpg',
+      image: '/teams/nira/logo.webp',
       technologies: ['Computer Vision', 'Embedded Systems', 'Control Systems', 'Hydrodynamics'],
       themeColor: '#1E88E5'
     },
     {
       name: 'Magnetic Kill Switch (Development Done - Used in Nebula v2, Moses)',
       description: 'Hydrophones (For acoustic localisation) Development of ADRC controller instead of PID controller for real world use cases for an AUV ',
-      image: '/teams/nira/logo.jpg',
+      image: '/teams/nira/logo.webp',
       technologies: ['Computer Vision', 'OpenCV', 'Deep Learning'],
       themeColor: '#43A047'
     },
      {
       name: ' Robotic Arm / Manipulator',
       description: 'A Bio inspired gripping mechanism',
-      image: '/teams/nira/logo.jpg',
+      image: '/teams/nira/logo.webp',
       technologies: ['Computer Vision', 'OpenCV', 'Deep Learning'],
       themeColor: '#43A047'
     }
@@ -90,20 +90,20 @@ robotics competitions such as SAUVC (Singapore Autonomous Underwater Vehicle Cha
 
   gallery: [
     {
-      src: '/teams/nira/auv1.jpg',
+      src: '/teams/nira/auv1.webp',
       caption: 'Team Nira AUV prototype'
     },
     {
-      src: '/teams/nira/auv7.jpg',
+      src: '/teams/nira/auv7.webp',
       caption: 'Team members working on AUV development'
     },
     {
-      src: '/teams/nira/auv5.jpg',
+      src: '/teams/nira/auv5.webp',
       caption: ''
     },
     
       {
-      src: '/teams/nira/auv10.jpg',
+      src: '/teams/nira/auv10.webp',
       caption: ''
     },
 
@@ -114,14 +114,14 @@ robotics competitions such as SAUVC (Singapore Autonomous Underwater Vehicle Cha
     {
       name: 'Abinav Rajagopal',
       role: 'Team Lead',
-      image: '/teams/nira/lead1.jpg',
+      image: '/teams/nira/lead1.webp',
       email: 'team.lead@iiitdm.ac.in',
       roll: 'me23b1001'
     },
     {
       name: 'Shree Mithun N',
       role: 'Team Lead',
-      image: '/teams/nira/lead2.jpg',
+      image: '/teams/nira/lead2.webp',
       email: 'tech.lead@iiitdm.ac.in',
       roll: 'me23b2024'
     }

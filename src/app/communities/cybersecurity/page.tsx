@@ -36,21 +36,21 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
 
 const clubData = {
   name: 'Cybersecurity Community',
-  logo: '/communities/CyberSecurity/logo.png',
+  logo: '/communities/CyberSecurity/logo.webp',
   description: `The Cybersecurity Community at IIITDM Kancheepuram is a student-driven initiative focused on learning and applying concepts in ethical hacking, network security, cryptography, and digital forensics. The community aims to build a foundational understanding of cybersecurity, encouraging students to explore how digital systems are protected and how vulnerabilities are addressed.
 Through collaborative learning and practical exploration of cybersecurity tools and techniques, the community fosters an environment of curiosity, technical growth, and responsible digital practices.`,
   core: [
     {
       name: 'A. Student',
       role: 'Community Lead',
-      image: '/images/team/default-avatar.png',
+      image: '/images/team/default-avatar.webp',
       email: 'student@iiitdm.ac.in',
       linkedin: '#',
     },
     {
       name: 'B. Member',
       role: 'Technical Coordinator',
-      image: '/images/team/default-avatar.png',
+      image: '/images/team/default-avatar.webp',
       email: 'member@iiitdm.ac.in',
       linkedin: '#',
     }
