@@ -72,7 +72,39 @@ const Navbar = ({ user }: NavbarProps) => {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElUser(event.currentTarget);
   const handleCloseUserMenu = () => setAnchorElUser(null);
-  const getLogoSrc = () => isDarkMode ? "/nav_logo.png" : "/nav_logo_inv.png";
+
+  const logo = (
+    <Box sx={{ position: "relative", height: 40, width: 40, flexShrink: 0 }}>
+      <Box
+        component="img"
+        src="/nav_logo.png"
+        alt="Technical Affairs Logo"
+        sx={{
+          position: "absolute",
+          inset: 0,
+          height: "100%",
+          width: "100%",
+          objectFit: "contain",
+          opacity: isDarkMode ? 1 : 0,
+          transition: "opacity 0.12s linear",
+        }}
+      />
+      <Box
+        component="img"
+        src="/nav_logo_inv.png"
+        alt="Technical Affairs Logo"
+        sx={{
+          position: "absolute",
+          inset: 0,
+          height: "100%",
+          width: "100%",
+          objectFit: "contain",
+          opacity: isDarkMode ? 0 : 1,
+          transition: "opacity 0.12s linear",
+        }}
+      />
+    </Box>
+  );
 
   const isActive = (path: string) => pathname === path;
 
@@ -90,12 +122,7 @@ const Navbar = ({ user }: NavbarProps) => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-          <Box
-            component="img"
-            src={getLogoSrc()}
-            alt="Technical Affairs Logo"
-            sx={{ height: 36 }}
-          />
+          <Box sx={{ mr: 0 }}>{logo}</Box>
           <Typography
             variant="subtitle1"
             sx={{
@@ -282,12 +309,7 @@ const Navbar = ({ user }: NavbarProps) => {
       >
         <Toolbar sx={{ px: { xs: 2, md: 3 } }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <Box
-            component="img"
-            src={getLogoSrc()}
-            alt="Technical Affairs Logo"
-            sx={{ height: 40, mr: 2 }}
-          />
+          <Box sx={{ mr: 2 }}>{logo}</Box>
           <Typography
             variant="h6"
             component="div"
