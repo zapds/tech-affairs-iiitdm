@@ -46,6 +46,13 @@ const coordinators = [
     roll: 'CS24I1005',
   },
   {
+    name: 'Roshini',
+    image: '/technical-affairs-team/management/coordinators/CS24B1020.webp',
+    email: 'cs24b1020@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/roshini',
+    roll: 'CS24B1020',
+  },
+  {
     name: 'Nithin M',
     image: '/technical-affairs-team/management/coordinators/EC24B1016.webp',
     email: 'ec24b1016@iiitdm.ac.in',
@@ -144,18 +151,18 @@ export default function ManagementCore() {
     link.click();
     document.body.removeChild(link);
   };
-  
+
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
       <Typography variant="h2" sx={teamTitleStyle} gutterBottom>Management</Typography>
       <Typography variant="body1" sx={{ textAlign: 'center', color: 'text.secondary', mb: 6 }}>{teamDescription}</Typography>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Cores</Typography>
-        <MemberGrid members={cores} handleOpen={handleOpen}/>
+        <MemberGrid members={cores} handleOpen={handleOpen} />
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Coordinators</Typography>
-        <MemberGrid members={coordinators} handleOpen={handleOpen}/>
+        <MemberGrid members={coordinators} handleOpen={handleOpen} />
       </Box>
 
       <Modal
@@ -246,5 +253,5 @@ export default function ManagementCore() {
       </Modal>
     </Container>
   );
-} 
+}
 
