@@ -9,10 +9,12 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Achievements from '../components/Achievements';
 import Techfest from '../components/Techfest';
+import OpenHousePopup from '../components/OpenHousePopup';
 
 function Home() {
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+      <OpenHousePopup />
       {/* Render the section components */}
       <Hero />
       <About />

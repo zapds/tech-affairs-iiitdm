@@ -44,7 +44,7 @@ const cores = [
     name: 'Adithya Bharadwaj',
     role: 'Tech Development Core',
     image: '/technical-affairs-team/tech-development/cores/adithya.webp',
-    email: 'adithya@iiitdm.ac.in',
+    email: 'cs22b1040@iiitdm.ac.in',
     linkedin: 'https://www.linkedin.com/in/adithya-bharadwaj',
     roll: 'CS22B1040',
   },
