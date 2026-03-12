@@ -116,12 +116,12 @@ const bodies = [
 ];
 
 const schedule = [
-    { time: '09:00 AM', title: 'Doors Open', desc: 'Check-in, welcome kits & campus map', color: C.orange },
-    { time: '10:00 AM', title: 'Inaugural Ceremony', desc: 'Welcome address and official kickoff', color: C.pink },
-    { time: '11:00 AM', title: 'Demos Go Live', desc: 'All stalls open — robots, vehicles, code', color: C.green },
-    { time: '01:00 PM', title: 'Awards Ceremony', desc: 'Best performing bodies, recognized on stage', color: C.violet },
-    { time: '02:00 PM', title: 'Open Floor', desc: 'Walk around freely, talk to leads, try things', color: C.cyan },
-    { time: '04:00 PM', title: 'Closing', desc: 'Wrap-up, networking, and what comes next', color: C.yellow },
+    { time: '7:00 PM', title: 'Welcome Address', desc: 'Opening remarks by the Professor-in-Charge', color: C.pink },
+    { time: '7:05 PM', title: 'Exhibition Launch', desc: 'All clubs showcase their innovations and projects', color: C.orange },
+    { time: '7:15 PM', title: 'Tech Affairs Showcase', desc: 'Highlights and achievements presentation', color: C.green },
+    { time: '7:20 PM', title: 'Club Achievement Gallery', desc: 'Success stories and accomplishments showcase', color: C.violet },
+    { time: '9:00 PM', title: 'Awards & Recognition', desc: 'Celebrating outstanding contributions and achievements', color: C.cyan },
+    { time: '9:20 PM', title: 'Savāra', desc: 'Annual techfest highlights and closing ceremony', color: C.yellow },
 ];
 
 const whyReasons = [

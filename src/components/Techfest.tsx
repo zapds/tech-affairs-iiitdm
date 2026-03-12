@@ -52,7 +52,7 @@ const Techfest = () => {
               color: 'text.primary',
             }}
           >
-            Our Annual Techfest
+            Savāra 2026
           </Typography>
         </motion.div>
 
@@ -83,7 +83,7 @@ const Techfest = () => {
                 lineHeight: 1.8,
               }}
             >
-              Vashisht is a much awaited three-day tech-fest that assessed participants in a variety of subjects, from robots to entrepreneurship, coding to designing. It inspired a love of technology, opening students&apos; eyes to new avenues for creativity and drawing more than 3000+ pupils from all across the nation.
+              Join us for Savāra 2026, the flagship techno-cultural fest of IIITDM Kancheepuram, a five-day celebration of innovation, creativity, and culture.
             </Typography>
           </motion.div>
 
@@ -101,7 +101,7 @@ const Techfest = () => {
                 lineHeight: 1.8,
               }}
             >
-              At Vashisht, we are more than just a festival; we are a movement. Our goal is to build a technically engaged community that thrives on technical activities, not merely for entertainment but as a means of community building, ideation, and sharing groundbreaking ideas.
+              The fest brings together 5,000+ bright minds from top institutions across India, uniting engineers, designers, and creators on one dynamic stage.
             </Typography>
           </motion.div>
 
@@ -114,7 +114,7 @@ const Techfest = () => {
             <Button
               variant="contained"
               size="large"
-              href="https://www.vashisht.iiitdm.ac.in/"
+              href="https://savara.in/"
               sx={{
                 px: 4,
                 py: 1.5,
@@ -129,7 +129,7 @@ const Techfest = () => {
                 },
               }}
             >
-              Explore Vashisht
+              Explore Savāra
             </Button>
           </motion.div>
         </Box>
