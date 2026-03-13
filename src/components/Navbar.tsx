@@ -51,6 +51,7 @@ const navItems = [
   { name: "I2R Lab", path: "/i2r" },
   { name: "Our Team", path: "/team" },
   { name: "Frost", path: "/frost" },
+  { name: "Recruitments", path: "/recruitments" },
 ];
 
 const Navbar = ({ user }: NavbarProps) => {

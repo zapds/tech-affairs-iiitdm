@@ -1,3 +1,4 @@
+
 export const achievements = [
     {
       id: 1,
@@ -263,6 +264,103 @@ export const achievements = [
       club: 'SAE Collegiate Club',
       logo: '/teams/revolt/logo.webp',
     },
+    /* ---------- NEW FY 2025-2026 ---------- */
+    {
+      id: 34,
+      title: 'AMUROVc 4.0',
+      description: 'Second Runner Up',
+      year: '2026',
+      club: 'AUV Society',
+      logo: '/teams/nira/logo.webp',
+    },
+    {
+      id: 35,
+      title: 'AquaVision 2.0 IIT Madras',
+      description: 'Winner, Runner-up, Best Poster and Best Video Submission. Won sensors worth ~₹6L',
+      year: '2026',
+      club: 'AUV Society',
+      logo: '/teams/nira/logo.webp',
+    },
+    {
+      id: 36,
+      title: 'International Rover Challenge',
+      description: 'Global Rank 9',
+      year: '2026',
+      club: 'Mars Club',
+      logo: '/teams/mars/logo.webp',
+    },
+    {
+      id: 37,
+      title: 'International Space Drone Challenge',
+      description: 'Global Rank 10',
+      year: '2026',
+      club: 'Mars Club',
+      logo: '/teams/mars/logo.webp',
+    },
+    {
+      id: 38,
+      title: 'European Rover Challenge Remote Edition',
+      description: '4th place globally',
+      year: '2026',
+      club: 'Mars Club',
+      logo: '/teams/mars/logo.webp',
+    },
+    {
+      id: 39,
+      title: 'IEEE CASS Student Design Competition',
+      description: '2nd place in IEEE Madras Section, Top 20 teams in India',
+      year: '2026',
+      club: 'IEEE Student Branch',
+      logo: '/societies/IEEE/logo.webp',
+    },
+    {
+      id: 40,
+      title: 'IEEE Xtreme 2025',
+      description: '24 hour global hackathon, global rank under 1000',
+      year: '2025',
+      club: 'IEEE Student Branch',
+      logo: '/societies/IEEE/logo.webp',
+    },
+    {
+      id: 41,
+      title: 'ISRO IRoC-U 2025',
+      description: 'Top finalist nationwide out of 510+ teams and advanced to field round at ISRO Bengaluru',
+      year: '2025',
+      club: 'Team Astra',
+      logo: '/teams/astra/logo.webp',
+    },
+    {
+      id: 42,
+      title: 'National Space Day Award Ceremony',
+      description: 'Invited to National Space Day awards at Bharat Mandapam, New Delhi',
+      year: '2025',
+      club: 'Team Astra',
+      logo: '/teams/astra/logo.webp',
+    },
+    {
+      id: 43,
+      title: 'SAE AeroTHON 2025',
+      description: 'AIR 8 in design phase, Top 25 nationally',
+      year: '2025',
+      club: 'Team Astra',
+      logo: '/teams/astra/logo.webp',
+    },
+    {
+      id: 44,
+      title: 'Caterpillar Autonomy Challenge Shaastra 2026',
+      description: 'Won Judges Innovation Award with ₹30,000 prize',
+      year: '2026',
+      club: 'Team Astra',
+      logo: '/teams/astra/logo.webp',
+    },
+    {
+      id: 45,
+      title: 'SAE e-BAJA 2025–26',
+      description: 'Team Revolt Racers competed in SAE e-BAJA 2025–26 (Indore). Achieved AIR 36/95 | CFTI Rank 2 | Tamil Nadu Rank 6. Completed 7 endurance laps, improving from 5 last year.',
+      year: '2026',
+      club: 'SAE Collegiate Club',
+      logo: '/teams/revolt/logo.webp',
+    },
   ];
   
   // Helper function to get achievements by club
@@ -288,4 +386,3 @@ export const achievements = [
     const clubs = new Set(achievements.map(a => a.club));
     return Array.from(clubs).sort();
   };
-  
