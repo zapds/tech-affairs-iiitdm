@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -13,33 +13,34 @@ import {
   Modal,
   Backdrop,
   Fade,
-} from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-import LanguageIcon from '@mui/icons-material/Language';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GitHubIcon from '@mui/icons-material/GitHub';
+} from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import LanguageIcon from "@mui/icons-material/Language";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import {
   Download as DownloadIcon,
   Close as CloseIcon,
 } from "@mui/icons-material";
-import Image from 'next/image';
+import Image from "next/image";
 
 const TeamMemberCard = styled(Card)(({ theme }) => ({
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   padding: theme.spacing(1.5),
-  textAlign: 'center',
-  width: '180px',
-  cursor: 'pointer',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : 'inherit',
-  [theme.breakpoints.down('sm')]: {
+  textAlign: "center",
+  width: "180px",
+  cursor: "pointer",
+  backgroundColor:
+    theme.palette.mode === "dark" ? theme.palette.background.paper : "inherit",
+  [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
-    width: '140px',
-  }
+    width: "140px",
+  },
 }));
 
 interface SocietyMember {
@@ -69,12 +70,19 @@ interface SocietyPageTemplateProps {
   links: SocietyLinks;
 }
 
-function SocietyPageTemplate({ name, logo, description, core, team, links }: SocietyPageTemplateProps) {
+function SocietyPageTemplate({
+  name,
+  logo,
+  description,
+  core,
+  team,
+  links,
+}: SocietyPageTemplateProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const websiteUrl = links?.website?.trim() || '';
-  const hasWebsite = websiteUrl !== '' && websiteUrl !== '#';
+  const websiteUrl = links?.website?.trim() || "";
+  const hasWebsite = websiteUrl !== "" && websiteUrl !== "#";
 
   const handleOpen = (image: string) => {
     setSelectedImage(image);
@@ -87,42 +95,55 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
   };
 
   const handleDownload = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = selectedImage;
-    link.download = selectedImage.split('/').pop() || 'faculty-image';
+    link.download = selectedImage.split("/").pop() || "faculty-image";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
-  
+
   return (
-    <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        py: 8,
+        pt: { xs: 12, sm: 14, md: 16 },
+        bgcolor: "background.default",
+      }}
+    >
       <Container maxWidth="lg">
         {/* Header Section with Logo and Title */}
-        <Grid container spacing={4} alignItems="center" sx={{ mb: 8, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+        <Grid
+          container
+          spacing={4}
+          alignItems="center"
+          sx={{ mb: 8, justifyContent: { xs: "center", md: "flex-start" } }}
+        >
           {/* Logo on the left */}
           <Grid item xs={12} md={4}>
-            <Box sx={{
-              display: 'flex',
-              justifyContent: { xs: 'center', md: 'flex-start' },
-              alignItems: 'center',
-              pt: { md: 4 },
-              pb: { xs: 2, md: 0 },
-              pr: { md: 4 },
-              height: '100%'
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "center", md: "flex-start" },
+                alignItems: "center",
+                pt: { md: 4 },
+                pb: { xs: 2, md: 0 },
+                pr: { md: 4 },
+                height: "100%",
+              }}
+            >
               <Image
                 src={logo}
                 alt={`${name} logo`}
                 width={200}
                 height={200}
                 style={{
-                  display: 'block',
-                  objectFit: 'contain',
+                  display: "block",
+                  objectFit: "contain",
                   borderRadius: 0,
-                  boxShadow: 'none',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
+                  boxShadow: "none",
+                  marginLeft: "auto",
+                  marginRight: "auto",
                 }}
               />
             </Box>
@@ -130,22 +151,24 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
 
           {/* Title and Description on the right */}
           <Grid item xs={12} md={8}>
-            <Box sx={{ 
-              display: 'flex', 
-              flexDirection: 'column',
-              alignItems: { xs: 'center', md: 'center' },
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "center", md: "center" },
+              }}
+            >
               <Typography
                 variant="h2"
                 component="h1"
                 sx={{
-                  fontSize: { xs: '1.6rem', sm: '2.2rem', md: '2.8rem' },
-                  fontWeight: 'bold',
+                  fontSize: { xs: "1.6rem", sm: "2.2rem", md: "2.8rem" },
+                  fontWeight: "bold",
                   mb: 3,
-                  color: 'primary.main',
-                  textShadow: '0px 2px 4px rgba(0,0,0,0.1)',
-                  width: '100%', 
-                  textAlign: { xs: 'center', md: 'center' }
+                  color: "primary.main",
+                  textShadow: "0px 2px 4px rgba(0,0,0,0.1)",
+                  width: "100%",
+                  textAlign: { xs: "center", md: "center" },
                 }}
               >
                 {name}
@@ -153,11 +176,11 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '1.1rem',
+                  fontSize: "1.1rem",
                   lineHeight: 1.8,
-                  color: 'text.secondary',
-                  maxWidth: '800px',
-                  textAlign: { xs: 'center', md: 'center' }
+                  color: "text.secondary",
+                  maxWidth: "800px",
+                  textAlign: { xs: "center", md: "center" },
                 }}
               >
                 {description}
@@ -171,11 +194,11 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
                   size="medium"
                   sx={{
                     mt: 3,
-                    color: 'white',
-                    boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
-                    '&:hover': {
-                      bgcolor: 'primary.dark'
-                    }
+                    color: "white",
+                    boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .3)",
+                    "&:hover": {
+                      bgcolor: "primary.dark",
+                    },
                   }}
                 >
                   Visit Website
@@ -191,291 +214,178 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
           component="h2"
           sx={{
             mb: 4,
-            textAlign: 'center',
-            fontWeight: 'bold',
+            textAlign: "center",
+            fontWeight: "bold",
             color: theme.palette.primary.main,
           }}
         >
           Core Team
         </Typography>
-        <Grid 
-          container 
-          spacing={2} 
-          justifyContent='center'
-          sx={{ 
-            mb: 8,
-            maxWidth: '1200px',
-            mx: 'auto'
-          }}
-        >
-          {core && core.map((member) => (
-            <Grid 
-              item 
-              xs={6} 
-              sm={6} 
-              md={3} 
-              key={member.name} 
-              sx={{
-                display: 'flex', 
-                justifyContent: 'center',
-                minWidth: 0, 
-              }}
-            >
-              <TeamMemberCard sx={{ 
-                width: '100%', 
-                minWidth: 0,
-                flexGrow: 1
-              }}
-              onClick={() => handleOpen(member.image)}
-              >
-                <Box
-                  sx={{
-                    borderRadius: '50%',
-                    p: '4px',
-                    background: theme.palette.mode === 'dark' ? `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})` : theme.palette.grey[200],
-                    boxShadow: '0 0 12px rgba(0,0,0,0.1)',
-                    mb: { xs: 0.75, sm: 1, md: 1.5 },
-                    border: theme.palette.mode === 'light' ? `4px solid ${theme.palette.primary.main}` : 'none' // Added border for light theme
-                  }}
-                >
-                  <Avatar
-                    src={member.image}
-                    alt={member.name}
-                    sx={{
-                      width: { xs: 70, sm: 90, md: 110 },
-                      height: { xs: 70, sm: 90, md: 110 },
-                      // border: `4px solid ${theme.palette.background.paper}`, // Removed this
-                    }}
-                  />
-                </Box>
-                <Typography
-                  variant="h6"
-                  component="h3"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.1rem' },
-                    mb: { xs: 0.5, sm: 0.75, md: 0.75 },
-                    wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.name}
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  color="primary"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-                    mb: { xs: 0.5, sm: 0.5, md: 0.75 },
-                    wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.role}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
-                    mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                     wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.roll}
-                </Typography>
-                <Box sx={{ 
-                  mt: { xs: 0.75, sm: 1, md: 1.5 },
-                  display: 'flex',
-                  gap: { xs: 0.4, sm: 0.6, md: 0.8 },
-                  flexWrap: 'wrap', 
-                  justifyContent: 'center', 
-                }}>
-                  {member.email && (
-                    <IconButton
-                      component="a"
-                      href={`mailto:${member.email}`}
-                      color="primary"
-                      size="small"
-                      sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
-                      }}
-                    >
-                      <EmailIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )}
-                  {member.linkedin && (
-                    <IconButton
-                      component="a"
-                      href={member.linkedin}
-                      target="_blank"
-                      color="primary"
-                      size="small"
-                      sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
-                      }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )}
-                </Box>
-              </TeamMemberCard>
-            </Grid>
-          ))}
-        </Grid>
-
-        {/* Team Members Section */}
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{
-            mb: 4,
-            textAlign: 'center',
-            fontWeight: 'bold',
-            color: theme.palette.primary.main,
-          }}
-        >
-          Team Members
-        </Typography>
-        <Grid 
-          container 
+        <Grid
+          container
           spacing={2}
-          justifyContent='center'
+          justifyContent="center"
           sx={{
             mb: 8,
-            maxWidth: '1200px',
-            mx: 'auto'
+            maxWidth: "1200px",
+            mx: "auto",
           }}
         >
-          {team && team.map((member) => (
-            <Grid 
-              item 
-              xs={6} 
-              sm={6} 
-              md={3} 
-              key={member.name} 
-              sx={{
-                display: 'flex', 
-                justifyContent: 'center',
-                minWidth: 0, 
-              }}
-            >
-              <TeamMemberCard sx={{ 
-                width: '100%', 
-                minWidth: 0,
-                flexGrow: 1
-              }}
-              onClick={() => handleOpen(member.image)}
+          {core &&
+            core.map((member) => (
+              <Grid
+                item
+                xs={6}
+                sm={6}
+                md={3}
+                key={member.name}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  minWidth: 0,
+                }}
               >
-<Box
+                <TeamMemberCard
                   sx={{
-                    borderRadius: '50%',
-                    p: '4px',
-                    background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                    boxShadow: '0 0 12px rgba(0,0,0,0.1)',
-                    mb: { xs: 0.75, sm: 1, md: 1.5 }, // Added border for light theme
+                    width: "100%",
+                    minWidth: 0,
+                    flexGrow: 1,
                   }}
+                  onClick={() => handleOpen(member.image)}
                 >
-                  <Avatar
-                    src={member.image}
-                    alt={member.name}
+                  <Box
                     sx={{
-                      width: { xs: 70, sm: 90, md: 110 },
-                      height: { xs: 70, sm: 90, md: 110 },
-                      // border: `4px solid ${theme.palette.background.paper}`, // Removed this
+                      borderRadius: "50%",
+                      p: "4px",
+                      background:
+                        theme.palette.mode === "dark"
+                          ? `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`
+                          : theme.palette.grey[200],
+                      boxShadow: "0 0 12px rgba(0,0,0,0.1)",
+                      mb: { xs: 0.75, sm: 1, md: 1.5 },
+                      border:
+                        theme.palette.mode === "light"
+                          ? `4px solid ${theme.palette.primary.main}`
+                          : "none", // Added border for light theme
                     }}
-                  />
-                </Box>
-                <Typography
-                  variant="h6"
-                  component="h3"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.1rem' },
-                    mb: { xs: 0.5, sm: 0.75, md: 0.75 },
-                     wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.name}
-                </Typography>
-                <Typography
-                  variant="subtitle1"
-                  color="primary"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-                    mb: { xs: 0.5, sm: 0.5, md: 0.75 },
-                    wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.role}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  gutterBottom
-                  sx={{
-                    fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
-                    mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                     wordBreak: 'break-word', 
-                  }}
-                >
-                  {member.roll}
-                </Typography>
-                <Box sx={{ 
-                  mt: { xs: 0.75, sm: 1, md: 1.5 },
-                  display: 'flex',
-                  gap: { xs: 0.4, sm: 0.6, md: 0.8 },
-                  flexWrap: 'wrap', 
-                  justifyContent: 'center', 
-                }}>
-                  {member.email && (
-                    <IconButton
-                      component="a"
-                      href={`mailto:${member.email}`}
-                      color="primary"
-                      size="small"
+                  >
+                    <Avatar
+                      src={member.image}
+                      alt={member.name}
                       sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
+                        width: { xs: 70, sm: 90, md: 110 },
+                        height: { xs: 70, sm: 90, md: 110 },
+                        // border: `4px solid ${theme.palette.background.paper}`, // Removed this
                       }}
-                    >
-                      <EmailIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )}
-                  {member.linkedin && (
-                    <IconButton
-                      component="a"
-                      href={member.linkedin}
-                      target="_blank"
-                      color="primary"
-                      size="small"
-                      sx={{
-                        padding: { xs: '3px', sm: '6px', md: '10px' }
-                      }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' } }} />
-                    </IconButton>
-                  )}
-                </Box>
-              </TeamMemberCard>
-            </Grid>
-          ))}
+                    />
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    component="h3"
+                    gutterBottom
+                    sx={{
+                      fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1.1rem" },
+                      mb: { xs: 0.5, sm: 0.75, md: 0.75 },
+                      wordBreak: "break-word",
+                    }}
+                  >
+                    {member.name}
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    color="primary"
+                    gutterBottom
+                    sx={{
+                      fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+                      mb: { xs: 0.5, sm: 0.5, md: 0.75 },
+                      wordBreak: "break-word",
+                    }}
+                  >
+                    {member.role}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    gutterBottom
+                    sx={{
+                      fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
+                      mb: { xs: 0.25, sm: 0.25, md: 0.5 },
+                      wordBreak: "break-word",
+                    }}
+                  >
+                    {member.roll}
+                  </Typography>
+                  <Box
+                    sx={{
+                      mt: { xs: 0.75, sm: 1, md: 1.5 },
+                      display: "flex",
+                      gap: { xs: 0.4, sm: 0.6, md: 0.8 },
+                      flexWrap: "wrap",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {member.email && (
+                      <IconButton
+                        component="a"
+                        href={`mailto:${member.email}`}
+                        color="primary"
+                        size="small"
+                        sx={{
+                          padding: { xs: "3px", sm: "6px", md: "10px" },
+                        }}
+                      >
+                        <EmailIcon
+                          sx={{
+                            fontSize: {
+                              xs: "0.9rem",
+                              sm: "1.1rem",
+                              md: "1.3rem",
+                            },
+                          }}
+                        />
+                      </IconButton>
+                    )}
+                    {member.linkedin && (
+                      <IconButton
+                        component="a"
+                        href={member.linkedin}
+                        target="_blank"
+                        color="primary"
+                        size="small"
+                        sx={{
+                          padding: { xs: "3px", sm: "6px", md: "10px" },
+                        }}
+                      >
+                        <LinkedInIcon
+                          sx={{
+                            fontSize: {
+                              xs: "0.9rem",
+                              sm: "1.1rem",
+                              md: "1.3rem",
+                            },
+                          }}
+                        />
+                      </IconButton>
+                    )}
+                  </Box>
+                </TeamMemberCard>
+              </Grid>
+            ))}
         </Grid>
-
         {/* Links Section */}
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
+        <Box sx={{ textAlign: "center", mb: 4 }}>
           <Typography
             variant="h4"
             component="h2"
             sx={{
               mb: 4,
-              fontWeight: 'bold',
+              fontWeight: "bold",
               color: theme.palette.primary.main,
             }}
           >
             Connect With Us
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
             {hasWebsite && (
               <IconButton
                 component="a"
@@ -522,34 +432,36 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
         slotProps={{
           backdrop: {
             timeout: 500,
-            style: { backgroundColor: 'rgba(255, 255, 255, 0.5)' },
+            style: { backgroundColor: "rgba(255, 255, 255, 0.5)" },
           },
         }}
       >
         <Fade in={open}>
-          <Box sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: { xs: '60vw', sm: '50vw', md: '35vw', lg: '25vw' },
-            maxWidth: '300px',
-            maxHeight: '50vh',
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            p: 2,
-            borderRadius: 2,
-            outline: 'none',
-            border: `2px solid ${theme.palette.divider}`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: { xs: "60vw", sm: "50vw", md: "35vw", lg: "25vw" },
+              maxWidth: "300px",
+              maxHeight: "50vh",
+              bgcolor: "background.paper",
+              boxShadow: 24,
+              p: 2,
+              borderRadius: 2,
+              outline: "none",
+              border: `2px solid ${theme.palette.divider}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <IconButton
               aria-label="close"
               onClick={handleClose}
               sx={{
-                position: 'absolute',
+                position: "absolute",
                 top: 8,
                 right: 8,
                 color: (theme) => theme.palette.grey[500],
@@ -560,35 +472,50 @@ function SocietyPageTemplate({ name, logo, description, core, team, links }: Soc
             </IconButton>
             <Box
               sx={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
+                position: "relative",
+                width: "100%",
+                height: "100%",
               }}
             >
-              <Box sx={{
-                backgroundColor: '#fff',
-                padding: '1rem',
-                borderRadius: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100%',
-              }}>
-                {selectedImage && <Image src={selectedImage} alt="Faculty Head" width={300} height={300} style={{ width: '100%', height: 'auto', maxHeight: '40vh', objectFit: 'contain' }} />}
+              <Box
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                  borderRadius: "4px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                }}
+              >
+                {selectedImage && (
+                  <Image
+                    src={selectedImage}
+                    alt="Faculty Head"
+                    width={300}
+                    height={300}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      maxHeight: "40vh",
+                      objectFit: "contain",
+                    }}
+                  />
+                )}
               </Box>
               <IconButton
                 aria-label="download"
                 onClick={handleDownload}
                 className="download-icon"
                 sx={{
-                  position: 'absolute',
+                  position: "absolute",
                   top: 16,
                   right: 16,
-                  color: 'primary.main',
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  transition: 'background-color 0.3s ease-in-out',
-                  '&:hover': {
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: "primary.main",
+                  backgroundColor: "rgba(255, 255, 255, 0.7)",
+                  transition: "background-color 0.3s ease-in-out",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.9)",
                   },
                 }}
               >
