@@ -3,7 +3,7 @@ import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'System Coding Club (SCC)',
-  logo: '/clubs/Scc/logo.webp',
+  logo: '/clubs/Scc/logo1.webp',
   introduction: `The Systems Coding Club is a technical community at IIITDM Kancheepuram dedicated to building strong foundations in low-level programming, hardware-oriented design, and real-world system development. The club focuses on practical learning, hands-on sessions, and project-based exploration to bridge the gap between theory and implementation. Organized into three wings — Embedded Systems, MATLAB & Simulation, and Verilog & Digital Design — the club conducts technical sessions and workshops on core and advanced topics, mentors juniors by building strong conceptual and practical knowledge, and empowers students with skills in microcontrollers, FPGA-based systems, signal processing, firmware development, and RTL design.`,
   timeline: [
     { year: 2024, event: 'Club Foundation', description: 'The Systems Coding Club was established at IIITDM Kancheepuram to promote hardware-level programming and system design.' },
@@ -15,14 +15,14 @@ const clubData = {
     {
       name: 'FSM Design Workshop',
       description: 'A workshop on Finite State Machines conducted on 30-12-2025, covering Moore and Mealy state machines, conversion methods, and practical implementation using Verilog HDL. 30 participants designed, simulated, and analyzed FSMs.',
-      image: '/clubs/Scc/logo.webp',
+      image: '/clubs/Scc/logo1.webp',
       technologies: ['Verilog HDL', 'Digital Design', 'FSM'],
       themeColor: '#1976D2',
     },
     {
       name: 'CROC SoC Accelerator Integration',
       description: 'An ongoing project by the Verilog wing focusing on enhancing the CROC SoC by designing and integrating custom hardware accelerators and peripherals. Involves end-to-end development from RTL design and verification to full RTL-to-GDSII implementation.',
-      image: '/clubs/Scc/logo.webp',
+      image: '/clubs/Scc/logo1.webp',
       technologies: ['Verilog', 'ASIC Design', 'RTL', 'SoC'],
       themeColor: '#388E3C',
     },
