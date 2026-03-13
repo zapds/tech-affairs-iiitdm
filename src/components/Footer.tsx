@@ -26,29 +26,24 @@ const Footer = () => {
 
   const downloads = [
     {
-      name: "Advance Request Form",
-      href: "/downloads/Advance_Request_Form.pdf",
-    },
-    { name: "Reimbursement Form", href: "/downloads/Reimbursement_Form.pdf" },
-    {
-      name: "Advance Settlement Form",
-      href: "/downloads/SA_Tech_Advance_Settlement_Form.pdf",
+      name: "Tech Event Advance/Reimbursement",
+      href: "/downloads/Tech_Event_Advance_Reimbursement_Form.pdf",
     },
     {
-      name: "Asset Transfer Form",
-      href: "/downloads/SA_Tech_03_ASSEST_TRANSFER_FORM.pdf",
+      name: "Tech Event Approval Form",
+      href: "/downloads/Tech_Event_Approval_Form.pdf",
     },
     {
-      name: "Non-Consumable Indent Form",
-      href: "/downloads/SA_Tech_Non_Consumable_Indent.pdf",
+      name: "Club On-Campus Event Approval",
+      href: "/downloads/Technical_Club–On_Campus_Event_Approval.pdf",
     },
     {
-      name: "Temporary Advance Form",
-      href: "/downloads/SA_Tech_Temporary_Advance_Form.pdf",
+      name: "Recruitment Form - Teams",
+      href: "https://forms.gle/uEVo1vPcW6cfdMuXA",
     },
     {
-      name: "I2R MakerSpace - Access Form",
-      href: "/downloads/I2R_Access_Form",
+      name: "Recruitment Form - Clubs",
+      href: "https://forms.gle/3Er3vuUr4nBkkQvr8",
     },
   ];
 
@@ -264,7 +259,9 @@ const Footer = () => {
                     >
                       <Link
                         href={download.href}
-                        download
+                        download={!download.href.startsWith('http')}
+                        target={download.href.startsWith('http') ? "_blank" : undefined}
+                        rel={download.href.startsWith('http') ? "noopener noreferrer" : undefined}
                         color="text.secondary"
                         sx={{
                           textDecoration: "none",
