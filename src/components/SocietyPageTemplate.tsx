@@ -66,7 +66,6 @@ interface SocietyPageTemplateProps {
   logo: string;
   description: string;
   core: SocietyMember[];
-  team: SocietyMember[];
   links: SocietyLinks;
 }
 
@@ -75,7 +74,6 @@ function SocietyPageTemplate({
   logo,
   description,
   core,
-  team,
   links,
 }: SocietyPageTemplateProps) {
   const theme = useTheme();

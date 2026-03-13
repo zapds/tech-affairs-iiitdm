@@ -1,98 +1,129 @@
-import React from 'react';
-import TeamPageTemplate from '../../../components/TeamPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
-const teamInfo = {
-  name: 'Revolt Racers',
-  club: 'SAE Club',
-  logo: '/teams/revolt/logo.webp',
-  description: `ReVolt Racers is the E-Baja team of IIITDM Kancheepuram, specializing in the design and construction of electric all-terrain vehicles for Baja SAE India’s E-Baja competition. The team integrates expertise in electric powertrains, battery management systems, and control systems to build sustainable, high-performance off-road vehicles.
-ReVolt Racers emphasizes the practical application of electric vehicle technologies, promoting sustainable mobility while equipping members with critical skills in the growing field of electric automotive engineering.`,
-  achievements: [
-    {
-      title: 'Phase 1 of SAE eBaja',
-      description: 'Achieved All India Rank of 16 in 86 teams all over the nation. With this rank we were standing at 4th in Tamil Nadu and we were 5th in all the debutant teams that participated',
-      year: '2024',
-      highlight: true
-    },
-    {
-      title: 'Phase 2 of SAE eBaja',
-      description: `Achieved Overall VDE-AIR 5, Design-AIR 25, Cost-AIR 20, Sustainability: AIR 7 `,
-      year: '2024',
-      highlight: false
-    },
-    {
-      title: 'Phase 3 of SAE eBaja',
-      description: 'We successfully concluded our competition with an All-India Rank of 35 out of 86 teams',
-      year: '2025',
-      highlight: true
-    },
-     {
-      title: 'Phase 1 of SAE mBaja',
-      description: `Achieved an overall rank AIR 9 and TamilNadu rank 2`,
-      year: '2024',
-      highlight: false
-    },
-     {
-      title: 'Phase 2 of SAE mBaja',
-      description: 'Secured ranks below AIR 10 for specific events in Phase 2 and got selected for the finals of the CAE,Design, and Cost events.',
-      year: '2024',
-      highlight: true
-    },
-     {
-      title: 'Phase 3 of SAE mBaja',
-      description: `Considering our performance across all three phases, Team Rebel Racers 3.0 secured an impressive overall All India Rank (AIR) of 18`,
-      year: '2025',
-      highlight: false
-    },
+const clubData = {
+  name: "SAE eBaja Club – Revolt Racers",
+  logo: "/teams/revolt/logo.webp",
 
-  ],
-  members: [
+  introduction: `The SAE eBaja Club – Revolt Racers 1.0, established in 2024, is a student-driven team focused on the design and development of electric all-terrain vehicles for SAE eBAJA competitions. It brings together students interested in automotive engineering and provides a hands-on platform to apply theoretical concepts to real-world challenges.
+
+The club aims to build competent engineers capable of designing efficient electric off-road vehicles through practical learning and innovation. Members work across key areas such as vehicle dynamics, powertrain systems, brakes, chassis design, electronics and manufacturing, gaining exposure to the complete vehicle development process.
+
+Through participation in SAE eBAJA 2025 and 2026, the team has developed strong technical and problem-solving skills while working under real-world constraints.
+
+What sets the club apart is its focus on end-to-end product development, where students are involved from initial design to final testing, helping them understand how real engineering projects are actually executed.`,
+
+  timeline: [
     {
-      name: 'Harish N',
-      role: 'Captain',
-      image: '/teams/revolt/captain.webp',
-      email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/team-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
-      roll: 'me22b1083'
+      year: 2024,
+      event: "Club Formation",
+      description:
+        "The club was established with a team of around 25 members, aiming to design and build an electric ATV for SAE eBAJA.",
     },
     {
-      name: 'Gurubaran V',
-      role: 'Vice-Captain',
-      image: '/teams/revolt/vice-captain.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics Engineering',
-      roll: 'me23b1042'
+      year: 2025,
+      event: "SAE eBAJA Participation",
+      description:
+        "The team reached Phase 3 of the competition but was eliminated after failing the Mechanical Technical Inspection.",
     },
-      {
-      name: 'Keshavprasad K',
-      role: 'Manager',
-      image: '/teams/revolt/manager.webp',
-      email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/team-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
-      roll: 'me22b2014'
-    },
-      {
-      name: 'Shricharan R G',
-      role: 'Joint Manager',
-      image: '/teams/revolt/joint-manager.webp',
-      email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/team-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
-      roll: 'me23b1046'
+    {
+      year: 2026,
+      event: "SAE eBAJA Participation",
+      description: `The team cleared all safety scrutiny tests and participated in both static and dynamic events. The vehicle successfully completed the endurance event.
+
+Overall Performance:
+All India Rank: 36
+Tamil Nadu Rank: 7
+CFTI Rank: 2
+
+Event Highlights
+
+Static Events:
+CAE Event – Rank 12
+Sustainability – Rank 16
+Cost Event – Rank 21
+Sales Event – Rank 26
+Design Event – Rank 34
+
+Dynamic Events:
+Sled Pull – Rank 18
+Endurance Event – Rank 34
+
+Other events such as acceleration and maneuverability were attempted but not ranked due to time limits, and suspension & traction was not cleared.`,
     },
   ],
-  website: 'https://revolt.iiitdm.ac.in'
+
+  projects: [
+    {
+      name: "Current Activities – SAE eBAJA 2027 Preparation",
+      description: `The team is currently working on open house and ignition for recruiting new members for the 2027 SAE eBAJA team.
+
+Internal training sessions have been conducted on CAD, SolidWorks, and ANSYS. Senior members have also conducted knowledge transfer sessions for juniors.
+
+Following the 2026 competition, the team documented vehicle performance and identified areas for improvement. Regular meetings and design discussions are being carried out to plan the next iteration of the vehicle.`,
+      image: "/teams/revolt/logo.webp",
+      technologies: ["CAD", "SolidWorks", "ANSYS", "Vehicle Design"],
+      themeColor: "#F44336",
+    },
+  ],
+
+  gallery: [
+    {
+      src: "/teams/revolt/gallery/tech-inspection.jpeg",
+      caption: "Group photo after clearing the technical inspection",
+    },
+    {
+      src: "/teams/revolt/gallery/dynamic-events.jpeg",
+      caption: "Group photo after participating in dynamic events",
+    },
+    {
+      src: "/teams/revolt/gallery/pooja-1.jpeg",
+      caption: "Team photo after the pooja for starting the manufacturing work",
+    },
+    {
+      src: "/teams/revolt/gallery/pooja-2.jpeg",
+      caption: "Team photo after the pooja for starting the manufacturing work",
+    },
+    {
+      src: "/teams/revolt/gallery/endurance-race.jpeg",
+      caption: "The vehicle at the endurance race",
+    },
+    {
+      src: "/teams/revolt/gallery/chassis-manufacturing.jpeg",
+      caption: "The vehicle chassis while manufacturing",
+    },
+  ],
+
+  core: [
+    {
+      name: "Harish N",
+      role: "Team Captain",
+      image: "/teams/revolt/captain.webp",
+    },
+    {
+      name: "Gurubaran V",
+      role: "Vice Captain",
+      image: "/teams/revolt/vice-captain.webp",
+    },
+    {
+      name: "Keshavprasad",
+      role: "Manager",
+      image: "/teams/revolt/manager.webp",
+    },
+    {
+      name: "Shricharan R G",
+      role: "Joint Manager",
+      image: "/teams/revolt/joint-manager.webp",
+    },
+  ],
+
+  links: {
+    instagram: "https://www.instagram.com/revolt_racers_iiitdm/",
+  },
 };
 
-function SAEEBaja() {
-  return <TeamPageTemplate {...teamInfo} />;
+function SAEeBaja() {
+  return <NewClubPageTemplate {...clubData} />;
 }
 
-export default SAEEBaja;
+export default SAEeBaja;
