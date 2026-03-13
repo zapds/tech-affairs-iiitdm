@@ -85,15 +85,22 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
 
 /* ═══════ DATA ═══════ */
 const EVENT_DATE = new Date('2026-03-13T18:00:00');
-const REVEAL_DATE = new Date('2026-03-13T18:00:00');
+const REVEAL_DATE = new Date('2026-03-13T18:00:00+05:30');
 
 const awards = [
-    { title: 'Best Innovation Award', icon: '🏆', color: C.orange, gradient: `linear-gradient(135deg, ${C.orange}20, ${C.yellow}10)`, borderColor: `${C.orange}30` },
-    { title: 'Best Presentation Award', icon: '🎤', color: C.pink, gradient: `linear-gradient(135deg, ${C.pink}20, ${C.violet}10)`, borderColor: `${C.pink}30` },
-    { title: 'People\'s Choice Award', icon: '❤️', color: C.rose, gradient: `linear-gradient(135deg, ${C.rose}20, ${C.orange}10)`, borderColor: `${C.rose}30` },
-    { title: 'Best Technical Demo', icon: '⚙️', color: C.green, gradient: `linear-gradient(135deg, ${C.green}20, ${C.cyan}10)`, borderColor: `${C.green}30` },
-    { title: 'Most Creative Setup', icon: '🎨', color: C.violet, gradient: `linear-gradient(135deg, ${C.violet}20, ${C.pink}10)`, borderColor: `${C.violet}30` },
-    { title: 'Rising Star Award', icon: '⭐', color: C.yellow, gradient: `linear-gradient(135deg, ${C.yellow}20, ${C.orange}10)`, borderColor: `${C.yellow}30` },
+    { recipient: 'AUV', recognition: 'Outstanding Performance', icon: '🏆', color: C.orange, gradient: `linear-gradient(135deg, ${C.orange}20, ${C.yellow}10)`, borderColor: `${C.orange}30` },
+    { recipient: 'Mars', recognition: 'Remarkable Growth and Performance', icon: '📈', color: C.pink, gradient: `linear-gradient(135deg, ${C.pink}20, ${C.violet}10)`, borderColor: `${C.pink}30` },
+    { recipient: 'Team Astra', recognition: 'Technical Excellence', icon: '🚀', color: C.violet, gradient: `linear-gradient(135deg, ${C.violet}20, ${C.pink}10)`, borderColor: `${C.violet}30` },
+    { recipient: 'Revolt Racers', recognition: 'Technical Excellence', icon: '🏎️', color: C.green, gradient: `linear-gradient(135deg, ${C.green}20, ${C.cyan}10)`, borderColor: `${C.green}30` },
+    { recipient: 'TAD', recognition: 'Technical Excellence', icon: '⚙️', color: C.cyan, gradient: `linear-gradient(135deg, ${C.cyan}20, ${C.green}10)`, borderColor: `${C.cyan}30` },
+    { recipient: 'CS Club', recognition: 'Student Engagement Excellence', icon: '💻', color: C.yellow, gradient: `linear-gradient(135deg, ${C.yellow}20, ${C.orange}10)`, borderColor: `${C.yellow}30` },
+    { recipient: 'E-Cell', recognition: 'Entrepreneurial Impact', icon: '💡', color: C.rose, gradient: `linear-gradient(135deg, ${C.rose}20, ${C.orange}10)`, borderColor: `${C.rose}30` },
+    { recipient: 'Dev Club', recognition: 'Technical Excellence', icon: '🛠️', color: C.orange, gradient: `linear-gradient(135deg, ${C.orange}20, ${C.pink}10)`, borderColor: `${C.orange}30` },
+    { recipient: 'Cybersec Comm', recognition: 'Rising Tech Force', icon: '🛡️', color: C.cyan, gradient: `linear-gradient(135deg, ${C.cyan}20, ${C.violet}10)`, borderColor: `${C.cyan}30` },
+    { recipient: 'Game Dev Comm', recognition: 'Technical Excellence', icon: '🎮', color: C.pink, gradient: `linear-gradient(135deg, ${C.pink}20, ${C.rose}10)`, borderColor: `${C.pink}30` },
+    { recipient: 'Optica Society', recognition: 'Professional Technical Society Award', icon: '🔬', color: C.violet, gradient: `linear-gradient(135deg, ${C.violet}20, ${C.cyan}10)`, borderColor: `${C.violet}30` },
+    { recipient: 'IEEE Society', recognition: 'Professional Technical Society Award', icon: '📡', color: C.green, gradient: `linear-gradient(135deg, ${C.green}20, ${C.yellow}10)`, borderColor: `${C.green}30` },
+    { recipient: 'ASME Society', recognition: 'Technical Society Recognition Award', icon: '🧩', color: C.yellow, gradient: `linear-gradient(135deg, ${C.yellow}20, ${C.violet}10)`, borderColor: `${C.yellow}30` },
 ];
 
 const bodies = [
@@ -379,7 +386,7 @@ export default function OpenHousePage() {
                             borderRadius: 100, padding: '7px 18px', marginTop: 8,
                         }}>
                             <span style={{ fontSize: '0.9rem' }}>🔒</span>
-                            Awards will be revealed at 6:00 PM on March 13
+                            Awards will be revealed at 6:00 PM IST today
                         </p>
                     )}
                 </div>
@@ -430,13 +437,15 @@ export default function OpenHousePage() {
                                 fontSize: '1.05rem', fontWeight: 720, color: C.text,
                                 margin: '0 0 8px', letterSpacing: '-0.01em',
                             }}>
-                                {award.title}
+                                {award.recipient}
                             </h3>
                             <p style={{
                                 fontSize: '0.82rem', color: C.dim,
                                 margin: 0, fontWeight: 500,
                             }}>
-                                {awardsRevealed ? 'Awarded!' : 'Recipient to be announced'}
+                                {awardsRevealed
+                                    ? `Awarded to ${award.recipient} in recognition of ${award.recognition}.`
+                                    : 'Recipient to be announced'}
                             </p>
                         </div>
                     ))}
