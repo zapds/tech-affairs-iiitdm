@@ -134,7 +134,7 @@ const Hero = () => {
               alignItems: 'center',
             }}
           >
-            <Button
+            {/* <Button
               variant="contained"
               size="large"
               href="/events"
@@ -147,7 +147,7 @@ const Hero = () => {
               }}
             >
               Upcoming Events
-            </Button>
+            </Button> */}
             <Button
               variant="outlined"
               size="large"

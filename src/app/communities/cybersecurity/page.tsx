@@ -65,6 +65,8 @@ Through collaborative learning and practical exploration of cybersecurity tools 
 
 function Cybersecurity() {
   const theme = useTheme();
+  const websiteUrl = clubData.links.website?.trim() || '';
+  const hasWebsite = websiteUrl !== '' && websiteUrl !== '#';
   return (
     <Box sx={{ py: 8, pt: { xs: 12, sm: 14, md: 16 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
@@ -134,23 +136,25 @@ function Cybersecurity() {
               >
                 {clubData.description}
               </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                href={clubData.links.website}
-                target="_blank"
-                size="medium"
-                sx={{
-                  mt: 3,
-                  color: 'primary.main',
-                  boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
-                  '&:hover': {
-                    bgcolor: 'primary.dark'
-                  }
-                }}
-              >
-                Visit Website
-              </Button>
+              {hasWebsite && (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href={websiteUrl}
+                  target="_blank"
+                  size="medium"
+                  sx={{
+                    mt: 3,
+                    color: 'primary.main',
+                    boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+                    '&:hover': {
+                      bgcolor: 'primary.dark'
+                    }
+                  }}
+                >
+                  Visit Website
+                </Button>
+              )}
             </Box>
           </Grid>
         </Grid>
@@ -289,15 +293,17 @@ function Cybersecurity() {
             Connect With Us
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <IconButton
-              component="a"
-              href={clubData.links.website}
-              target="_blank"
-              color="primary"
-              size="large"
-            >
-              <LanguageIcon />
-            </IconButton>
+            {hasWebsite && (
+              <IconButton
+                component="a"
+                href={websiteUrl}
+                target="_blank"
+                color="primary"
+                size="large"
+              >
+                <LanguageIcon />
+              </IconButton>
+            )}
             <IconButton
               component="a"
               href={clubData.links.instagram}

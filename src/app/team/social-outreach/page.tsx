@@ -31,6 +31,13 @@ const cores = [
 
 const coordinators = [
   {
+    name: 'Nihaal Sekhar',
+    image: '/technical-affairs-team/social-outreach/coordinators/ME24B1062.webp',
+    email: 'me24b1062@iiitdm.ac.in',
+    linkedin: '',
+    roll: 'ME24B1062',
+  },
+  {
     name: 'Vaishika S A',
     image: '/technical-affairs-team/social-outreach/coordinators/EC24B1003.webp',
     email: 'ec24b1003@iiitdm.ac.in',

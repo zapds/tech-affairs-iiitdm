@@ -7,8 +7,16 @@ const clubData = {
   description: `The E-Cell at IIITDM Kancheepuram is dedicated to fostering entrepreneurial spirit and innovation among students. The club provides a platform for aspiring entrepreneurs to learn, collaborate, and transform ideas into viable business ventures. Through workshops, mentorship, and networking events, E-Cell empowers students to develop essential skills in business planning, leadership, and creative problem-solving.`,
   core: [
     {
+      name: 'Asmit',
+      role: 'Head Core',
+      image: '/societies/Ecell/headcores/asmit.webp',
+      email: '',
+      linkedin: '',
+      roll: ''
+    },
+    {
       name: 'Vishal Singh',
-      role: 'Core',
+      role: 'Vice Head Core',
       image: '/societies/Ecell/headcores/vishal.webp',
       email: '',
       linkedin: '',
@@ -37,7 +45,7 @@ const clubData = {
     }
   ],
   links: {
-    website: '#',
+    website: 'https://iiitdmk-ecell.vercel.app/',
     instagram: 'https://www.instagram.com/ecell_iiitdm/',
     github: '#'
   }

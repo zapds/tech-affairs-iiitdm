@@ -17,7 +17,7 @@ const clubData = {
     {
       name: 'Hemachandra K S',
       role: 'Software Lead',
-      image: '/images/team/jane-smith.webp',
+      image: '/clubs/robotics/headcores/hemachandra.webp',
       email: 'me23b2020@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/hemachandra-k-s-323382332',
       roll: 'me23b2020',

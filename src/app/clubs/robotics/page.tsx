@@ -68,13 +68,13 @@ const clubData = {
     {
       name: 'Hemachandra K S',
       role: 'Software Lead',
-      image: '/clubs/robotics/logo.webp',
+      image: '/clubs/robotics/headcores/hemachandra.webp',
       email: 'me23b2020@iiitdm.ac.in',
       roll: 'me23b2020',
     },
   ],
   links: {
-    website: 'https://robotics-iiitdm.github.io/',
+    website: 'https://robotics-club-iiitdm.onrender.com/',
     instagram: 'https://www.instagram.com/roboticsclub.iiitdm/',
   }
 };

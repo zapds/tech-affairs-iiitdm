@@ -25,10 +25,10 @@ const clubData = {
     {
       name: 'Sharad Kumar Dubey',
       role: 'Manager',
-      image: '/clubs/csclub/headcores/nivedh.webp',
+      image: '/clubs/csclub/headcores/sharad.webp',
       email: '',
       linkedin: '',
-      roll: '',
+      roll: 'cs23i1052',
     }
   ],
   team: [

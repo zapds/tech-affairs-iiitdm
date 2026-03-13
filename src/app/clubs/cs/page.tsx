@@ -134,9 +134,9 @@ Starting with LED control fundamentals and progressing to PIR sensor-based proje
     {
       name: 'Sharad Kumar Dubey',
       role: 'Manager',
-      image: '/clubs/csclub/headcores/nivedh.webp',
-      email: '',
-      roll: '',
+      image: '/clubs/csclub/headcores/sharad.webp',
+      email: 'cs23i1052@iiitdm.ac.in',
+      roll: 'cs23i1052',
     }
   ],
   links: {

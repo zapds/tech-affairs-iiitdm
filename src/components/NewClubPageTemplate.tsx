@@ -114,6 +114,8 @@ function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gal
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [projectModalOpen, setProjectModalOpen] = useState(false);
+  const websiteUrl = links?.website?.trim() || '';
+  const hasWebsite = websiteUrl !== '' && websiteUrl !== '#';
 
   const handleOpen = (image: string) => {
     setSelectedImage(image);
@@ -213,11 +215,11 @@ function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gal
               >
                 {introduction}
               </Typography>
-              {links?.website && (
+              {hasWebsite && (
                 <Button
                   variant="contained"
                   color="primary"
-                  href={links.website}
+                  href={websiteUrl}
                   target="_blank"
                   size="medium"
                   sx={{
@@ -445,10 +447,10 @@ function NewClubPageTemplate({ name, logo, introduction, timeline, projects, gal
             Connect With Us
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            {links?.website && (
+            {hasWebsite && (
               <IconButton
                 component="a"
-                href={links.website}
+                href={websiteUrl}
                 target="_blank"
                 color="primary"
                 size="large"
