@@ -136,7 +136,7 @@ An interactive alumni session sharing industry insights, career guidance, and st
   ],
 
   links: {
-    website: "",
+    website: "https://devclub.iiitdm.ac.in/",
     instagram: "https://www.instagram.com/dev.club.iiitdm/",
     github: "https://github.com/dev-iiitdm",
   },
