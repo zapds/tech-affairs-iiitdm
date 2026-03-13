@@ -5,24 +5,36 @@ const clubData = {
   name: "Developers Club",
   logo: "/clubs/devclub/logo.webp",
 
-  introduction: `Developers Club, formerly known as Google Developers Student Club (GDSC), was rebranded in 2024 to reflect its broader vision and inclusive developer ecosystem. 
+  introduction: `Developers Club, formerly known as Google Developers Student Club (GDSC), was rebranded in 2024 to reflect its broader vision and inclusive developer ecosystem.
 The club serves as a dynamic platform for students passionate about technology, enabling them to explore and build across multiple domains such as Web Development, App Development, Artificial Intelligence & Machine Learning, Backend Development, Automation, Open Source, and System Design.
 
 What makes Developers Club stand out is its strong hands-on culture and implementation-driven approach. Through hackathons, sessions, workshops, alumni talks, collaborative projects, and real-world system development, the club emphasizes practical exposure over theoretical learning. It fosters peer-to-peer collaboration, industry readiness, and a vibrant technical community within the institute.`,
 
   timeline: [
     {
+      year: 2025,
+      event: "Devember: Winter Arc Hackathon",
+      description:
+        "A premier month-long project-building hackathon held in the winter break of December 2025.",
+    },
+    {
+      year: 2025,
+      event: "CODE-A-THON",
+      description:
+        "CODE-A-THON was conducted in collaboration with the CSE Department and IEEE IIITDMK to promote competitive coding and collaborative problem-solving. The event provided students with a structured platform to test their algorithmic thinking and coding efficiency in a high-energy competitive setting. The initiative strengthened the institute’s coding culture and demonstrated effective inter-organizational collaboration on campus.",
+    },
+    {
       year: 2024,
       event: "Vashisht Hackathon 2.0",
       description:
-        "The flagship event of Developers Club with 1100+ participants and 250+ projects developed during a 48-hour innovation sprint."
+        "The flagship event of Developers Club with 1100+ participants and 250+ projects developed during a 48-hour innovation sprint.",
     },
     {
       year: 2024,
       event: "RandomWalk.ai Collaboration",
       description:
-        "Developers Club collaborated with RandomWalk.ai on AI-focused projects giving students exposure to real-world machine learning applications."
-    }
+        "Developers Club collaborated with RandomWalk.ai on AI-focused projects giving students exposure to real-world machine learning applications.",
+    },
   ],
 
   projects: [
@@ -30,41 +42,37 @@ What makes Developers Club stand out is its strong hands-on culture and implemen
       name: "Web Scraping using Python",
       description:
         "Introductory session covering data extraction using BeautifulSoup and Requests libraries.",
-      image: "/clubs/devclub/events/webscraping.webp"
+      image: "/clubs/devclub/events/web_scraping.png",
     },
     {
       name: "Web Automation",
       description:
         "Session focused on browser automation using Selenium and workflow automation techniques.",
-      image: "/clubs/devclub/events/webautomation.webp"
+      image: "/clubs/devclub/events/web_automation.png",
     },
     {
       name: "Node.js & Express.js",
       description:
         "Backend development session covering REST APIs, middleware, and server architecture.",
-      image: "/clubs/devclub/events/nodejs.webp"
+      image: "/clubs/devclub/events/nodejs.webp",
     },
-   
-  ], 
-    
-events:[
     {
       name: "Gemini API Session",
       description:
         "Hands-on workshop exploring AI integration into applications using Gemini API.",
-      image: "/clubs/devclub/events/gemini.webp"
+      image: "/clubs/devclub/events/gemini.webp",
     },
     {
       name: "Linux Basics Session",
       description:
         "Introduction to Ubuntu, command line usage, and development environment setup.",
-      image: "/clubs/devclub/events/linux.webp"
+      image: "/clubs/devclub/events/linux.jpeg",
     },
     {
       name: "Devember Hackathon",
       description:
         "A competitive hackathon encouraging innovation and real-world solution development.",
-      image: "/clubs/devclub/events/devember.webp"
+      image: "/clubs/devclub/events/devember.jpg",
     },
     {
       name: "Getting Started with App Development",
@@ -72,41 +80,35 @@ events:[
       description: `Conducted by: Krishna Chaitanya
 Date: 17th September
 
-Session covering app ideation, development fundamentals, UI basics, and the steps involved in building and deploying an application.`
+Session covering app ideation, development fundamentals, UI basics, and the steps involved in building and deploying an application.`,
     },
 
     {
       name: "Alumni Talk",
-      image: "/clubs/devclub/events/alumni-talk.webp",
+      image: "/clubs/devclub/events/alumni.jpg",
       description: `Speaker: Jashwanth Peddisetty
 Date: 2nd November
 
-An interactive alumni session sharing industry insights, career guidance, and strategies for technical growth.`
+An interactive alumni session sharing industry insights, career guidance, and strategies for technical growth.`,
     },
 
-    {
-      name: "CODE-A-THON",
-      image: "/clubs/devclub/events/codeathon.webp",
-      description: `Conducted in collaboration with the CSE Department and IEEE IIITDMK, this event encouraged competitive coding and collaborative problem-solving among students.`
-    },
+    // {
+    //   name: "Fest Ticket Booking System",
+    //   image: "/clubs/devclub/events/fest-ticket.webp",
+    //   description: `A web-based platform designed to manage event registrations and ticket distribution efficiently.`,
+    // },
 
-    {
-      name: "Fest Ticket Booking System",
-      image: "/clubs/devclub/events/fest-ticket.webp",
-      description: `A web-based platform designed to manage event registrations and ticket distribution efficiently.`
-    },
+    // {
+    //   name: "Doctor Slot Booking System",
+    //   image: "/clubs/devclub/events/doctor-booking.webp",
+    //   description: `A scheduling system enabling users to book and manage doctor appointments digitally.`,
+    // },
 
-    {
-      name: "Doctor Slot Booking System",
-      image: "/clubs/devclub/events/doctor-booking.webp",
-      description: `A scheduling system enabling users to book and manage doctor appointments digitally.`
-    },
-
-    {
-      name: "Dev Club ChatBot",
-      image: "/clubs/devclub/events/chatbot.webp",
-      description: `An automated chatbot developed to assist with queries related to club activities, events, and technical resources.`
-    }
+    // {
+    //   name: "Dev Club ChatBot",
+    //   image: "/clubs/devclub/events/chatbot.webp",
+    //   description: `An automated chatbot developed to assist with queries related to club activities, events, and technical resources.`,
+    // },
   ],
 
   gallery: [
@@ -115,29 +117,29 @@ An interactive alumni session sharing industry insights, career guidance, and st
     { src: "/clubs/devclub/gallery/gallery3.webp", caption: "" },
     { src: "/clubs/devclub/gallery/gallery4.webp", caption: "" },
     { src: "/clubs/devclub/gallery/gallery5.webp", caption: "" },
-    { src: "/clubs/devclub/gallery/gallery6.webp", caption: "" }
+    { src: "/clubs/devclub/gallery/gallery6.webp", caption: "" },
   ],
 
   core: [
     {
       name: "Sai Pranav",
       role: "Head Core",
-      image: "/clubs/devclub/headcores/sai-pranav.webp",
-      email: "cs22b1027@iiitdm.ac.in"
+      image: "/clubs/devclub/headcores/Sai Pranav.webp",
+      email: "cs22b1027@iiitdm.ac.in",
     },
     {
       name: "Sainath Reddy",
       role: "Vice Head Core",
       image: "/clubs/devclub/headcores/sainath.webp",
-      email: "cs22b1005@iiitdm.ac.in"
-    }
+      email: "cs23i1010@iiitdm.ac.in",
+    },
   ],
 
   links: {
     website: "",
     instagram: "https://www.instagram.com/dev.club.iiitdm/",
-    github: "https://github.com/dev-iiitdm"
-  }
+    github: "https://github.com/dev-iiitdm",
+  },
 };
 
 function DevClub() {

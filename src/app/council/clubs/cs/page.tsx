@@ -21,6 +21,14 @@ const clubData = {
       email: 'cs22b1021@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/nivedh-biju-b7b11b292',
       roll: 'cs22b1021',
+    },
+    {
+      name: 'Sharad Kumar Dubey',
+      role: 'Manager',
+      image: '/clubs/csclub/headcores/nivedh.webp',
+      email: '',
+      linkedin: '',
+      roll: '',
     }
   ],
   team: [
