@@ -40,7 +40,7 @@ const societies = [
 
 const communities = [
   { name: "Cybersecurity", image: "/communities/Cybersecurity/logo.webp", link: "/communities/cybersecurity" },
-  { name: "Game Developers", image: "/communities/gamedevelopers/logo.webp", link: "/communities/gamedevelopers" },
+  { name: "Game Developers", image: "/communities/gamedevelopers/logo.png", link: "/communities/gamedevelopers" },
 ];
 
 const tabOptions = [

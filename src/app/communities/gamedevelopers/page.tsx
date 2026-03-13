@@ -1,86 +1,90 @@
-import React from 'react';
-import NewClubPageTemplate from '@/components/NewClubPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
 const clubData = {
-  name: 'Game Developers Community',
-  logo: '/communities/gamedevelopers/logo.webp',
+  name: "Game Developers Community",
+  logo: "/communities/gamedevelopers/logo.png",
 
-  introduction: `Founded in July 2025, our Game Development Community aims to bring the game dev 
-ecosystem to our college and support students passionate about creating games. 
- We focus on all aspects of game creation — from art, design, and programming to storytelling 
-and music — encouraging members to explore their creativity through hands-on projects and 
-collaboration. 
- What makes us stand out is our learn-by-doing approach, where members grow by participating 
-in game jams, building original games, and sharing knowledge across different domains of game 
+  introduction: `Founded in July 2025, our Game Development Community aims to bring the game dev
+ecosystem to our college and support students passionate about creating games.
+ We focus on all aspects of game creation — from art, design, and programming to storytelling
+and music — encouraging members to explore their creativity through hands-on projects and
+collaboration.
+ What makes us stand out is our learn-by-doing approach, where members grow by participating
+in game jams, building original games, and sharing knowledge across different domains of game
 development`,
 
   timeline: [
     {
       year: 2025,
-      event: 'Unreal Engine Workshop ',
-      description: 'Members participated in several national and global game jam competitions.'
+      event: "Unreal Engine Workshop ",
+      description:
+        "Members participated in several national and global game jam competitions.",
     },
     {
       year: 2025,
-      event: 'Indie Game Projects',
-      description: 'Students developed independent game prototypes using Unity and Godot.'
-    }
+      event: "Indie Game Projects",
+      description:
+        "Students developed independent game prototypes using Unity and Godot.",
+    },
   ],
 
   projects: [
     {
-      name: 'Unreal Engine Workshop',
-      description: 'Our first session introduced students to the Unreal Engine interface, one of the most powerful tools for 3D game development. Participants learned how to implement character movement and sword attack mechanics, gaining hands-on experience in creating interactive gameplay. ',
-      image: '/communities/g11.webp',
-      technologies: ['Unity', 'C#', 'Game Design'],
-      themeColor: '#6A1B9A'
+      name: "Unreal Engine Workshop",
+      description:
+        "Our first session introduced students to the Unreal Engine interface, one of the most powerful tools for 3D game development. Participants learned how to implement character movement and sword attack mechanics, gaining hands-on experience in creating interactive gameplay. ",
+      image: "/communities/g11.webp",
+      technologies: ["Unity", "C#", "Game Design"],
+      themeColor: "#6A1B9A",
     },
     {
-      name: 'Godot Workshop ',
-      description: 'In our second session, students were introduced to the Godot Engine, exploring its core interface, scene system, and scripting basics. The workshop concluded with participants creating a simple 2D platformer game from scratch, helping them understand the fundamentals of game development.',
-      image: '/communities/g12.webp',
-      technologies: ['Unreal Engine', 'C++', '3D Graphics'],
-      themeColor: '#00897B'
-    }
+      name: "Godot Workshop ",
+      description:
+        "In our second session, students were introduced to the Godot Engine, exploring its core interface, scene system, and scripting basics. The workshop concluded with participants creating a simple 2D platformer game from scratch, helping them understand the fundamentals of game development.",
+      image: "/communities/g12.webp",
+      technologies: ["Unreal Engine", "C++", "3D Graphics"],
+      themeColor: "#00897B",
+    },
   ],
 
   gallery: [
     {
-      src: '/communities/g1.webp',
-      caption: 'Students working on game prototypes'
+      src: "/communities/g1.webp",
+      caption: "Students working on game prototypes",
     },
     {
-      src: '/communities/g4.webp',
-      caption: 'Game development workshop session'
+      src: "/communities/g4.webp",
+      caption: "Game development workshop session",
     },
     {
-      src: '/communities/g6.webp',
-      caption: 'Testing multiplayer gameplay mechanics'
-    }
+      src: "/communities/g6.webp",
+      caption: "Testing multiplayer gameplay mechanics",
+    },
   ],
 
   core: [
     {
-      name: 'C. Dev',
-      role: 'Community Lead',
-      image: '/communities/l1.webp',
-      email: 'dev@iiitdm.ac.in',
-      roll: '—'
+      name: "C. Dev",
+      role: "Community Lead",
+      image: "/communities/l1.webp",
+      email: "dev@iiitdm.ac.in",
+      roll: "—",
     },
     {
-      name: 'D. Designer',
-      role: 'Art & Design Lead',
-      image: '/communities/l2.webp',
-      email: 'designer@iiitdm.ac.in',
-      roll: '—'
-    }
+      name: "D. Designer",
+      role: "Art & Design Lead",
+      image: "/communities/l2.webp",
+      email: "designer@iiitdm.ac.in",
+      roll: "—",
+    },
   ],
 
   links: {
-    website: '#',
-    instagram: '#',
-    github: '#'
-  }
+    website: "#",
+    instagram: "#",
+    github: "#",
+  },
 };
 
 function GameDevelopers() {
