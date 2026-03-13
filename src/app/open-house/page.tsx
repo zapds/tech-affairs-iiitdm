@@ -84,34 +84,44 @@ const THEMES: Record<ThemeName, Record<string, string>> = {
 };
 
 /* ═══════ DATA ═══════ */
-const EVENT_DATE = new Date('2026-03-13T09:00:00');
+const EVENT_DATE = new Date('2026-03-13T18:00:00');
+const REVEAL_DATE = new Date('2026-03-13T18:00:00');
+
+const awards = [
+    { title: 'Best Innovation Award', icon: '🏆', color: C.orange, gradient: `linear-gradient(135deg, ${C.orange}20, ${C.yellow}10)`, borderColor: `${C.orange}30` },
+    { title: 'Best Presentation Award', icon: '🎤', color: C.pink, gradient: `linear-gradient(135deg, ${C.pink}20, ${C.violet}10)`, borderColor: `${C.pink}30` },
+    { title: 'People\'s Choice Award', icon: '❤️', color: C.rose, gradient: `linear-gradient(135deg, ${C.rose}20, ${C.orange}10)`, borderColor: `${C.rose}30` },
+    { title: 'Best Technical Demo', icon: '⚙️', color: C.green, gradient: `linear-gradient(135deg, ${C.green}20, ${C.cyan}10)`, borderColor: `${C.green}30` },
+    { title: 'Most Creative Setup', icon: '🎨', color: C.violet, gradient: `linear-gradient(135deg, ${C.violet}20, ${C.pink}10)`, borderColor: `${C.violet}30` },
+    { title: 'Rising Star Award', icon: '⭐', color: C.yellow, gradient: `linear-gradient(135deg, ${C.yellow}20, ${C.orange}10)`, borderColor: `${C.yellow}30` },
+];
 
 const bodies = [
-    { name: 'Team Nira', desc: 'Autonomous Underwater Vehicle', logo: '/teams/nira/logo.jpg', route: '/teams/nira', cat: 'Teams' },
-    { name: 'Team Shunya', desc: 'Mars Rover Systems', logo: '/teams/mars/logo.png', route: '/teams/shunya', cat: 'Teams' },
-    { name: 'CS Club', desc: 'Algorithms, CP & Dev Culture', logo: '/clubs/csclub/logo.png', route: '/clubs/cs', cat: 'Clubs' },
-    { name: 'E-Cell', desc: 'Startups & Entrepreneurship', logo: '/societies/Ecell/logo.png', route: '/societies/ecell', cat: 'Societies' },
-    { name: 'Cybersecurity Community', desc: 'CTFs, Security & Red Teaming', logo: '/communities/Cybersecurity/logo.png', route: '/communities/cybersecurity', cat: 'Communities' },
-    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.jpg', route: '/clubs/dev', cat: 'Clubs' },
-    { name: 'Robotics Club', desc: 'Bots, Arms & Automation', logo: '/clubs/robotics/logo.png', route: '/clubs/robotics', cat: 'Clubs' },
-    { name: 'System Coding Club', desc: 'Low-level Systems & OS Hacking', logo: '/clubs/Scc/logo.png', route: '/clubs/scc', cat: 'Clubs' },
-    { name: 'Team Astra', desc: 'Rocketry & Propulsion', logo: '/teams/astra/logo.png', route: '/teams/astra', cat: 'Teams' },
-    { name: 'Revolt Racing', desc: 'Formula-style Electric Racing', logo: '/teams/revolt/logo.png', route: '/teams/revolt', cat: 'Teams' },
-    { name: 'Team TAD', desc: 'Aero Design & Unmanned Systems', logo: '/teams/tad/logo.png', route: '/teams/tad', cat: 'Teams' },
-    { name: 'SAE E-Baja', desc: 'Electric All-terrain Vehicle', logo: '/logo.png', route: '/clubs/sae-ebaja', cat: 'Teams' },
-    { name: 'ASME Section', desc: 'Mechanical Engineering Society', logo: '/societies/ASMEStudentSection/logo.png', route: '/societies/asme', cat: 'Societies' },
-    { name: 'IEEE Branch', desc: 'Electrical & Electronics', logo: '/societies/IEEE/logo.png', route: '/societies/ieee', cat: 'Societies' },
-    { name: 'Optica Chapter', desc: 'Photonics & Optical Engineering', logo: '/societies/OpticaStudentChapter/logo.jpg', route: '/societies/optica', cat: 'Societies' },
-    { name: 'Game Dev', desc: 'Unity, Unreal & Game Jams', logo: '/logo.png', route: '/communities/gamedevelopers', cat: 'Communities' },
+    { name: 'Team Nira', desc: 'Autonomous Underwater Vehicle', logo: '/teams/nira/logo.webp', route: '/teams/nira', cat: 'Teams' },
+    { name: 'Team Shunya', desc: 'Mars Rover Systems', logo: '/teams/mars/logo.webp', route: '/teams/shunya', cat: 'Teams' },
+    { name: 'CS Club', desc: 'Algorithms, CP & Dev Culture', logo: '/clubs/csclub/logo.webp', route: '/clubs/cs', cat: 'Clubs' },
+    { name: 'E-Cell', desc: 'Startups & Entrepreneurship', logo: '/societies/Ecell/logo.webp', route: '/societies/ecell', cat: 'Societies' },
+    { name: 'Cybersecurity Community', desc: 'CTFs, Security & Red Teaming', logo: '/communities/Cybersecurity/logo.webp', route: '/communities/cybersecurity', cat: 'Communities' },
+    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.webp', route: '/clubs/dev', cat: 'Clubs' },
+    { name: 'Robotics Club', desc: 'Bots, Arms & Automation', logo: '/clubs/robotics/logo.webp', route: '/clubs/robotics', cat: 'Clubs' },
+    { name: 'System Coding Club', desc: 'Low-level Systems & OS Hacking', logo: '/clubs/Scc/logo.webp', route: '/clubs/scc', cat: 'Clubs' },
+    { name: 'Team Astra', desc: 'Rocketry & Propulsion', logo: '/teams/astra/logo.webp', route: '/teams/astra', cat: 'Teams' },
+    { name: 'Revolt Racing', desc: 'Formula-style Electric Racing', logo: '/teams/revolt/logo.webp', route: '/teams/revolt', cat: 'Teams' },
+    { name: 'Team TAD', desc: 'Aero Design & Unmanned Systems', logo: '/teams/tad/logo.webp', route: '/teams/tad', cat: 'Teams' },
+    { name: 'SAE E-Baja', desc: 'Electric All-terrain Vehicle', logo: '/logo.webp', route: '/clubs/sae-ebaja', cat: 'Teams' },
+    { name: 'ASME Section', desc: 'Mechanical Engineering Society', logo: '/societies/ASMEStudentSection/logo.webp', route: '/societies/asme', cat: 'Societies' },
+    { name: 'IEEE Branch', desc: 'Electrical & Electronics', logo: '/societies/IEEE/logo.webp', route: '/societies/ieee', cat: 'Societies' },
+    { name: 'Optica Chapter', desc: 'Photonics & Optical Engineering', logo: '/societies/OpticaStudentChapter/logo.webp', route: '/societies/optica', cat: 'Societies' },
+    { name: 'Game Dev', desc: 'Unity, Unreal & Game Jams', logo: '/logo.webp', route: '/communities/gamedevelopers', cat: 'Communities' },
 ];
 
 const schedule = [
-    { time: '09:00 AM', title: 'Doors Open', desc: 'Check-in, welcome kits & campus map', color: C.orange },
-    { time: '10:00 AM', title: 'Inaugural Ceremony', desc: 'Welcome address and official kickoff', color: C.pink },
-    { time: '11:00 AM', title: 'Demos Go Live', desc: 'All stalls open — robots, vehicles, code', color: C.green },
-    { time: '01:00 PM', title: 'Awards Ceremony', desc: 'Best performing bodies, recognized on stage', color: C.violet },
-    { time: '02:00 PM', title: 'Open Floor', desc: 'Walk around freely, talk to leads, try things', color: C.cyan },
-    { time: '04:00 PM', title: 'Closing', desc: 'Wrap-up, networking, and what comes next', color: C.yellow },
+    { time: '7:00 PM', title: 'Welcome Address', desc: 'Opening remarks by the Professor-in-Charge', color: C.pink },
+    { time: '7:05 PM', title: 'Exhibition Launch', desc: 'All clubs showcase their innovations and projects', color: C.orange },
+    { time: '7:15 PM', title: 'Tech Affairs Showcase', desc: 'Highlights and achievements presentation', color: C.green },
+    { time: '7:20 PM', title: 'Club Achievement Gallery', desc: 'Success stories and accomplishments showcase', color: C.violet },
+    { time: '9:00 PM', title: 'Awards & Recognition', desc: 'Celebrating outstanding contributions and achievements', color: C.cyan },
+    { time: '9:20 PM', title: 'Savāra', desc: 'Annual techfest highlights and closing ceremony', color: C.yellow },
 ];
 
 const whyReasons = [
@@ -168,7 +178,16 @@ export default function OpenHousePage() {
     const theme = isDarkMode ? 'dark' : 'light';
     const [activeCat, setActiveCat] = useState('All');
     const [navScrolled, setNavScrolled] = useState(false);
+    const [awardsRevealed, setAwardsRevealed] = useState(false);
     const cd = useCountdown(EVENT_DATE);
+
+    // Check if awards should be revealed (after March 13, 6 PM)
+    useEffect(() => {
+        const check = () => setAwardsRevealed(Date.now() >= REVEAL_DATE.getTime());
+        check();
+        const id = setInterval(check, 1000);
+        return () => clearInterval(id);
+    }, []);
     const activeTheme = THEMES[theme];
     const pad = (n: number) => String(n).padStart(2, '0');
     const filtered = useMemo(
@@ -335,6 +354,92 @@ export default function OpenHousePage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* ════════ AWARDS ════════ */}
+            <section className="oh-section oh-awards" style={{
+                padding: '0 24px 80px', maxWidth: 1200, margin: '0 auto',
+            }}>
+                <div data-reveal style={{ textAlign: 'center', marginBottom: 40, opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease' }}>
+                    <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 650, letterSpacing: '0.14em', textTransform: 'uppercase', color: C.yellow, marginBottom: 12 }}>
+                        Awards
+                    </span>
+                    <h2 style={{ fontSize: 'clamp(1.9rem, 4.5vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.035em', lineHeight: 1.12, color: C.text, margin: '0 0 10px' }}>
+                        Awards for Council - 2026
+                    </h2>
+                    <p style={{ fontSize: '1rem', color: C.muted, lineHeight: 1.65, maxWidth: 520, margin: '0 auto 8px' }}>
+                        No ranks, no podiums — every participating body gets recognized with a unique award.
+                    </p>
+                    {!awardsRevealed && (
+                        <p style={{
+                            display: 'inline-flex', alignItems: 'center', gap: 8,
+                            fontSize: '0.82rem', fontWeight: 600, color: C.orange,
+                            background: `${C.orange}12`, border: `1px solid ${C.orange}25`,
+                            borderRadius: 100, padding: '7px 18px', marginTop: 8,
+                        }}>
+                            <span style={{ fontSize: '0.9rem' }}>🔒</span>
+                            Awards will be revealed at 6:00 PM on March 13
+                        </p>
+                    )}
+                </div>
+
+                <div data-reveal className="oh-awards-grid" style={{
+                    display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16,
+                    opacity: 0, transform: 'translateY(30px)', transition: 'all 0.7s ease 0.1s',
+                }}>
+                    {awards.map((award, i) => (
+                        <div key={i} className="oh-award-card" style={{
+                            position: 'relative',
+                            background: award.gradient,
+                            borderRadius: 20,
+                            padding: '28px 24px',
+                            border: `1px solid ${award.borderColor}`,
+                            textAlign: 'center',
+                            overflow: 'hidden',
+                            transition: 'all 0.3s ease',
+                        }}>
+                            {/* Blur overlay when not revealed */}
+                            {!awardsRevealed && (
+                                <div style={{
+                                    position: 'absolute', inset: 0, zIndex: 2,
+                                    backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+                                    background: 'rgba(10,10,26,0.3)',
+                                    borderRadius: 20,
+                                    display: 'flex', flexDirection: 'column',
+                                    alignItems: 'center', justifyContent: 'center', gap: 8,
+                                } as React.CSSProperties}>
+                                    <span style={{ fontSize: '1.8rem' }}>🔒</span>
+                                    <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.06em' }}>
+                                        COMING SOON
+                                    </span>
+                                </div>
+                            )}
+
+                            {/* Award content */}
+                            <div style={{
+                                width: 56, height: 56, borderRadius: 16,
+                                background: `${award.color}18`,
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                margin: '0 auto 16px', fontSize: '1.6rem',
+                                border: `1px solid ${award.color}25`,
+                            }}>
+                                {award.icon}
+                            </div>
+                            <h3 style={{
+                                fontSize: '1.05rem', fontWeight: 720, color: C.text,
+                                margin: '0 0 8px', letterSpacing: '-0.01em',
+                            }}>
+                                {award.title}
+                            </h3>
+                            <p style={{
+                                fontSize: '0.82rem', color: C.dim,
+                                margin: 0, fontWeight: 500,
+                            }}>
+                                {awardsRevealed ? 'Awarded!' : 'Recipient to be announced'}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </section>
 

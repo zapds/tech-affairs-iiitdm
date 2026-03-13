@@ -78,7 +78,7 @@ const Navbar = ({ user }: NavbarProps) => {
     <Box sx={{ position: "relative", height: 40, width: 40, flexShrink: 0 }}>
       <Box
         component="img"
-        src="/nav_logo.png"
+        src="/nav_logo.webp"
         alt="Technical Affairs Logo"
         sx={{
           position: "absolute",
@@ -92,7 +92,7 @@ const Navbar = ({ user }: NavbarProps) => {
       />
       <Box
         component="img"
-        src="/nav_logo_inv.png"
+        src="/nav_logo_inv.webp"
         alt="Technical Affairs Logo"
         sx={{
           position: "absolute",

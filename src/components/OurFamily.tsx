@@ -12,27 +12,27 @@ import { motion } from 'framer-motion';
 const clubs = [
   {
     name: 'CS Club',
-    image: '/clubs/csclub/logo.png',
+    image: '/clubs/csclub/logo.webp',
     link: '/clubs/cs',
   },
   {
     name: 'Developers Club',
-    image: '/clubs/devclub/logo.jpg',
+    image: '/clubs/devclub/logo.webp',
     link: '/clubs/dev',
   },
   {
     name: 'Robotics Club',
-    image: '/clubs/robotics/logo.png',
+    image: '/clubs/robotics/logo.webp',
     link: '/clubs/robotics',
   },
   {
     name: 'E-Cell',
-    image: '/societies/Ecell/logo.png',
+    image: '/societies/Ecell/logo.webp',
     link: '/societies/Ecell',
   },
   {
     name: 'System Coding Club',
-    image: '/clubs/Scc/logo.png',
+    image: '/clubs/Scc/logo.webp',
     link: '/clubs/scc',
   },
 ];
@@ -41,31 +41,31 @@ const teams = [
   {
     name: 'Team Nira',
     description: 'AUV Society',
-    image: '/teams/nira/logo.jpg',
+    image: '/teams/nira/logo.webp',
     link: '/teams/nira',
   },
   {
     name: 'Team Astra',
     description: 'Space Technology',
-    image: '/teams/astra/logo.png',
+    image: '/teams/astra/logo.webp',
     link: '/teams/astra',
   },
   {
     name: 'Revolt Racers',
     description: 'SAE E-Baja',
-    image: '/teams/revolt/logo.png',
+    image: '/teams/revolt/logo.webp',
     link: '/teams/revolt',
   },
   {
     name: 'Team TAD',
     description: 'Aero Design',
-    image: '/teams/tad/logo.png',
+    image: '/teams/tad/logo.webp',
     link: '/teams/tad',
   },
   {
     name: 'Team Shunya (MaRS)',
     description: 'Mars Rover',
-    image: '/teams/mars/logo.png',
+    image: '/teams/mars/logo.webp',
     link: '/teams/shunya',
   },
 ];

@@ -3,13 +3,13 @@ import SocietyPageTemplate from '../../../../components/SocietyPageTemplate';
 
 const clubData = {
   name: 'IEEE Student Branch',
-  logo: '/societies/IEEE/logo.png',
+  logo: '/societies/IEEE/logo.webp',
   description: `The IEEE Student Branch at IIITDM Kancheepuram is the official chapter of the Institute of Electrical and Electronics Engineers (IEEE), dedicated to promoting learning, research, and innovation in electrical and electronics engineering, robotics, and emerging technologies.\nThe branch focuses on helping students build technical expertise in fields such as IoT, artificial intelligence, renewable energy systems, and embedded technologies. It encourages participation in IEEE conferences, exploration of research opportunities, and the development of innovative projects that solve real-world challenges.\nThrough its growing activities, the student branch aims to organize technical workshops, robotics challenges, and research symposiums, creating a platform for collaborative learning and technical growth.`,
   core: [
     {
       name: 'Arjun Singh',
       role: 'Branch Chair',
-      image: '/images/team/arjun-singh.jpg',
+      image: '/images/team/arjun-singh.webp',
       email: 'arjun.singh@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/arjunsingh',
       year: 'B.Tech 3rd Year',
@@ -19,7 +19,7 @@ const clubData = {
     {
       name: 'Kavya Iyer',
       role: 'Vice Chair',
-      image: '/images/team/kavya-iyer.jpg',
+      image: '/images/team/kavya-iyer.webp',
       email: 'kavya.iyer@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/kavyaiyer',
       year: 'B.Tech 3rd Year',
@@ -31,7 +31,7 @@ const clubData = {
     {
       name: 'Vikram Malhotra',
       role: 'Technical Secretary',
-      image: '/images/team/vikram-malhotra.jpg',
+      image: '/images/team/vikram-malhotra.webp',
       email: 'vikram.malhotra@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/vikrammalhotra',
       year: 'B.Tech 2nd Year',
@@ -41,7 +41,7 @@ const clubData = {
     {
       name: 'Ananya Das',
       role: 'Events Secretary',
-      image: '/images/team/ananya-das.jpg',
+      image: '/images/team/ananya-das.webp',
       email: 'ananya.das@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/ananyadas',
       year: 'B.Tech 2nd Year',

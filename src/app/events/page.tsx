@@ -41,14 +41,14 @@ async function getEventsData(): Promise<EventWithClub[]> {
         return {
             name: item.event_name,
             description: item.description,
-            image: item.imageUrl ?? '/default-event-image.png', // Fallback image
+            image: item.imageUrl ?? '/default-event-image.webp', // Fallback image
             location: item.location,
             date: eventDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
             timings: eventDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
             requirements: item.requirements,
             club: item.club_name ?? 'Unknown Club', // Fallback club name
             link: item.link ?? '#', // Fallback link
-            clubLogo: item.club_iconUrl ?? '/default-club-logo.png', // Fallback logo
+            clubLogo: item.club_iconUrl ?? '/default-club-logo.webp', // Fallback logo
         };
     });
 }

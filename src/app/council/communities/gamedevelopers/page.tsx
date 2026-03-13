@@ -36,20 +36,20 @@ const TeamMemberCard = styled(Card)(({ theme }) => ({
 
 const clubData = {
   name: 'Game Developers Community',
-  logo: '/communities/gamedevelopers/logo.png',
+  logo: '/communities/gamedevelopers/logo.webp',
   description: `The Game Development Community at IIITDM Kancheepuram is a group of students passionate about designing and developing interactive digital experiences. Focused on exploring the creative and technical aspects of game development, the community encourages students to learn about game mechanics, 2D/3D graphics, storytelling, and real-time interaction.\nWith an emphasis on collaborative learning and experimentation, the community serves as a platform for students to understand the process of game creation and express their creativity through technology.`,
   core: [
     {
       name: 'C. Dev',
       role: 'Community Lead',
-      image: '/images/team/default-avatar.png',
+      image: '/images/team/default-avatar.webp',
       email: 'dev@iiitdm.ac.in',
       linkedin: '#',
     },
     {
       name: 'D. Designer',
       role: 'Art & Design Lead',
-      image: '/images/team/default-avatar.png',
+      image: '/images/team/default-avatar.webp',
       email: 'designer@iiitdm.ac.in',
       linkedin: '#',
     }

@@ -14,18 +14,18 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // Combined sponsors data
 const allSponsors = [
-  { name: 'Microsoft', logo: '/sponsors/microsoft.png' },
-  { name: 'Google', logo: '/sponsors/google.png' },
-  { name: 'Intel', logo: '/sponsors/intel.png' },
-  { name: 'IBM', logo: '/sponsors/ibm.png' },
-  { name: 'Oracle', logo: '/sponsors/oracle.png' },
-  { name: 'Cisco', logo: '/sponsors/cisco.png' },
-  { name: 'Adobe', logo: '/sponsors/adobe.png' },
-  { name: 'Autodesk', logo: '/sponsors/autodesk.png' },
-  { name: 'MathWorks', logo: '/sponsors/mathworks.png' },
-  { name: 'Texas Instruments', logo: '/sponsors/ti.png' },
-  { name: 'National Instruments', logo: '/sponsors/ni.png' },
-  { name: 'Bosch', logo: '/sponsors/bosch.png' },
+  { name: 'Microsoft', logo: '/sponsors/microsoft.webp' },
+  { name: 'Google', logo: '/sponsors/google.webp' },
+  { name: 'Intel', logo: '/sponsors/intel.webp' },
+  { name: 'IBM', logo: '/sponsors/ibm.webp' },
+  { name: 'Oracle', logo: '/sponsors/oracle.webp' },
+  { name: 'Cisco', logo: '/sponsors/cisco.webp' },
+  { name: 'Adobe', logo: '/sponsors/adobe.webp' },
+  { name: 'Autodesk', logo: '/sponsors/autodesk.webp' },
+  { name: 'MathWorks', logo: '/sponsors/mathworks.webp' },
+  { name: 'Texas Instruments', logo: '/sponsors/ti.webp' },
+  { name: 'National Instruments', logo: '/sponsors/ni.webp' },
+  { name: 'Bosch', logo: '/sponsors/bosch.webp' },
 ];
 
 const Sponsors = () => {

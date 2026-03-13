@@ -22,33 +22,33 @@ const cores = [
   {
     name: 'Omkar Anand Iyer',
     role: 'Social Outreach Core',
-    image: '/technical-affairs-team/social-outreach/cores/OmkarAnandIyer.jpg',
-    email: '',
-    linkedin: '',
-    roll: '',
+    image: '/technical-affairs-team/social-outreach/cores/OmkarAnandIyer.webp',
+    email: 'ec23b1075@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/omkar-anand-iyer',
+    roll: 'EC23B1075',
   },
 ];
 
 const coordinators = [
   {
-    name: 'EC24B1003',
-    image: '/technical-affairs-team/social-outreach/coordinators/EC24B1003.jpg',
-    email: '',
-    linkedin: '',
+    name: 'Vaishika S A',
+    image: '/technical-affairs-team/social-outreach/coordinators/EC24B1003.webp',
+    email: 'ec24b1003@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/vaishika-sathish-0a8635302',
     roll: 'EC24B1003',
   },
   {
-    name: 'ME24B2055',
-    image: '/technical-affairs-team/social-outreach/coordinators/ME24B2055.png',
-    email: '',
-    linkedin: '',
+    name: 'Vinay Sharma',
+    image: '/technical-affairs-team/social-outreach/coordinators/ME24B2055.webp',
+    email: 'me24b2055@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/vinay-sharma-762308329',
     roll: 'ME24B2055',
   },
-    {
-    name: 'ME24I1015',
-    image: '/technical-affairs-team/social-outreach/coordinators/ME24I1015.jpg',
-    email: '',
-    linkedin: '',
+  {
+    name: 'Srinivasan',
+    image: '/technical-affairs-team/social-outreach/coordinators/ME24I1015.webp',
+    email: 'me24i1015@iiitdm.ac.in',
+    linkedin: 'https://www.linkedin.com/in/srinivasan-s-a5a679359',
     roll: 'ME24I1015',
   },
 ];

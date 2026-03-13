@@ -76,7 +76,7 @@ const About = () => {
             p: 1.5,
             border: '1px solid rgba(251,146,60,0.2)',
           }}>
-            <Image alt="Institute Logo" src="/iiitdm_logo.png" height={120} width={120} />
+            <Image alt="Institute Logo" src="/iiitdm_logo.webp" height={120} width={120} />
           </Box>
           <Typography
             variant="body1"

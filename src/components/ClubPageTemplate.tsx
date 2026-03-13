@@ -24,7 +24,6 @@ import {
   Download as DownloadIcon,
   Close as CloseIcon,
 } from "@mui/icons-material";
-import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
 import ProjectCard from './ProjectCard';
 
 import Image from 'next/image';
@@ -80,22 +79,7 @@ interface ClubPageTemplateProps {
   projects?: Project[];
 }
 
-const dummyProjects = [
-  {
-    title: 'Club Project 1',
-    description: 'A very cool project.',
-    themeColor: '#61DAFB',
-    icons: [<FaReact key="react" />],
-  },
-  {
-    title: 'Session on XYZ',
-    description: 'An interesting session.',
-    themeColor: '#339933',
-    icons: [<FaNodeJs key="node" />],
-  },
-];
-
-function ClubPageTemplate({ name, logo, description, core, links, projects = dummyProjects }: ClubPageTemplateProps) {
+function ClubPageTemplate({ name, logo, description, core, links, projects = [] }: ClubPageTemplateProps) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
@@ -349,29 +333,33 @@ function ClubPageTemplate({ name, logo, description, core, links, projects = dum
         </Grid>
         
         {/* Projects & Sessions Section */}
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{
-            mb: 4,
-            textAlign: 'center',
-            fontWeight: 'bold',
-            color: theme.palette.primary.main,
-          }}
-        >
-          Projects & Sessions
-        </Typography>
-        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-8">
-          {projects.map((project, i) => (
-            <ProjectCard
-              key={i}
-              title={project.title}
-              description={project.description}
-              themeColor={project.themeColor}
-              icons={project.icons}
-            />
-          ))}
-        </div>
+        {projects.length > 0 && (
+          <>
+            <Typography
+              variant="h4"
+              component="h2"
+              sx={{
+                mb: 4,
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: theme.palette.primary.main,
+              }}
+            >
+              Projects & Sessions
+            </Typography>
+            <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto mb-8">
+              {projects.map((project, i) => (
+                <ProjectCard
+                  key={i}
+                  title={project.title}
+                  description={project.description}
+                  themeColor={project.themeColor}
+                  icons={project.icons}
+                />
+              ))}
+            </div>
+          </>
+        )}
 
         {/* Links Section */}
         <Box sx={{ textAlign: 'center', mb: 4 }}>

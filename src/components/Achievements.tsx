@@ -16,7 +16,7 @@ const achievements = [
   {
     title: 'SAUVC 2025',
     description: 'Secured 5th place globally in the Singapore AUV Challenge 2025',
-    image: '/teams/nira/logo.jpg',
+    image: '/teams/nira/logo.webp',
     date: '2025',
     category: 'AUV Society',
     color: '#34d399',
@@ -24,7 +24,7 @@ const achievements = [
   {
     title: 'International Rover Challenge 2025 (Onsite)',
     description: '16th place internationally',
-    image: '/teams/mars/logo.png',
+    image: '/teams/mars/logo.webp',
     date: '2025',
     category: 'Mars Club',
     color: '#fb923c',
@@ -32,7 +32,7 @@ const achievements = [
   {
     title: 'SAE eBaja 2025 - Overall',
     description: 'Finished with an overall All-India Rank of 35 out of 86 teams.',
-    image: '/teams/revolt/logo.png',
+    image: '/teams/revolt/logo.webp',
     date: '2025',
     category: 'SAE Collegiate Club',
     color: '#f472b6',
@@ -40,7 +40,7 @@ const achievements = [
   {
     title: 'SAE mBaja 2025 - Overall',
     description: 'Secured an impressive overall All India Rank (AIR) of 18.',
-    image: '/teams/revolt/logo.png',
+    image: '/teams/revolt/logo.webp',
     date: '2025',
     category: 'SAE Collegiate Club',
     color: '#a78bfa',

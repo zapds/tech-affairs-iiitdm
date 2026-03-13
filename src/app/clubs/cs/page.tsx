@@ -3,7 +3,7 @@ import NewClubPageTemplate from '@/components/NewClubPageTemplate';
 
 const clubData = {
   name: 'CS Club',
-  logo: '/clubs/csclub/logo.png',
+  logo: '/clubs/csclub/logo.webp',
   introduction: `CS Club IIITDMK is a student-led computing community at IIITDM Kancheepuram founded in
 2018, and the go-to place for anyone excited about building, breaking, debugging, and
 creating cool tech. We bring together students who love solving problems, exploring new
@@ -48,7 +48,7 @@ With a structured final presentation round and a ₹10,000 prize pool, the event
   projects: [
     {
       name: "ART of ARRAYS",
-      image: "/clubs/csclub/events/art-of-arrays.jpeg",
+      image: "/clubs/csclub/events/art-of-arrays.webp",
       description: `Conducted by: CP Wing
 
 The Art of Arrays was a beginner-friendly session designed especially for first-year students, focusing on structured and efficient approaches to solving array-based problems.
@@ -58,7 +58,7 @@ From brute force to optimal techniques like prefix sums and two pointers, the ev
 
     {
       name: "AI WEEK",
-      image: "/clubs/csclub/events/ai-week.jpeg",
+      image: "/clubs/csclub/events/ai-week.webp",
       description: `Conducted by: AI Wing
 
 AI Week was a week-long technical series designed to immerse students in Artificial Intelligence and Machine Learning.
@@ -75,7 +75,7 @@ With prizes worth ₹10,000, AI Week successfully combined learning, innovation,
 
     {
       name: "GATE Series 2025",
-      image: "/clubs/csclub/events/gate-series.jpeg",
+      image: "/clubs/csclub/events/gate-series.webp",
       description: `Conducted by: PRIT Wing
 
 The GATE Series 2025 was organized to support students preparing for the GATE examination through expert-led sessions focusing on core Computer Science concepts.
@@ -85,7 +85,7 @@ The series emphasized solving GATE Previous Year Questions (PYQs), helping parti
 
     {
       name: "Hardware Sessions – Arduino Series",
-      image: "/clubs/csclub/events/arduino-series.jpeg",
+      image: "/clubs/csclub/events/arduino-series.webp",
       description: `Conducted by: EdITH Wing
 
 Two hands-on Arduino workshops were conducted to introduce students to embedded systems and practical hardware development.
@@ -95,39 +95,39 @@ Starting with LED control fundamentals and progressing to PIR sensor-based proje
 
     {
       name: "Problem of the Day (POTD)",
-      image: "/clubs/csclub/events/potd.jpeg",
+      image: "/clubs/csclub/events/potd.webp",
       description: `A continuous coding initiative encouraging students to practice competitive programming daily through curated problems that improve algorithmic thinking and problem-solving skills.`
     },
 
     {
       name: "AI TOOLBOX",
-      image: "/clubs/csclub/events/ai-toolbox.jpeg",
+      image: "/clubs/csclub/events/ai-toolbox.webp",
       description: `A weekly educational series introducing practical AI tools and their real-world applications through simple, application-focused Instagram content designed to help students explore AI technologies easily.`
     }
   ],
-  gallery: [{ src: "/clubs/csclub/gallery/arduino-series.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/ai-week.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/art-of-arrays.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gate-series.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery1.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery2.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery3.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery4.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery5.jpg", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery6.jpg", caption: "" },
+  gallery: [{ src: "/clubs/csclub/gallery/arduino-series.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/ai-week.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/art-of-arrays.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gate-series.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery1.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery2.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery3.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery4.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery5.webp", caption: "" },
+  { src: "/clubs/csclub/gallery/gallery6.webp", caption: "" },
   ],
   core: [
     {
       name: 'Avinaash A',
       role: 'Head Core',
-      image: '/clubs/csclub/headcores/avinaash.jpeg',
+      image: '/clubs/csclub/headcores/avinaash.webp',
       email: 'cs22b1064@iiitdm.ac.in',
       roll: 'cs22b1064',
     },
     {
       name: 'Nivedh Biju P',
       role: 'Technical Lead',
-      image: '/clubs/csclub/headcores/nivedh.png',
+      image: '/clubs/csclub/headcores/nivedh.webp',
       email: 'cs22b1021@iiitdm.ac.in',
       roll: 'cs22b1021',
     }

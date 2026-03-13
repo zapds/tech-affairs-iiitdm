@@ -12,7 +12,7 @@ export default function UbuntuPage() {
         {/* Header */}
         <div className="flex items-center gap-4 mb-10">
           <img
-            src="/linux/ubuntu-logo.png"
+            src="/linux/ubuntu-logo.webp"
             alt="Ubuntu Logo"
             className="h-20 w-20 object-contain"
           />

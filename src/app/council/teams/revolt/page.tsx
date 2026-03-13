@@ -4,7 +4,7 @@ import TeamPageTemplate from '../../../../components/TeamPageTemplate';
 const teamInfo = {
   name: 'Revolt Racers',
   club: 'SAE Club',
-  logo: '/teams/revolt/logo.png',
+  logo: '/teams/revolt/logo.webp',
   description: `ReVolt Racers is the E-Baja team of IIITDM Kancheepuram, specializing in the design and construction of electric all-terrain vehicles for Baja SAE India’s E-Baja competition. The team integrates expertise in electric powertrains, battery management systems, and control systems to build sustainable, high-performance off-road vehicles.\nReVolt Racers emphasizes the practical application of electric vehicle technologies, promoting sustainable mobility while equipping members with critical skills in the growing field of electric automotive engineering.`,
   achievements: [
     {
@@ -49,7 +49,7 @@ const teamInfo = {
     {
       name: 'Harish N',
       role: 'Captain',
-      image: '/teams/revolt/captain.jpg',
+      image: '/teams/revolt/captain.webp',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/team-lead',
       year: 'B.Tech 3rd Year',
@@ -59,7 +59,7 @@ const teamInfo = {
     {
       name: 'Gurubaran V',
       role: 'Vice-Captain',
-      image: '/teams/revolt/vice-captain.jpg',
+      image: '/teams/revolt/vice-captain.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
@@ -69,7 +69,7 @@ const teamInfo = {
       {
       name: 'Keshavprasad K',
       role: 'Manager',
-      image: '/teams/revolt/manager.jpg',
+      image: '/teams/revolt/manager.webp',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/team-lead',
       year: 'B.Tech 3rd Year',
@@ -79,7 +79,7 @@ const teamInfo = {
       {
       name: 'Shricharan R G',
       role: 'Joint Manager',
-      image: '/teams/revolt/joint-manager.jpg',
+      image: '/teams/revolt/joint-manager.webp',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/team-lead',
       year: 'B.Tech 3rd Year',

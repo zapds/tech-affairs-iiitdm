@@ -4,7 +4,7 @@ import TeamPageTemplate from '../../../../components/TeamPageTemplate';
 const teamInfo = {
   name: 'Team Astra',
   club: 'SAE Club',
-  logo: '/teams/astra/logo.png',
+  logo: '/teams/astra/logo.webp',
   description: `Team Astra is the official Aero Design team of IIITDM Kancheepuram, operating under the SAE Club. The team represents the institute at esteemed platforms such as the SAE Aero Design Competition and the SAE Collegiate Design Series, where student engineers from across the globe showcase their skills in aerospace innovation. Specializing in the design, construction, and flight of radio-controlled aircraft, Team Astra develops systems capable of executing mission-specific tasks such as payload delivery and performance-based challenges. The team blends core knowledge in aerodynamics, structural engineering, and flight control to create efficient, high-performing aircraft. With a strong emphasis on practical learning and technical excellence, Team Astra continues to push the boundaries of aerial mobility, proudly reflecting the institute’s commitment to innovation in aerospace engineering.`,
   achievements: [
     {
@@ -30,7 +30,7 @@ const teamInfo = {
     {
       name: 'Abhishek Sen',
       role: 'Captain',
-      image: '/teams/astra/members/lead.jpg',
+      image: '/teams/astra/members/lead.webp',
       email: 'team.lead@iiitdm.ac.in',
       linkedin: 'https://www.linkedin.com/in/abhishek-sen-aab105259/',
       year: 'B.Tech 3rd Year',
@@ -40,7 +40,7 @@ const teamInfo = {
     {
       name: 'Neshanth R',
       role: 'Vice-Captain',
-      image: '/teams/astra/members/tech-lead.jpg',
+      image: '/teams/astra/members/tech-lead.webp',
       email: 'tech.lead@iiitdm.ac.in',
       linkedin: 'https://linkedin.com/in/tech-lead',
       year: 'B.Tech 3rd Year',
