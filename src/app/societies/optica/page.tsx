@@ -1,95 +1,158 @@
-import React from 'react';
-import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
 const clubData = {
-  name: 'Optica Student Chapter',
-  logo: '/societies/OpticaStudentChapter/logo.webp',
-  description: `The OPTICA Student Chapter at IIITDM Kancheepuram is a student-led community affiliated with OPTICA (formerly OSA - Optical Society of America), dedicated to promoting interest and research in the fields of optics, photonics, and optical communication technologies.
-The chapter aims to cultivate technical knowledge and practical skills in areas such as laser systems, optical sensing, fiber optics, imaging, and photonic devices. By encouraging students to explore both fundamental and applied aspects of light-based technologies, the chapter provides a platform for collaborative learning and research discussions.
-The chapter aspires to contribute to the growing global optics community by engaging students in cutting-edge research topics and encouraging innovation in light-driven technologies.`,
+  name: "Optica Student Chapter",
+  logo: "/societies/OpticaStudentChapter/logo.webp",
+
+  introduction: `OPTICA (formerly OSA - Optical Society of America) is a globally recognized scientific society dedicated to advancing the study, application, and discovery in optics and photonics. The OPTICA STUDENT CHAPTER at IIITDM Kancheepuram was established in 2021 to bring together students passionate about light-based technologies.
+
+The chapter promotes innovation, collaboration, and professional growth by organizing workshops, expert talks, industrial visits, and outreach programs. Through hands-on exposure and academic engagement, the OPTICA STUDENT CHAPTER aims to develop future researchers and engineers in optics and photonics.`,
+
+  timeline: [
+    {
+      year: 2021,
+      event: "Inauguration of the OPTICA STUDENT CHAPTER - 30 June 2021",
+      description:
+        "The OPTICA STUDENT CHAPTER at IIITDM Kancheepuram was officially inaugurated on 30 June 2021. The event marked the beginning of a student-driven initiative focused on promoting optics and photonics within the institute. It introduced students to the global OPTICA community and highlighted opportunities for research, collaboration, and professional development in light-based technologies.",
+    },
+    {
+      year: 2023,
+      event: "International School of Photonics Visit",
+      description:
+        "A visit organized by the OPTICA STUDENT CHAPTER to the International School of Photonics, providing exposure to advanced research and developments in optics and photonics.",
+    },
+    {
+      year: 2023,
+      event: "School Visit",
+      description:
+        "An outreach initiative conducted by the OPTICA STUDENT CHAPTER to inspire school students about optics and photonics.",
+    },
+    {
+      year: 2024,
+      event: "Lab Visit",
+      description:
+        "Students visited advanced laboratories to observe optical experiments and research setups.",
+    },
+    {
+      year: 2025,
+      event: "International Day Photo Competition",
+      description:
+        "Photography competition themed \"Capture how light is seen or used in daily life\".",
+    },
+    {
+      year: 2025,
+      event: "Snap of the Week",
+      description:
+        "A three-week photography challenge organized by the OPTICA STUDENT CHAPTER highlighting creative uses of light.",
+    },
+    {
+      year: 2025,
+      event: "IlluminOptics",
+      description:
+        "An optics-themed event conducted during the institute technical fest featuring engaging demonstrations related to light and photonics.",
+    },
+    {
+      year: 2025,
+      event: "School Visit",
+      description:
+        "An outreach program encouraging school students to explore the science of light and optical technologies.",
+    },
+    {
+      year: 2025,
+      event: "Stargazing Event",
+      description:
+        "An observational astronomy session where participants explored celestial objects using telescopes.",
+    },
+    {
+      year: 2025,
+      event:
+        "Technical Session - Design and Simulation of the Metasurface Unit Cell in COMSOL Multiphysics",
+      description:
+        "A technical session conducted by the OPTICA STUDENT CHAPTER focusing on the design and electromagnetic simulation of metasurface unit cells using COMSOL Multiphysics.",
+    },
+    {
+      year: 2026,
+      event: "Quantum Tech",
+      description:
+        "An event exploring emerging technologies and research developments in quantum science and photonics.",
+    },
+  ],
+
+  projects: [],
+
+  gallery: [
+    { src: "/societies/OpticaStudentChapter/gallery/1.png", caption: "" },
+    { src: "/societies/OpticaStudentChapter/gallery/2.png", caption: "" },
+    { src: "/societies/OpticaStudentChapter/gallery/3.png", caption: "" },
+  ],
+
   core: [
     {
-      name: 'Battu Siddhartha Reddy',
-      role: 'Chapter President',
-      image: '/societies/OpticaStudentChapter/cores/Battu_Siddhartha_Reddy_Optica_Student_Chapter_President.webp',
-      email: '',
-      linkedin: '',
-      year: '',
-      department: '',
-      roll: ''
+      name: "Battu Siddhartha Reddy",
+      role: "Chapter President",
+      image:
+        "/societies/OpticaStudentChapter/cores/Battu_Siddhartha_Reddy_Optica_Student_Chapter_President.webp",
+      email: "",
+      linkedin: "",
+      year: "",
+      department: "",
+      roll: "",
     },
     {
-      name: 'Oohitha',
-      role: 'Vice President',
-      image: '/societies/OpticaStudentChapter/cores/OOHITHA_OPTICA_STUDENT_CHAPTER_VICE_PRESIDENT.webp',
-      email: '',
-      linkedin: '',
-      year: '',
-      department: '',
-      roll: ''
+      name: "Oohitha",
+      role: "Vice President",
+      image:
+        "/societies/OpticaStudentChapter/cores/OOHITHA_OPTICA_STUDENT_CHAPTER_VICE_PRESIDENT.webp",
+      email: "",
+      linkedin: "",
+      year: "",
+      department: "",
+      roll: "",
     },
     {
-      name: 'Duggireddy Lingari Raghu Nandan Reddy',
-      role: 'Secretary',
-      image: '/societies/OpticaStudentChapter/cores/Duggireddy_Lingari_Raghu_Nandan_Reddy_Optica_Student_Chapter_Secretary.webp',
-      email: '',
-      linkedin: '',
-      year: '',
-      department: '',
-      roll: ''
+      name: "Duggireddy Lingari Raghu Nandan Reddy",
+      role: "Secretary",
+      image:
+        "/societies/OpticaStudentChapter/cores/Duggireddy_Lingari_Raghu_Nandan_Reddy_Optica_Student_Chapter_Secretary.webp",
+      email: "",
+      linkedin: "",
+      year: "",
+      department: "",
+      roll: "",
     },
     {
-      name: 'Sanisetty Nithin',
-      role: 'Treasurer',
-      image: '/societies/OpticaStudentChapter/cores/Sanisetty_Nithin_Optica_Student_Chapter_Treasurer.webp',
-      email: '',
-      linkedin: '',
-      year: '',
-      department: '',
-      roll: ''
+      name: "Sanisetty Nithin",
+      role: "Treasurer",
+      image:
+        "/societies/OpticaStudentChapter/cores/Sanisetty_Nithin_Optica_Student_Chapter_Treasurer.webp",
+      email: "",
+      linkedin: "",
+      year: "",
+      department: "",
+      roll: "",
     },
     {
-      name: 'Thanmaya',
-      role: 'PRO',
-      image: '/societies/OpticaStudentChapter/cores/THANMAYA_OPTICA_STUDENT_CHAPTER_PRO.webp',
-      email: '',
-      linkedin: '',
-      year: '',
-      department: '',
-      roll: ''
-    }
+      name: "Thanmaya",
+      role: "PRO",
+      image: "/societies/OpticaStudentChapter/cores/THANMAYA_OPTICA_STUDENT_CHAPTER_PRO.webp",
+      email: "",
+      linkedin: "",
+      year: "",
+      department: "",
+      roll: "",
+    },
   ],
-  team: [
-    {
-      name: 'Zara Khan',
-      role: 'Technical Lead',
-      image: '/images/team/zara-khan.webp',
-      email: 'zara.khan@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/zarakhan',
-      year: 'B.Tech 2nd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b4003'
-    },
-    {
-      name: 'Rohan Mehta',
-      role: 'Research Coordinator',
-      image: '/images/team/rohan-mehta.webp',
-      email: 'rohan.mehta@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/rohanmehta',
-      year: 'B.Tech 2nd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b4004'
-    }
-  ],
+
   links: {
-    website: 'https://optica.iiitdm.ac.in',
-    instagram: 'https://instagram.com/optica_iiitdm',
-    github: 'https://github.com/optica-iiitdm'
-  }
+    website: "https://optica.iiitdm.ac.in",
+    instagram: "https://instagram.com/optica_iiitdm",
+    github: "https://github.com/optica-iiitdm",
+  },
 };
 
 function OpticaStudentChapter() {
-  return <SocietyPageTemplate {...clubData} />;
+  return <NewClubPageTemplate {...clubData} />;
 }
 
 export default OpticaStudentChapter;
