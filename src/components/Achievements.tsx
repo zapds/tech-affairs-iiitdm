@@ -11,41 +11,16 @@ import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { achievements as allAchievements } from '../data/achievements';
 
-const achievements = [
-  {
-    title: 'SAUVC 2025',
-    description: 'Secured 5th place globally in the Singapore AUV Challenge 2025',
-    image: '/teams/nira/logo.webp',
-    date: '2025',
-    category: 'AUV Society',
-    color: '#34d399',
-  },
-  {
-    title: 'International Rover Challenge 2025 (Onsite)',
-    description: '16th place internationally',
-    image: '/teams/mars/logo.webp',
-    date: '2025',
-    category: 'Mars Club',
-    color: '#fb923c',
-  },
-  {
-    title: 'SAE eBaja 2025 - Overall',
-    description: 'Finished with an overall All-India Rank of 35 out of 86 teams.',
-    image: '/teams/revolt/logo.webp',
-    date: '2025',
-    category: 'SAE Collegiate Club',
-    color: '#f472b6',
-  },
-  {
-    title: 'SAE mBaja 2025 - Overall',
-    description: 'Secured an impressive overall All India Rank (AIR) of 18.',
-    image: '/teams/revolt/logo.webp',
-    date: '2025',
-    category: 'SAE Collegiate Club',
-    color: '#a78bfa',
-  },
-];
+const clubColors: { [key: string]: string } = {
+  'AUV Society': '#34d399',
+  'Mars Club': '#fb923c',
+  'SAE Collegiate Club': '#f472b6',
+  'TAD': '#a78bfa',
+  'Team Astra': '#60a5fa',
+  'IEEE Student Branch': '#fbbf24',
+};
 
 const Achievements = () => {
   const theme = useTheme();
@@ -53,7 +28,24 @@ const Achievements = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const maxIndex = achievements.length - 1;
+  // Get the 6 most recent achievements
+  const displayAchievements = allAchievements
+    .slice()
+    .sort((a, b) => {
+      if (b.year !== a.year) return b.year.localeCompare(a.year);
+      return b.id - a.id;
+    })
+    .slice(0, 6)
+    .map(a => ({
+      title: a.title,
+      description: a.description,
+      image: a.logo,
+      date: a.year,
+      category: a.club,
+      color: clubColors[a.club] || '#34d399',
+    }));
+
+  const maxIndex = displayAchievements.length - 1;
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
@@ -80,7 +72,7 @@ const Achievements = () => {
     setCurrentIndex(index);
   };
 
-  const current = achievements[currentIndex];
+  const current = displayAchievements[currentIndex];
 
   return (
     <Box
@@ -135,9 +127,9 @@ const Achievements = () => {
               pb: 4,
             }}
           >
-            {achievements.map((achievement) => (
+            {displayAchievements.map((achievement, idx) => (
               <Box
-                key={achievement.title}
+                key={`${achievement.title}-${idx}`}
                 sx={{
                   minWidth: '100%',
                   boxSizing: 'border-box',
@@ -218,7 +210,7 @@ const Achievements = () => {
           </Box>
 
           {/* Navigation arrows */}
-          {achievements.length > 1 && (
+          {displayAchievements.length > 1 && (
             <>
               <IconButton
                 onClick={handlePrevious}
@@ -261,7 +253,7 @@ const Achievements = () => {
 
           {/* Dots */}
           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, gap: 0.5 }}>
-            {achievements.map((a, index) => (
+            {displayAchievements.map((a, index) => (
               <Box
                 key={index}
                 onClick={() => handleDotClick(index)}
