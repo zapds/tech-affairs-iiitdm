@@ -9,24 +9,54 @@ The chapter aims to cultivate technical knowledge and practical skills in areas 
 The chapter aspires to contribute to the growing global optics community by engaging students in cutting-edge research topics and encouraging innovation in light-driven technologies.`,
   core: [
     {
-      name: 'Riya Gupta',
+      name: 'Battu Siddhartha Reddy',
       role: 'Chapter President',
-      image: '/images/team/riya-gupta.webp',
-      email: 'riya.gupta@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/riyagupta',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b4001'
+      image: '/societies/OpticaStudentChapter/cores/Battu_Siddhartha_Reddy_Optica_Student_Chapter_President.webp',
+      email: '',
+      linkedin: '',
+      year: '',
+      department: '',
+      roll: ''
     },
     {
-      name: 'Aditya Verma',
+      name: 'Oohitha',
       role: 'Vice President',
-      image: '/images/team/aditya-verma.webp',
-      email: 'aditya.verma@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/adityaverma',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b4002'
+      image: '/societies/OpticaStudentChapter/cores/OOHITHA_OPTICA_STUDENT_CHAPTER_VICE_PRESIDENT.webp',
+      email: '',
+      linkedin: '',
+      year: '',
+      department: '',
+      roll: ''
+    },
+    {
+      name: 'Duggireddy Lingari Raghu Nandan Reddy',
+      role: 'Secretary',
+      image: '/societies/OpticaStudentChapter/cores/Duggireddy_Lingari_Raghu_Nandan_Reddy_Optica_Student_Chapter_Secretary.webp',
+      email: '',
+      linkedin: '',
+      year: '',
+      department: '',
+      roll: ''
+    },
+    {
+      name: 'Sanisetty Nithin',
+      role: 'Treasurer',
+      image: '/societies/OpticaStudentChapter/cores/Sanisetty_Nithin_Optica_Student_Chapter_Treasurer.webp',
+      email: '',
+      linkedin: '',
+      year: '',
+      department: '',
+      roll: ''
+    },
+    {
+      name: 'Thanmaya',
+      role: 'PRO',
+      image: '/societies/OpticaStudentChapter/cores/THANMAYA_OPTICA_STUDENT_CHAPTER_PRO.webp',
+      email: '',
+      linkedin: '',
+      year: '',
+      department: '',
+      roll: ''
     }
   ],
   team: [
