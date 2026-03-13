@@ -28,11 +28,7 @@ import {
 import Link from "next/link";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import {
-  Tabs,
-  Tab,
-  useMediaQuery,
-} from "@mui/material";
+import { Tabs, Tab, useMediaQuery } from "@mui/material";
 import { usePathname } from "next/navigation";
 
 // Team member data
@@ -61,48 +57,87 @@ const socialMediaLinks = {
 
 const facultyHeads = [
   {
-    name: 'Prof. M D Selvaraj',
-    role: 'Dean DII',
-    image: '/facultyheads/selvaraj.webp',
+    name: "Prof. M D Selvaraj",
+    role: "Dean DII",
+    image: "/facultyheads/selvaraj.webp",
   },
   {
-    name: 'Dr. Vikash Kumar',
-    role: 'PIC - Technical Affairs',
-    image: '/facultyheads/vikash.webp',
+    name: "Dr. Vikash Kumar",
+    role: "PIC - Technical Affairs",
+    image: "/facultyheads/vikash.webp",
   },
   {
-    name: 'Dr. Bhukya Krishna Priya',
-    role: 'PIC - Technical Affairs',
-    image: '/facultyheads/krishnapriya.webp',
+    name: "Dr. Bhukya Krishna Priya",
+    role: "PIC - Technical Affairs",
+    image: "/facultyheads/krishnapriya.webp",
   },
 ];
-
 
 const clubs = [
   { name: "CS Club", image: "/clubs/csclub/logo.webp", link: "/clubs/cs" },
-  { name: "Developer's Club", image: "/clubs/devclub/logo.webp", link: "/clubs/dev" },
-  { name: "System Coding Club", image: "/clubs/Scc/logo.webp", link: "/clubs/scc" },
-  { name: "Robotics", image: "/clubs/robotics/logo.webp", link: "/clubs/robotics" },
+  {
+    name: "Developer's Club",
+    image: "/clubs/devclub/logo.webp",
+    link: "/clubs/dev",
+  },
+  {
+    name: "System Coding Club",
+    image: "/clubs/Scc/logo.webp",
+    link: "/clubs/scc",
+  },
+  {
+    name: "Robotics",
+    image: "/clubs/robotics/logo.webp",
+    link: "/clubs/robotics",
+  },
+  {
+    name: "Cybersecurity",
+    image: "/clubs/cybersecurity/logo.jpg",
+    link: "/clubs/cybersecurity",
+  },
 ];
 
 const teams = [
-  { name: "MaRS (Shunya)", image: "/teams/mars/logo.webp", link: "/teams/shunya" },
+  {
+    name: "MaRS (Shunya)",
+    image: "/teams/mars/logo.webp",
+    link: "/teams/shunya",
+  },
   { name: "AUV (Nira)", image: "/teams/nira/logo.webp", link: "/teams/nira" },
-  { name: "Revolt Racers", image: "/teams/revolt/logo.webp", link: "/teams/revolt" },
+  {
+    name: "Revolt Racers",
+    image: "/teams/revolt/logo.webp",
+    link: "/teams/revolt",
+  },
   { name: "Astra", image: "/teams/astra/logo.webp", link: "/teams/astra" },
   { name: "TAD", image: "/teams/tad/logo.webp", link: "/teams/tad" },
 ];
 
 const societies = [
-  { name: "E-Cell", image: "/societies/Ecell/logo.webp", link: "/societies/ecell" },
+  {
+    name: "E-Cell",
+    image: "/societies/Ecell/logo.webp",
+    link: "/societies/ecell",
+  },
   { name: "IEEE", image: "/societies/IEEE/logo.webp", link: "/societies/ieee" },
-  { name: "Optica Student Chapter", image: "/societies/OpticaStudentChapter/logo.webp", link: "/societies/optica" },
-  { name: "ASME Student Section", image: "/societies/ASMEStudentSection/logo.webp", link: "/societies/asme" },
+  {
+    name: "Optica Student Chapter",
+    image: "/societies/OpticaStudentChapter/logo.webp",
+    link: "/societies/optica",
+  },
+  {
+    name: "ASME Student Section",
+    image: "/societies/ASMEStudentSection/logo.webp",
+    link: "/societies/asme",
+  },
 ];
 
 const communities = [
-  { name: "Cybersecurity", image: "/communities/Cybersecurity/logo.webp", link: "/communities/cybersecurity" },
-  { name: "Game Developers", image: "/communities/gamedevelopers/logo.png", link: "/communities/gamedevelopers" },
+  {
+    name: "Game Developers",
+    image: "/communities/gamedevelopers/logo.png",
+    link: "/communities/gamedevelopers",
+  },
 ];
 
 const tabOptions = [
@@ -113,20 +148,21 @@ const tabOptions = [
 ];
 
 const TeamMemberCard = styled(Card)(({ theme }) => ({
-  height: '100%',
+  height: "100%",
   width: 220,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   padding: theme.spacing(1.5),
-  textAlign: 'center',
-  wordBreak: 'break-word',
-  cursor: 'pointer',
-  backgroundColor: theme.palette.mode === 'dark' ? theme.palette.background.paper : 'inherit',
-  [theme.breakpoints.down('sm')]: {
+  textAlign: "center",
+  wordBreak: "break-word",
+  cursor: "pointer",
+  backgroundColor:
+    theme.palette.mode === "dark" ? theme.palette.background.paper : "inherit",
+  [theme.breakpoints.down("sm")]: {
     padding: theme.spacing(1),
     width: 120,
-  }
+  },
 }));
 
 interface Member {
@@ -139,27 +175,52 @@ interface Member {
   roll?: string;
 }
 
-function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (image: string) => void }) {
+function MemberGrid({
+  members,
+  handleOpen,
+}: {
+  members: Member[];
+  handleOpen: (image: string) => void;
+}) {
   const theme = useTheme();
-  if (!members.length) return <Typography color="text.secondary" align="center">No data available.</Typography>;
+  if (!members.length)
+    return (
+      <Typography color="text.secondary" align="center">
+        No data available.
+      </Typography>
+    );
   return (
-    <Grid container spacing={1} justifyContent='center' sx={{ maxWidth: '1200px', mx: 'auto' }}>
+    <Grid
+      container
+      spacing={1}
+      justifyContent="center"
+      sx={{ maxWidth: "1200px", mx: "auto" }}
+    >
       {members.map((member) => (
-        <Grid item xs={6} sm={6} md={3} key={member.name} sx={{ display: 'flex', justifyContent: 'center', minWidth: 0 }}>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          md={3}
+          key={member.name}
+          sx={{ display: "flex", justifyContent: "center", minWidth: 0 }}
+        >
           <TeamMemberCard onClick={() => handleOpen(member.image)}>
             <Box
               sx={{
-                borderRadius: '50%',
-                p: '4px',
+                borderRadius: "50%",
+                p: "4px",
                 background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                boxShadow: '0 0 12px rgba(0,0,0,0.1)',
+                boxShadow: "0 0 12px rgba(0,0,0,0.1)",
                 mb: { xs: 0.75, sm: 1, md: 1.5 },
               }}
             >
               <Avatar
                 src={member.image}
                 alt={member.name}
-                sx={{ width: { xs: 70, sm: 90, md: 110 }, height: { xs: 70, sm: 90, md: 110 },
+                sx={{
+                  width: { xs: 70, sm: 90, md: 110 },
+                  height: { xs: 70, sm: 90, md: 110 },
                 }}
               />
             </Box>
@@ -168,12 +229,20 @@ function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (i
               component="h3"
               gutterBottom
               sx={{
-                fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.1rem' },
+                fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1.1rem" },
                 mb: { xs: 0.5, sm: 0.75, md: 0.75 },
-                width: '100%',
-                textAlign: 'center',
-                overflowWrap: { xs: 'break-word', sm: 'break-word', md: 'break-word' },
-                wordBreak: { xs: 'break-word', sm: 'break-word', md: 'break-word' },
+                width: "100%",
+                textAlign: "center",
+                overflowWrap: {
+                  xs: "break-word",
+                  sm: "break-word",
+                  md: "break-word",
+                },
+                wordBreak: {
+                  xs: "break-word",
+                  sm: "break-word",
+                  md: "break-word",
+                },
               }}
             >
               {member.name}
@@ -183,17 +252,22 @@ function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (i
               color="text.secondary"
               gutterBottom
               sx={{
-                fontSize: { xs: '0.6rem', sm: '0.7rem', md: '0.8rem' },
+                fontSize: { xs: "0.6rem", sm: "0.7rem", md: "0.8rem" },
                 mb: { xs: 0.25, sm: 0.25, md: 0.5 },
-                wordBreak: 'break-word',
-                overflowWrap: 'anywhere',
+                wordBreak: "break-word",
+                overflowWrap: "anywhere",
               }}
             >
               {member.email ? (
-                <a href={`mailto:${member.email}`} style={{ color: 'inherit', textDecoration: 'underline' }}>
+                <a
+                  href={`mailto:${member.email}`}
+                  style={{ color: "inherit", textDecoration: "underline" }}
+                >
                   {member.email}
                 </a>
-              ) : (member.role || member.position)}
+              ) : (
+                member.role || member.position
+              )}
             </Typography>
           </TeamMemberCard>
         </Grid>
@@ -223,9 +297,9 @@ function Committee() {
   };
 
   const handleDownload = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = selectedImage;
-    link.download = selectedImage.split('/').pop() || 'image';
+    link.download = selectedImage.split("/").pop() || "image";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -238,39 +312,71 @@ function Committee() {
   };
 
   const cardStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start",
     p: 1.5,
     boxShadow: 3,
-    transition: 'transform 0.2s',
-    '&:hover': { transform: 'scale(1.05)' }
+    transition: "transform 0.2s",
+    "&:hover": { transform: "scale(1.05)" },
   };
 
   return (
     <Container maxWidth="lg" sx={{ py: 12 }}>
       {/* Our Family Section */}
-      <Box sx={{ width: '100%', typography: 'body1', mb: 6 }}>
-        <Typography variant="h4" component="h2" align="center" gutterBottom sx={titleStyle}>
+      <Box sx={{ width: "100%", typography: "body1", mb: 6 }}>
+        <Typography
+          variant="h4"
+          component="h2"
+          align="center"
+          gutterBottom
+          sx={titleStyle}
+        >
           Our Family
         </Typography>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="family tabs" centered>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="family tabs"
+            centered
+          >
             {tabOptions.map((tab, index) => (
               <Tab label={tab.label} key={tab.label} />
             ))}
           </Tabs>
         </Box>
         <Box sx={{ p: { xs: 1.5, sm: 3 } }}>
-          <Grid container spacing={{ xs: 1.5, sm: 2.5, md: 3 }} justifyContent="center">
+          <Grid
+            container
+            spacing={{ xs: 1.5, sm: 2.5, md: 3 }}
+            justifyContent="center"
+          >
             {tabOptions[value].data.map((item) => (
-              <Grid item key={item.name} xs={6} sm={4} md={3} lg={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Link href={item.link} passHref style={{ textDecoration: 'none', width: '100%', display: 'flex', justifyContent: 'center' }}>
+              <Grid
+                item
+                key={item.name}
+                xs={6}
+                sm={4}
+                md={3}
+                lg={2}
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                <Link
+                  href={item.link}
+                  passHref
+                  style={{
+                    textDecoration: "none",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
                   <Card
                     sx={{
                       ...cardStyle,
-                      width: { xs: '100%', sm: 160 },
+                      width: { xs: "100%", sm: 160 },
                       maxWidth: { xs: 150, sm: 160 },
                       minHeight: { xs: 150, sm: 160 },
                       p: { xs: 1, sm: 1.5 },
@@ -281,18 +387,30 @@ function Committee() {
                       image={item.image}
                       alt={item.name}
                       sx={{
-                        width: { xs: '66%', sm: '70%' },
-                        margin: 'auto',
-                        objectFit: 'contain',
+                        width: { xs: "66%", sm: "70%" },
+                        margin: "auto",
+                        objectFit: "contain",
                         pt: { xs: 1.25, sm: 2 },
-                        height: { xs: '62%', sm: '65%' },
+                        height: { xs: "62%", sm: "65%" },
                       }}
                     />
-                    <CardContent sx={{ display: 'flex', alignItems: 'center', height: '35%', px: { xs: 0.5, sm: 1 } }}>
+                    <CardContent
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        height: "35%",
+                        px: { xs: 0.5, sm: 1 },
+                      }}
+                    >
                       <Typography
                         variant="body2"
                         align="center"
-                        sx={{ width: '100%', fontWeight: 'medium', fontSize: { xs: '0.78rem', sm: '0.875rem' }, lineHeight: 1.25 }}
+                        sx={{
+                          width: "100%",
+                          fontWeight: "medium",
+                          fontSize: { xs: "0.78rem", sm: "0.875rem" },
+                          lineHeight: 1.25,
+                        }}
                       >
                         {item.name}
                       </Typography>
@@ -316,7 +434,7 @@ function Committee() {
           Faculty Heads
         </Typography>
 
-        <MemberGrid members={facultyHeads} handleOpen={handleOpen}/>
+        <MemberGrid members={facultyHeads} handleOpen={handleOpen} />
       </Box>
 
       <Box sx={{ mb: 6 }}>
@@ -329,7 +447,10 @@ function Committee() {
         >
           SAC
         </Typography>
-        <MemberGrid members={[teamData.secretary, teamData.jointSecretary]} handleOpen={handleOpen}/>
+        <MemberGrid
+          members={[teamData.secretary, teamData.jointSecretary]}
+          handleOpen={handleOpen}
+        />
       </Box>
 
       {/* Core Team Navigation Section */}
@@ -345,13 +466,20 @@ function Committee() {
         </Typography>
         <Grid container spacing={{ xs: 1, sm: 2 }} justifyContent="center">
           {[
-            { label: 'Management', path: '/team/management' },
-            { label: 'Tech Development', path: '/team/tech-development' },
-            { label: 'Innovation', path: '/team/innovation' },
-            { label: 'Social Outreach', path: '/team/social-outreach' },
-            { label: 'Media and Marketing', path: '/team/media-and-marketing' },
+            { label: "Management", path: "/team/management" },
+            { label: "Tech Development", path: "/team/tech-development" },
+            { label: "Innovation", path: "/team/innovation" },
+            { label: "Social Outreach", path: "/team/social-outreach" },
+            { label: "Media and Marketing", path: "/team/media-and-marketing" },
           ].map((team) => (
-            <Grid item xs={6} sm={6} md={2} key={team.label} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              md={2}
+              key={team.label}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
               <Card
                 sx={{
                   width: { xs: 180, sm: 160 },
@@ -360,26 +488,34 @@ function Committee() {
                   minHeight: { xs: 170, sm: 130 },
                   maxWidth: { xs: 180, sm: 160 },
                   maxHeight: { xs: 170, sm: 130 },
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
                   p: 1.5,
                   boxShadow: 3,
-                  transition: 'transform 0.2s',
-                  '&:hover': { transform: 'scale(1.05)' }
+                  transition: "transform 0.2s",
+                  "&:hover": { transform: "scale(1.05)" },
                 }}
               >
-                <Box sx={{ flexGrow: 1, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <Typography
                     variant="h6"
                     align="center"
                     sx={{
-                      fontSize: { xs: '1.1rem', sm: '1rem' },
+                      fontSize: { xs: "1.1rem", sm: "1rem" },
                       fontWeight: 700,
                       letterSpacing: 1,
-                      color: 'primary.main',
-                      textShadow: '0 1px 4px rgba(25, 118, 210, 0.15)'
+                      color: "primary.main",
+                      textShadow: "0 1px 4px rgba(25, 118, 210, 0.15)",
                     }}
                   >
                     {team.label}
@@ -388,18 +524,18 @@ function Committee() {
                 <Link
                   className="team-view-btn"
                   style={{
-                    alignSelf: 'center',
-                    fontSize: '0.9em',
-                    padding: '0.5em 1.2em',
+                    alignSelf: "center",
+                    fontSize: "0.9em",
+                    padding: "0.5em 1.2em",
                     minWidth: 0,
-                    borderRadius: '0.5em',
-                    color: '#fb923c',
+                    borderRadius: "0.5em",
+                    color: "#fb923c",
                     fontWeight: 700,
-                    border: 'none',
-                    cursor: 'pointer',
-                    boxShadow: '0 2px 8px rgba(25, 118, 210, 0.08)',
-                    marginTop: '0.3em',
-                    marginBottom: '0.3em',
+                    border: "none",
+                    cursor: "pointer",
+                    boxShadow: "0 2px 8px rgba(25, 118, 210, 0.08)",
+                    marginTop: "0.3em",
+                    marginBottom: "0.3em",
                   }}
                   href={team.path}
                 >
@@ -410,7 +546,6 @@ function Committee() {
           ))}
         </Grid>
       </Box>
-
 
       {/* Social Media Section */}
       <Box sx={{ textAlign: "center", mt: 4 }}>
@@ -455,34 +590,36 @@ function Committee() {
         slotProps={{
           backdrop: {
             timeout: 500,
-            style: { backgroundColor: 'rgba(255, 255, 255, 0.5)' },
+            style: { backgroundColor: "rgba(255, 255, 255, 0.5)" },
           },
         }}
       >
         <Fade in={open}>
-          <Box sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: { xs: '60vw', sm: '50vw', md: '35vw', lg: '25vw' },
-            maxWidth: '300px',
-            maxHeight: '50vh',
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            p: 2,
-            borderRadius: 2,
-            outline: 'none',
-            border: `2px solid ${theme.palette.divider}`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: { xs: "60vw", sm: "50vw", md: "35vw", lg: "25vw" },
+              maxWidth: "300px",
+              maxHeight: "50vh",
+              bgcolor: "background.paper",
+              boxShadow: 24,
+              p: 2,
+              borderRadius: 2,
+              outline: "none",
+              border: `2px solid ${theme.palette.divider}`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <IconButton
               aria-label="close"
               onClick={handleClose}
               sx={{
-                position: 'absolute',
+                position: "absolute",
                 top: 8,
                 right: 8,
                 color: (theme) => theme.palette.grey[500],
@@ -493,35 +630,50 @@ function Committee() {
             </IconButton>
             <Box
               sx={{
-                position: 'relative',
-                width: '100%',
-                height: '100%',
+                position: "relative",
+                width: "100%",
+                height: "100%",
               }}
             >
-              <Box sx={{
-                backgroundColor: '#fff',
-                padding: '1rem',
-                borderRadius: '4px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '100%',
-              }}>
-                {selectedImage && <Image src={selectedImage} alt="Faculty Head" width={300} height={300} style={{ width: '100%', height: 'auto', maxHeight: '40vh', objectFit: 'contain' }} />}
+              <Box
+                sx={{
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                  borderRadius: "4px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                }}
+              >
+                {selectedImage && (
+                  <Image
+                    src={selectedImage}
+                    alt="Faculty Head"
+                    width={300}
+                    height={300}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      maxHeight: "40vh",
+                      objectFit: "contain",
+                    }}
+                  />
+                )}
               </Box>
               <IconButton
                 aria-label="download"
                 onClick={handleDownload}
                 className="download-icon"
                 sx={{
-                  position: 'absolute',
+                  position: "absolute",
                   top: 16,
                   right: 16,
-                  color: 'primary.main',
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
-                  transition: 'background-color 0.3s ease-in-out',
-                  '&:hover': {
-                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  color: "primary.main",
+                  backgroundColor: "rgba(255, 255, 255, 0.7)",
+                  transition: "background-color 0.3s ease-in-out",
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.9)",
                   },
                 }}
               >
