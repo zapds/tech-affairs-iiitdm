@@ -87,6 +87,13 @@ const coordinators = [
     linkedin: 'https://linkedin.com/in/narendharts',
     roll: 'EC24B1053',
   },
+  {
+    name: 'Harshitha N',
+    image: '/technical-affairs-team/tech-development/coordinators/CS24B2022.webp',
+    email: 'cs24b2022@iiitdm.ac.in',
+    linkedin: 'https://linkedin.com/in/harshitha-nannuri',
+    roll: 'CS24B2022',
+  },
 ];
 
 interface Member {
@@ -119,8 +126,9 @@ function MemberGrid({ members, handleOpen }: { members: Member[]; handleOpen: (i
               <Avatar
                 src={member.image}
                 alt={member.name}
-                sx={{ width: { xs: 70, sm: 90, md: 110 }, height: { xs: 70, sm: 90, md: 110 }, 
-                // border: `4px solid ${theme.palette.background.paper}` // Removed this
+                sx={{
+                  width: { xs: 70, sm: 90, md: 110 }, height: { xs: 70, sm: 90, md: 110 },
+                  // border: `4px solid ${theme.palette.background.paper}` // Removed this
                 }}
               />
             </Box>
@@ -204,18 +212,18 @@ export default function TechDevelopmentCore() {
     link.click();
     document.body.removeChild(link);
   };
-  
+
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
       <Typography variant="h2" sx={teamTitleStyle} gutterBottom>Tech Development</Typography>
       <Typography variant="body1" sx={{ textAlign: 'center', color: 'text.secondary', mb: 6 }}>{teamDescription}</Typography>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Cores</Typography>
-        <MemberGrid members={cores} handleOpen={handleOpen}/>
+        <MemberGrid members={cores} handleOpen={handleOpen} />
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" gutterBottom sx={sectionTitleStyle}>Coordinators</Typography>
-        <MemberGrid members={coordinators} handleOpen={handleOpen}/>
+        <MemberGrid members={coordinators} handleOpen={handleOpen} />
       </Box>
 
       <Modal
