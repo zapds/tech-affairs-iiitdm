@@ -4,7 +4,7 @@ import ClubPageTemplate from '@/components/ClubPageTemplate';
 const clubData = {
   name: 'E-Cell',
   logo: '/societies/Ecell/logo.webp',
-  description: `The E-Cell at IIITDM Kancheepuram is dedicated to fostering entrepreneurial spirit and innovation among students. The club provides a platform for aspiring entrepreneurs to learn, collaborate, and transform ideas into viable business ventures. Through workshops, mentorship, and networking events, E-Cell empowers students to develop essential skills in business planning, leadership, and creative problem-solving.`,
+  description: `The E-Cell at IIITDM Kancheepuram is dedicated to fostering entrepreneurial spirit and innovation among students. The club provides a platform for aspiring entrepreneurs to learn, collaborate, and transform ideas into viable business ventures. Through workshops, mentorship, and networking events, E-Cell empowers students to develop essential skills in business planning, leadership, and creative problem-solving. E-Cell IIITDM reached the NEC finals at IIT Bombay and secured a Top 25 position out of 4,000 teams across India.`,
   core: [
     {
       name: 'Vishal Singh',
@@ -34,6 +34,14 @@ const clubData = {
       linkedin: 'https://linkedin.com/in/bobwilson',
       year: 'B.Tech 2nd Year',
       department: 'Computer Science Engineering'
+    }
+  ],
+  projects: [
+    {
+      title: 'NEC Finals at IIT Bombay',
+      description: 'E-Cell IIITDM secured Top 25 out of 4,000 teams across India.',
+      themeColor: '#7C3AED',
+      icons: []
     }
   ],
   links: {

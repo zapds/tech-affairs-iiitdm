@@ -22,27 +22,6 @@ const clubData = {
       linkedin: "https://linkedin.com/in/janesmith",
     },
   ],
-  team: [
-    {
-      name: "Alice Johnson",
-      role: "Team Member",
-      image: "/images/team/alice-johnson.webp",
-      email: "alice.johnson@iiitdm.ac.in",
-      linkedin: "https://linkedin.com/in/alicejohnson",
-      year: "B.Tech 2nd Year",
-      department: "Computer Science Engineering",
-      roll: "cs23b1003",
-    },
-    {
-      name: "Bob Wilson",
-      role: "Team Member",
-      image: "/images/team/bob-wilson.webp",
-      email: "bob.wilson@iiitdm.ac.in",
-      linkedin: "https://linkedin.com/in/bobwilson",
-      year: "B.Tech 2nd Year",
-      department: "Computer Science Engineering",
-    },
-  ],
   links: {
     website: "devclub.iiitdm.ac.in",
     instagram: "https://www.instagram.com/dev.club.iiitdm/",

@@ -361,6 +361,14 @@ export const achievements = [
       club: 'SAE Collegiate Club',
       logo: '/teams/revolt/logo.webp',
     },
+    {
+      id: 46,
+      title: 'NEC Finals at IIT Bombay',
+      description: 'E-Cell IIITDM secured Top 25 out of 4,000 teams across India.',
+      year: '2026',
+      club: 'E-Cell',
+      logo: '/societies/Ecell/logo.webp',
+    },
   ];
   
   // Helper function to get achievements by club
