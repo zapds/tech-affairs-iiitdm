@@ -1,65 +1,219 @@
-import React from 'react';
-import SocietyPageTemplate from '../../../components/SocietyPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
 const clubData = {
-  name: 'IEEE Student Branch',
-  logo: '/societies/IEEE/logo.webp',
-  description: `The IEEE Student Branch at IIITDM Kancheepuram is the official chapter of the Institute of Electrical and Electronics Engineers (IEEE), dedicated to promoting learning, research, and innovation in electrical and electronics engineering, robotics, and emerging technologies.
-The branch focuses on helping students build technical expertise in fields such as IoT, artificial intelligence, renewable energy systems, and embedded technologies. It encourages participation in IEEE conferences, exploration of research opportunities, and the development of innovative projects that solve real-world challenges.
-Through its growing activities, the student branch aims to organize technical workshops, robotics challenges, and research symposiums, creating a platform for collaborative learning and technical growth.`,
+  name: "IEEE Student Branch – IIITDM Kancheepuram",
+  logo: "/societies/IEEE/logo.png",
+
+  introduction: `The IEEE Student Branch (SB) at IIITDM Kancheepuram was inaugurated on 27 October 2016 under the IEEE Madras Section. The branch was established with the vision of connecting students to the global IEEE network — the world’s largest professional association dedicated to advancing technology for humanity.
+
+IEEE SB IIITDM K focuses on domains such as VLSI and Semiconductor Technology, Communication Systems, Embedded Systems, Antenna and Microwave Engineering, Signal Processing, Circuits and Systems, Artificial Intelligence, Data Science, and interdisciplinary research.
+
+The branch actively organizes international conferences, technical symposiums, workshops, hackathons, professional development sessions, and IEEE society chapter activities.
+
+IEEE SB stands out for its strong research orientation, leadership opportunities, global networking exposure, and active student engagement in technological innovation.`,
+
+  timeline: [
+    {
+      year: 2016,
+      event: "Inauguration of IEEE Student Branch",
+      description:
+        "IEEE SB IIITDM K was officially inaugurated on 27 October 2016 in the presence of IEEE Madras Section representatives.",
+    },
+    {
+      year: 2021,
+      event: "Formation of IEEE Electron Devices Society (EDS) Chapter",
+      description:
+        "The EDS Student Branch Chapter was established to promote semiconductor device research and collaboration among students.",
+    },
+    {
+      year: 2024,
+      event: "Workshop on ANSYS HFSS",
+      description:
+        "Date: 8 November 2024. A hands-on workshop focused on antenna modelling and high-frequency simulations using ANSYS HFSS.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Membership Drive",
+      description:
+        "An initiative encouraging students to join IEEE and explore its professional resources.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Student Branch Logo Competition",
+      description:
+        "A competition inviting students to design the official logo representing IEEE SB IIITDM K.",
+    },
+    {
+      year: 2025,
+      event: "International Women’s Day Celebration (IEEE WIE)",
+      description:
+        "Date: 8 March 2025. An event recognizing and celebrating women’s contributions in STEM.",
+    },
+    {
+      year: 2025,
+      event: "Inauguration of IEEE Computer Society Student Branch Chapter",
+      description:
+        "Date: 12 March 2025. Launch of the IEEE Computer Society Chapter at IIITDM K.",
+    },
+    {
+      year: 2025,
+      event: "Vashisht Samgatha Tech Fest Events",
+      description:
+        "Date: March 2025. IEEE SB organized technical competitions including quizzes and paper presentations during the institute fest.",
+    },
+    {
+      year: 2025,
+      event: "IEEE SPS Day '25 Celebrations",
+      description:
+        "An event celebrating innovations and applications in signal processing.",
+    },
+    {
+      year: 2025,
+      event: "EDS Mini-Colloquia – Centenary Journey of FET towards Humanity",
+      description:
+        "Date: 13 September 2025. A technical colloquium discussing 100 years of the Field-Effect Transistor.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Wireless, Antenna & Microwave Symposium (WAMS)",
+      description:
+        "Date: 5–8 June 2025. A major IEEE symposium bringing together researchers and industry experts.",
+    },
+    {
+      year: 2025,
+      event: "TCAD Hands-on Session",
+      description:
+        "Date: June 2025. Training on semiconductor device simulation tools.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Xtreme 2025 Participation",
+      description:
+        "Students participated in the global IEEE 24-hour programming competition.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Day Celebration 2025",
+      description:
+        "Date: 9 October 2025. Annual IEEE Day celebration with technical talks and networking activities.",
+    },
+    {
+      year: 2025,
+      event: "IEEE Student Branch Farewell '25",
+      description: "A farewell event honoring graduating IEEE student members.",
+    },
+    {
+      year: 2025,
+      event:
+        "CICT 2025 – IEEE International Conference on Information & Communication Technology",
+      description:
+        "Date: 19–21 December 2025. An international IEEE conference hosted at IIITDM K.",
+    },
+    {
+      year: 2026,
+      event: "IEEE CASS Event Participation 2026",
+      description:
+        "Members of IEEE SB IIITDM K participated in an IEEE Circuits and Systems Society (CASS) event representing the Student Branch and strengthening collaboration.",
+    },
+  ],
+
+  projects: [
+    {
+      name: "CICT 2025 – International Conference",
+      description:
+        "An IEEE conference focusing on Information and Communication Technology and research collaboration.",
+      // image: "/clubs/ieee/events/cict.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+    {
+      name: "Mini Colloquia – Centenary Journey of FET towards Humanity",
+      description:
+        "Date: 13 September 2025. A colloquium marking 100 years of the Field-Effect Transistor.",
+      // image: "/clubs/ieee/events/colloquia.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+    {
+      name: "IEEE Xtreme 2025",
+      description:
+        "Participation in the global 24-hour IEEE competitive programming contest.",
+      // image: "/clubs/ieee/events/ieee-xtreme.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+    {
+      name: "IEEE CASS Event Participation 2026",
+      description:
+        "Representation of IEEE SB IIITDM K at a Circuits and Systems Society event.",
+      // image: "/clubs/ieee/events/cass.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+    {
+      name: "TCAD Semiconductor Training Session",
+      description:
+        "Hands-on training introducing semiconductor device simulation techniques.",
+      // image: "/clubs/ieee/events/tcad.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+    {
+      name: "IEEE SPS Day '25 Celebrations",
+      description:
+        "An event highlighting developments and innovations in signal processing.",
+      // image: "/clubs/ieee/events/sps.webp",
+      image: "/societies/IEEE/logo.png",
+    },
+  ],
+
+  gallery: [
+    { src: "/clubs/ieee/gallery/gallery1.webp", caption: "" },
+    { src: "/clubs/ieee/gallery/gallery2.webp", caption: "" },
+    { src: "/clubs/ieee/gallery/gallery3.webp", caption: "" },
+    { src: "/clubs/ieee/gallery/gallery4.webp", caption: "" },
+    { src: "/clubs/ieee/gallery/gallery5.webp", caption: "" },
+    { src: "/clubs/ieee/gallery/gallery6.webp", caption: "" },
+  ],
+
   core: [
     {
-      name: 'Arjun Singh',
-      role: 'Branch Chair',
-      image: '/images/team/arjun-singh.webp',
-      email: 'arjun.singh@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/arjunsingh',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b3001'
+      name: "Dr K P Pradhan",
+      role: "Faculty Counselor",
+      image: "/clubs/ieee/team/pradhan.webp",
     },
     {
-      name: 'Kavya Iyer',
-      role: 'Vice Chair',
-      image: '/images/team/kavya-iyer.webp',
-      email: 'kavya.iyer@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/kavyaiyer',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b3002'
-    }
-  ],
-  team: [
-    {
-      name: 'Vikram Malhotra',
-      role: 'Technical Secretary',
-      image: '/images/team/vikram-malhotra.webp',
-      email: 'vikram.malhotra@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/vikrammalhotra',
-      year: 'B.Tech 2nd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b3003'
+      name: "B Vikram",
+      role: "Chair",
+      image: "/clubs/ieee/team/vikram.webp",
     },
     {
-      name: 'Ananya Das',
-      role: 'Events Secretary',
-      image: '/images/team/ananya-das.webp',
-      email: 'ananya.das@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/ananyadas',
-      year: 'B.Tech 2nd Year',
-      department: 'Electronics Engineering',
-      roll: 'ec23b3004'
-    }
+      name: "Y Poojitha",
+      role: "Vice Chair",
+      image: "/clubs/ieee/team/poojitha.webp",
+    },
+    {
+      name: "K Vishnu Vardhan",
+      role: "Secretary",
+      image: "/clubs/ieee/team/vishnu.webp",
+    },
+    {
+      name: "M Sathvika",
+      role: "Treasurer",
+      image: "/clubs/ieee/team/sathvika.webp",
+    },
+    {
+      name: "P Pramod Kumar",
+      role: "Webmaster",
+      image: "/clubs/ieee/team/pramod.webp",
+    },
   ],
+
   links: {
-    website: 'https://ieee.iiitdm.ac.in',
-    instagram: 'https://instagram.com/ieee_iiitdm',
-    github: 'https://github.com/ieee-iiitdm'
-  }
+    website: "https://ieee-sb.iiitdm.ac.in/",
+    instagram: "https://www.instagram.com/ieee_sb__iiitdm",
+    linkedin: "https://www.linkedin.com/company/ieee-sb-iiitdm-kancheepuram/",
+  },
 };
 
 function IEEE() {
-  return <SocietyPageTemplate {...clubData} />;
+  return <NewClubPageTemplate {...clubData} />;
 }
 
 export default IEEE;
