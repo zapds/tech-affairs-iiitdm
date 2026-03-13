@@ -164,44 +164,40 @@ IEEE SB stands out for its strong research orientation, leadership opportunities
   ],
 
   gallery: [
-    { src: "/clubs/ieee/gallery/gallery1.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery2.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery3.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery4.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery5.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery6.webp", caption: "" },
+    { src: "/societies/IEEE/gallery/1.jpg", caption: "" },
+    { src: "/societies/IEEE/gallery/2.jpg", caption: "" },
   ],
 
   core: [
     {
       name: "Dr K P Pradhan",
       role: "Faculty Counselor",
-      image: "/clubs/ieee/team/pradhan.webp",
+      image: "/societies/IEEE/members/1.png",
     },
     {
       name: "B Vikram",
       role: "Chair",
-      image: "/clubs/ieee/team/vikram.webp",
+      image: "/societies/IEEE/members/2.png",
     },
     {
       name: "Y Poojitha",
       role: "Vice Chair",
-      image: "/clubs/ieee/team/poojitha.webp",
+      image: "/societies/IEEE/members/3.png",
     },
     {
       name: "K Vishnu Vardhan",
       role: "Secretary",
-      image: "/clubs/ieee/team/vishnu.webp",
+      image: "/societies/IEEE/members/4.png",
     },
     {
       name: "M Sathvika",
       role: "Treasurer",
-      image: "/clubs/ieee/team/sathvika.webp",
+      image: "/societies/IEEE/members/5.png",
     },
     {
       name: "P Pramod Kumar",
       role: "Webmaster",
-      image: "/clubs/ieee/team/pramod.webp",
+      image: "/societies/IEEE/members/6.png",
     },
   ],
 

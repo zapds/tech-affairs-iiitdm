@@ -1,9 +1,9 @@
-import React from 'react';
-import NewClubPageTemplate from '@/components/NewClubPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
 const clubData = {
-  name: 'CS Club',
-  logo: '/clubs/csclub/logo.webp',
+  name: "CS Club",
+  logo: "/clubs/csclub/logo.webp",
   introduction: `CS Club IIITDMK is a student-led computing community at IIITDM Kancheepuram founded in
 2018, and the go-to place for anyone excited about building, breaking, debugging, and
 creating cool tech. We bring together students who love solving problems, exploring new
@@ -25,14 +25,14 @@ confidence.`,
       event: "CODE-A-THON – September 2025",
       description: `CODE-A-THON was conducted in collaboration with the CSE Department and IEEE IIITDMK to promote competitive coding and collaborative problem-solving. The event provided students with a structured platform to test their algorithmic thinking and coding efficiency in a high-energy competitive setting.
 
-The initiative strengthened the institute’s coding culture and demonstrated effective inter-organizational collaboration on campus.`
+The initiative strengthened the institute’s coding culture and demonstrated effective inter-organizational collaboration on campus.`,
     },
     {
       year: 2025,
       event: "UDBHAV – Inter IIIT Hackathon",
       description: `CS Club IIITDMK coordinated institute-level participation for UDBHAV, the Inter-IIIT Hackathon hosted by IIIT Sri City, which saw participation from all IIITs across the country.
 
-By managing registrations, team coordination, and communication, the club ensured strong representation from IIITDMK at a national-level collaborative innovation platform.`
+By managing registrations, team coordination, and communication, the club ensured strong representation from IIITDMK at a national-level collaborative innovation platform.`,
     },
     {
       year: 2026,
@@ -41,8 +41,8 @@ By managing registrations, team coordination, and communication, the club ensure
 
 The 24-hour online round witnessed 100+ participants and 708 submissions, reflecting strong engagement and competitive intensity.
 
-With a structured final presentation round and a ₹10,000 prize pool, the event highlighted the club’s organizational strength and the growing AI culture within the institute.`
-    }
+With a structured final presentation round and a ₹10,000 prize pool, the event highlighted the club’s organizational strength and the growing AI culture within the institute.`,
+    },
   ],
 
   projects: [
@@ -53,7 +53,7 @@ With a structured final presentation round and a ₹10,000 prize pool, the event
 
 The Art of Arrays was a beginner-friendly session designed especially for first-year students, focusing on structured and efficient approaches to solving array-based problems.
 
-From brute force to optimal techniques like prefix sums and two pointers, the event helped students build strong foundations in Data Structures and Algorithms and competitive programming.`
+From brute force to optimal techniques like prefix sums and two pointers, the event helped students build strong foundations in Data Structures and Algorithms and competitive programming.`,
     },
 
     {
@@ -70,7 +70,7 @@ Events included:
 • ML Hackathon – Competitive challenge building machine learning models.
 • AI Meme Challenge – Creative event combining AI knowledge with humor.
 
-With prizes worth ₹10,000, AI Week successfully combined learning, innovation, and competition while fostering enthusiasm for AI and ML across campus.`
+With prizes worth ₹10,000, AI Week successfully combined learning, innovation, and competition while fostering enthusiasm for AI and ML across campus.`,
     },
 
     {
@@ -80,7 +80,7 @@ With prizes worth ₹10,000, AI Week successfully combined learning, innovation,
 
 The GATE Series 2025 was organized to support students preparing for the GATE examination through expert-led sessions focusing on core Computer Science concepts.
 
-The series emphasized solving GATE Previous Year Questions (PYQs), helping participants strengthen conceptual clarity and develop exam-oriented problem-solving skills.`
+The series emphasized solving GATE Previous Year Questions (PYQs), helping participants strengthen conceptual clarity and develop exam-oriented problem-solving skills.`,
     },
 
     {
@@ -90,60 +90,61 @@ The series emphasized solving GATE Previous Year Questions (PYQs), helping parti
 
 Two hands-on Arduino workshops were conducted to introduce students to embedded systems and practical hardware development.
 
-Starting with LED control fundamentals and progressing to PIR sensor-based projects, the sessions provided real-time exposure to building interactive hardware systems and exploring IoT applications.`
+Starting with LED control fundamentals and progressing to PIR sensor-based projects, the sessions provided real-time exposure to building interactive hardware systems and exploring IoT applications.`,
     },
 
     {
       name: "Problem of the Day (POTD)",
       image: "/clubs/csclub/events/potd.webp",
-      description: `A continuous coding initiative encouraging students to practice competitive programming daily through curated problems that improve algorithmic thinking and problem-solving skills.`
+      description: `A continuous coding initiative encouraging students to practice competitive programming daily through curated problems that improve algorithmic thinking and problem-solving skills.`,
     },
 
     {
       name: "AI TOOLBOX",
       image: "/clubs/csclub/events/ai-toolbox.webp",
-      description: `A weekly educational series introducing practical AI tools and their real-world applications through simple, application-focused Instagram content designed to help students explore AI technologies easily.`
-    }
+      description: `A weekly educational series introducing practical AI tools and their real-world applications through simple, application-focused Instagram content designed to help students explore AI technologies easily.`,
+    },
   ],
-  gallery: [{ src: "/clubs/csclub/gallery/arduino-series.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/ai-week.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/art-of-arrays.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gate-series.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery1.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery2.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery3.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery4.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery5.webp", caption: "" },
-  { src: "/clubs/csclub/gallery/gallery6.webp", caption: "" },
+  gallery: [
+    { src: "/clubs/csclub/gallery/arduino-series.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/ai-week.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/art-of-arrays.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gate-series.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery1.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery2.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery3.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery4.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery5.webp", caption: "" },
+    { src: "/clubs/csclub/gallery/gallery6.webp", caption: "" },
   ],
   core: [
     {
-      name: 'Avinaash A',
-      role: 'Head Core',
-      image: '/clubs/csclub/headcores/avinaash.webp',
-      email: 'cs22b1064@iiitdm.ac.in',
-      roll: 'cs22b1064',
+      name: "Avinaash A",
+      role: "Head Core",
+      image: "/clubs/csclub/headcores/avinaash.webp",
+      email: "cs22b1064@iiitdm.ac.in",
+      roll: "cs22b1064",
     },
     {
-      name: 'Nivedh Biju P',
-      role: 'Technical Lead',
-      image: '/clubs/csclub/headcores/nivedh.webp',
-      email: 'cs22b1021@iiitdm.ac.in',
-      roll: 'cs22b1021',
+      name: "Nivedh Biju P",
+      role: "Head Core",
+      image: "/clubs/csclub/headcores/nivedh.webp",
+      email: "cs22b1021@iiitdm.ac.in",
+      roll: "cs22b1021",
     },
     {
-      name: 'Sharad Kumar Dubey',
-      role: 'Manager',
-      image: '/clubs/csclub/headcores/sharad.webp',
-      email: 'cs23i1052@iiitdm.ac.in',
-      roll: 'cs23i1052',
-    }
+      name: "Sharad Kumar Dubey",
+      role: "Manager",
+      image: "/clubs/csclub/headcores/sharad.webp",
+      email: "cs23i1052@iiitdm.ac.in",
+      roll: "cs23i1052",
+    },
   ],
   links: {
-    website: 'https://csclub.netlify.app/',
-    instagram: 'https://www.instagram.com/cs.club.iiitdm/',
-    github: 'https://github.com/cs-iiitdm'
-  }
+    website: "https://csclub.netlify.app/",
+    instagram: "https://www.instagram.com/cs.club.iiitdm/",
+    github: "https://github.com/cs-iiitdm",
+  },
 };
 
 function CSClub() {
