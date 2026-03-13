@@ -84,14 +84,14 @@ const clubData = {
     {
       name: 'Abhishek Sen',
       role: 'Captain',
-      image: '/teams/astra/members/lead.webp',
+      image: '/teams/astra/tech_lead.png',
       email: 'team.lead@iiitdm.ac.in',
       roll: 'ec22b1098'
     },
     {
       name: 'Neshanth R',
       role: 'Vice-Captain',
-      image: '/teams/astra/members/tech-lead.webp',
+      image: '/teams/astra/lead.png',
       email: 'tech.lead@iiitdm.ac.in',
       roll: 'me22b2030'
     }
