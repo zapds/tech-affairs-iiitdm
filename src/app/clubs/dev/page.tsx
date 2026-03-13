@@ -3,7 +3,7 @@ import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
 const clubData = {
   name: "Developers Club",
-  logo: "/clubs/devclub/logo.webp",
+  logo: "/clubs/devclub/logo.png",
 
   introduction: `Developers Club, formerly known as Google Developers Student Club (GDSC), was rebranded in 2024 to reflect its broader vision and inclusive developer ecosystem.
 The club serves as a dynamic platform for students passionate about technology, enabling them to explore and build across multiple domains such as Web Development, App Development, Artificial Intelligence & Machine Learning, Backend Development, Automation, Open Source, and System Design.

@@ -77,7 +77,7 @@ const clubs = [
   { name: "CS Club", image: "/clubs/csclub/logo.webp", link: "/clubs/cs" },
   {
     name: "Developer's Club",
-    image: "/clubs/devclub/logo.webp",
+    image: "/clubs/devclub/logo.png",
     link: "/clubs/dev",
   },
   {

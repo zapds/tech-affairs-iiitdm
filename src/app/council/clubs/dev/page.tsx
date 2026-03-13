@@ -3,7 +3,7 @@ import ClubPageTemplate from "@/components/ClubPageTemplate";
 
 const clubData = {
   name: "Developers Club",
-  logo: "/clubs/devclub/logo.webp",
+  logo: "/clubs/devclub/logo.png",
   description: `The Developers Club at IIITDM Kancheepuram is a student-led community focused on cultivating a strong foundation in software development, problem-solving, and open-source contributions. The club brings together students passionate about coding, product development, and technology innovation.\nThrough workshops, hackathons, coding sessions, and hands-on projects, the club equips its members with the skills needed to build impactful software solutions. Whether exploring web development, mobile apps, DevOps, or modern software practices, Developers Club fosters a collaborative environment where students learn by doing.\nThe club’s core mission is to:\nEncourage innovation through practical, real-world projects.\n\nFoster collaboration among students from diverse technical backgrounds.\n\nPromote open-source culture, encouraging contributions to global tech communities.\n\nBy bridging classroom learning with industry-relevant technologies, Developers Club empowers students to grow as creators, contributors, and changemakers in the tech world.`,
   core: [
     {

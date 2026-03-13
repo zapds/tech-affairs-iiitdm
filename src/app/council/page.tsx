@@ -18,7 +18,7 @@ import Link from "next/link";
 
 const clubs = [
   { name: "CS Club", image: "/clubs/csclub/logo.webp", link: "/clubs/cs" },
-  { name: "Developer's Club", image: "/clubs/devclub/logo.webp", link: "/clubs/dev" },
+  { name: "Developer's Club", image: "/clubs/devclub/logo.png", link: "/clubs/dev" },
   { name: "System Coding Club", image: "/clubs/Scc/logo.webp", link: "/clubs/scc" },
   { name: "Robotics", image: "/clubs/robotics/logo.webp", link: "/clubs/robotics" },
 ];

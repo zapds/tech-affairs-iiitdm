@@ -109,7 +109,7 @@ const bodies = [
     { name: 'CS Club', desc: 'Algorithms, CP & Dev Culture', logo: '/clubs/csclub/logo.webp', route: '/clubs/cs', cat: 'Clubs' },
     { name: 'E-Cell', desc: 'Startups & Entrepreneurship', logo: '/societies/Ecell/logo.webp', route: '/societies/ecell', cat: 'Societies' },
     { name: 'Cybersecurity Community', desc: 'CTFs, Security & Red Teaming', logo: '/communities/Cybersecurity/logo.webp', route: '/communities/cybersecurity', cat: 'Communities' },
-    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.webp', route: '/clubs/dev', cat: 'Clubs' },
+    { name: 'Developers Club', desc: 'Full-stack, Open Source & Hackathons', logo: '/clubs/devclub/logo.png', route: '/clubs/dev', cat: 'Clubs' },
     { name: 'Robotics Club', desc: 'Bots, Arms & Automation', logo: '/clubs/robotics/logo.webp', route: '/clubs/robotics', cat: 'Clubs' },
     { name: 'System Coding Club', desc: 'Low-level Systems & OS Hacking', logo: '/clubs/Scc/logo.webp', route: '/clubs/scc', cat: 'Clubs' },
     { name: 'Team Astra', desc: 'Rocketry & Propulsion', logo: '/teams/astra/logo.webp', route: '/teams/astra', cat: 'Teams' },
