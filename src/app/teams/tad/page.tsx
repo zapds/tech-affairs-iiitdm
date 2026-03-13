@@ -1,143 +1,163 @@
-import React from 'react';
-import TeamPageTemplate from '../../../components/TeamPageTemplate';
+import React from "react";
+import NewClubPageTemplate from "@/components/NewClubPageTemplate";
 
-const teamInfo = {
-  name: 'Team Tad',
-  club: 'TAD Club',
-  logo: '/teams/tad/logo.webp',
-  description: `The Talpade Aero Design (TAD) team at IIITDM Kancheepuram is a vibrant and fast-growing student organization dedicated to advancing the field of aeronautical design and engineering. Bringing together passionate and curious engineering minds, the club focuses on the design, construction, and optimization of high-performance RC planes.
-With a strong emphasis on precision engineering and innovation, TAD Club builds aircraft that compete in national-level aeromodeling competitions, where students apply their skills in aerodynamics, structural design, propulsion, and control systems. The club serves as a collaborative platform for like-minded individuals who are driven to push the boundaries of RC plane design and aerial vehicle development.
-Through hands-on projects, workshops, and competitions, TAD Club nurtures technical excellence, teamwork, and creativity, inspiring the next generation of aerospace innovators.`,
-  achievements: [
+const clubData = {
+  name: "Team TAD",
+  logo: "/teams/tad/logo.webp",
+
+  introduction: `The Talpade Aero Design Club at IIITDM Kancheepuram is a student-driven initiative dedicated to exploration, design, and innovation in the field of aviation and aerospace systems. Established in 2023, Inspired by Shivkar Bapuji Talpade, we aim to push aerodynamic boundaries and foster technical excellence. TAD provides a dynamic platform for students to engage in real-world aeronautical challenges, encouraging them to apply theoretical knowledge through hands-on projects.`,
+  timeline: [
     {
-      title: 'IIT Bombay Competition',
-      description: `TAD participated with two teams and both of the teams sucessfully cleared the abstract round and they made into the top 50's out of 500 teams by flying RC planes with payload`,
-      year: '2024',
-      highlight: true
+      year: 2025,
+      event: "IIT Bombay – Techfest Aeromodelling Competition",
+      description: `Finished top 50’s at Techfest Aeromodelling Competition 2025 by flying payload-carrying RC planes.`,
     },
     {
-      title: 'IIT Madras-Boeing National Aeromodelling Competition',
-      description: 'TAD participated with six teams comprising one senior team and five junior teams and all these teams sucessfully cleared the abstract round',
-      year: '2024',
-      highlight: false
+      year: 2025,
+      event: "IIT Madras – Boeing National Aeromodelling Competition",
+      description:
+        "Finished top 30’s at South Zone of National Aeromodelling Competition 2025.",
     },
     {
-      title: 'IAC-Conference by ASoI',
-      description: 'TAD won RUNNER-UP at the Industrial Academia Conclave 2024 by ASoI, for designing a docking mechanism to charge electric-hybrid UAVs, supporting sustainable aviation in India',
-      year: '2024',
-      highlight: true
-    }
+      year: 2024,
+      event: "Industrial Academia Conclave (IAC) - ASoI",
+      description: `Won 1st Runner-Up at the Industrial Academia Conclave 2024.`,
+    },
   ],
-  members: [
-    {
-      name: 'Vamsi J S',
-      role: 'Team Lead',
-      image: '/teams/tad/lead.webp',
-      email: 'team.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/team-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical Engineering',
-      roll: 'me22b1031'
-    },
-    {
-      name: 'S Deerajprasanth',
-      role: 'Manager',
-      image: '/teams/tad/manager1.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics',
-      roll: 'ec23b1066'
-    },
-      {
-      name: 'Sannala Mithil Reddy',
-      role: 'Manager',
-      image: '/teams/tad/manager2.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics',
-      roll: 'ec23b1105'
-    },
-      {
-      name: 'Madhamshetty Sathvika',
-      role: 'PR&O Lead',
-      image: '/teams/tad/pr&o-lead.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics',
-      roll: 'ec23b1105'
-    },
-     {
-      name: 'Sanjay D G',
-      role: 'DSA Lead',
-      image: '/teams/tad/SANJAY_D_G_DSA_LEAD.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Mechanical',
-      roll: 'me23b1012'
-    },
-    {
-      name: 'Goriparthi Thanmaya',
-      role: 'DSA Lead',
-      image: '/teams/tad/GORIPARTHI_THANMAYA_DSA_LEAD.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electronics',
-      roll: 'ec23b1125'
-    },
-    {
-      name: 'Jagadeesh B',
-      role: 'Control Systems Lead',
-      image: '/teams/tad/JAGADEESH_B_CONTROLS_LEAD.webp',
-      email: 'ec23b1062@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electrical',
-      roll: 'ec23b1062'
-    },
-     {
-      name: 'Lingamsetty Sai Ram',
-      role: 'Control Systems Lead',
-      image: '/teams/tad/leadcontrols.webp',
-      email: 'ec23b1106@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Electrical',
-      roll: 'ec23b1106'
-    },
 
-     {
-      name: 'Dinesh Kumaran K',
-      role: 'Software Lead',
-      image: '/teams/tad/software-lead.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Computer Science',
-      roll: 'cs23b2057'
+  projects: [
+    {
+      name: "RC Planes with Structural Variants (2025 – Ongoing)",
+      description:
+        "Designed fixed-wing aircraft with varied fuselage shapes and internal structures to analyse aerodynamic and structural performance.",
+      image: "/teams/tad/logo.webp",
+      technologies: ["Aerodynamics", "Aircraft Design", "Structural Analysis"],
+      themeColor: "#1E88E5",
     },
-     {
-      name: 'Tirumala Sai Raghava Sreekar',
-      role: 'Software Lead',
-      image: '/teams/tad/software-lead2.webp',
-      email: 'tech.lead@iiitdm.ac.in',
-      linkedin: 'https://linkedin.com/in/tech-lead',
-      year: 'B.Tech 3rd Year',
-      department: 'Computer Science',
-      roll: 'cs23i1034'
+    {
+      name: "Small Payload-Capable RC Aircraft (2025)",
+      description:
+        "Designing a modular VTOL UAV with hybrid thrust configuration, validated through MATLAB/Simulink-based control simulations.",
+      image: "/teams/tad/logo.webp",
+      technologies: ["UAV Systems", "Mechanical Design", "Energy Systems"],
+      themeColor: "#43A047",
     },
-     
-
+    {
+      name: "VTOL UAV Development (2025 – Ongoing)",
+      description:
+        "Designing a modular VTOL UAV with hybrid thrust configuration, validated through MATLAB/Simulink-based control simulations.",
+      technologies: ["Control Systems", "Embedded Systems", "Flight Dynamics"],
+      themeColor: "#FB8C00",
+    },
+    {
+      name: "High-Lift RC Payload Plane (2025)",
+      description:
+        "Engineered a high-lift wing aircraft with flap mechanisms for enhanced payload capacity.",
+      technologies: ["Control Systems", "Embedded Systems", "Flight Dynamics"],
+      themeColor: "#FB8C00",
+    },
+    {
+      name: "Modular-Wing Glider (2025)",
+      description:
+        "Built a glider with interchangeable wings and tail modules for aerodynamic experimentation.",
+      technologies: ["Control Systems", "Embedded Systems", "Flight Dynamics"],
+      themeColor: "#FB8C00",
+    },
   ],
-  website: 'https://tad.iiitdm.ac.in'
+
+  gallery: [
+    {
+      src: "/teams/tad/gallery/plane1.jpeg",
+      caption: "",
+    },
+    {
+      src: "/teams/tad/gallery/plane2.jpeg",
+      caption: "",
+    },
+    {
+      src: "/teams/tad/gallery/team.jpeg",
+      caption: "",
+    },
+    {
+      src: "/teams/tad/gallery/team2.jpeg",
+      caption: "",
+    },
+  ],
+
+  core: [
+    {
+      name: "Vamsi J S",
+      role: "Team Lead",
+      image: "/teams/tad/lead.webp",
+      email: "team.lead@iiitdm.ac.in",
+      roll: "me22b1031",
+    },
+    {
+      name: "S Deerajprasanth",
+      role: "Manager",
+      image: "/teams/tad/manager1.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "ec23b1066",
+    },
+    {
+      name: "Sannala Mithil Reddy",
+      role: "Manager",
+      image: "/teams/tad/manager2.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "ec23b1105",
+    },
+    {
+      name: "Madhamshetty Sathvika",
+      role: "PR&O Lead",
+      image: "/teams/tad/pr&o-lead.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "ec23b1105",
+    },
+    {
+      name: "Sanjay D G",
+      role: "DSA Lead",
+      image: "/teams/tad/SANJAY_D_G_DSA_LEAD.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "me23b1012",
+    },
+    {
+      name: "Goriparthi Thanmaya",
+      role: "DSA Lead",
+      image: "/teams/tad/GORIPARTHI_THANMAYA_DSA_LEAD.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "ec23b1125",
+    },
+    {
+      name: "Jagadeesh B",
+      role: "Control Systems Lead",
+      image: "/teams/tad/JAGADEESH_B_CONTROLS_LEAD.webp",
+      email: "ec23b1062@iiitdm.ac.in",
+      roll: "ec23b1062",
+    },
+    {
+      name: "Dinesh Kumaran K",
+      role: "Software Lead",
+      image: "/teams/tad/software-lead.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "cs23b2057",
+    },
+    {
+      name: "Tirumala Sai Raghava Sreekar",
+      role: "Software Lead",
+      image: "/teams/tad/software-lead2.webp",
+      email: "tech.lead@iiitdm.ac.in",
+      roll: "cs23i1034",
+    },
+  ],
+
+  links: {
+    website: "https://tad.iiitdm.ac.in",
+    instagram: "#",
+  },
 };
 
 function TalpadeAeroDesign() {
-  return <TeamPageTemplate {...teamInfo} />;
+  return <NewClubPageTemplate {...clubData} />;
 }
 
 export default TalpadeAeroDesign;
