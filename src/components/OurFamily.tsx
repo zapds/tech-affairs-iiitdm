@@ -32,7 +32,7 @@ const clubs = [
   },
   {
     name: 'System Coding Club',
-    image: '/clubs/Scc/logo.webp',
+    image: '/clubs/Scc/logo1.webp',
     link: '/clubs/scc',
   },
 ];
