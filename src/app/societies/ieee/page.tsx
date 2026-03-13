@@ -164,12 +164,8 @@ IEEE SB stands out for its strong research orientation, leadership opportunities
   ],
 
   gallery: [
-    { src: "/clubs/ieee/gallery/gallery1.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery2.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery3.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery4.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery5.webp", caption: "" },
-    { src: "/clubs/ieee/gallery/gallery6.webp", caption: "" },
+    { src: "/societies/IEEE/gallery/1.jpg", caption: "" },
+    { src: "/societies/IEEE/gallery/2.jpg", caption: "" },
   ],
 
   core: [
