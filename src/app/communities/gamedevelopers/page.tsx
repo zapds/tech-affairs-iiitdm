@@ -65,14 +65,14 @@ development`,
 
   core: [
     {
-      name: "C. Dev",
+      name: "Nishanth Bhaskar",
       role: "Community Lead",
       image: "/communities/l1.webp",
       email: "dev@iiitdm.ac.in",
       roll: "—",
     },
     {
-      name: "D. Designer",
+      name: "Suraj Shaju",
       role: "Art & Design Lead",
       image: "/communities/l2.webp",
       email: "designer@iiitdm.ac.in",
