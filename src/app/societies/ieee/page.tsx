@@ -172,32 +172,32 @@ IEEE SB stands out for its strong research orientation, leadership opportunities
     {
       name: "Dr K P Pradhan",
       role: "Faculty Counselor",
-      image: "/clubs/ieee/team/pradhan.webp",
+      image: "/societies/IEEE/members/1.png",
     },
     {
       name: "B Vikram",
       role: "Chair",
-      image: "/clubs/ieee/team/vikram.webp",
+      image: "/societies/IEEE/members/2.png",
     },
     {
       name: "Y Poojitha",
       role: "Vice Chair",
-      image: "/clubs/ieee/team/poojitha.webp",
+      image: "/societies/IEEE/members/3.png",
     },
     {
       name: "K Vishnu Vardhan",
       role: "Secretary",
-      image: "/clubs/ieee/team/vishnu.webp",
+      image: "/societies/IEEE/members/4.png",
     },
     {
       name: "M Sathvika",
       role: "Treasurer",
-      image: "/clubs/ieee/team/sathvika.webp",
+      image: "/societies/IEEE/members/5.png",
     },
     {
       name: "P Pramod Kumar",
       role: "Webmaster",
-      image: "/clubs/ieee/team/pramod.webp",
+      image: "/societies/IEEE/members/6.png",
     },
   ],
 
